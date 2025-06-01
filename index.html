@@ -6,162 +6,505 @@
     <title>LALA アートメイク | もう描く手間に悩まない、理想の眉・リップへ</title>
     <meta name="description" content="LALAアートメイクで理想の眉とリップを実現。医療品質の安心施術で、自然で美しい仕上がりをお約束します。無料カウンセリング実施中。">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
     <!-- 外部 CSS の読み込み -->
     <link rel="stylesheet" href="css/artmake.css">
 </head>
 <body>
     <!-- Loading Animation -->
     <div class="loader" id="loader">
-        <div class="loader-circle"></div>
+        <div class="loader-content">
+            <div class="loader-logo">LALA</div>
+            <div class="loader-circle"></div>
+        </div>
+    </div>
+
+    <!-- Fixed Side CTAs (PC) -->
+    <div class="fixed-cta-left">
+        <a href="#contact" class="floating-cta">
+            <i class="fas fa-calendar-check"></i>
+            <span>無料カウンセリング予約</span>
+        </a>
+    </div>
+    
+    <div class="fixed-nav-right">
+        <ul>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#features">特徴</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#flow">施術の流れ</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#access">アクセス</a></li>
+        </ul>
     </div>
 
     <!-- Header -->
-    <header>
+    <header class="main-header">
         <div class="header-content">
-            <a href="#" class="logo">LALA アートメイク</a>
-            <nav>
+            <a href="#" class="logo">
+                <img src="https://placehold.co/180x50/6B4F3C/FFFFFF?text=LALA+ARTMAKE" alt="LALA アートメイク">
+            </a>
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="#services">サービス</a></li>
-                    <li><a href="#features">特徴</a></li>
-                    <li><a href="#pricing">料金</a></li>
-                    <li><a href="#flow">施術の流れ</a></li>
-                    <li><a href="#faq">よくある質問</a></li>
+                    <li><a href="#artmake">アートメイク</a></li>
+                    <li><a href="#eyebrow">眉アートメイク</a></li>
+                    <li><a href="#lip">リップアートメイク</a></li>
+                    <li><a href="#pricing">料金一覧</a></li>
                     <li><a href="#access">アクセス</a></li>
-                    <li><a href="#contact" class="cta-button">無料カウンセリング</a></li>
+                    <li><a href="#recruit">採用情報</a></li>
                 </ul>
             </nav>
+            <a href="#contact" class="header-cta">無料カウンセリング予約</a>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="https://placehold.co/150x40/6B4F3C/FFFFFF?text=LALA" alt="LALA">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#artmake">アートメイク</a></li>
+                <li><a href="#eyebrow">眉アートメイク</a></li>
+                <li><a href="#lip">リップアートメイク</a></li>
+                <li><a href="#pricing">料金一覧</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="#recruit">採用情報</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-cta">
+            <a href="#contact" class="cta-button">無料カウンセリング予約</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><span>アートメイク</span></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background"></div>
+        <div class="hero-visual">
+            <img src="https://placehold.co/1920x800/F8F3EF/6B4F3C?text=Beautiful+Artmake+Hero" alt="アートメイク施術イメージ">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
-            <h1>もう描く手間に悩まない、<br>理想の眉・リップへ</h1>
+            <h1 class="hero-title">
+                <span class="hero-subtitle">Medical Quality Artmake</span>
+                もう描く手間に悩まない、<br>理想の眉・リップへ
+            </h1>
             <p class="hero-lead">
                 医療品質のアートメイクで、毎日のメイク時間を短縮。<br>
                 自然で美しい仕上がりを、経験豊富なアーティストがご提供します。
             </p>
             <div class="hero-buttons">
-                <a href="#contact" class="cta-button">無料カウンセリング予約</a>
-                <a href="#services" class="cta-button" style="background: transparent; color: var(--primary-brown); border: 2px solid var(--primary-brown);">サービスを見る</a>
+                <a href="#contact" class="cta-button cta-primary">
+                    <i class="fas fa-calendar-alt"></i>
+                    無料カウンセリング予約
+                </a>
+                <a href="#services" class="cta-button cta-outline">
+                    <i class="fas fa-chevron-down"></i>
+                    サービスを見る
+                </a>
             </div>
-            <div class="hero-visual">
-                <div class="hero-placeholder">
-                    アートメイク施術イメージ
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-award"></i>
+                    <span>医療機関認定</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>FDA承認色素使用</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-star"></i>
+                    <span>症例実績3,000件以上</span>
                 </div>
             </div>
+        </div>
+        <div class="hero-scroll">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
     <!-- Campaign Banner Section -->
-    <section id="campaign" class="section-alt">
+    <section id="campaign" class="campaign-section">
         <div class="container">
-            <h2 class="fade-in" style="text-align: center;">キャンペーンでお得にスタート</h2>
-            <div class="campaign-slider" style="margin-top: 40px;">
-                <div class="campaign-banner fade-in">
-                    <div class="circle circle-top-right"></div>
-                    <div class="circle circle-bottom-left"></div>
-                    <h3>期間限定！今だけお得なキャンペーン実施中</h3>
-                    <p>初回限定で眉アートメイクが特別価格でご提供</p>
-                    <a href="#" class="cta-button">詳しくみる</a>
+            <h2 class="section-title">
+                <span class="title-en">CAMPAIGN</span>
+                キャンペーンでお得にスタート
+            </h2>
+            <div class="campaign-slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="campaign-banner">
+                            <div class="campaign-image">
+                                <img src="https://placehold.co/800x400/FFE8E3/6B4F3C?text=Spring+Campaign+2025" alt="春のキャンペーン">
+                            </div>
+                            <div class="campaign-content">
+                                <h3>春の新生活応援キャンペーン</h3>
+                                <p class="campaign-period">2025年4月1日〜4月30日</p>
+                                <p class="campaign-text">期間限定！眉アートメイクが初回20%OFF</p>
+                                <a href="#" class="cta-button">詳しくみる</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="campaign-banner">
+                            <div class="campaign-image">
+                                <img src="https://placehold.co/800x400/F8E8FF/6B4F3C?text=Pair+Campaign" alt="ペア割キャンペーン">
+                            </div>
+                            <div class="campaign-content">
+                                <h3>お友達と一緒にペア割</h3>
+                                <p class="campaign-period">常時開催中</p>
+                                <p class="campaign-text">2名様同時予約で各10%OFF</p>
+                                <a href="#" class="cta-button">詳しくみる</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="#" class="link-more">
-                    アートメイク 詳しくみる <span>›</span>
-                </a>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
 
     <!-- Intro Questions Section -->
-    <section id="intro-questions">
+    <section id="intro-questions" class="intro-section">
         <div class="container">
-            <div class="intro-content fade-in">
-                <h2>アートメイクは気になるけど。。。</h2>
-                <p>
-                    「アートメイクはタトゥーとは違うの？」「痛みが心配…」など、<br>
-                    不安や疑問を抱える方は少なくありません。<br>
-                    まずはこちらをご覧ください
-                </p>
-                <a href="#" class="cta-button outline-button">
-                    アートメイクについて知ろう
+            <div class="intro-content">
+                <h2 class="section-title">
+                    <span class="title-en">ABOUT ARTMAKE</span>
+                    アートメイクは気になるけど...
+                </h2>
+                <div class="intro-cards">
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>タトゥーとは違うの？</h3>
+                        <p>アートメイクは皮膚の浅い層に色素を入れるため、1〜3年で徐々に薄くなります。</p>
+                    </div>
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>痛みが心配...</h3>
+                        <p>表面麻酔を使用するため、痛みは最小限。多くの方が「思ったより痛くない」とおっしゃいます。</p>
+                    </div>
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>自然な仕上がり？</h3>
+                        <p>骨格や肌色に合わせたデザインで、自然で美しい仕上がりを実現します。</p>
+                    </div>
+                </div>
+                <a href="#" class="cta-button cta-outline">
+                    <i class="fas fa-book-open"></i>
+                    アートメイクについて詳しく知る
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Instagram CTA Section -->
-    <section class="instagram-cta">
+    <section class="instagram-section">
         <div class="container">
-            <h2 class="fade-in">最新の症例・仕上がりをチェック！</h2>
-            <p class="fade-in">公式インスタグラムで公開中！</p>
-            <a href="#" class="instagram-button fade-in">
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 0 2.881 1.44 1.44 0 0 1 0-2.881z"/>
-                </svg>
-                Instagram をフォロー
-            </a>
+            <div class="instagram-content">
+                <h2 class="section-title-white">
+                    <span class="title-en">INSTAGRAM</span>
+                    最新の症例・仕上がりをチェック！
+                </h2>
+                <p>実際の施術例を多数公開中。理想のデザインを見つけてください。</p>
+                <div class="instagram-feed">
+                    <div class="instagram-grid">
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/FFE8E3/6B4F3C?text=Case+1" alt="症例1">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/F8E8FF/6B4F3C?text=Case+2" alt="症例2">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/E8F8FF/6B4F3C?text=Case+3" alt="症例3">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/FFE8F8/6B4F3C?text=Case+4" alt="症例4">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/F8FFE8/6B4F3C?text=Case+5" alt="症例5">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="https://placehold.co/300x300/E8E8FF/6B4F3C?text=Case+6" alt="症例6">
+                            <div class="instagram-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://instagram.com/lala_artmake" target="_blank" class="instagram-button">
+                    <i class="fab fa-instagram"></i>
+                    @lala_artmake をフォロー
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section-alt">
+    <section id="features" class="features-section">
         <div class="container">
-            <h2 class="fade-in">LALAが大切にする3つのこだわり</h2>
+            <h2 class="section-title">
+                <span class="title-en">THREE COMMITMENTS</span>
+                LALAが大切にする3つのこだわり
+            </h2>
             <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">✨</div>
-                    <h3>「似合わせ×ナチュラル」を徹底追求</h3>
-                    <p>骨格や肌の色、普段のメイクテイストを総合的に診断し、最適なデザインを提案。「自分の顔立ちにピッタリ合った仕上がり」を目指します。</p>
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <div class="feature-image">
+                        <img src="https://placehold.co/400x300/F8F3EF/6B4F3C?text=Natural+Design" alt="似合わせデザイン">
+                    </div>
+                    <div class="feature-content">
+                        <h3>「似合わせ×ナチュラル」を徹底追求</h3>
+                        <p>骨格や肌の色、普段のメイクテイストを総合的に診断し、最適なデザインを提案。「自分の顔立ちにピッタリ合った仕上がり」を目指し、ナチュラルかつ洗練された美しさを追求しています。カウンセリングでは、イメージ写真やカラーサンプルを使いながらじっくりお話を伺います。</p>
+                    </div>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">👩‍⚕️</div>
-                    <h3>経験豊富なアーティストが施術を担当</h3>
-                    <p>アートメイク専任のアーティストが、これまで数多くの施術を担当してきた実績と知識を活かして、理想のデザインを形にします。</p>
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <div class="feature-image">
+                        <img src="https://placehold.co/400x300/E8DDD5/6B4F3C?text=Expert+Artists" alt="経験豊富なアーティスト">
+                    </div>
+                    <div class="feature-content">
+                        <h3>経験豊富なアーティストが施術を担当</h3>
+                        <p>アートメイク専任のアーティストが、これまで数多くの施術を担当してきた実績と知識を活かして、理想のデザインを形にします。繊細な手技と豊富な経験で、「あなただけの美しさ」を最大限に引き出す施術を行います。</p>
+                    </div>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🏥</div>
-                    <h3>安心の医療品質とアフターサポート</h3>
-                    <p>FDA承認の色素と、医師監修による衛生管理体制を整備。施術後のトラブルにもしっかり対応し、必要に応じてリタッチ保証制度もご用意。</p>
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <div class="feature-image">
+                        <img src="https://placehold.co/400x300/FFE8E3/6B4F3C?text=Medical+Quality" alt="医療品質">
+                    </div>
+                    <div class="feature-content">
+                        <h3>安心の医療品質とアフターサポート</h3>
+                        <p>FDA承認の色素と、医師監修による衛生管理体制を整備。施術後のトラブルにもしっかり対応し、必要に応じてリタッチ保証制度もご用意。「はじめてのアートメイクでも、安心して通えるクリニック」を目指しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before After Section -->
+    <section class="before-after-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-en">BEFORE & AFTER</span>
+                症例写真
+            </h2>
+            <div class="before-after-tabs">
+                <button class="tab-button active" data-tab="eyebrow">眉アートメイク</button>
+                <button class="tab-button" data-tab="lip">リップアートメイク</button>
+            </div>
+            <div class="before-after-content">
+                <div class="tab-content active" id="eyebrow-cases">
+                    <div class="case-grid">
+                        <div class="case-card">
+                            <div class="case-images">
+                                <div class="before-image">
+                                    <span class="label">Before</span>
+                                    <img src="https://placehold.co/300x300/F0F0F0/999999?text=Before" alt="施術前">
+                                </div>
+                                <div class="after-image">
+                                    <span class="label">After</span>
+                                    <img src="https://placehold.co/300x300/FFE8E3/6B4F3C?text=After" alt="施術後">
+                                </div>
+                            </div>
+                            <div class="case-info">
+                                <h4>20代女性 - 毛並み眉</h4>
+                                <p>自眉が薄く、毎朝のメイクに時間がかかっていたお客様。自然な毛流れを再現し、素顔でも自信を持てる眉に。</p>
+                            </div>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-images">
+                                <div class="before-image">
+                                    <span class="label">Before</span>
+                                    <img src="https://placehold.co/300x300/F0F0F0/999999?text=Before" alt="施術前">
+                                </div>
+                                <div class="after-image">
+                                    <span class="label">After</span>
+                                    <img src="https://placehold.co/300x300/F8E8FF/6B4F3C?text=After" alt="施術後">
+                                </div>
+                            </div>
+                            <div class="case-info">
+                                <h4>30代女性 - パウダー眉</h4>
+                                <p>左右差が気になっていたお客様。骨格に合わせて整えることで、バランスの良い美しい眉に仕上がりました。</p>
+                            </div>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-images">
+                                <div class="before-image">
+                                    <span class="label">Before</span>
+                                    <img src="https://placehold.co/300x300/F0F0F0/999999?text=Before" alt="施術前">
+                                </div>
+                                <div class="after-image">
+                                    <span class="label">After</span>
+                                    <img src="https://placehold.co/300x300/E8F8FF/6B4F3C?text=After" alt="施術後">
+                                </div>
+                            </div>
+                            <div class="case-info">
+                                <h4>40代女性 - MIX眉</h4>
+                                <p>年齢とともに眉が薄くなってきたお客様。毛並みとパウダーの組み合わせで、若々しい印象に。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="lip-cases">
+                    <div class="case-grid">
+                        <div class="case-card">
+                            <div class="case-images">
+                                <div class="before-image">
+                                    <span class="label">Before</span>
+                                    <img src="https://placehold.co/300x300/F0F0F0/999999?text=Before" alt="施術前">
+                                </div>
+                                <div class="after-image">
+                                    <span class="label">After</span>
+                                    <img src="https://placehold.co/300x300/FFE8F8/6B4F3C?text=After" alt="施術後">
+                                </div>
+                            </div>
+                            <div class="case-info">
+                                <h4>30代女性 - リップアートメイク</h4>
+                                <p>くすみが気になっていた唇に自然な血色感をプラス。マスクを外しても自信を持てる口元に。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing">
+    <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 class="fade-in">施術メニューと料金</h2>
+            <h2 class="section-title">
+                <span class="title-en">MENU & PRICE</span>
+                施術メニューと料金
+            </h2>
             
             <!-- 眉アートメイク -->
-            <div class="pricing-category fade-in">
-                <h3>眉アートメイク</h3>
-                <p>眉は顔の印象を大きく左右するパーツ。LALAでは、骨格や肌色に合わせて"毛並み眉""パウダー眉""Mix眉"など多彩な技法をご用意し、理想のデザインを実現します。</p>
+            <div class="pricing-category">
+                <h3 class="category-title">
+                    <i class="fas fa-eye"></i>
+                    眉アートメイク
+                </h3>
+                <p class="category-description">
+                    眉は顔の印象を大きく左右するパーツ。LALAでは、骨格や肌色に合わせて<br>
+                    "毛並み眉""パウダー眉""Mix眉"など多彩な技法をご用意し、理想のデザインを実現します。
+                </p>
                 
                 <div class="pricing-cards">
                     <div class="pricing-card">
-                        <h4>毛並み眉</h4>
-                        <p>一本一本の毛流れを繊細に描き出し、よりリアルな自然眉を目指します。ナチュラルな仕上がりが好みの方におすすめ。</p>
-                        <div class="price">¥55,000／回</div>
+                        <div class="pricing-header">
+                            <h4>毛並み眉</h4>
+                            <span class="popular-badge">人気No.1</span>
+                        </div>
+                        <div class="pricing-image">
+                            <img src="https://placehold.co/350x200/F8F3EF/6B4F3C?text=Microblading" alt="毛並み眉">
+                        </div>
+                        <div class="pricing-content">
+                            <p>一本一本の毛流れを繊細に描き出し、よりリアルな自然眉を目指すのが毛並み眉です。</p>
+                            <div class="price-box">
+                                <span class="price-label">通常価格（税込）</span>
+                                <span class="price">¥55,000<small>/回</small></span>
+                            </div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> 施術時間：約2時間</li>
+                                <li><i class="fas fa-check"></i> 持続期間：1〜2年</li>
+                                <li><i class="fas fa-check"></i> ダウンタイム：3〜7日</li>
+                            </ul>
+                        </div>
                     </div>
+                    
                     <div class="pricing-card">
-                        <h4>パウダー眉</h4>
-                        <p>パウダーでぼかしたような、柔らかい印象の眉。ノーメイク時でも程よい陰影が生まれ、ふんわりした仕上がりを好む方に人気。</p>
-                        <div class="price">¥55,000／回</div>
+                        <div class="pricing-header">
+                            <h4>パウダー眉</h4>
+                        </div>
+                        <div class="pricing-image">
+                            <img src="https://placehold.co/350x200/E8DDD5/6B4F3C?text=Powder+Brow" alt="パウダー眉">
+                        </div>
+                        <div class="pricing-content">
+                            <p>パウダーでぼかしたような、柔らかい印象の眉。ふんわりした仕上がりを好む方に人気。</p>
+                            <div class="price-box">
+                                <span class="price-label">通常価格（税込）</span>
+                                <span class="price">¥55,000<small>/回</small></span>
+                            </div>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> 施術時間：約2時間</li>
+                                <li><i class="fas fa-check"></i> 持続期間：2〜3年</li>
+                                <li><i class="fas fa-check"></i> ダウンタイム：3〜5日</li>
+                            </ul>
+                        </div>
                     </div>
+                    
                     <div class="pricing-card">
-                        <h4>MIX眉（毛並み + パウダー）</h4>
-                        <p>毛並みとパウダー、両方のメリットを掛け合わせることで、立体感と柔らかさを同時に実現。</p>
-                        <div class="price">+¥11,000／回 <span class="note">※オプション価格</span></div>
+                        <div class="pricing-header">
+                            <h4>MIX眉（毛並み + パウダー）</h4>
+                            <span class="recommend-badge">おすすめ</span>
+                        </div>
+                        <div class="pricing-image">
+                            <img src="https://placehold.co/350x200/FFE8E3/6B4F3C?text=Mix+Brow" alt="MIX眉">
+                        </div>
+                        <div class="pricing-content">
+                            <p>毛並みとパウダー、両方のメリットを掛け合わせて、立体感と柔らかさを同時に実現。</p>
+                            <div class="price-box">
+                                <span class="price-label">オプション価格（税込）</span>
+                                <span class="price">+¥11,000<small>/回</small></span>
+                            </div>
+                            <p class="price-note">※毛並み眉またはパウダー眉の料金に追加</p>
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> 施術時間：約2.5時間</li>
+                                <li><i class="fas fa-check"></i> 持続期間：2〜3年</li>
+                                <li><i class="fas fa-check"></i> より立体的な仕上がり</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
@@ -170,92 +513,95 @@
                 </div>
                 
                 <!-- レーザー除去保証 -->
-                <div class="remove-guarantee">
-                    <h4>安心のレーザー除去保証</h4>
-                    <p>LaLaでは、安心して施術を受けていただくために、アートメイクの施術を受けた方限定で、ピコレーザー「PicoWay」を使用した除去施術を特別価格でご提供しています。</p>
-                    <p class="guarantee-price">特別価格 ¥19,800／回（片眉）<span class="note">※LALAで施術を受けられた患者様のみ、最終施術から3ヶ月以内の場合のみ</span></p>
+                <div class="guarantee-box">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="guarantee-content">
+                        <h4>安心のレーザー除去保証</h4>
+                        <p>LaLaでは、安心して施術を受けていただくために、アートメイクの施術を受けた方限定で、<br>
+                        ピコレーザー「PicoWay」を使用した除去施術を特別価格でご提供しています。</p>
+                        <div class="guarantee-price">
+                            <span class="label">特別価格（税込）</span>
+                            <span class="price">¥19,800<small>/回（片眉）</small></span>
+                        </div>
+                        <p class="note">※LALAで施術を受けられた患者様のみが対象となります。<br>
+                        ※最終施術から3ヶ月以内の場合のみのご提供です。</p>
+                    </div>
                 </div>
             </div>
             
             <!-- リップアートメイク -->
-            <div class="pricing-category fade-in">
-                <h3>リップアートメイク</h3>
-                <p>唇の色味や輪郭を補正し、血色感のあるふっくらとした口元を演出。年齢によるくすみ・色むらが気になる方や、毎日のリップメイクを時短したい方に好評です。</p>
+            <div class="pricing-category">
+                <h3 class="category-title">
+                    <i class="fas fa-lips"></i>
+                    リップアートメイク
+                </h3>
+                <p class="category-description">
+                    唇の色味や輪郭を補正し、血色感のあるふっくらとした口元を演出。<br>
+                    年齢によるくすみ・色むらが気になる方や、毎日のリップメイクを時短したい方に好評です。
+                </p>
                 
-                <div class="lip-box">
-                    <div class="price">¥55,000／回</div>
-                    <p>自然なカラーから発色の良いカラーまで、多数の色素を取りそろえています。</p>
-                </div>
-                
-                <div class="center-button">
-                    <a href="#" class="cta-button">リップアートメイクについて詳しく見る</a>
+                <div class="lip-pricing-box">
+                    <div class="lip-image">
+                        <img src="https://placehold.co/500x300/FFE8F8/6B4F3C?text=Lip+Artmake" alt="リップアートメイク">
+                    </div>
+                    <div class="lip-content">
+                        <h4>リップアートメイク</h4>
+                        <p>自然なカラーから発色の良いカラーまで、多数の色素を取りそろえています。</p>
+                        <div class="price-box">
+                            <span class="price-label">通常価格（税込）</span>
+                            <span class="price">¥55,000<small>/回</small></span>
+                        </div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> 施術時間：約2.5時間</li>
+                            <li><i class="fas fa-check"></i> 持続期間：1〜2年</li>
+                            <li><i class="fas fa-check"></i> リップエステ付き</li>
+                        </ul>
+                        <a href="#" class="cta-button">リップアートメイクについて詳しく見る</a>
+                    </div>
                 </div>
             </div>
             
             <!-- アートメイク除去・修正 -->
-            <div class="pricing-category fade-in">
-                <h3>眉アートメイク除去・修正</h3>
-                <p>他院でのアートメイクに満足できなかったり、色素が濃すぎてお悩みの方に向けて、修正・除去メニューをご用意しています。</p>
+            <div class="pricing-category">
+                <h3 class="category-title">
+                    <i class="fas fa-eraser"></i>
+                    眉アートメイク除去・修正
+                </h3>
+                <p class="category-description">
+                    他院でのアートメイクに満足できなかったり、色素が濃すぎてお悩みの方に向けて、<br>
+                    修正・除去メニューをご用意しています。
+                </p>
                 
-                <div class="remove-table">
-                    <table>
-                        <tr>
-                            <td>片眉</td>
-                            <td class="price-right">¥27,500／回</td>
-                        </tr>
-                        <tr>
-                            <td>両眉</td>
-                            <td class="price-right">¥55,000／回</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="remove-box">
-                                    <p class="box-title">除去+眉アートセット割価格</p>
-                                    <p>片眉 ¥19,800／回　両眉 ¥39,600／回</p>
-                                    <p class="note">※別途、眉アートメイクの施術料金がかかります</p>
-                                </div>
-                            </td>
-                        </tr>
+                <div class="removal-pricing">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>施術内容</th>
+                                <th>通常価格（税込）</th>
+                                <th>セット割価格（税込）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>片眉除去</td>
+                                <td class="price">¥27,500<small>/回</small></td>
+                                <td class="price discount">¥19,800<small>/回</small></td>
+                            </tr>
+                            <tr>
+                                <td>両眉除去</td>
+                                <td class="price">¥55,000<small>/回</small></td>
+                                <td class="price discount">¥39,600<small>/回</small></td>
+                            </tr>
+                        </tbody>
                     </table>
-                </div>
-                
-                <div class="center-button">
-                    <a href="#" class="cta-button">眉アートメイク除去について詳しく見る</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <h2 class="fade-in">施術メニューと料金</h2>
-            <div class="service-grid">
-                <div class="service-card fade-in">
-                    <div class="service-image"></div>
-                    <div class="service-content">
-                        <h3>眉アートメイク</h3>
-                        <p>眉は顔の印象を大きく左右するパーツ。骨格や肌色に合わせて"毛並み眉""パウダー眉""Mix眉"など多彩な技法をご用意。</p>
-                        <div class="service-price">¥55,000／回〜</div>
-                        <a href="#" class="cta-button">詳しく見る</a>
+                    <div class="removal-notes">
+                        <p><i class="fas fa-info-circle"></i> ホームケア軟膏代が別途かかります。</p>
+                        <p><i class="fas fa-info-circle"></i> セット割価格は、除去後に眉アートメイクを施術される方が対象です。</p>
                     </div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image"></div>
-                    <div class="service-content">
-                        <h3>リップアートメイク</h3>
-                        <p>唇の色味や輪郭を補正し、血色感のあるふっくらとした口元を演出。年齢によるくすみや色むらが気になる方に好評です。</p>
-                        <div class="service-price">¥55,000／回</div>
-                        <a href="#" class="cta-button">詳しく見る</a>
-                    </div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image"></div>
-                    <div class="service-content">
-                        <h3>アートメイク除去・修正</h3>
-                        <p>他院でのアートメイクに満足できなかったり、色素が濃すぎてお悩みの方に向けて、修正・除去メニューをご用意。</p>
-                        <div class="service-price">¥27,500／回〜</div>
-                        <a href="#" class="cta-button">詳しく見る</a>
+                    <div class="center-button">
+                        <a href="#" class="cta-button">眉アートメイク除去について詳しく見る</a>
                     </div>
                 </div>
             </div>
@@ -265,72 +611,247 @@
     <!-- Free Counseling CTA Section -->
     <section class="counseling-cta">
         <div class="container">
-            <h2 class="fade-in">まずは無料でカウンセリングを！</h2>
-            <p class="fade-in">
-                「なりたい眉・リップを実現したい」そんなあなたの最初の一歩をサポートします。<br>
-                無料カウンセリングで、デザインのイメージや料金など詳しくご説明。<br>
-                迷っている方もお気軽にお問い合わせください。
-            </p>
-            <div class="counseling-buttons fade-in">
-                <a href="#" class="cta-button">無料カウンセリング</a>
-                <a href="#" class="cta-button secondary-button">予約をする</a>
+            <div class="counseling-content">
+                <h2 class="section-title-white">
+                    <span class="title-en">FREE COUNSELING</span>
+                    まずは無料でカウンセリングを！
+                </h2>
+                <p>
+                    「なりたい眉・リップを実現したい」そんなあなたの最初の一歩をサポートします。<br>
+                    無料カウンセリングで、デザインのイメージや料金など詳しくご説明。<br>
+                    迷っている方もお気軽にお問い合わせください。
+                </p>
+                <div class="counseling-features">
+                    <div class="counseling-feature">
+                        <i class="fas fa-comments"></i>
+                        <span>完全個室でプライバシー配慮</span>
+                    </div>
+                    <div class="counseling-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>約60分じっくり相談</span>
+                    </div>
+                    <div class="counseling-feature">
+                        <i class="fas fa-yen-sign"></i>
+                        <span>相談は完全無料</span>
+                    </div>
+                </div>
+                <div class="counseling-buttons">
+                    <a href="#contact" class="cta-button cta-white">
+                        <i class="fas fa-calendar-check"></i>
+                        無料カウンセリング予約
+                    </a>
+                    <a href="tel:0312345678" class="cta-button cta-outline-white">
+                        <i class="fas fa-phone"></i>
+                        電話で相談する
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Flow Section -->
-    <section id="flow" class="section-alt">
+    <section id="flow" class="flow-section">
         <div class="container">
-            <h2 class="fade-in">アートメイクの流れ</h2>
+            <h2 class="section-title">
+                <span class="title-en">TREATMENT FLOW</span>
+                アートメイクの流れ
+            </h2>
             <div class="flow-timeline">
-                <div class="flow-step fade-in">
-                    <div class="flow-number">1</div>
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>01</strong>
+                    </div>
                     <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/F8F3EF/6B4F3C?text=LINE+Booking" alt="LINE予約">
+                        </div>
                         <div class="flow-text">
                             <h3>LINEで予約</h3>
-                            <p>まずは、LINEにてご予約ください。未成年の方のご案内はご遠慮させて頂いております。</p>
+                            <p>まずは、LINEにてご予約ください。お電話でのご予約も承っております。未成年の方のご案内はご遠慮させて頂いております。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約5分</span>
+                            </div>
                         </div>
-                        <div class="flow-image"></div>
                     </div>
                 </div>
-                <div class="flow-step fade-in">
-                    <div class="flow-number">2</div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>02</strong>
+                    </div>
                     <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/E8DDD5/6B4F3C?text=Reception" alt="来院受付">
+                        </div>
                         <div class="flow-text">
                             <h3>来院と問診票記入</h3>
                             <p>ご記入いただいた問診票をもとに、施術をお受けいただくにあたっての重要事項やアレルギーやお肌に関するご質問やご説明を行います。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約15分</span>
+                            </div>
                         </div>
-                        <div class="flow-image"></div>
                     </div>
                 </div>
-                <div class="flow-step fade-in">
-                    <div class="flow-number">3</div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>03</strong>
+                    </div>
                     <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/FFE8E3/6B4F3C?text=Doctor+Check" alt="医師診察">
+                        </div>
                         <div class="flow-text">
                             <h3>診察</h3>
-                            <p>経験豊富なドクターによる診断を行い、当日の体調やお肌の状態、アレルギーの有無などの最終チェックを致します。</p>
+                            <p>当クリニックでは、アートメイクの施術前に必ず、経験豊富なドクターによる診断を行っております。当日の体調やお肌の状態、アレルギーの有無などの最終チェックを致します。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約10分</span>
+                            </div>
                         </div>
-                        <div class="flow-image"></div>
                     </div>
                 </div>
-                <div class="flow-step fade-in">
-                    <div class="flow-number">4</div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>04</strong>
+                    </div>
                     <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/F8E8FF/6B4F3C?text=Anesthesia" alt="麻酔">
+                        </div>
                         <div class="flow-text">
-                            <h3>カウンセリング・デザイン</h3>
-                            <p>理想の眉の形や色味をお伺いし、お顔の骨格や表情筋等バランスを見ながら黄金比をもとにデザインいたします。</p>
+                            <h3>麻酔</h3>
+                            <p>施術箇所の表面麻酔を行います。お痛みに弱い方はお伝えください。麻酔クリームを使用し、痛みを最小限に抑えます。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約20分</span>
+                            </div>
                         </div>
-                        <div class="flow-image"></div>
                     </div>
                 </div>
-                <div class="flow-step fade-in">
-                    <div class="flow-number">5</div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>05</strong>
+                    </div>
                     <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/E8F8FF/6B4F3C?text=Counseling" alt="カウンセリング">
+                        </div>
+                        <div class="flow-text">
+                            <h3>カウンセリング</h3>
+                            <p>アフターケアのご説明を行った後、理想の眉の形や色味をお伺いいたします。なりたい眉のデザイン画像などございましたらご持参ください。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約30分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>06</strong>
+                    </div>
+                    <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/FFE8F8/6B4F3C?text=Design" alt="デザイン">
+                        </div>
+                        <div class="flow-text">
+                            <h3>デザイン</h3>
+                            <p>お顔の骨格や表情筋等バランスを見ながら黄金比をもとにデザイン。細かな修正・調整をしながら、理想の眉をデザインいたします。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約30分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">
+                        <span>STEP</span>
+                        <strong>07</strong>
+                    </div>
+                    <div class="flow-content">
+                        <div class="flow-image">
+                            <img src="https://placehold.co/400x300/F8FFE8/6B4F3C?text=Treatment" alt="施術">
+                        </div>
                         <div class="flow-text">
                             <h3>施術</h3>
-                            <p>表面麻酔を行った後、ご来院頂いた日に施術をさせていただきます。お痛みに弱い方はお伝えください。</p>
+                            <p>ご来院頂いた日に施術をさせていただきます。リラックスできる環境で、丁寧に施術を行います。</p>
+                            <div class="flow-time">
+                                <i class="fas fa-clock"></i>
+                                <span>所要時間：約60〜90分</span>
+                            </div>
                         </div>
-                        <div class="flow-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flow-total-time">
+                <i class="fas fa-clock"></i>
+                <span>トータル所要時間：約3〜3.5時間</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="staff-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-en">OUR STAFF</span>
+                スタッフ紹介
+            </h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://placehold.co/300x300/F8F3EF/6B4F3C?text=Staff+1" alt="スタッフ1">
+                    </div>
+                    <div class="staff-info">
+                        <h3>山田 花子</h3>
+                        <p class="staff-title">チーフアーティスト</p>
+                        <p class="staff-qualification">日本メディカルアートメイク協会認定</p>
+                        <p class="staff-comment">お客様の「なりたい」を形にすることが私の喜びです。一緒に理想の眉を見つけましょう。</p>
+                        <div class="staff-sns">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://placehold.co/300x300/E8DDD5/6B4F3C?text=Staff+2" alt="スタッフ2">
+                    </div>
+                    <div class="staff-info">
+                        <h3>佐藤 美香</h3>
+                        <p class="staff-title">シニアアーティスト</p>
+                        <p class="staff-qualification">国際アートメイク協会認定</p>
+                        <p class="staff-comment">施術歴5年の経験を活かし、お客様に最適なデザインをご提案します。</p>
+                        <div class="staff-sns">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://placehold.co/300x300/FFE8E3/6B4F3C?text=Staff+3" alt="スタッフ3">
+                    </div>
+                    <div class="staff-info">
+                        <h3>田中 優子</h3>
+                        <p class="staff-title">アーティスト</p>
+                        <p class="staff-qualification">LALA認定アーティスト</p>
+                        <p class="staff-comment">丁寧なカウンセリングを心がけ、お客様の不安を解消します。</p>
+                        <div class="staff-sns">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -338,44 +859,164 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq">
+    <section id="faq" class="faq-section">
         <div class="container">
-            <h2 class="fade-in">よくある質問</h2>
+            <h2 class="section-title">
+                <span class="title-en">FAQ</span>
+                よくある質問
+            </h2>
             <div class="faq-container">
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>カウンセリングのみの予約は無料ですか？</span>
-                        <div class="faq-icon"></div>
-                    </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">カウンセリングのみの予約は無料ですか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
                     <div class="faq-answer">
-                        <p>はい、カウンセリングは無料で承っております。施術前に不安な点や疑問点をすべて解消していただけるよう、丁寧にご説明させていただきます。</p>
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>はい、カウンセリングは無料で承っております。施術前に不安な点や疑問点をすべて解消していただけるよう、丁寧にご説明させていただきます。カウンセリング当日の施術も可能ですが、一度お持ち帰りいただいてゆっくり検討していただくことも可能です。</p>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>どれくらい持続しますか？</span>
-                        <div class="faq-icon"></div>
-                    </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">どれくらい持続しますか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
                     <div class="faq-answer">
-                        <p>個人差はありますが、通常1〜3年程度持続します。肌質や生活習慣により変動しますので、定期的なメンテナンスをおすすめしています。</p>
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>個人差はありますが、通常1〜3年程度持続します。肌質や生活習慣により変動しますので、定期的なメンテナンスをおすすめしています。1年に1回程度のリタッチで、きれいな状態を保つことができます。</p>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>痛みはありますか？</span>
-                        <div class="faq-icon"></div>
-                    </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">痛みはありますか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
                     <div class="faq-answer">
-                        <p>施術前に表面麻酔を使用しますので、痛みは最小限に抑えられます。個人差はありますが、多くの方が「思ったより痛くなかった」とおっしゃいます。</p>
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>施術前に表面麻酔を使用しますので、痛みは最小限に抑えられます。個人差はありますが、多くの方が「思ったより痛くなかった」とおっしゃいます。痛みに弱い方は事前にお申し出ください。麻酔の量を調整させていただきます。</p>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>施術後の注意点はありますか？</span>
-                        <div class="faq-icon"></div>
-                    </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">施術前の注意点はありますか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
                     <div class="faq-answer">
-                        <p>施術直後から24時間は極力水に濡らさないようにしてお過ごしいただくようお願いしております。また、施術後1週間は代謝の上がるようなスポーツ・温泉・岩盤浴などはお控えいただきますようお願いいたします。</p>
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>施術前日は飲酒を控え、十分な睡眠をとってください。また、施術部位の日焼けも避けてください。血液をサラサラにする薬を服用されている方は、事前にご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">当日はメイクをしてもいいですか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>普段通りのメイクでお越しください。普段のメイクを参考に、デザインを決めさせていただきます。ただし、施術部位のメイクは施術前にオフさせていただきます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">施術時間はどれくらいですか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>カウンセリングから施術完了まで、眉の場合は約3時間、リップの場合は約3.5時間程度です。初回は特に丁寧にカウンセリングを行うため、お時間に余裕を持ってお越しください。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-q">Q</span>
+                        <span class="faq-text">施術後の注意点はありますか？</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <span class="faq-a">A</span>
+                        <div class="faq-content">
+                            <p>施術直後から24時間は極力水に濡らさないようにしてお過ごしいただくようお願いしております。また、施術後1週間は代謝の上がるようなスポーツ・温泉・岩盤浴などはお控えいただきますようお願いいたします。施術部位のお化粧は1週間お控えいただく必要があり、お帰りの際にお渡ししているアフターケアクリームを塗布いただくようお願いいたします。詳細につきましては、施術当日ご説明とともにアフターケアシートをお渡しさせていただきます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-more">
+                <a href="#" class="link-more">
+                    その他のよくある質問を見る <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-en">EQUIPMENT</span>
+                導入機器・設備紹介
+            </h2>
+            <p class="section-lead">
+                最新の機器と清潔な環境で、安心・安全な施術をご提供します
+            </p>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="https://placehold.co/400x300/F8F3EF/6B4F3C?text=Machine+1" alt="アートメイク機器">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>最新デジタルマシン</h3>
+                        <p>ドイツ製の最新デジタルマシンを使用。針の振動数を細かく調整でき、肌への負担を最小限に抑えます。</p>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="https://placehold.co/400x300/E8DDD5/6B4F3C?text=Pigment" alt="色素">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>FDA承認色素</h3>
+                        <p>アメリカFDA承認の安全な色素のみを使用。アレルギーテストも実施し、安心して施術を受けていただけます。</p>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="https://placehold.co/400x300/FFE8E3/6B4F3C?text=Treatment+Room" alt="施術室">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>完全個室の施術室</h3>
+                        <p>プライバシーに配慮した完全個室。リラックスできる空間で、ゆったりと施術を受けていただけます。</p>
+                    </div>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="https://placehold.co/400x300/F8E8FF/6B4F3C?text=PicoWay" alt="ピコレーザー">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>ピコレーザー「PicoWay」</h3>
+                        <p>アートメイク除去に使用する最新のピコレーザー。従来のレーザーより肌への負担が少なく、効果的に除去できます。</p>
                     </div>
                 </div>
             </div>
@@ -383,39 +1024,78 @@
     </section>
 
     <!-- Access & Hours Section -->
-    <section id="access" class="section-alt">
+    <section id="access" class="access-section">
         <div class="container">
-            <h2 class="fade-in">アクセス・営業時間</h2>
+            <h2 class="section-title">
+                <span class="title-en">ACCESS & HOURS</span>
+                アクセス・営業時間
+            </h2>
             
-            <!-- Map -->
-            <div class="map-container fade-in">
-                <p>Google Map</p>
-            </div>
-            
-            <!-- Clinic Info -->
-            <div class="clinic-info fade-in">
-                <div class="clinic-header">
-                    <h3>LALA Beauty Clinic</h3>
-                    <p>〒650-0002 兵庫県神戸市中央区北野町1丁目1<br>コトノハコ神戸西館1F</p>
-                    <a href="#" class="link-more-small">
-                        <span>›</span> アクセス詳細
-                    </a>
+            <div class="access-content">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.5978634021936!2d135.18951031523146!3d34.690083280439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008ee5e0f5f5f5%3A0x5f5f5f5f5f5f5f5f!2z5YW15bqr55yM56We5oi45biC5Lit5aSu5Yy65YyX6YeO55S6!5e0!3m2!1sja!2sjp!4v1234567890123" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
                 
-                <div class="hours-section">
-                    <h4>営業時間</h4>
-                    <div class="hours-grid">
-                        <div class="hours-item">
-                            <h5>アートメイク</h5>
-                            <p>日 ~ 土　10:00 ~ 17:00<br><span class="note">※ 休診日は不定休となっております</span></p>
+                <div class="clinic-info">
+                    <div class="clinic-details">
+                        <h3>LALA Beauty Clinic</h3>
+                        <table class="info-table">
+                            <tr>
+                                <th><i class="fas fa-map-marker-alt"></i> 住所</th>
+                                <td>〒650-0002<br>兵庫県神戸市中央区北野町1丁目1<br>コトノハコ神戸西館1F</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-phone"></i> 電話</th>
+                                <td><a href="tel:0312345678">03-1234-5678</a></td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-train"></i> アクセス</th>
+                                <td>JR三ノ宮駅 徒歩10分<br>阪急神戸三宮駅 徒歩8分<br>地下鉄三宮駅 徒歩7分</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-car"></i> 駐車場</th>
+                                <td>近隣にコインパーキングあり<br>（提携駐車場はございません）</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="hours-info">
+                            <h4>営業時間</h4>
+                            <div class="hours-grid">
+                                <div class="hours-item">
+                                    <h5><i class="fas fa-brush"></i> アートメイク</h5>
+                                    <p>日〜土　10:00〜17:00<br>
+                                    <small>※不定休</small></p>
+                                </div>
+                                <div class="hours-item">
+                                    <h5><i class="fas fa-laptop-medical"></i> オンライン診療</h5>
+                                    <p>日〜土　10:00〜17:00<br>
+                                    <small>※予約制</small></p>
+                                </div>
+                                <div class="hours-item">
+                                    <h5><i class="fas fa-comments"></i> 美容相談</h5>
+                                    <p>日〜土　10:00〜17:00<br>
+                                    <small>※完全予約制</small></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="hours-item">
-                            <h5>オンライン診療</h5>
-                            <p>日 ~ 土　10:00 ~ 17:00</p>
-                        </div>
-                        <div class="hours-item">
-                            <h5>美容相談（仮）</h5>
-                            <p>日 ~ 土　10:00 ~ 17:00</p>
+                        
+                        <div class="access-buttons">
+                            <a href="#" class="cta-button">
+                                <i class="fas fa-map"></i>
+                                詳しいアクセス方法
+                            </a>
+                            <a href="#contact" class="cta-button cta-outline">
+                                <i class="fas fa-calendar"></i>
+                                予約する
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -426,84 +1106,246 @@
     <!-- News Section -->
     <section class="news-section">
         <div class="container">
-            <h2 class="fade-in">お知らせ</h2>
+            <h2 class="section-title">
+                <span class="title-en">NEWS</span>
+                お知らせ
+            </h2>
             <div class="news-grid">
-                <div class="news-card fade-in">
-                    <div class="news-image">
-                        <span>お知らせ画像1</span>
-                    </div>
-                    <div class="news-content">
-                        <p class="news-date">2025.03.25</p>
-                        <h3 class="news-title">春のアートメイクキャンペーン開始のお知らせ</h3>
-                        <p class="news-excerpt">4月1日より、春の新生活応援キャンペーンを開始いたします。期間限定の特別価格でご提供...</p>
-                    </div>
-                </div>
-                <div class="news-card fade-in">
-                    <div class="news-image">
-                        <span>お知らせ画像2</span>
-                    </div>
-                    <div class="news-content">
-                        <p class="news-date">2025.03.20</p>
-                        <h3 class="news-title">新しいアーティストが加わりました</h3>
-                        <p class="news-excerpt">この度、経験豊富なアートメイクアーティストが新たに加わりました。より多くのお客様に...</p>
-                    </div>
-                </div>
-                <div class="news-card fade-in">
-                    <div class="news-image">
-                        <span>お知らせ画像3</span>
-                    </div>
-                    <div class="news-content">
-                        <p class="news-date">2025.03.15</p>
-                        <h3 class="news-title">営業時間変更のお知らせ</h3>
-                        <p class="news-excerpt">4月より営業時間を変更させていただきます。平日は19時まで営業時間を延長し...</p>
-                    </div>
-                </div>
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image">
+                            <img src="https://placehold.co/400x250/FFE8E3/6B4F3C?text=News+1" alt="キャンペーン情報">
+                            <span class="news-category">キャンペーン</span>
+                        </div>
+                        <div class="news-content">
+                            <time class="news-date" datetime="2025-03-25">2025.03.25</time>
+                            <h3 class="news-title">春のアートメイクキャンペーン開始のお知らせ</h3>
+                            <p class="news-excerpt">4月1日より、春の新生活応援キャンペーンを開始いたします。期間限定の特別価格でご提供...</p>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image">
+                            <img src="https://placehold.co/400x250/F8E8FF/6B4F3C?text=News+2" alt="スタッフ情報">
+                            <span class="news-category">スタッフ</span>
+                        </div>
+                        <div class="news-content">
+                            <time class="news-date" datetime="2025-03-20">2025.03.20</time>
+                            <h3 class="news-title">新しいアーティストが加わりました</h3>
+                            <p class="news-excerpt">この度、経験豊富なアートメイクアーティストが新たに加わりました。より多くのお客様に...</p>
+                        </div>
+                    </a>
+                </article>
+                
+                <article class="news-card">
+                    <a href="#" class="news-link">
+                        <div class="news-image">
+                            <img src="https://placehold.co/400x250/E8F8FF/6B4F3C?text=News+3" alt="営業情報">
+                            <span class="news-category">営業情報</span>
+                        </div>
+                        <div class="news-content">
+                            <time class="news-date" datetime="2025-03-15">2025.03.15</time>
+                            <h3 class="news-title">営業時間変更のお知らせ</h3>
+                            <p class="news-excerpt">4月より営業時間を変更させていただきます。平日は19時まで営業時間を延長し...</p>
+                        </div>
+                    </a>
+                </article>
             </div>
-            <div class="center-button" style="margin-top: 40px;">
-                <a href="#" class="link-more">お知らせ一覧を見る →</a>
+            <div class="news-more">
+                <a href="#" class="link-more">
+                    お知らせ一覧を見る <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-en">CONTACT</span>
+                お問い合わせ・予約
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>お問い合わせ方法</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>お電話</h4>
+                            <p>03-1234-5678</p>
+                            <p class="method-time">受付時間: 10:00〜17:00</p>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-line"></i>
+                            </div>
+                            <h4>LINE</h4>
+                            <p>24時間受付</p>
+                            <a href="#" class="line-button">
+                                <i class="fab fa-line"></i>
+                                友だち追加
+                            </a>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>メールフォーム</h4>
+                            <p>24時間受付</p>
+                            <p class="method-note">右のフォームからお問い合わせください</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="post" class="form">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">必須</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">必須</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">電話番号 <span class="optional">任意</span></label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="menu">ご希望のメニュー <span class="optional">任意</span></label>
+                            <select id="menu" name="menu">
+                                <option value="">選択してください</option>
+                                <option value="eyebrow">眉アートメイク</option>
+                                <option value="lip">リップアートメイク</option>
+                                <option value="removal">アートメイク除去</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span><a href="#" target="_blank">プライバシーポリシー</a>に同意する</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i>
+                            送信する
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>LALA アートメイク</h4>
-                    <p>〒650-0002<br>
-                    兵庫県神戸市中央区北野町1丁目1<br>
-                    コトノハコ神戸西館1F</p>
-                    <p>
-                        <strong>営業時間</strong><br>
-                        10:00 ~ 17:00（不定休）
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>サービス</h4>
-                    <a href="#">眉アートメイク</a>
-                    <a href="#">リップアートメイク</a>
-                    <a href="#">アートメイク除去</a>
-                    <a href="#">料金一覧</a>
-                </div>
-                <div class="footer-section">
-                    <h4>クリニック情報</h4>
-                    <a href="#">当クリニックについて</a>
-                    <a href="#">アクセス</a>
-                    <a href="#">採用情報</a>
-                    <a href="#">プライバシーポリシー</a>
-                </div>
-                <div class="footer-section">
-                    <!-- 空枠（必要に応じてSNSリンクなどを追加） -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section footer-about">
+                        <div class="footer-logo">
+                            <img src="https://placehold.co/200x60/FFFFFF/6B4F3C?text=LALA+ARTMAKE" alt="LALA アートメイク">
+                        </div>
+                        <p class="footer-description">
+                            医療品質のアートメイクで、<br>
+                            あなたの美しさを最大限に引き出します。
+                        </p>
+                        <div class="footer-sns">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LINE"><i class="fab fa-line"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>サービス</h4>
+                        <ul>
+                            <li><a href="#">アートメイク</a></li>
+                            <li><a href="#">眉アートメイク</a></li>
+                            <li><a href="#">リップアートメイク</a></li>
+                            <li><a href="#">アートメイク除去</a></li>
+                            <li><a href="#">料金一覧</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>クリニック情報</h4>
+                        <ul>
+                            <li><a href="#">当クリニックについて</a></li>
+                            <li><a href="#">アクセス・営業時間</a></li>
+                            <li><a href="#">採用情報</a></li>
+                            <li><a href="#">お知らせ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>その他のサービス</h4>
+                        <ul>
+                            <li><a href="#">シミ取り・美容</a></li>
+                            <li><a href="#">ピコレーザー</a></li>
+                            <li><a href="#">オンライン診療</a></li>
+                            <li><a href="#">ゼオスキン</a></li>
+                            <li><a href="#">女性向けAGA</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section footer-contact">
+                        <h4>お問い合わせ</h4>
+                        <p class="footer-address">
+                            〒650-0002<br>
+                            兵庫県神戸市中央区北野町1丁目1<br>
+                            コトノハコ神戸西館1F
+                        </p>
+                        <p class="footer-tel">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:0312345678">03-1234-5678</a>
+                        </p>
+                        <p class="footer-hours">
+                            <i class="fas fa-clock"></i>
+                            10:00〜17:00（不定休）
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 LaLa Beauty Clinic. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="footer-links">
+                        <a href="#">プライバシーポリシー</a>
+                        <a href="#">利用規約</a>
+                        <a href="#">特定商取引法に基づく表記</a>
+                    </div>
+                    <p class="copyright">&copy; 2025 LaLa Beauty Clinic. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- 外部 JavaScript の読み込み -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="js/artmake.js"></script>
 </body>
 </html>
