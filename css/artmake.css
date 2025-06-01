@@ -729,60 +729,38 @@ section {
    =============================================== */
 .campaign-section {
     background: var(--accent-offwhite);
+    padding: var(--spacing-xxl) 0;
 }
 
 .campaign-slider {
     position: relative;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 900px;
 }
 
-.campaign-banner {
-    background: var(--base-white);
+.campaign-link {
+    display: block;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xl);
+    transition: all var(--transition-normal);
+    aspect-ratio: 1.91 / 1;
 }
 
-.campaign-image {
-    flex: 1;
-    min-height: 300px;
-    position: relative;
-    overflow: hidden;
+.campaign-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
 }
 
-.campaign-image img {
+.campaign-link img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
 }
 
-.campaign-banner:hover .campaign-image img {
+.campaign-link:hover img {
     transform: scale(1.05);
-}
-
-.campaign-content {
-    flex: 1;
-    padding: var(--spacing-xl);
-}
-
-.campaign-content h3 {
-    color: var(--primary-brown);
-    margin-bottom: var(--spacing-sm);
-}
-
-.campaign-period {
-    font-size: 14px;
-    color: var(--secondary-beige);
-    margin-bottom: var(--spacing-sm);
-}
-
-.campaign-text {
-    margin-bottom: var(--spacing-md);
 }
 
 .swiper-pagination {
@@ -792,15 +770,29 @@ section {
 .swiper-pagination-bullet {
     background: var(--border-gray);
     opacity: 1;
+    width: 10px;
+    height: 10px;
 }
 
 .swiper-pagination-bullet-active {
     background: var(--primary-brown);
+    width: 30px;
+    border-radius: 5px;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
     color: var(--primary-brown);
+    background: rgba(255, 255, 255, 0.9);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-small);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
 }
 
 /* ===============================================
