@@ -2747,15 +2747,4 @@ section {
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
     }
-}section {
-    background: var(--base-white);
 }
-
-.section-lead {
-    text-align: center;
-    font-size: 18px;
-    color: var(--text-light);
-    margin-bottom: var(--spacing-xl);
-}
-
-.equipment-
