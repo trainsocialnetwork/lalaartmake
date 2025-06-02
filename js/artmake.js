@@ -858,6 +858,95 @@ class LALAApp {
     }
 }
 
+// ===============================================
+// 16. 泡アニメーション
+// ===============================================
+class BubbleAnimation {
+    constructor() {
+        this.container = document.getElementById('heroBubbles');
+        this.bubbleCount = 15; // 泡の数
+        this.bubbles = [];
+        this.init();
+    }
+    
+    init() {
+        if (!this.container) return;
+        
+        // 初期の泡を生成
+        this.createBubbles();
+        
+        // ビューポートのリサイズ時に泡を再生成
+        window.addEventListener('resize', debounce(() => {
+            this.clearBubbles();
+            this.createBubbles();
+        }, 500));
+    }
+    
+    createBubbles() {
+        for (let i = 0; i < this.bubbleCount; i++) {
+            this.createBubble(i);
+        }
+    }
+    
+    createBubble(index) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        
+        // ランダムなサイズ（20px〜80px）
+        const size = Math.random() * 60 + 20;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // ランダムな水平位置
+        const leftPosition = Math.random() * 100;
+        bubble.style.left = `${leftPosition}%`;
+        
+        // ランダムなアニメーション時間（15秒〜30秒）
+        const duration = Math.random() * 15 + 15;
+        bubble.style.setProperty('--duration', `${duration}s`);
+        
+        // ランダムな遅延（0秒〜10秒）
+        const delay = Math.random() * 10;
+        bubble.style.setProperty('--delay', `${delay}s`);
+        
+        // 揺れのランダム値
+        const wobbleRange = 30;
+        bubble.style.setProperty('--wobble1', `${(Math.random() - 0.5) * wobbleRange}px`);
+        bubble.style.setProperty('--wobble2', `${(Math.random() - 0.5) * wobbleRange}px`);
+        bubble.style.setProperty('--wobble3', `${(Math.random() - 0.5) * wobbleRange}px`);
+        bubble.style.setProperty('--wobble4', `${(Math.random() - 0.5) * wobbleRange}px`);
+        bubble.style.setProperty('--wobble5', `${(Math.random() - 0.5) * wobbleRange}px`);
+        bubble.style.setProperty('--wobble6', `${(Math.random() - 0.5) * wobbleRange}px`);
+        
+        this.container.appendChild(bubble);
+        this.bubbles.push(bubble);
+        
+        // アニメーション終了時に泡を再生成
+        bubble.addEventListener('animationiteration', () => {
+            // ランダムな新しい位置とサイズを設定
+            const newSize = Math.random() * 60 + 20;
+            const newLeft = Math.random() * 100;
+            
+            bubble.style.width = `${newSize}px`;
+            bubble.style.height = `${newSize}px`;
+            bubble.style.left = `${newLeft}%`;
+            
+            // 新しい揺れの値
+            bubble.style.setProperty('--wobble1', `${(Math.random() - 0.5) * wobbleRange}px`);
+            bubble.style.setProperty('--wobble2', `${(Math.random() - 0.5) * wobbleRange}px`);
+            bubble.style.setProperty('--wobble3', `${(Math.random() - 0.5) * wobbleRange}px`);
+            bubble.style.setProperty('--wobble4', `${(Math.random() - 0.5) * wobbleRange}px`);
+            bubble.style.setProperty('--wobble5', `${(Math.random() - 0.5) * wobbleRange}px`);
+            bubble.style.setProperty('--wobble6', `${(Math.random() - 0.5) * wobbleRange}px`);
+        });
+    }
+    
+    clearBubbles() {
+        this.bubbles.forEach(bubble => bubble.remove());
+        this.bubbles = [];
+    }
+}
+
 // アプリケーションの起動
 const app = new LALAApp();
 
