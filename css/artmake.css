@@ -659,11 +659,10 @@ p {
 @media (max-width: 768px) {
     .hero-title {
         margin-bottom: 10px;
-        top: 70%;
-        left: 90%;
-    max-width: 600px;
-   font-size: 24px;
-   text-align: left;
+        max-width: 100%;
+        font-size: 24px;
+        text-align: left;
+    }
 }
 
 .hero-subtitle {
