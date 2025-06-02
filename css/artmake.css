@@ -648,7 +648,7 @@ p {
     font-weight: 300;
     letter-spacing: 0.08em;
     line-height: 1.5;
-    font-size: clamp(16px, 4vw, 38px);
+    font-size: clamp(20px, 4vw, 38px);
     max-width: 70%; /* モバイルでは幅制限を解除 */
     text-align: left;
     color: var(--base-white);
@@ -660,6 +660,8 @@ p {
 @media (max-width: 768px) {
     .hero-title {
         margin-bottom: 10px;
+        top: 70%;
+        left: 90%;
     }
 }
 
