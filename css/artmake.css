@@ -1087,8 +1087,8 @@ section {
 @media (max-width: 768px) {
     .intro-overlay {
         background: linear-gradient(180deg, 
-            rgba(255, 255, 255, 0.95) 0%, 
-            rgba(255, 255, 255, 0.85) 60%,
+            rgba(255, 255, 255, 0.3) 0%, 
+            rgba(255, 255, 255, 0.6) 60%,
             rgba(255, 255, 255, 0.3) 80%,
             transparent 100%);
     }
