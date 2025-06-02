@@ -344,6 +344,16 @@ p {
     transition: all var(--transition-normal);
 }
 
+@media (max-width: 768px) {
+    .main-header {
+        height: var(--header-height-mobile);
+    }
+    
+    .main-header.scrolled {
+        height: 60px;
+    }
+}
+
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
