@@ -1692,7 +1692,7 @@ section {
 
 .pricing-table th:last-child,
 .pricing-table td:last-child {
-    text-align: right;
+    text-align: left;
 }
 
 .pricing-table tbody tr {
