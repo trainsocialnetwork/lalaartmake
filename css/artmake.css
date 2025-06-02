@@ -612,15 +612,16 @@ p {
         rgba(255, 255, 255, 0.15) 0%, 
         rgba(248, 243, 239, 0.08) 40%,
         transparent 70%);
-    backdrop-filter: blur(0.5px);
+     backdrop-filter: blur(0.5px);
 }
 
 @media (max-width: 768px) {
     .hero-overlay {
-        background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0.6) 70%,
-            rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(248, 243, 239, 0.08) 40%,
+        transparent 70%);
+     backdrop-filter: blur(0.5px);
     }
 }
 
@@ -636,8 +637,8 @@ p {
 
 @media (max-width: 768px) {
     .hero-content {
-        padding: 0 20px 60px;
-        text-align: center;
+        padding: 0 var(--spacing-sm) var(--spacing-xl);
+        text-align: left !important; /* 強制的に左寄せ */
     }
 }
 
@@ -666,6 +667,7 @@ p {
     .hero-title {
         max-width: 100%;
         margin-bottom: 20px;
+       animation: fadeInUp 1s ease-out;
     }
 }
 
