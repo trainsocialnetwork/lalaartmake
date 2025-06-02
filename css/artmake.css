@@ -577,7 +577,7 @@ p {
     position: relative;
     min-height: 70vh;
     display: flex;
-    align-items: center; /* flex-endから変更 */
+    align-items: center;
     overflow: hidden;
 }
 
@@ -661,7 +661,9 @@ p {
         margin-bottom: 10px;
         top: 70%;
         left: 90%;
-    }
+    max-width: 600px;
+   font-size: 24px;
+   text-align: left;
 }
 
 .hero-subtitle {
