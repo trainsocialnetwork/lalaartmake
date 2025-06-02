@@ -577,7 +577,7 @@ p {
     position: relative;
     min-height: 70vh;
     display: flex;
-    align-items: flex-end;
+    align-items: center; /* flex-endから変更 */
     overflow: hidden;
 }
 
@@ -629,8 +629,8 @@ p {
     max-width: var(--max-width);
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-lg) 80px;
-    text-align: left;
+    padding: 0 var(--spacing-sm) var(--spacing-xl); /* 下のパディングを調整 */
+    text-align: left !important; /* 強制的に左寄せ */
 }
 
 @media (max-width: 768px) {
@@ -646,6 +646,10 @@ p {
     font-weight: 300;
     letter-spacing: 0.08em;
     line-height: 1.5;
+    font-size: 24px; /* モバイル用にフォントサイズを明示的に設定 */
+   max-width: 100%; /* モバイルでは幅制限を解除 */
+   text-align: left;
+   
 }
 
 .hero-title {
@@ -666,7 +670,7 @@ p {
 
 .hero-subtitle {
     display: block;
-    font-size: 14px;
+    font-size: 12px; /* サブタイトルも調整 */
     font-weight: 500;
     letter-spacing: 0.15em;
     color: rgba(255, 255, 255, 0.9);
@@ -750,6 +754,17 @@ p {
     }
 }
 
+ .hero-features {
+     gap: var(--spacing-md);
+ }
+ 
+ .hero-feature {
+     font-size: 12px;
+ }
+ 
+ .hero-feature i {
+     font-size: 16px;
+ }
 /* ===============================================
    8. Buttons
    =============================================== */
