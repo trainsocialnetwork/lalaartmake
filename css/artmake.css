@@ -152,30 +152,30 @@ p {
 /* Section Titles */
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-xxl);
     position: relative;
 }
 
 .section-title .title-en {
     display: block;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
     color: var(--secondary-beige);
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-xs);
     text-transform: uppercase;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -16px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background: var(--gradient-warm);
-    border-radius: 1px;
+    border-radius: 2px;
 }
 
 @media (max-width: 768px) {
@@ -579,13 +579,11 @@ p {
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-    margin-top: var(--header-height);
 }
 
 @media (max-width: 768px) {
     .hero {
         min-height: 60vh;
-        margin-top: var(--header-height-mobile);
     }
 }
 
@@ -640,6 +638,14 @@ p {
         padding: 0 20px 60px;
         text-align: center;
     }
+}
+
+/* Hero Title Typography */
+.hero-title {
+    font-family: "Helvetica Neue", "Arial", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
 }
 
 .hero-title {
