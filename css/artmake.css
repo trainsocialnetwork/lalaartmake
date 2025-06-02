@@ -648,26 +648,18 @@ p {
     font-weight: 300;
     letter-spacing: 0.08em;
     line-height: 1.5;
-    font-size: 24px; /* モバイル用にフォントサイズを明示的に設定 */
-   max-width: 100%; /* モバイルでは幅制限を解除 */
-   text-align: left;
-   
-}
-
-.hero-title {
+    font-size: clamp(16px, 4vw, 38px);
+    max-width: 70%; /* モバイルでは幅制限を解除 */
+    text-align: left;
     color: var(--base-white);
     margin-bottom: 24px;
     animation: fadeInUp 1s ease-out;
-    max-width: 600px;
-    font-size: clamp(26px, 4vw, 38px);
-    line-height: 1.5;
+   
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        max-width: 100%;
-        margin-bottom: 20px;
-       animation: fadeInUp 1s ease-out;
+        margin-bottom: 10px;
     }
 }
 
