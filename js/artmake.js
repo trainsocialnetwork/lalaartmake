@@ -247,6 +247,7 @@ class CampaignSlider {
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
+                dynamicBullets: true, // 追加：モバイルでの見やすさ向上
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -255,6 +256,19 @@ class CampaignSlider {
             effect: 'fade',
             fadeEffect: {
                 crossFade: true
+            },
+            // 追加：ブレークポイント設定
+            breakpoints: {
+                768: {
+                    navigation: {
+                        enabled: true
+                    }
+                },
+                0: {
+                    navigation: {
+                        enabled: false
+                    }
+                }
             }
         });
     }
