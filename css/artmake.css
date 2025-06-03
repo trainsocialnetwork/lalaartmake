@@ -1036,6 +1036,17 @@ section {
     font-size: 20px;
 }
 
+@media (max-width: 768px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none; /* モバイルで矢印を非表示 */
+    }
+    
+    .swiper-pagination {
+        bottom: -30px !important; /* ドットの位置調整 */
+    }
+}
+
 /* ===============================================
    11. Intro Section
    =============================================== */
@@ -1655,6 +1666,7 @@ section {
 .pricing-image {
     height: 200px;
     overflow: hidden;
+    position: relative; /* 追加 */
 }
 
 .pricing-image img {
@@ -1773,6 +1785,7 @@ section {
 .lip-image {
     flex: 2;
     min-height: 300px;
+    position: relative; /* 追加 */
 }
 
 .lip-image img {
@@ -1851,6 +1864,7 @@ section {
         rgba(255, 255, 255, 0.85) 40%,
         rgba(255, 255, 255, 0.3) 60%,
         transparent 100%);
+   pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -1860,6 +1874,7 @@ section {
             rgba(255, 255, 255, 0.6) 60%,
             rgba(255, 255, 255, 0.3) 80%,
             transparent 100%);
+       pointer-events: none;
     }
 }
 
@@ -1964,7 +1979,16 @@ section {
         gap: 12px;
         text-align: center;
         margin: var(--spacing-xl) 0;
+        width: 100%; /* 追加 */
+        padding: 0 20px; /* 追加：左右の余白 */
+        margin-top: 24px; /* 追加：上部の余白 */
     }
+
+    .counseling-buttons .cta-button {
+     width: 100%; /* 追加：ボタンを画面幅いっぱいに */
+     max-width: 320px; /* 追加：最大幅を制限 */
+     margin: 0 auto; /* 追加：中央配置 */
+ }
 }
 
 /* ===============================================
