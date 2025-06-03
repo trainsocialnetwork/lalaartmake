@@ -819,7 +819,8 @@ class LALAApp {
             new FormValidator(),
             new LazyLoader(),
             new AccessibilityEnhancer(),
-            new PerformanceOptimizer()
+            new PerformanceOptimizer(),
+            new BubbleAnimation() 
         ];
         
         // グローバルイベントの設定
