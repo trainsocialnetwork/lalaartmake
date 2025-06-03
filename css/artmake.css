@@ -620,7 +620,7 @@ p {
     height: 100%;
     background: linear-gradient(135deg, 
         rgba(255, 255, 255, 0.15) 0%, 
-        rgba(248, 243, 239, 0.08) 40%,
+        rgba(248, 243, 239, 0.5) 40%,
         transparent 70%);
      backdrop-filter: blur(0.5px);
 }
@@ -629,7 +629,7 @@ p {
     .hero-overlay {
     background: linear-gradient(135deg, 
         rgba(255, 255, 255, 0.15) 0%, 
-        rgba(248, 243, 239, 0.08) 40%,
+        rgba(248, 243, 239, 0.5) 40%,
         transparent 70%);
      backdrop-filter: blur(0.5px);
     }
