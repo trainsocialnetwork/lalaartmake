@@ -1939,6 +1939,8 @@ section {
 @media (max-width: 768px) {
     .counseling-buttons {
         gap: 12px;
+        text-align: center;
+        margin: var(--spacing-xl) 0;
     }
 }
 
