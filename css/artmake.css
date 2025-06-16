@@ -3624,6 +3624,9 @@ section {
 /* ===============================================
    25. Back to Top Button
    =============================================== */
+/* ===============================================
+   25. Back to Top Button
+   =============================================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -3652,6 +3655,75 @@ section {
 .back-to-top:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-large);
+}
+
+/* Mobile Fixed CTA Button */
+.mobile-fixed-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: var(--base-white);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 899;
+    transform: translateY(100%);
+    transition: transform var(--transition-normal);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-fixed-cta {
+        display: block;
+    }
+    
+    .mobile-fixed-cta.show {
+        transform: translateY(0);
+    }
+    
+    .mobile-fixed-cta.hide {
+        transform: translateY(100%);
+    }
+}
+
+.mobile-cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-fast);
+}
+
+.mobile-cta-button:active {
+    transform: scale(0.98);
+}
+
+.mobile-cta-button i {
+    font-size: 18px;
+}
+
+/* Back to Top Buttonの位置調整（モバイルCTAと重ならないように） */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 80px; /* モバイルCTAの高さ分上げる */
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .back-to-top.show ~ .mobile-fixed-cta .mobile-cta-button,
+    .mobile-fixed-cta.show ~ .back-to-top {
+        /* 相互の表示状態に配慮 */
+    }
 }
 
 /* ===============================================
@@ -4022,3 +4094,5 @@ section {
         page-break-after: avoid;
     }
 }
+
+
