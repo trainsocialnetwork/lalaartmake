@@ -3666,7 +3666,7 @@ section {
     padding: 12px 16px;
     /* Safe area対応 */
     padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    background: var(--base-white);
+    background: : rgba( 255, 255, 255, 0.45 );
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
     z-index: 899;
     transform: translateY(calc(100% + env(safe-area-inset-bottom, 0px)));
