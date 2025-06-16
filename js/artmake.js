@@ -879,7 +879,7 @@ class LALAApp {
 class BubbleAnimation {
     constructor() {
         this.container = document.getElementById('heroBubbles');
-        this.bubbleCount = 15; // 泡の数
+        this.bubbleCount = window.innerWidth < 768 ? 7 : 15; // 泡の数
         this.bubbles = [];
         this.init();
     }
