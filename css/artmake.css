@@ -365,7 +365,7 @@ p {
 }
 
 .logo img {
-    height: 40px;
+    height: 60px;
     transition: transform var(--transition-normal);
 }
 
