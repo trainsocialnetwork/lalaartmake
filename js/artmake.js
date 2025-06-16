@@ -54,27 +54,108 @@ function throttle(func, limit) {
 }
 
 // ===============================================
-// 2. ローディングアニメーション
+// CSS読み込み確認機能を追加した LoadingAnimation クラス
 // ===============================================
 class LoadingAnimation {
     constructor() {
         this.loader = document.getElementById('loader');
+        this.cssLoaded = false;
+        this.domReady = false;
         this.init();
     }
     
     init() {
+        // CSS読み込みチェック
+        this.checkCSSLoaded();
+        
+        // DOM読み込み完了チェック
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.domReady = true;
+                this.checkHideLoader();
+            });
+        } else {
+            this.domReady = true;
+            this.checkHideLoader();
+        }
+        
+        // 全リソース読み込み完了時も念のためチェック
         window.addEventListener('load', () => {
             setTimeout(() => {
-                this.hideLoader();
-            }, 500);
+                this.checkHideLoader();
+            }, 100);
         });
+        
+        // タイムアウト処理（最大3秒待機）
+        setTimeout(() => {
+            this.hideLoader();
+        }, 3000);
+    }
+    
+    checkCSSLoaded() {
+        const cssLink = document.querySelector('link[href*="artmake.css"]');
+        
+        if (cssLink) {
+            // 方法1: sheet プロパティの確認
+            if (cssLink.sheet) {
+                this.cssLoaded = true;
+                this.checkHideLoader();
+            } else {
+                // loadイベントリスナーを追加
+                cssLink.addEventListener('load', () => {
+                    this.cssLoaded = true;
+                    this.checkHideLoader();
+                });
+                
+                // エラー時の処理
+                cssLink.addEventListener('error', () => {
+                    console.error('CSS loading failed');
+                    this.hideLoader(); // エラー時でもローダーを隠す
+                });
+            }
+            
+            // 方法2: スタイルが適用されているかチェック
+            this.checkStylesApplied();
+        } else {
+            // CSSリンクが見つからない場合は即座に処理
+            this.cssLoaded = true;
+            this.checkHideLoader();
+        }
+    }
+    
+    checkStylesApplied() {
+        // 特定の要素のスタイルが適用されているかチェック
+        const checkElement = document.querySelector('.main-header');
+        if (checkElement) {
+            const styles = window.getComputedStyle(checkElement);
+            // CSSが適用されていれば背景色が設定されているはず
+            if (styles.backgroundColor !== 'rgba(0, 0, 0, 0)' && styles.backgroundColor !== 'transparent') {
+                this.cssLoaded = true;
+                this.checkHideLoader();
+                return;
+            }
+        }
+        
+        // まだ適用されていない場合は再チェック
+        if (!this.cssLoaded) {
+            setTimeout(() => this.checkStylesApplied(), 50);
+        }
+    }
+    
+    checkHideLoader() {
+        // CSSとDOMの両方が準備できたらローダーを隠す
+        if (this.cssLoaded && this.domReady) {
+            this.hideLoader();
+        }
     }
     
     hideLoader() {
-        if (this.loader) {
+        if (this.loader && !this.loader.classList.contains('hidden')) {
             this.loader.classList.add('hidden');
             setTimeout(() => {
-                this.loader.style.display = 'none';
+                if (this.loader) {
+                    this.loader.style.display = 'none';
+                }
             }, 500);
         }
     }
@@ -736,6 +817,9 @@ class AccessibilityEnhancer {
 // ===============================================
 // 14. パフォーマンス最適化
 // ===============================================
+// ===============================================
+// PerformanceOptimizer の改善
+// ===============================================
 class PerformanceOptimizer {
     constructor() {
         this.init();
@@ -743,12 +827,13 @@ class PerformanceOptimizer {
     
     init() {
         this.optimizeImages();
-        this.deferNonCriticalCSS();
+        // CSSの遅延読み込みを無効化（問題の原因の可能性があるため）
+        // this.deferNonCriticalCSS();
         this.preloadCriticalAssets();
     }
     
     optimizeImages() {
-        // WebP対応チェック
+        // WebP対応チェック（既存のコード）
         const checkWebPSupport = () => {
             return new Promise((resolve) => {
                 const webP = new Image();
@@ -768,22 +853,17 @@ class PerformanceOptimizer {
         });
     }
     
+    // CSS遅延読み込みを削除またはコメントアウト
+    /*
     deferNonCriticalCSS() {
-        // 非クリティカルCSSの遅延読み込み
-        const links = document.querySelectorAll('link[rel="stylesheet"]');
-        links.forEach(link => {
-            if (link.getAttribute('data-critical') !== 'true') {
-                link.setAttribute('media', 'print');
-                link.addEventListener('load', () => {
-                    link.media = 'all';
-                });
-            }
-        });
+        // この機能は初回ロード時のCSS問題の原因となる可能性があるため無効化
     }
+    */
     
     preloadCriticalAssets() {
-        // クリティカルアセットのプリロード
+        // クリティカルアセットのプリロード（既存のコード）
         const criticalAssets = [
+            { href: './css/artmake.css', as: 'style' }, // メインCSSをプリロード対象に追加
             { href: '/fonts/NotoSansJP-Regular.woff2', as: 'font', type: 'font/woff2' },
             { href: '/fonts/NotoSansJP-Bold.woff2', as: 'font', type: 'font/woff2' }
         ];
@@ -794,7 +874,9 @@ class PerformanceOptimizer {
             link.href = asset.href;
             link.as = asset.as;
             if (asset.type) link.type = asset.type;
-            link.crossOrigin = 'anonymous';
+            if (asset.as === 'font') {
+                link.crossOrigin = 'anonymous';
+            }
             document.head.appendChild(link);
         });
     }
