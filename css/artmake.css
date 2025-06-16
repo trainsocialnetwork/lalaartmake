@@ -2070,6 +2070,26 @@ section {
             transparent 100%);
        pointer-events: none;
     }
+
+       .lip-pricing-box {
+        flex-direction: column;
+        margin: 0 auto 32px; /* マージンを調整 */
+    }
+    
+    .lip-image {
+        min-height: 200px; /* 高さを調整 */
+        max-height: 250px; /* 最大高さを設定 */
+        flex: none;
+    }
+    
+    .lip-content {
+        padding: 24px 20px; /* パディングを調整 */
+    }
+    
+    .lip-content h4 {
+        margin-top: 0; /* 上部のマージンを削除 */
+        margin-bottom: 12px; /* 下部のマージンを調整 */
+    }
 }
 
 /* ===============================================
