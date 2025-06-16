@@ -1044,6 +1044,95 @@ class BubbleAnimation {
     }
 }
 
+// ===============================================
+// 17. モバイル固定CTAボタン
+// ===============================================
+class MobileFixedCTA {
+    constructor() {
+        this.button = document.getElementById('mobileFixedCTA');
+        this.heroSection = document.querySelector('.hero');
+        this.lastScrollTop = 0;
+        this.isShown = false;
+        this.heroThreshold = 0;
+        this.init();
+    }
+    
+    init() {
+        if (!this.button || !this.heroSection) return;
+        
+        // モバイルでのみ動作
+        if (window.innerWidth > 768) return;
+        
+        // Hero sectionの高さを取得
+        this.calculateHeroThreshold();
+        
+        // スクロールイベントの監視
+        window.addEventListener('scroll', throttle(() => this.handleScroll(), 100));
+        
+        // リサイズ時の再計算
+        window.addEventListener('resize', debounce(() => {
+            if (window.innerWidth > 768) {
+                this.hideButton();
+            } else {
+                this.calculateHeroThreshold();
+            }
+        }, 250));
+        
+        // スムーススクロール対応
+        const ctaLink = this.button.querySelector('a');
+        if (ctaLink) {
+            ctaLink.addEventListener('click', () => {
+                // クリック時に一時的に非表示
+                setTimeout(() => {
+                    this.hideButton();
+                }, 100);
+            });
+        }
+    }
+    
+    calculateHeroThreshold() {
+        const heroRect = this.heroSection.getBoundingClientRect();
+        const heroHeight = heroRect.height;
+        this.heroThreshold = heroHeight - 100; // Hero sectionの高さから100px引いた位置
+    }
+    
+    handleScroll() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDirection = currentScrollTop > this.lastScrollTop ? 'down' : 'up';
+        
+        // Hero sectionを通過したかチェック
+        const passedHero = currentScrollTop > this.heroThreshold;
+        
+        // 表示/非表示の制御
+        if (passedHero) {
+            if (scrollDirection === 'down' && !this.isShown) {
+                this.showButton();
+            } else if (scrollDirection === 'up' && this.isShown) {
+                this.hideButton();
+            }
+        } else {
+            // Hero section内にいる場合は常に非表示
+            if (this.isShown) {
+                this.hideButton();
+            }
+        }
+        
+        this.lastScrollTop = currentScrollTop;
+    }
+    
+    showButton() {
+        this.button.classList.add('show');
+        this.button.classList.remove('hide');
+        this.isShown = true;
+    }
+    
+    hideButton() {
+        this.button.classList.remove('show');
+        this.button.classList.add('hide');
+        this.isShown = false;
+    }
+}
+
 // アプリケーションの起動
 const app = new LALAApp();
 
