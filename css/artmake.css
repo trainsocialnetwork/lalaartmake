@@ -1321,11 +1321,14 @@ section {
 .instagram-video-area {
     position: relative;
     overflow: hidden;
-    background: #000;
+    /* 黒背景を削除 */
 }
 
 .instagram-video-wrapper {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     display: flex;
@@ -1336,7 +1339,7 @@ section {
 .instagram-video-wrapper video {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 3:4の動画を適切に表示 */
+    object-fit: cover; /* containからcoverに変更して画面いっぱいに表示 */
 }
 
 /* レスポンシブ対応の改善 - モバイルでは動画を上に配置 */
@@ -1353,8 +1356,23 @@ section {
     }
 
     .instagram-video-area {
-        height: 60vh; /* 画面高さの60% */
-        min-height: 400px;
+        height: 50vh; /* 画面高さの50%に調整 */
+        min-height: 350px;
+    }
+    
+    .instagram-video-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+    }
+    
+    .instagram-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* モバイルでも画面いっぱいに表示 */
     }
     
     .instagram-content-v2 h2 {
@@ -1461,6 +1479,22 @@ section {
     50% { transform: translateY(-20px); }
 }
 
+/* 動画をより確実に画面いっぱいに表示するための追加スタイル */
+@media (min-aspect-ratio: 16/9) {
+    .instagram-video-wrapper video {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .instagram-video-wrapper video {
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+    }
+}
 /* ===============================================
    13. Features Section
    =============================================== */
