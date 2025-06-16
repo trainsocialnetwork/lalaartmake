@@ -916,7 +916,8 @@ class LALAApp {
             new LazyLoader(),
             new AccessibilityEnhancer(),
             new PerformanceOptimizer(),
-            new BubbleAnimation() 
+            new BubbleAnimation(),
+            new MobileFixedCTA() // 追加
         ];
         
         // グローバルイベントの設定
