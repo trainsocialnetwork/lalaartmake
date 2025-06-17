@@ -2496,12 +2496,18 @@ section {
 .staff-qualification {
     font-size: 14px;
     color: var(--text-light);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 10px;
 }
 
 .staff-comment {
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
+}
+
+.staff-sns {
+    display: flex;
+    justify-content: center; /* アイコンを中央に配置 */
+    width: 100%;
 }
 
 .staff-sns a {
