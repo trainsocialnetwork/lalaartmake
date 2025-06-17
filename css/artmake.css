@@ -1050,277 +1050,471 @@ section {
 /* ===============================================
    11. Intro Section
    =============================================== */
-.intro-section {
+.intro-section-v2 {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--base-white) 0%, var(--accent-offwhite) 100%);
     position: relative;
-    min-height: 450px;
     overflow: hidden;
+}
+
+.intro-card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* テキストカード */
+.intro-text-card {
     background: var(--base-white);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+    /* transformを削除または調整 */
+    transform: translateX(0);
+    /* アニメーション用のtransitionを追加 */
+    transition: transform 0.3s ease;
+}
+
+.intro-text-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.intro-text-card h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--text-darker);
+}
+
+.intro-text-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    color: var(--text-dark);
+}
+
+/* ホバー時にわずかに動かす */
+.intro-text-card:hover {
+    transform: translateX(10px);
+}
+
+/* 画像エリア */
+.intro-image-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(107, 79, 60, 0.15);
+    /* transformを削除または調整 */
+    transform: rotate(0);
+    transition: transform 0.6s ease;
+}
+
+/* ホバー時にわずかに回転 */
+.intro-image-wrapper:hover {
+    transform: rotate(1deg);
+}
+
+.intro-image-wrapper img {
+    width: 100%;
+    /* 固定高さを削除し、アスペクト比を保持 */
+    height: auto;
+    min-height: 400px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* レスポンシブ対応の改善 */
+@media (max-width: 768px) {
+    .intro-section-v2 {
+        padding: 60px 0;
+    }
+
+    .intro-card-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .intro-text-card {
+        transform: translateX(0);
+        padding: 32px;
+    }
+    
+    .intro-text-card:hover {
+        transform: translateX(0);
+    }
+
+    .intro-image-wrapper {
+        transform: rotate(0);
+    }
+    
+    .intro-image-wrapper:hover {
+        transform: rotate(0);
+    }
+    
+    .intro-image-wrapper img {
+        min-height: 250px;
+    }
+}
+/* ===============================================
+改善案3: セクション間のトランジション
+=============================================== */
+        .section-divider {
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--accent-offwhite);
+            clip-path: polygon(
+                0 40px,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .instagram-split-container {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-content-area {
+                padding: 60px 32px;
+            }
+
+            .instagram-video-area {
+                height: 300px;
+            }
+
+            .intro-card-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-text-card {
+                transform: translateX(0);
+                padding: 32px;
+            }
+
+            .intro-image-wrapper {
+                transform: rotate(0);
+            }
+        }
+
+        /* ボタンスタイルの改善 */
+        .cta-button-v2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--gradient-warm);
+            color: var(--base-white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(107, 79, 60, 0.2);
+        }
+
+        .cta-button-v2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .cta-button-v2:hover::before {
+            left: 100%;
+        }
+
+        .cta-button-v2:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(107, 79, 60, 0.3);
+        }
+
+.instagram-section-v2 {
+    position: relative;
+    background: var(--accent-light-beige);
+    overflow: hidden;
     padding: 0;
 }
 
-@media (max-width: 768px) {
-    .intro-section {
-        min-height: 400px;
-    }
+.instagram-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: 600px; /* 最小高さを設定 */
 }
 
-.intro-visual {
-    position: relative;
-    width: 100%;
-    height: 450px;
-}
-
-@media (max-width: 768px) {
-    .intro-visual {
-        height: 400px;
-    }
-}
-
-.intro-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.intro-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0.95) 0%, 
-        rgba(255, 255, 255, 0.85) 40%,
-        rgba(255, 255, 255, 0.3) 60%,
-        transparent 100%);
-}
-
-@media (max-width: 768px) {
-    .intro-overlay {
-        background: linear-gradient(180deg, 
-            rgba(255, 255, 255, 0.3) 0%, 
-            rgba(255, 255, 255, 0.6) 60%,
-            rgba(255, 255, 255, 0.3) 80%,
-            transparent 100%);
-    }
-}
-
-.intro-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* 左側：コンテンツエリア */
+.instagram-content-area {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,243,239,0.98) 100%);
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
+    min-height: 600px;
 }
 
-.intro-text-wrapper {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 32px;
-    width: 100%;
+.instagram-content-v2 {
+    max-width: 500px;
 }
 
-@media (max-width: 768px) {
-    .intro-text-wrapper {
-        padding: 0 20px;
-    }
-}
-
-.intro-title {
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-weight: 700;
+.instagram-content-v2 h2 {
+    font-size: 36px;
     color: var(--text-darker);
     margin-bottom: 20px;
-    max-width: 600px;
-    line-height: 1.5;
+    position: relative;
 }
 
-@media (max-width: 768px) {
-    .intro-title {
-        font-size: 22px;
-        margin-bottom: 16px;
-        max-width: 100%;
-    }
+.instagram-content-v2 .title-en {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--secondary-beige);
+    margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
-.intro-text {
+.instagram-content-v2 p {
     font-size: 16px;
     line-height: 1.8;
+    margin-bottom: 32px;
     color: var(--text-dark);
-    margin-bottom: 28px;
-    max-width: 550px;
 }
 
+/* 右側：動画エリア - 確実表示修正版 */
+.instagram-video-area {
+    position: relative;
+    overflow: hidden;
+    background: #f5f0eb; /* 透明背景から薄いベージュに変更 */
+    min-height: 600px;
+}
+
+.instagram-video-wrapper {
+    position: relative; /* absoluteからrelativeに変更 */
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.instagram-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    min-height: 600px; /* 確実なサイズ指定 */
+    object-fit: cover;
+    object-position: center center;
+    display: block; /* inline要素の余白を除去 */
+    opacity: 1 !important; /* 確実に表示 */
+}
+
+/* レスポンシブ対応の改善 - モバイル */
 @media (max-width: 768px) {
-    .intro-text {
-        font-size: 14px;
-        line-height: 1.7;
-        margin-bottom: 24px;
-        max-width: 100%;
+    .instagram-split-container {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
+        min-height: auto;
+    }
+
+    .instagram-content-area {
+        padding: 40px 24px;
+        min-height: auto;
+    }
+
+    .instagram-video-area {
+        /* シンプルな幅設定で確実表示 */
+        width: 100%;
+        height: 60vh;
+        min-height: 400px;
+        background: #f5f0eb;
+        /* 複雑なvwとtransformを削除 */
     }
     
-    .intro-text br {
-        display: none;
+    .instagram-video-wrapper {
+        position: relative; /* absoluteからrelativeに変更 */
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+    }
+    
+    .instagram-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        opacity: 1 !important; /* 確実に表示 */
+    }
+    
+    .instagram-content-v2 h2 {
+        font-size: 28px;
+    }
+    
+    .instagram-content-v2 p {
+        font-size: 15px;
+        margin-bottom: 24px;
     }
 }
 
-.intro-text-wrapper .cta-button {
-    display: inline-flex;
+/* さらに小さなモバイル画面での最適化 */
+@media (max-width: 480px) {
+    .instagram-video-area {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .instagram-video-wrapper {
+        min-height: 350px;
+    }
+    
+    .instagram-video-wrapper video {
+        min-height: 350px;
+    }
+    
+    .instagram-content-area {
+        padding: 32px 20px;
+    }
 }
 
-/* 旧スタイルの削除 */
-.intro-cards,
-.intro-card,
-.intro-icon {
-    display: none;
-}
-
-/* ===============================================
-   12. Instagram Section
-   =============================================== */
-.instagram-section {
+/* デコレーティブ要素の調整 */
+.instagram-decoration {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
     background: var(--gradient-warm);
-    color: var(--base-white);
-    position: relative;
-    overflow: hidden;
-    padding: 60px 0;
+    border-radius: 50%;
+    opacity: 0.05;
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
 }
 
-@media (max-width: 768px) {
-    .instagram-section {
-        padding: 40px 0;
-    }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-.instagram-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: rotate 30s linear infinite;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.instagram-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-}
-
-.instagram-content p {
-    font-size: 16px;
-    opacity: 0.9;
-    margin-bottom: 32px;
-    line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-    .instagram-content p {
-        font-size: 14px;
-        margin-bottom: 24px;
-        padding: 0 20px;
-    }
-}
-
-.instagram-feed {
-    margin-bottom: 32px;
-}
-
-@media (max-width: 768px) {
-    .instagram-feed {
-        margin-bottom: 24px;
-    }
-}
-
-.instagram-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .instagram-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-    }
-}
-
-.instagram-item {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .instagram-item {
-        border-radius: 8px;
-    }
-}
-
-.instagram-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
-}
-
-.instagram-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(107, 79, 60, 0.8);
+/* 非対応ブラウザ用のフォールバック */
+.no-video .instagram-video-area {
+    background: var(--accent-light-beige);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-normal);
 }
 
-.instagram-overlay i {
-    font-size: 48px;
-    color: var(--base-white);
+.no-video .instagram-video-area::before {
+    content: '動画を再生できません';
+    color: var(--text-light);
+    font-size: 16px;
 }
 
-.instagram-item:hover img {
-    transform: scale(1.1);
-}
-
-.instagram-item:hover .instagram-overlay {
-    opacity: 1;
-}
-
-.instagram-button {
+/* ===============================================
+   追加の安定性向上
+   =============================================== */
+/* ボタンスタイルの修正 */
+.cta-button-v2 {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    background: var(--base-white);
-    color: var(--primary-brown);
-    padding: 14px 32px;
-    border-radius: 30px;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    border-radius: 50px;
     font-weight: 600;
-    transition: all var(--transition-normal);
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(107, 79, 60, 0.2);
+    white-space: nowrap;
+    border: none;
+    outline: none;
 }
 
-.instagram-button:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-large);
+/* フォーカス時のスタイル修正 */
+.cta-button-v2:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 79, 60, 0.3);
 }
 
+/* Intro Section V2 - レスポンシブ改善 */
+@media (max-width: 768px) {
+    .intro-section-v2 {
+        padding: 60px 0;
+    }
+
+    .intro-card-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+        display: flex;
+        flex-direction: column-reverse; /* 画像を上に配置 */
+    }
+
+    .intro-text-card {
+        transform: translateX(0);
+        padding: 32px 24px;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: -30px; /* 画像と重ねる */
+        position: relative;
+        z-index: 2;
+    }
+    
+    .intro-text-card:hover {
+        transform: translateX(0);
+    }
+
+    .intro-image-wrapper {
+        transform: rotate(0);
+        border-radius: 0 0 30px 30px;
+        margin: 0 16px;
+    }
+    
+    .intro-image-wrapper:hover {
+        transform: rotate(0);
+    }
+    
+    .intro-image-wrapper img {
+        min-height: 300px;
+    }
+}
+
+/* グラスモーフィズム効果の削除 - 動画の上に不要な要素を表示しない */
+.video-glass-overlay {
+    display: none;
+}
 /* ===============================================
    13. Features Section
    =============================================== */
@@ -1875,6 +2069,26 @@ section {
             rgba(255, 255, 255, 0.3) 80%,
             transparent 100%);
        pointer-events: none;
+    }
+
+       .lip-pricing-box {
+        flex-direction: column;
+        margin: 0 auto 32px; /* マージンを調整 */
+    }
+    
+    .lip-image {
+        min-height: 200px; /* 高さを調整 */
+        max-height: 250px; /* 最大高さを設定 */
+        flex: none;
+    }
+    
+    .lip-content {
+        padding: 24px 20px; /* パディングを調整 */
+    }
+    
+    .lip-content h4 {
+        margin-top: 0; /* 上部のマージンを削除 */
+        margin-bottom: 12px; /* 下部のマージンを調整 */
     }
 }
 
@@ -3410,6 +3624,9 @@ section {
 /* ===============================================
    25. Back to Top Button
    =============================================== */
+/* ===============================================
+   25. Back to Top Button
+   =============================================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -3438,6 +3655,77 @@ section {
 .back-to-top:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-large);
+}
+
+/* Mobile Fixed CTA Button */
+.mobile-fixed-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    /* Safe area対応 */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    background: : rgba( 255, 255, 255, 0.45 );
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 899;
+    transform: translateY(calc(100% + env(safe-area-inset-bottom, 0px)));
+    transition: transform var(--transition-normal);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-fixed-cta {
+        display: block;
+    }
+    
+    .mobile-fixed-cta.show {
+        transform: translateY(0);
+    }
+    
+    .mobile-fixed-cta.hide {
+        transform: translateY(100%);
+    }
+}
+
+.mobile-cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-fast);
+}
+
+.mobile-cta-button:active {
+    transform: scale(0.98);
+}
+
+.mobile-cta-button i {
+    font-size: 18px;
+}
+
+/* Back to Top Buttonの位置調整（モバイルCTAと重ならないように） */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 80px; /* モバイルCTAの高さ分上げる */
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .back-to-top.show ~ .mobile-fixed-cta .mobile-cta-button,
+    .mobile-fixed-cta.show ~ .back-to-top {
+        /* 相互の表示状態に配慮 */
+    }
 }
 
 /* ===============================================
@@ -3808,3 +4096,5 @@ section {
         page-break-after: avoid;
     }
 }
+
+
