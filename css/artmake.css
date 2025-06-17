@@ -3406,21 +3406,23 @@ section {
 
 .footer-logo {
     margin-bottom: 16px;
+   　text-align: center; /* ロゴを中央配置 */
 }
 
 @media (max-width: 768px) {
     .footer-logo {
         margin-bottom: 12px;
+      　text-align: center; /* モバイルでも中央配置を維持 */
     }
 }
 
 .footer-logo img {
-    height: 45px;
+    height: 100px;
 }
 
 @media (max-width: 768px) {
     .footer-logo img {
-        height: 40px;
+        height: 80px;
     }
 }
 
