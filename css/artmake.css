@@ -1454,7 +1454,7 @@ section {
    =============================================== */
 /* ボタンスタイルの修正 */
 .cta-button-v2 {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     gap: 12px;
     padding: 16px 32px;
@@ -2505,7 +2505,7 @@ section {
 }
 
 .staff-sns a {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     width: 40px;
