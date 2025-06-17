@@ -3404,6 +3404,17 @@ section {
     }
 }
 
+.footer-logo-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-section {
+        margin-bottom: 32px;
+    }
+}
+
 .footer-logo {
     margin-bottom: 16px;
    　text-align: center; /* ロゴを中央配置 */
