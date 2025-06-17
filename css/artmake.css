@@ -2521,6 +2521,10 @@ section {
     transition: all var(--transition-normal);
 }
 
+.staff-sns a i {
+    font-size: 32px;
+}
+
 .staff-sns a:hover {
     transform: scale(1.1);
 }
