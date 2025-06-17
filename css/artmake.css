@@ -365,7 +365,7 @@ p {
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-lg) 0 calc(var(--spacing-lg) - 20px); /* 左のpaddingを減らす */
     height: 100%;
     display: flex;
     align-items: center;
