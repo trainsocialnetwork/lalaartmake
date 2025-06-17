@@ -204,6 +204,14 @@ p {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.section-title h2 {
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin-bottom: 20px;
+    white-space: normal; /* 改行を有効化 */
+    display: block; /* ブロック要素として表示 */
+    line-height: 1.4; /* 適切な行間 */
+}
+
 /* ===============================================
    3. Loading Animation
    =============================================== */
