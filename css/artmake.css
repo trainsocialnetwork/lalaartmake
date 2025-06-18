@@ -4195,4 +4195,254 @@ section {
     }
 }
 
+/* ===============================================
+   スマホレイアウト修正 - ヘッダー・パンくず・ヒーロー間の問題解決
+   =============================================== */
 
+/* 1. モバイルで不要な要素を確実に非表示にする */
+@media (max-width: 768px) {
+    /* デスクトップ用の固定CTAとナビゲーションを完全に非表示 */
+    .fixed-cta-left,
+    .fixed-nav-right {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    /* メインナビゲーションをモバイルで非表示 */
+    .main-nav {
+        display: none !important;
+    }
+    
+    /* ヘッダーCTAボタンをモバイルで非表示（必要に応じて） */
+    .header-cta {
+        display: none !important;
+    }
+}
+
+/* 2. ヘッダーの高さとパディングを安定化 */
+@media (max-width: 768px) {
+    .main-header {
+        height: 68px;
+        min-height: 68px;
+        max-height: 68px;
+        /* スクロール時の変更を完全に無効化 */
+        transition: none !important;
+    }
+    
+    .header-content {
+        height: 68px;
+        min-height: 68px;
+        max-height: 68px;
+        padding: 8px 16px;
+        /* フレックスボックスの設定を明確に */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* 不要な要素の表示を防ぐ */
+        overflow: hidden;
+    }
+    
+    /* ロゴエリアの調整 */
+    .logo {
+        flex-shrink: 0;
+        height: 52px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo img {
+        height: 48px;
+        width: auto;
+        max-width: 160px;
+    }
+    
+    /* モバイルメニューボタンの調整 */
+    .mobile-menu-toggle {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* 3. パンくずリストとヒーロー間の空白を解消 */
+@media (max-width: 768px) {
+    /* パンくずリストの調整 */
+    .breadcrumb {
+        margin-top: 68px; /* ヘッダー高さに合わせる */
+        padding: 8px 0;   /* パディングを最小に */
+        background: var(--accent-offwhite);
+        /* 不要な余白を削除 */
+        margin-bottom: 0;
+    }
+    
+    .breadcrumb .container {
+        padding: 0 16px;
+    }
+    
+    .breadcrumb ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* ヒーローセクションの調整 */
+    .hero {
+        /* パンくずリストとの重複を防ぐ */
+        margin-top: 0 !important;
+        /* 不要な余白を削除 */
+        padding-top: 0;
+        min-height: 60vh;
+        position: relative;
+    }
+    
+    .hero-content {
+        padding: 40px 20px 60px;
+        /* 上部の余白を調整 */
+        padding-top: 60px;
+    }
+}
+
+/* 4. レイアウトの安定性を向上 */
+@media (max-width: 768px) {
+    /* ボディの設定 */
+    body {
+        overflow-x: hidden;
+        /* 不要なスクロールを防ぐ */
+        position: relative;
+    }
+    
+    /* ヘッダーのz-indexを調整 */
+    .main-header {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* ブラー効果の調整 */
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* パンくずリストのz-index調整 */
+    .breadcrumb {
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* ヒーローセクションのz-index調整 */
+    .hero {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* 5. スクロール時の動作を完全に無効化（モバイル） */
+@media (max-width: 768px) {
+    .main-header.scrolled {
+        height: 68px !important;
+        min-height: 68px !important;
+        max-height: 68px !important;
+        /* すべての変更を無効化 */
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .main-header.scrolled .header-content {
+        height: 68px !important;
+        padding: 8px 16px !important;
+    }
+    
+    .main-header.scrolled .logo img {
+        height: 48px !important;
+        transform: none !important;
+    }
+}
+
+/* 6. 要素間の境界を明確にする */
+@media (max-width: 768px) {
+    /* セクション間の余白をリセット */
+    section {
+        margin-top: 0;
+        margin-bottom: 0;
+        /* セクション間の重複を防ぐ */
+        position: relative;
+        z-index: auto;
+    }
+    
+    /* 特にキャンペーンセクションの調整 */
+    .campaign-section {
+        margin-top: 0;
+        padding-top: 40px;
+    }
+}
+
+/* 7. デバッグ用の境界線（開発時のみ使用） */
+/*
+@media (max-width: 768px) {
+    .main-header {
+        border-bottom: 2px solid red;
+    }
+    
+    .breadcrumb {
+        border-top: 2px solid blue;
+        border-bottom: 2px solid blue;
+    }
+    
+    .hero {
+        border-top: 2px solid green;
+    }
+}
+*/
+
+/* 8. レスポンシブの境界値での調整 */
+@media (max-width: 480px) {
+    .main-header {
+        height: 64px;
+        min-height: 64px;
+        max-height: 64px;
+    }
+    
+    .header-content {
+        height: 64px;
+        min-height: 64px;
+        max-height: 64px;
+        padding: 6px 12px;
+    }
+    
+    .breadcrumb {
+        margin-top: 64px;
+        padding: 6px 0;
+    }
+    
+    .logo {
+        height: 48px;
+    }
+    
+    .logo img {
+        height: 42px;
+        max-width: 140px;
+    }
+    
+    .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 9. CSS変数の更新（モバイル専用） */
+@media (max-width: 768px) {
+    :root {
+        --header-height-mobile: 68px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --header-height-mobile: 64px;
+    }
+}
