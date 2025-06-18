@@ -350,42 +350,76 @@ p {
     box-shadow: var(--shadow-small);
     z-index: 1000;
     transition: all var(--transition-normal);
+    /* 重要: 最小高さを設定して潰れを防ぐ */
+    min-height: var(--header-height);
 }
 
 @media (max-width: 768px) {
     .main-header {
         height: var(--header-height-mobile);
-        /* スクロール時の高さ変更を無効化 */
+        min-height: var(--header-height-mobile);
+        /* スクロール時の高さ変更を完全に無効化 */
     }
-    
-    /* この部分をコメントアウトまたは削除 */
-    /*
-    .main-header.scrolled {
-        height: 60px;
-    }
-    */
 }
 
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg); /* セミコロンを追加 */
+    padding: 0 var(--spacing-lg);
     height: 100%;
+    min-height: inherit; /* 親の最小高さを継承 */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* 内側のパディングを追加して余白を確保 */
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
-/* ロゴサイズの調整 */
-.logo img {
-    height: 60px;
-    transition: transform var(--transition-normal);
-}
-
-/* モバイル用のロゴサイズ調整 */
 @media (max-width: 768px) {
+    .header-content {
+        padding: 6px var(--spacing-md) 6px;
+        /* モバイルでも十分な内側余白を確保 */
+    }
+}
+
+/* ロゴサイズの最適化 */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    /* ロゴエリアに十分な高さを確保 */
+    min-height: 48px;
+}
+
+.logo img {
+    /* デスクトップ: より大きく鮮明に */
+    height: 64px;
+    width: auto;
+    max-width: 200px;
+    transition: transform var(--transition-normal);
+    /* 画像の品質を向上 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        min-height: 40px;
+    }
+    
     .logo img {
-        height: 40px; /* モバイルでロゴを小さく */
+        /* モバイル: 適切なサイズで鮮明に */
+        height: 48px;
+        max-width: 160px;
+    }
+}
+
+/* タブレット用の中間サイズ */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo img {
+        height: 56px;
+        max-width: 180px;
     }
 }
 
@@ -393,17 +427,19 @@ p {
     transform: scale(1.05);
 }
 
+/* CSS変数の調整 */
+:root {
+    /* ヘッダー高さを安定させる */
+    --header-height: 84px; /* 80px → 84px に増加 */
+    --header-height-mobile: 68px; /* 64px → 68px に増加 */
+}
+
+/* ナビゲーション要素の調整 */
 .main-nav ul {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
-}
-
-/* モバイルでナビゲーションを非表示 */
-@media (max-width: 768px) {
-    .main-nav {
-        display: none;
-    }
+    height: 100%;
 }
 
 .main-nav a {
@@ -412,12 +448,16 @@ p {
     color: var(--text-dark);
     position: relative;
     transition: color var(--transition-fast);
+    /* リンクエリアの高さを確保 */
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
 }
 
 .main-nav a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 2px; /* -5px → 2px に調整 */
     left: 0;
     width: 0;
     height: 2px;
@@ -433,6 +473,7 @@ p {
     width: 100%;
 }
 
+/* CTAボタンの調整 */
 .header-cta {
     background: var(--gradient-warm);
     color: var(--base-white);
@@ -441,14 +482,19 @@ p {
     font-weight: 600;
     transition: all var(--transition-normal);
     box-shadow: var(--shadow-small);
+    /* ボタンの高さを確保 */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
-/* モバイル用のCTAボタン調整 */
 @media (max-width: 768px) {
     .header-cta {
         padding: 8px 16px;
         font-size: 14px;
-        display: none; /* 必要に応じて非表示 */
+        min-height: 36px;
+        display: none; /* 必要に応じて表示 */
     }
 }
 
@@ -457,15 +503,18 @@ p {
     box-shadow: var(--shadow-medium);
 }
 
-/* Mobile Menu Toggle */
+/* モバイルメニューボタンの調整 */
 .mobile-menu-toggle {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     position: relative;
     background: none;
     border: none;
     cursor: pointer;
+    /* タップエリアを確保 */
+    min-width: 44px;
+    min-height: 44px;
 }
 
 @media (max-width: 768px) {
@@ -487,7 +536,8 @@ p {
 }
 
 .mobile-menu-toggle span:nth-child(1) {
-    top: 10px;
+    top: 50%;
+    transform: translate(-50%, -8px);
 }
 
 .mobile-menu-toggle span:nth-child(2) {
@@ -496,12 +546,12 @@ p {
 }
 
 .mobile-menu-toggle span:nth-child(3) {
-    bottom: 10px;
+    top: 50%;
+    transform: translate(-50%, 4px);
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
-    transform: translateX(-50%) rotate(45deg);
-    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
@@ -509,86 +559,59 @@ p {
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-    transform: translateX(-50%) rotate(-45deg);
-    bottom: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* Mobile Menu */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background: var(--base-white);
-    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    z-index: 1001;
-    transition: right var(--transition-normal);
-    overflow-y: auto;
+/* モバイルでナビゲーションを非表示 */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
 }
 
-.mobile-menu.active {
-    right: 0;
-}
-
-.mobile-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md);
-    border-bottom: 1px solid var(--border-gray);
-}
-
-.mobile-menu-header img {
-    height: 30px;
-}
-
-.mobile-menu-close {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--text-dark);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.mobile-nav {
-    padding: var(--spacing-md);
-}
-
-.mobile-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.mobile-nav a {
-    display: block;
-    padding: var(--spacing-sm);
-    font-size: 16px;
-    color: var(--text-dark);
-    border-radius: 8px;
-    transition: all var(--transition-fast);
-}
-
-.mobile-nav a:hover {
+/* パンくずリストの調整（ヘッダー高さ変更に対応） */
+.breadcrumb {
     background: var(--accent-offwhite);
-    color: var(--primary-brown);
+    padding: var(--spacing-xs) 0;
+    margin-top: var(--header-height);
 }
 
-.mobile-menu-cta {
-    padding: var(--spacing-md);
-    border-top: 1px solid var(--border-gray);
+@media (max-width: 768px) {
+    .breadcrumb {
+        margin-top: var(--header-height-mobile);
+    }
 }
 
-.mobile-menu-cta .cta-button {
-    width: 100%;
-    text-align: center;
+/* ヒーローセクションの調整 */
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* ヘッダーとの重複を防ぐ */
+    margin-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+        margin-top: var(--header-height-mobile);
+    }
+}
+
+/* スクロール時の動作を完全に無効化 */
+.main-header.scrolled {
+    /* すべてのスクロール時の変更を無効化 */
+    height: var(--header-height) !important;
+    min-height: var(--header-height) !important;
+}
+
+@media (max-width: 768px) {
+    .main-header.scrolled {
+        height: var(--header-height-mobile) !important;
+        min-height: var(--header-height-mobile) !important;
+    }
 }
 
 /* ===============================================
