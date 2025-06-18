@@ -3763,25 +3763,28 @@ section {
 .mobile-cta-button {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 14px 24px;
-    background: var(--gradient-warm);
-    color: var(--base-white);
+    gap: 8px;
+    background: linear-gradient(135deg, #00C300 0%, #00B900 100%);
+    color: white;
+    padding: 12px 20px;
     border-radius: 25px;
+    text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
-    box-shadow: var(--shadow-medium);
-    transition: all var(--transition-fast);
-}
-
-.mobile-cta-button:active {
-    transform: scale(0.98);
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0, 195, 0, 0.3);
+    transition: all 0.3s ease;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .mobile-cta-button i {
     font-size: 18px;
+    color: white;
+}
+
+.mobile-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
 }
 
 /* Back to Top Buttonの位置調整（モバイルCTAと重ならないように） */
