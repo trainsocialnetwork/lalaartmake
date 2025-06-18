@@ -3384,12 +3384,12 @@ section {
 }
 
 .footer-top {
-    padding: 80px 0 40px;
+    padding: 40px 0 40px;
 }
 
 @media (max-width: 768px) {
     .footer-top {
-        padding: 60px 0 32px;
+        padding: 30px 0 32px;
     }
 }
 
