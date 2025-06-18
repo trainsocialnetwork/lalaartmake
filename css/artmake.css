@@ -385,7 +385,7 @@ p {
 /* モバイル用のロゴサイズ調整 */
 @media (max-width: 768px) {
     .logo img {
-        height: 50px !important;
+        height: 60px !important;
     }
 }
 
