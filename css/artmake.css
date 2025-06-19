@@ -1009,6 +1009,7 @@ section {
 .campaign-section {
     background: var(--accent-offwhite);
     padding: 50px 0;
+   overflow: visible; 
 }
 
 @media (max-width: 768px) {
@@ -1023,6 +1024,20 @@ section {
     max-width: 900px;
 }
 
+/* Swiperコンテナの追加スタイル */
+.campaign-slider .swiper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* スライド要素のz-index調整 */
+.campaign-slider .swiper-slide {
+    position: relative;
+    z-index: 1;
+    height: auto;
+}
+
 .campaign-link {
     display: block;
     border-radius: 16px;
@@ -1030,6 +1045,7 @@ section {
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
     aspect-ratio: 1.91 / 1;
+   position: relative; /* 追加 */
 }
 
 @media (max-width: 768px) {
@@ -1054,21 +1070,34 @@ section {
     transform: scale(1.05);
 }
 
+/* Swiper pagination フォールバックスタイル */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20px !important;
+    left: 0;
+    width: 100%;
+}
+
 .swiper-pagination {
     bottom: -40px !important;
 }
 
 .swiper-pagination-bullet {
-    background: var(--border-gray);
-    opacity: 1;
-    width: 10px;
-    height: 10px;
+    background: var(--border-gray) !important;
+    opacity: 1 !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 5px !important;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-block !important;
+    border-radius: 50% !important;
 }
 
 .swiper-pagination-bullet-active {
-    background: var(--primary-brown);
-    width: 30px;
-    border-radius: 5px;
+    background: var(--primary-brown) !important;
+    width: 30px !important;
+    border-radius: 5px !important;
 }
 
 .swiper-button-next,
@@ -1093,7 +1122,19 @@ section {
     }
     
     .swiper-pagination {
-        bottom: -30px !important; /* ドットの位置調整 */
+               bottom: 15px !important; /* モバイル用に位置調整 */Add commentMore actions
+    }
+       .campaign-slider {
+        padding-bottom: 50px; /* モバイル用に調整 */
+    }    
+    .swiper-pagination-bullet {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 4px !important;
+    }
+    
+    .swiper-pagination-bullet-active {
+        width: 24px !important;
     }
 }
 
@@ -3076,13 +3117,11 @@ section {
 
 .news-category {
     display: inline-block;
-    top: 15px;
-    left: 15px;
     background: var(--gradient-warm);
     color: var(--base-white);
-    padding: 5px 15px;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     margin-right: 12px;
 }
@@ -3096,6 +3135,12 @@ section {
     font-size: 14px;
     color: var(--secondary-beige);
     margin-bottom: var(--spacing-xs);
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .news-title {
@@ -3117,9 +3162,34 @@ section {
     text-align: center;
 }
 
+/* モバイル対応 */Add commentMore actions
 @media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
     .news-category {
-       margin-right: 8px;
+        font-size: 10px;
+        padding: 3px 10px;
+        margin-right: 8px;
+    }
+    
+    .news-date {
+        font-size: 12px;
+    }
+    
+    .news-meta {
+        margin-bottom: 8px;
+    }
+    
+    .news-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .news-excerpt {
+        font-size: 13px;
     }
 }
 
