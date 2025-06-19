@@ -328,7 +328,9 @@ class CampaignSlider {
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: true, // 追加：モバイルでの見やすさ向上
+                dynamicBullets: false, // 追加：モバイルでの見やすさ向上
+                enderBullet: function (index, className) {
+                    return '<span class="' + className + '"></span>';
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -350,10 +352,27 @@ class CampaignSlider {
                         enabled: false
                     }
                 }
-            }
+            },
+            // 初期化完了時のコールバック
+            on: {
+                init: function () {
+                    console.log('Swiper initialized');
+                    // ページネーションが正しく初期化されているか確認
+                    const pagination = document.querySelector('.swiper-pagination');
+                    if (pagination && pagination.children.length === 0) {
+                        console.warn('Pagination not rendered properly');
+                    }
+                },
+            },
         });
+        
+        // 手動でupdateを実行（念のため）
+        setTimeout(() => {
+            if (campaignSwiper && campaignSwiper.update) {
+                campaignSwiper.update();
+            }
+        }, 100);
     }
-}
 
 // ===============================================
 // 7. タブ切り替え（症例写真）
