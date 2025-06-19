@@ -3088,6 +3088,7 @@ section {
 
 .news-content {
     padding: var(--spacing-lg);
+    padding-top: 20px;
 }
 
 .news-date {
