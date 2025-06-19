@@ -3075,7 +3075,7 @@ section {
 }
 
 .news-category {
-    position: absolute;
+    display: inline-block;
     top: 15px;
     left: 15px;
     background: var(--gradient-warm);
@@ -3084,6 +3084,7 @@ section {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
+    margin-right: 12px;
 }
 
 .news-content {
@@ -3114,6 +3115,12 @@ section {
 
 .news-more {
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .news-category {
+       margin-right: 8px;
+    }
 }
 
 /* ===============================================
