@@ -1,0 +1,718 @@
+/* ===============================================
+   眉アートメイク詳細ページ - スタイルシート
+   Version: 1.0
+   =============================================== */
+
+/* ===============================================
+   1. Page Hero Section
+   =============================================== */
+.page-hero {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--header-height);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: 300px;
+        margin-top: var(--header-height-mobile);
+    }
+}
+
+.page-hero-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.page-hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(107, 79, 60, 0.7) 0%,
+        rgba(161, 134, 111, 0.5) 100%
+    );
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--base-white);
+    padding: 0 var(--spacing-md);
+}
+
+.page-hero-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .page-hero-title {
+        font-size: 28px;
+    }
+}
+
+/* ===============================================
+   2. Page Navigation (Sticky)
+   =============================================== */
+.page-nav {
+    position: sticky;
+    top: var(--header-height);
+    background: var(--base-white);
+    border-bottom: 1px solid var(--border-gray);
+    z-index: 900;
+    transition: all var(--transition-normal);
+}
+
+@media (max-width: 768px) {
+    .page-nav {
+        top: var(--header-height-mobile);
+    }
+}
+
+.page-nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md) 0;
+}
+
+@media (max-width: 768px) {
+    .page-nav-list {
+        gap: var(--spacing-sm);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .page-nav-list::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.page-nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .page-nav-link {
+        font-size: 14px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+.page-nav-link:hover,
+.page-nav-link.active {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+}
+
+/* ===============================================
+   3. Content Sections
+   =============================================== */
+.content-section {
+    padding: var(--spacing-xxxl) 0;
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        padding: var(--spacing-xxl) 0;
+    }
+}
+
+.content-section.bg-light {
+    background: var(--accent-offwhite);
+}
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .container-narrow {
+        padding: 0 var(--spacing-md);
+    }
+}
+
+/* ===============================================
+   4. Typography Extensions
+   =============================================== */
+.section-title-left {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+    font-size: clamp(28px, 4vw, 36px);
+    position: relative;
+    padding-left: 20px;
+}
+
+.section-title-left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
+}
+
+.section-title-center {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: clamp(28px, 4vw, 36px);
+}
+
+.lead-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xl);
+}
+
+.lead-text-center {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xxl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .lead-text,
+    .lead-text-center {
+        font-size: 16px;
+    }
+}
+
+.subsection {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.subsection-title {
+    font-size: 24px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+}
+
+@media (max-width: 768px) {
+    .subsection-title {
+        font-size: 20px;
+    }
+}
+
+/* ===============================================
+   5. Content with Image Layout
+   =============================================== */
+.content-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .content-with-image {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+.content-text {
+    order: 1;
+}
+
+.content-image {
+    order: 2;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===============================================
+   6. Benefits Grid
+   =============================================== */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+.benefit-item {
+    background: var(--base-white);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-icon i {
+    font-size: 24px;
+    color: var(--base-white);
+}
+
+.benefit-item h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-darker);
+}
+
+.benefit-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* ===============================================
+   7. Design Features
+   =============================================== */
+.design-features {
+    margin-top: var(--spacing-xxl);
+}
+
+.design-feature {
+    margin-bottom: var(--spacing-xxl);
+    padding: var(--spacing-xl);
+    background: var(--accent-light-beige);
+    border-radius: 20px;
+}
+
+.feature-title {
+    font-size: 22px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.feature-title::before {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
+}
+
+.feature-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.feature-content.with-image {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .feature-content.with-image {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* ===============================================
+   8. Technique Cards
+   =============================================== */
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .technique-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.technique-card {
+    background: var(--base-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+}
+
+.technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.technique-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.technique-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technique-content {
+    padding: var(--spacing-lg);
+}
+
+.technique-content h3 {
+    font-size: 20px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
+}
+
+.technique-content p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ===============================================
+   9. Types Section
+   =============================================== */
+.section-lead {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--text-dark);
+}
+
+.types-container {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.type-card {
+    background: var(--base-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.type-header {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+}
+
+.type-header h3 {
+    color: var(--base-white);
+    margin: 0;
+    font-size: 24px;
+}
+
+.type-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.type-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.type-content {
+    padding: var(--spacing-xl);
+}
+
+.type-content > p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.type-recommend {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+.type-recommend h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+}
+
+.type-recommend ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.type-recommend li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 15px;
+}
+
+.type-recommend li i {
+    color: var(--secondary-beige);
+    flex-shrink: 0;
+}
+
+/* ===============================================
+   10. Pricing Table (Simple)
+   =============================================== */
+.simple-pricing-table {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-medium);
+}
+
+.simple-pricing-table table {
+    width: 100%;
+    background: var(--base-white);
+    border-collapse: collapse;
+}
+
+.simple-pricing-table thead {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+}
+
+.simple-pricing-table th {
+    padding: var(--spacing-md);
+    font-weight: 600;
+    text-align: left;
+}
+
+.simple-pricing-table th:last-child {
+    text-align: right;
+}
+
+.simple-pricing-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.simple-pricing-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.simple-pricing-table .price {
+    text-align: right;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-brown);
+}
+
+/* ===============================================
+   11. Caution Grid
+   =============================================== */
+.caution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .caution-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.caution-item {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-brown);
+}
+
+.caution-item h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
+}
+
+.caution-item h4 i {
+    margin-right: var(--spacing-xs);
+}
+
+.caution-item p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ===============================================
+   12. CTA Section
+   =============================================== */
+.cta-section {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    padding: var(--spacing-xxxl) 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: var(--spacing-md);
+    color: var(--base-white);
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===============================================
+   13. Supervisor Section
+   =============================================== */
+.supervisor-section {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-gray);
+    text-align: center;
+}
+
+.supervisor-title {
+    font-size: 20px;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-darker);
+}
+
+.supervisor-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.supervisor-info h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.supervisor-info p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+/* ===============================================
+   14. Utility Classes
+   =============================================== */
+.pc-only {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .pc-only {
+        display: none;
+    }
+}
+
+.center-button {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* ===============================================
+   15. Cases Grid (Before/After)
+   =============================================== */
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .cases-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Reuse case-card styles from main CSS */
+
+/* ===============================================
+   16. Animations
+   =============================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
