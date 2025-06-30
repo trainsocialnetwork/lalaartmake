@@ -15,7 +15,7 @@
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-sm) 0;
+        padding: var(--spacing-lg) 0;
     }
 }
 
@@ -46,7 +46,7 @@
 
 .page-hero-visual {
     width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 @media (max-width: 768px) {
@@ -276,32 +276,22 @@
     box-shadow: var(--shadow-medium);
 }
 
-.benefit-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-warm);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.benefit-icon i {
-    font-size: 24px;
-    color: var(--base-white);
-}
-
 .benefit-item h4 {
     font-size: 18px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     color: var(--text-darker);
+    font-weight: 600;
+}
+
+.benefit-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
 .benefit-item .content-image {
     width: 100%;
     height: 200px;
-    margin-bottom: var(--spacing-md);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-small);
@@ -322,39 +312,36 @@
     font-size: 15px;
     line-height: 1.7;
     color: var(--text-dark);
+    margin: 0;
 }
 
 @media (max-width: 768px) {
     .benefit-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
         padding: var(--spacing-md);
-    }
-    
-    .benefit-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: var(--spacing-sm);
-    }
-    
-    .benefit-icon i {
-        font-size: 20px;
     }
     
     .benefit-item h4 {
         font-size: 16px;
-        margin-bottom: var(--spacing-xs);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .benefit-content-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
     }
     
     .benefit-item .content-image {
-        height: 150px;
-        margin-bottom: var(--spacing-sm);
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+        border-radius: 8px;
     }
     
     .benefit-item p {
         font-size: 14px;
+        flex: 1;
     }
 }
 
