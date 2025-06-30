@@ -3499,6 +3499,75 @@ section {
 }
 
 /* ===============================================
+   24-2. CTA Banner Section
+   =============================================== */
+.cta-banner-section {
+    background: var(--base-white);
+    padding: var(--spacing-xxl) 0;
+}
+
+@media (max-width: 768px) {
+    .cta-banner-section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+.cta-banner-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cta-banner-link {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+    aspect-ratio: 1.91 / 1; /* アスペクト比を設定 */
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .cta-banner-link {
+        border-radius: 12px;
+    }
+}
+
+.cta-banner-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.cta-banner-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.cta-banner-link:hover img {
+    transform: scale(1.05);
+}
+
+/* 古いブラウザ用のフォールバック */
+@supports not (aspect-ratio: 1.91 / 1) {
+    .cta-banner-link {
+        position: relative;
+        padding-bottom: 52.36%; /* 1/1.91 * 100% */
+        height: 0;
+    }
+    
+    .cta-banner-link img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ===============================================
    24. Footer
    =============================================== */
 .main-footer {
