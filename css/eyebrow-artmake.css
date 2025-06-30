@@ -893,25 +893,69 @@
 }
 
 /* ===============================================
-   15. Cases Grid (Before/After)
+   15. Cases Section (Gallery)
    =============================================== */
-.cases-grid {
+.cases-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr 1fr; /* 常に2列 */
     gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-image-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image-container:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-large);
+}
+
+.gallery-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {
-    .cases-grid {
-        grid-template-columns: 1fr;
+    .cases-gallery-grid {
         gap: var(--spacing-md);
+    }
+    .gallery-image-container {
+        border-radius: 12px;
     }
 }
 
-/* Reuse case-card styles from main CSS */
+/* ===============================================
+   16. FAQ Animation (New)
+   =============================================== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px; /* 十分な高さを確保 */
+}
+
+.faq-icon i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon i {
+    transform: rotate(135deg);
+}
 
 /* ===============================================
-   16. Animations
+   17. Animations
    =============================================== */
 .fade-in {
     opacity: 0;
