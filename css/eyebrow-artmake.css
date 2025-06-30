@@ -15,7 +15,7 @@
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-sm) 0;
     }
 }
 
