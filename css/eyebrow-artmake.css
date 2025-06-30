@@ -326,22 +326,52 @@
     }
     
     .benefit-content-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: var(--spacing-sm);
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
     }
     
     .benefit-item .content-image {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
+        width: 80px !important;
+        min-width: 80px !important;
+        height: 80px !important;
+        flex-shrink: 0 !important;
         border-radius: 8px;
+        display: block !important;
     }
     
     .benefit-item p {
         font-size: 14px;
-        flex: 1;
+        flex: 1 !important;
+        margin: 0;
+        line-height: 1.6;
+        text-align: left;
+    }
+}
+
+/* benefit-icon関連のスタイルを削除 */
+.benefit-icon {
+    display: none;
+}
+
+/* さらに小さな画面用の調整 */
+@media (max-width: 480px) {
+    .benefit-content-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+    
+    .benefit-item .content-image {
+        width: 70px !important;
+        min-width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .benefit-item p {
+        font-size: 13px;
     }
 }
 
