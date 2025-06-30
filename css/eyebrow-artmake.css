@@ -593,6 +593,13 @@
     object-fit: cover;
 }
 
+@media (max-width: 768px) {
+    .type-image img {
+        height: auto;
+        object-fit: contain;
+    }
+}
+
 .type-content {
     padding: var(--spacing-xl);
 }
