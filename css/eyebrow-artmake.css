@@ -231,6 +231,15 @@
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
+
+    /* スマホ版で画像を先に表示 */
+    .content-with-image .content-image {
+        order: 1;
+    }
+    
+    .content-with-image .content-text {
+        order: 2;
+    }
 }
 
 .content-text {
