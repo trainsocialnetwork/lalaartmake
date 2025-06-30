@@ -119,28 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // アニメーション
     new SimpleAnimationObserver();
-    
-    // FAQアコーディオン
-    const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems.length) {
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            if (question) {
-                question.addEventListener('click', () => {
-                    // クリックされたアイテムが既にアクティブだったか確認
-                    const wasActive = item.classList.contains('active');
-                    
-                    // すべてのアイテムから 'active' クラスを一旦削除
-                    faqItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                    });
-                    
-                    // もしクリックされたアイテムがアクティブでなかった場合、'active' クラスを追加
-                    if (!wasActive) {
-                        item.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
 });
