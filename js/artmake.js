@@ -1051,7 +1051,7 @@ class BubbleAnimation {
 class MobileFixedCTA {
     constructor() {
         this.button = document.getElementById('mobileFixedCTA');
-        this.heroSection = document.querySelector('.hero');
+        this.heroSection = document.querySelector('.hero, .page-hero');
         this.lastScrollTop = 0;
         this.isShown = false;
         this.heroThreshold = 0;
