@@ -369,7 +369,7 @@ p {
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-sm); /* セミコロンを追加 */
+    padding: 0 var(--spacing-lg); /* セミコロンを追加 */
     height: 100%;
     display: flex;
     align-items: center;
