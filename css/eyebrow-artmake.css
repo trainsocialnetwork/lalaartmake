@@ -77,8 +77,6 @@
    2. Page Navigation (Sticky)
    =============================================== */
 .page-nav {
-    position: sticky;
-    top: var(--header-height);
     background: var(--base-white);
     border-bottom: 1px solid var(--border-gray);
     z-index: 900;
