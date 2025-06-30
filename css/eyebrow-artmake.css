@@ -477,20 +477,6 @@
     border-radius: 12px;
 }
 
-.technique-image {
-    width: 100%;
-    margin-bottom: var(--spacing-md);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-medium);
-}
-
-.technique-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 /* ===============================================
    8. Technique Cards
    =============================================== */
