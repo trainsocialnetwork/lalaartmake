@@ -32,10 +32,6 @@ class PageNavigation {
             }
         });
         
-        // スクロールイベントの監視
-        this.handleScroll();
-        window.addEventListener('scroll', () => this.handleScroll());
-        
         // クリックイベント
         this.links.forEach(link => {
             link.addEventListener('click', (e) => this.handleClick(e));
