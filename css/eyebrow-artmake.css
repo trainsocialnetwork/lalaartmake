@@ -617,7 +617,10 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
 .technique-image {
-    height: 100%;
+    object-fit:contain;
+   }
+.technique-image img {
+   object-fit:contain;
    }
 }
 
