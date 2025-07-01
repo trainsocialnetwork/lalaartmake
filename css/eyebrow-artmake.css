@@ -596,7 +596,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .technique-image {
-    height: 200px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -613,15 +613,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
 .technique-content {
     padding: var(--spacing-md); /*スマホ版だけ左右を24に。*/
-   }
-}
-
-@media (max-width: 768px) {
-.technique-image {
-    object-fit:contain;
-   }
-.technique-image img {
-   object-fit:contain;
    }
 }
 
