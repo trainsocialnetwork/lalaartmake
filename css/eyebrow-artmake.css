@@ -465,17 +465,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     font-size: 22px;
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.feature-title::before {
-    content: '';
-    width: 30px;
-    height: 3px;
-    background: var(--gradient-warm);
-    border-radius: 2px;
 }
 
 .instagram-video-wrapper {
