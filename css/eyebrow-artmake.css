@@ -863,7 +863,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .caution-list li {
     display: flex;
-    align-items: flex-start;
+    align-items: baseline; /* flex-startからbaselineに変更 */
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
     line-height: 1.8;
@@ -884,9 +884,9 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .caution-list li i {
     flex-shrink: 0;
-    margin-top: 6px;
     font-size: 8px;
     color: var(--secondary-beige);
+    line-height: inherit;
 }
 
 .caution-list li i.fa-times {
@@ -896,7 +896,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .caution-list li i.fa-info-circle {
     color: #3498db;
     font-size: 14px;
-    margin-top: 3px;
+    /* margin-top: 3px; を削除 */
 }
 
 .caution-text {
@@ -949,15 +949,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     .caution-note {
         font-size: 13px;
     }
-}
-
-/* 旧スタイルは削除 */
-.caution-grid {
-    display: none;
-}
-
-.caution-item {
-    display: none;
 }
 
 /* ===============================================
