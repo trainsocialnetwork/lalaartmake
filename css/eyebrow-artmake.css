@@ -8,7 +8,7 @@
    =============================================== */
 .page-title-section {
     background: var(--base-white);
-    padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+    padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
     text-align: center;
     margin-top: 0;
 }
