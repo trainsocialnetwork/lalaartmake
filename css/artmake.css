@@ -2473,7 +2473,7 @@ section {
 
 @media (max-width: 768px) {
     .flow-text h3 {
-        font-size: 18px;
+        font-size: 16px; /*18→16に*/
         margin-bottom: 10px;
     }
 }
@@ -2486,7 +2486,7 @@ section {
 
 @media (max-width: 768px) {
     .flow-text p {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.6;
     }
 }
