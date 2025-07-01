@@ -15,7 +15,8 @@
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-sm) 0 var(--spacing-xs) 0; /* さらに縮小 */
+        padding: var(--spacing-md) 0 var(--spacing-xs) 0; /*トップを、--spacing-sm: 16px;から、--spacing-md: 24px;に */
+        align: left;　/*左側に戻す */
     }
 }
 
@@ -31,6 +32,7 @@
 @media (max-width: 768px) {
     .page-title {
         font-size: 26px;
+        align: left; /*左側に戻す */
     }
 }
 
@@ -86,7 +88,7 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding: var(--spacing-sm) var(--spacing-md);
+        padding: 20px 20px;
     }
     
     .page-nav-list::-webkit-scrollbar {
