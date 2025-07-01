@@ -1034,6 +1034,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
+@media (min-width: 769px) {
+    .sp-only {
+        display: none;
+    }
+}
+
 .center-button {
     text-align: center;
     margin-top: var(--spacing-xl);
