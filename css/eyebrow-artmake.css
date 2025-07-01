@@ -379,12 +379,16 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
     
     .benefit-item {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm); /* パディングを縮小 */
+        width: 100%; /* 横幅を最大に */
+        max-width: none; /* 幅制限を解除 */
     }
     
     .benefit-item h4 {
         font-size: 16px;
         margin-bottom: var(--spacing-sm);
+        line-height: 1.4; /* 改行対応 */
+        word-wrap: break-word; /* 長いタイトルの改行を許可 */
     }
     
     /* 横並びレイアウトを強制 */
@@ -392,19 +396,17 @@ p, .content-text p, .technique-content p, .type-content > p {
         display: flex !important;
         flex-direction: row !important;
         align-items: flex-start !important;
-        gap: 16px !important;
+        gap: 12px !important; /* 間隔を少し縮小 */
         width: 100% !important;
     }
     
-    /* 画像を縦に広げて、リード文の高さまで拡張 */
+    /* 画像をより大きく、縦長に */
     .benefit-item .content-image {
-        width: 100px !important;
-        min-width: 100px !important;
-        max-width: 100px !important;
-        height: auto !important; /* 高さを自動調整 */
-        min-height: 100px !important; /* 最小高さ */
-        align-self: stretch !important; /* 親要素の高さに合わせる */
-        flex: 0 0 100px !important;
+        width: 120px !important; /* 100px → 120pxに拡大 */
+        min-width: 120px !important;
+        max-width: 120px !important;
+        height: 150px !important; /* 縦を150pxに固定（縦長） */
+        flex: 0 0 120px !important;
         flex-shrink: 0 !important;
         border-radius: 8px;
         display: block !important;
@@ -414,6 +416,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     .benefit-text {
         flex: 1 !important;
         min-width: 0 !important;
+        padding-right: var(--spacing-xs); /* 右側に少し余白 */
     }
     
     .benefit-item p {
@@ -427,21 +430,23 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 /* さらに小さな画面用の調整 */
 @media (max-width: 480px) {
+    .benefit-item {
+        padding: 10px !important; /* さらにパディングを縮小 */
+    }
+    
     .benefit-content-wrapper {
         display: flex !important;
         flex-direction: row !important;
         align-items: flex-start !important;
-        gap: 14px !important;
+        gap: 10px !important;
     }
     
     .benefit-item .content-image {
-        width: 90px !important;
-        min-width: 90px !important;
-        max-width: 90px !important;
-        height: auto !important;
-        min-height: 90px !important;
-        align-self: stretch !important;
-        flex: 0 0 90px !important;
+        width: 100px !important; /* 90px → 100pxに拡大 */
+        min-width: 100px !important;
+        max-width: 100px !important;
+        height: 125px !important; /* 縦を125pxに固定（縦長） */
+        flex: 0 0 100px !important;
     }
     
     .benefit-item p {
