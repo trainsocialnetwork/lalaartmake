@@ -354,7 +354,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     height: 120px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-small);
     margin-left: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
 }
