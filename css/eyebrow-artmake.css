@@ -666,7 +666,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .type-header h3 {
     color: var(--base-white);
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .type-image {
