@@ -144,7 +144,7 @@
 
 @media (max-width: 768px) {
     .container-narrow {
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--spacing-sm);
     }
 }
 
@@ -196,7 +196,7 @@
     .section-title,
     .section-title-left,
     .section-title-center {
-        font-size: 26px; /* h1と同じサイズ */
+        font-size: 24px; /* h1と同じサイズ */
     }
 }
 
@@ -482,7 +482,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .feature-title {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
 }
@@ -577,7 +577,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .technique-card {
     background: var(--base-white);
-    border-radius: 16px;
+    border-radius: 8px; /*16から8に*/
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
@@ -601,6 +601,18 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .technique-content {
     padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+.technique-content {
+    padding: var(--spacing-md); /*スマホ版だけ左右を24に。*/
+   }
+}
+
+@media (max-width: 768px) {
+.technique-image {
+    height: 100%;
+   }
 }
 
 .technique-content h3 {
@@ -657,7 +669,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .type-card {
     background: var(--base-white);
-    border-radius: 20px;
+    border-radius: 8px; /*20から8に*/
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -704,6 +716,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     padding: var(--spacing-xl);
 }
 
+@media (max-width: 768px) {
+   .type-content {
+       padding: 0 var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
+   }
+}
+
 .type-content > p {
     font-size: 18px;
     line-height: 1.8;
@@ -726,6 +744,14 @@ p, .content-text p, .technique-content p, .type-content > p {
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
     border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+   .type-recommend {
+       background: var(--accent-light-beige);
+       padding: var(--spacing-lg) var(--spacing-md);
+       border-radius: 12px;
+   }
 }
 
 .type-recommend h4 {
