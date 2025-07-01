@@ -542,7 +542,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     border-radius: 12px;
 }
 
-.technique-image {
+.design-image {
     width: 100%;
     margin-bottom: var(--spacing-md);
     border-radius: 12px;
@@ -550,7 +550,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     box-shadow: var(--shadow-medium);
 }
 
-.technique-image img {
+.design-image img {
     width: 100%;
     height: auto;
     display: block;
