@@ -337,8 +337,18 @@ p, .content-text p, .technique-content p, .type-content > p {
     box-shadow: var(--shadow-medium);
 }
 
+.benefit-image {
+    order: 2;
+}
+
+.benefit-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
 /* 画像を右側にフロート */
-.benefit-item .content-image {
+.benefit-item .benefit-image {
     float: right;
     width: 120px;
     height: 120px;
@@ -349,14 +359,14 @@ p, .content-text p, .technique-content p, .type-content > p {
     margin-bottom: var(--spacing-sm);
 }
 
-.benefit-item .content-image img {
+.benefit-item .benefit-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
 }
 
-.benefit-item:hover .content-image img {
+.benefit-item:hover .benefit-image img {
     transform: scale(1.05);
 }
 
