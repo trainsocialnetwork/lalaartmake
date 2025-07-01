@@ -1,5 +1,4 @@
-
-===============================================
+/* ===============================================
    眉アートメイク詳細ページ - スタイルシート
    Version: 1.0
    =============================================== */
@@ -9,14 +8,14 @@
    =============================================== */
 .page-title-section {
     background: var(--base-white);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0 var(--spacing-md) 0; /* 下側のパディングを縮小 */
     text-align: center;
     margin-top: 0;
 }
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-md) 0 var(--spacing-sm) 0; /* モバイルも調整 */
     }
 }
 
@@ -200,6 +199,13 @@
     }
 }
 
+@media (max-width: 480px) {
+    .lead-text,
+    .lead-text-center {
+        font-size: 15px;
+    }
+}
+
 .subsection {
     margin-bottom: var(--spacing-xxl);
 }
@@ -213,6 +219,24 @@
 @media (max-width: 768px) {
     .subsection-title {
         font-size: 20px;
+    }
+}
+
+/* 標準文字のフォントサイズ統一 */
+p, .content-text p, .technique-content p, .type-content > p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    p, .content-text p, .technique-content p, .type-content > p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    p, .content-text p, .technique-content p, .type-content > p {
+        font-size: 14px;
     }
 }
 
@@ -294,7 +318,7 @@
 
 .benefit-item .content-image {
     width: 100%;
-    height: 200px;
+    height: 250px; /* 200px → 250pxに拡大 */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-small);
@@ -312,8 +336,8 @@
 }
 
 .benefit-item p {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px; /* 15px → 16pxに統一 */
+    line-height: 1.8; /* 1.7 → 1.8に統一 */
     color: var(--text-dark);
     margin: 0;
 }
@@ -343,16 +367,16 @@
         display: flex !important;
         flex-direction: row !important;
         align-items: flex-start !important;
-        gap: 12px !important;
+        gap: 16px !important; /* 間隔も少し広げる */
         width: 100% !important;
     }
     
     .benefit-item .content-image {
-        width: 80px !important;
-        min-width: 80px !important;
-        max-width: 80px !important;
-        height: 80px !important;
-        flex: 0 0 80px !important;
+        width: 100px !important; /* 80px → 100pxに拡大 */
+        min-width: 100px !important;
+        max-width: 100px !important;
+        height: 100px !important;
+        flex: 0 0 100px !important;
         flex-shrink: 0 !important;
         border-radius: 8px;
         display: block !important;
@@ -365,7 +389,7 @@
     }
     
     .benefit-item p {
-        font-size: 14px;
+        font-size: 15px;
         margin: 0;
         line-height: 1.6;
         text-align: left;
@@ -379,19 +403,19 @@
         display: flex !important;
         flex-direction: row !important;
         align-items: flex-start !important;
-        gap: 10px !important;
+        gap: 14px !important;
     }
     
     .benefit-item .content-image {
-        width: 70px !important;
-        min-width: 70px !important;
-        max-width: 70px !important;
-        height: 70px !important;
-        flex: 0 0 70px !important;
+        width: 90px !important; /* 70px → 90pxに拡大 */
+        min-width: 90px !important;
+        max-width: 90px !important;
+        height: 90px !important;
+        flex: 0 0 90px !important;
     }
     
     .benefit-item p {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -404,14 +428,21 @@
    7. Design Features
    =============================================== */
 .design-features {
-    margin-top: var(--spacing-xxl);
+    margin-top: var(--spacing-xl); /* xxl → xlに縮小 */
 }
 
 .design-feature {
-    margin-bottom: var(--spacing-xxl);
-    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl); /* xxl → xlに縮小 */
+    padding: var(--spacing-lg); /* xl → lgに縮小 */
     background: var(--accent-light-beige);
     border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .design-feature {
+        padding: var(--spacing-md); /* モバイルも調整 */
+        margin-bottom: var(--spacing-lg);
+    }
 }
 
 .feature-title {
@@ -456,6 +487,18 @@
 .feature-content {
     font-size: 16px;
     line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .feature-content {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-content {
+        font-size: 14px;
+    }
 }
 
 .feature-content.with-image {
@@ -541,8 +584,20 @@
 }
 
 .technique-content p {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .technique-content p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .technique-content p {
+        font-size: 14px;
+    }
 }
 
 /* ===============================================
@@ -617,6 +672,18 @@
     margin-bottom: var(--spacing-lg);
 }
 
+@media (max-width: 768px) {
+    .type-content > p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-content > p {
+        font-size: 14px;
+    }
+}
+
 .type-recommend {
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
@@ -639,7 +706,19 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    font-size: 15px;
+    font-size: 16px; /* 15px → 16pxに統一 */
+}
+
+@media (max-width: 768px) {
+    .type-recommend li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-recommend li {
+        font-size: 14px;
+    }
 }
 
 .type-recommend li i {
@@ -741,8 +820,20 @@
     align-items: flex-start;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
-    line-height: 1.7;
-    font-size: 15px;
+    line-height: 1.8; /* 1.7 → 1.8に統一 */
+    font-size: 16px; /* 15px → 16pxに統一 */
+}
+
+@media (max-width: 768px) {
+    .caution-list li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caution-list li {
+        font-size: 14px;
+    }
 }
 
 .caution-list li i {
@@ -763,9 +854,21 @@
 }
 
 .caution-text {
-    font-size: 15px;
+    font-size: 16px; /* 15px → 16pxに統一 */
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .caution-text {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caution-text {
+        font-size: 14px;
+    }
 }
 
 .caution-note {
@@ -791,14 +894,12 @@
         font-size: 16px;
     }
     
-    .caution-list li {
+    .caution-note {
         font-size: 14px;
     }
-    
-    .caution-text {
-        font-size: 14px;
-    }
-    
+}
+
+@media (max-width: 480px) {
     .caution-note {
         font-size: 13px;
     }
@@ -869,9 +970,21 @@
 }
 
 .supervisor-info p {
-    font-size: 15px;
+    font-size: 16px; /* 15px → 16pxに統一 */
     line-height: 1.8;
     color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .supervisor-info p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .supervisor-info p {
+        font-size: 14px;
+    }
 }
 
 /* ===============================================
