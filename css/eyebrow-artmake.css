@@ -329,6 +329,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     border-radius: 16px;
     box-shadow: var(--shadow-small);
     transition: all var(--transition-normal);
+    overflow: hidden; /* フロートのクリアのため */
 }
 
 .benefit-item:hover {
@@ -336,30 +337,16 @@ p, .content-text p, .technique-content p, .type-content > p {
     box-shadow: var(--shadow-medium);
 }
 
-/* 新しいヘッダー部分のスタイル */
-.benefit-header {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
-.benefit-item h4 {
-    font-size: 18px;
-    color: var(--text-darker);
-    font-weight: 600;
-    flex: 1;
-    margin: 0;
-    line-height: 1.4;
-}
-
+/* 画像を右側にフロート */
 .benefit-item .content-image {
+    float: right;
     width: 120px;
     height: 120px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-small);
-    flex-shrink: 0;
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .benefit-item .content-image img {
@@ -373,8 +360,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     transform: scale(1.05);
 }
 
-.benefit-text {
-    width: 100%;
+.benefit-item h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-darker);
+    font-weight: 600;
+    clear: left; /* 左側のフロートをクリア */
 }
 
 .benefit-item p {
@@ -382,6 +373,13 @@ p, .content-text p, .technique-content p, .type-content > p {
     line-height: 1.8;
     color: var(--text-dark);
     margin: 0;
+}
+
+/* フロートのクリア */
+.benefit-item::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* モバイル版のスタイル */
@@ -397,19 +395,17 @@ p, .content-text p, .technique-content p, .type-content > p {
         max-width: none;
     }
     
-    .benefit-header {
-        gap: 12px;
-        margin-bottom: var(--spacing-sm);
+    .benefit-item .content-image {
+        width: 100px;
+        height: 125px; /* 縦長に */
+        margin-left: 12px;
+        margin-bottom: 10px;
     }
     
     .benefit-item h4 {
         font-size: 16px;
+        margin-bottom: var(--spacing-xs);
         word-wrap: break-word;
-    }
-    
-    .benefit-item .content-image {
-        width: 100px;
-        height: 100px;
     }
     
     .benefit-item p {
@@ -424,13 +420,10 @@ p, .content-text p, .technique-content p, .type-content > p {
         padding: 10px !important;
     }
     
-    .benefit-header {
-        gap: 10px;
-    }
-    
     .benefit-item .content-image {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 112px; /* 縦長の比率を維持 */
+        margin-left: 10px;
     }
     
     .benefit-item p {
