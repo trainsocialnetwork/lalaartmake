@@ -405,21 +405,23 @@ p, .content-text p, .technique-content p, .type-content > p {
         max-width: none;
     }
     
-    .benefit-item .content-image {
+    .benefit-item .benefit-image {
         width: 100px;
         height: 125px; /* 縦長に */
         margin-left: 12px;
         margin-bottom: 10px;
+        padding-top:var(--spacing-xs);
     }
     
     .benefit-item h4 {
         font-size: 16px;
         margin-bottom: var(--spacing-xs);
         word-wrap: break-word;
+        padding-top:var(--spacing-xs);
     }
     
     .benefit-item p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.8;
     }
 }
