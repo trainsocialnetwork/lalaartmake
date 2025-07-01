@@ -553,7 +553,8 @@ p, .content-text p, .technique-content p, .type-content > p {
 .design-image img {
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 /* ===============================================
