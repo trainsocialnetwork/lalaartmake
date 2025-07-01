@@ -719,7 +719,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
    .type-content {
-       padding: 0 var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
+       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
    }
 }
 
