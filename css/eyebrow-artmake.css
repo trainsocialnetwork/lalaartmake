@@ -16,7 +16,7 @@
 @media (max-width: 768px) {
     .page-title-section {
         padding: var(--spacing-md) 0 var(--spacing-xs) 0; /*トップを、--spacing-sm: 16px;から、--spacing-md: 24px;に */
-        align: left;　/*左側に戻す */
+        text-align: left; /* スマホ版は左寄せに戻す */
     }
 }
 
@@ -32,7 +32,7 @@
 @media (max-width: 768px) {
     .page-title {
         font-size: 26px;
-        align: left; /*左側に戻す */
+        text-align: left; /* スマホ版は左寄せに戻す */
     }
 }
 
