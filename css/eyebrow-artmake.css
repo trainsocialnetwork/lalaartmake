@@ -150,10 +150,20 @@
 /* ===============================================
    4. Typography Extensions
    =============================================== */
+/* 統一されたh2スタイル */
+.section-title,
+.section-title-left,
+.section-title-center {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-darker);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 左寄せバージョン */
 .section-title-left {
     text-align: left;
-    margin-bottom: var(--spacing-xl);
-    font-size: clamp(28px, 4vw, 36px);
     position: relative;
     padding-left: 20px;
 }
@@ -170,17 +180,21 @@
     border-radius: 2px;
 }
 
+/* 中央寄せバージョン */
 .section-title-center {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
-    font-size: clamp(28px, 4vw, 36px);
+}
+
+/* 基本のsection-titleも中央寄せ */
+.section-title {
+    text-align: center;
 }
 
 /* スマホ版でh2をh1と同じサイズに */
 @media (max-width: 768px) {
+    .section-title,
     .section-title-left,
-    .section-title-center,
-    .section-title {
+    .section-title-center {
         font-size: 26px; /* h1と同じサイズ */
     }
 }
