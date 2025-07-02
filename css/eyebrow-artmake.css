@@ -383,7 +383,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .benefit-item h4 {
     font-size: 18px;
     margin-bottom: var(--spacing-sm);
-    color: var(--text-darker);
+    color: #6B4F3C;
     font-weight: 600;
     clear: left; /* 左側のフロートをクリア */
 }
