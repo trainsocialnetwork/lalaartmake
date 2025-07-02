@@ -1,6 +1,6 @@
 /* ===============================================
    眉アートメイク詳細ページ - スタイルシート
-   Version: 1.1
+   Version: 1.2
    =============================================== */
 
 /* ===============================================
@@ -85,7 +85,7 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-xl);
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-md) var(--spacing-lg); /* 左右にパディングを追加 */
 }
 
 @media (max-width: 768px) {
@@ -96,10 +96,21 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         padding: 20px 20px;
+        /* スクロール時の余白を確保 */
+        padding-left: 30px;
+        padding-right: 30px;
     }
     
     .page-nav-list::-webkit-scrollbar {
         display: none;
+    }
+    
+    /* スクロール可能エリアの前後に余白を追加 */
+    .page-nav-list::before,
+    .page-nav-list::after {
+        content: '';
+        flex-shrink: 0;
+        width: 10px;
     }
 }
 
