@@ -1,191 +1,7 @@
+
 /* ===============================================
-   Homepage Modern Styles
+   Homepage Styles - Artmake統一デザイン
    =============================================== */
-
-/* Reset & Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Typography - Smaller font sizes */
-body {
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    color: #333;
-    font-weight: 300;
-    background: #fff;
-    overflow-x: hidden; /* 水平スクロールを防ぐ */
-}
-
-html {
-    overflow-x: hidden; /* 水平スクロールを防ぐ */
-}
-
-/* Header styles */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.header-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo img {
-    height: 60px;
-}
-
-.main-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-}
-
-.main-nav a {
-    font-size: 15px;
-    font-weight: 400;
-    color: #333;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: #6B4F3C;
-}
-
-/* Mobile menu toggle */
-.mobile-menu-toggle {
-    display: none;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .main-nav {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-/* Swiper Pagination */
-.swiper-pagination {
-    position: relative !important;
-    bottom: 0 !important;
-    margin-top: 20px;
-}
-
-.swiper-pagination-bullet {
-    background: #ccc;
-    opacity: 1;
-    width: 8px;
-    height: 8px;
-}
-
-.swiper-pagination-bullet-active {
-    background: #6B4F3C;
-    width: 20px;
-    border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-    .swiper-pagination {
-        margin-top: 16px;
-    }
-    
-    .swiper-pagination-bullet {
-        width: 6px;
-        height: 6px;
-        margin: 0 3px !important;
-    }
-    
-    .swiper-pagination-bullet-active {
-        width: 16px;
-    }
-}
-
-.mobile-menu-toggle span {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 24px;
-    height: 2px;
-    background: #6B4F3C;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu-toggle span:nth-child(1) {
-    top: 10px;
-}
-
-.mobile-menu-toggle span:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.mobile-menu-toggle span:nth-child(3) {
-    bottom: 10px;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-    transform: translateX(-50%) rotate(45deg);
-    top: 50%;
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-    transform: translateX(-50%) rotate(-45deg);
-    bottom: 50%;
-}
-
-/* Container with wider margins */
-.container-wide {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 60px;
-}
-
-@media (max-width: 768px) {
-    .container-wide {
-        padding: 0 20px; /* 24px→20pxに縮小 */
-    }
-}
-
-@media (max-width: 480px) {
-    .container-wide {
-        padding: 0 16px; /* さらに小さい画面では16px */
-    }
-}
 
 /* Modern Hero Section */
 .hero-modern {
@@ -286,395 +102,223 @@ html {
     }
 }
 
-/* Section spacing */
-section {
-    padding: 100px 0;
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 60px 0;
-    }
-}
-
-/* Modern section titles */
-.section-title-modern {
-    font-size: 32px;
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 60px;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-    .section-title-modern {
-        font-size: 24px;
-        margin-bottom: 40px;
-    }
-}
-
-/* Service Overview */
+/* ===============================================
+   1. Service Overview Section
+   =============================================== */
 .service-overview {
-    background: #fafafa;
+    /* artmake.cssのcontent-sectionスタイルを使用 */
 }
 
 .service-buttons {
     display: flex;
-    gap: 40px;
+    gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.service-link-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 40px;
-    background: transparent;
-    border: 1px solid #6B4F3C;
-    color: #6B4F3C;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    letter-spacing: 0.05em;
-}
-
-.service-link-button:hover {
-    background: #6B4F3C;
-    color: white;
-}
-
-/* Service Sections */
-.service-section {
-    background: white;
-}
-
-.service-section.bg-light {
-    background: #fafafa;
-}
-
-.service-title {
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 60px;
-    text-align: center;
+    margin-top: var(--spacing-xl);
 }
 
 @media (max-width: 768px) {
-    .service-title {
-        font-size: 24px;
-        margin-bottom: 40px;
+    .service-buttons {
+        gap: var(--spacing-sm);
     }
 }
 
-/* Service intro - modern layout */
+/* ===============================================
+   2. Service Content
+   =============================================== */
 .service-intro-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: var(--spacing-xl);
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: var(--spacing-xxl);
 }
 
 @media (max-width: 768px) {
     .service-intro-content {
         grid-template-columns: 1fr;
-        gap: 20px; /* 30px→20pxに縮小 */
-        margin-bottom: 40px;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
     }
 }
 
 .service-intro-image {
-    aspect-ratio: 16/9;
+    border-radius: 16px;
     overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .service-intro-image {
-        aspect-ratio: 4/3; /* スマホでは少し正方形寄りに */
-    }
+    box-shadow: var(--shadow-medium);
 }
 
 .service-intro-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
 }
 
-.service-intro-text {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .service-intro-text {
-        font-size: 13px;
-        line-height: 1.7;
-        padding: 0 10px; /* 左右に少し余白を追加 */
-    }
-}
-
-/* Service menu grid - no card style, margin differentiation */
+/* ===============================================
+   3. Service Menu Grid
+   =============================================== */
 .service-menu-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
-    margin-bottom: 80px;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
 }
 
 @media (max-width: 768px) {
     .service-menu-grid {
         grid-template-columns: 1fr;
-        gap: 40px; /* 50px→40pxに縮小 */
-        margin-bottom: 40px;
+        gap: var(--spacing-lg);
     }
 }
 
 .service-menu-item {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-}
-
-.service-menu-item h4 {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-    .service-menu-item h4 {
-        font-size: 18px;
-        margin-bottom: 16px;
-    }
-}
-
-.service-image {
-    aspect-ratio: 4/3;
+    background: var(--base-white);
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 20px;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
 }
 
-@media (max-width: 768px) {
-    .service-image {
-        aspect-ratio: 16/9; /* スマホでは横長に */
-        margin-bottom: 16px;
-    }
+.service-menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
 }
 
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.service-content {
+    padding: var(--spacing-lg);
 }
 
-.service-menu-item:hover .service-image img {
-    transform: scale(1.05);
+.service-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
 }
 
-.service-menu-item p {
-    font-size: 13px;
+.service-content p {
+    font-size: 15px;
     line-height: 1.8;
-    margin-bottom: 16px;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .service-menu-item p {
-        font-size: 12px;
-        line-height: 1.7;
-        margin-bottom: 12px;
-    }
+    margin-bottom: var(--spacing-md);
+    color: var(--text-dark);
 }
 
 .service-detail-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    color: #6B4F3C;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 400;
-    transition: gap 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .service-detail-link {
-        font-size: 12px;
-        font-weight: 500; /* スマホでは少し太く */
-    }
+    gap: var(--spacing-xs);
+    color: var(--primary-brown);
+    font-weight: 500;
+    font-size: 14px;
+    transition: gap var(--transition-normal);
 }
 
 .service-detail-link:hover {
-    gap: 12px;
+    gap: var(--spacing-sm);
 }
 
-/* Q&A Section */
+/* ===============================================
+   4. Q&A Section
+   =============================================== */
 .service-qa {
-    margin-top: 80px;
-    padding-top: 60px;
-    border-top: 1px solid #eee;
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-gray);
 }
 
-@media (max-width: 768px) {
-    .service-qa {
-        margin-top: 50px;
-        padding-top: 40px;
-    }
-}
-
-.service-qa h5 {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 30px;
+.qa-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
     text-align: center;
+    color: var(--text-darker);
 }
 
-@media (max-width: 768px) {
-    .service-qa h5 {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
+.qa-list {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .qa-item {
-    margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-    .qa-item {
-        margin-bottom: 20px;
-    }
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--accent-light-beige);
+    border-radius: 12px;
 }
 
 .qa-question {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-@media (max-width: 768px) {
-    .qa-question {
-        font-size: 13px;
-        margin-bottom: 6px;
-    }
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
 }
 
 .qa-answer {
-    font-size: 13px;
-    color: #666;
-    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-dark);
 }
 
-@media (max-width: 768px) {
-    .qa-answer {
-        font-size: 12px;
-        padding-left: 16px;
-        line-height: 1.6;
-    }
-}
-
-/* Why Choose Section */
-.why-choose {
-    background: white;
-}
-
-.section-lead {
-    text-align: center;
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 60px;
-}
-
-@media (max-width: 768px) {
-    .section-lead {
-        font-size: 14px;
-        margin-bottom: 40px;
-        padding: 0 20px;
-    }
-}
-
-/* Customer Voice */
+/* ===============================================
+   5. Customer Voice
+   =============================================== */
 .customer-voice {
-    margin-bottom: 100px;
-}
-
-@media (max-width: 768px) {
-    .customer-voice {
-        margin-bottom: 60px;
-    }
+    margin-bottom: var(--spacing-xxxl);
 }
 
 .customer-voice h3 {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 26px;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 60px;
-}
-
-@media (max-width: 768px) {
-    .customer-voice h3 {
-        font-size: 20px;
-        margin-bottom: 40px;
-    }
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
 }
 
 .voice-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: var(--spacing-lg);
 }
 
 @media (max-width: 1024px) {
     .voice-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 60px;
     }
 }
 
 @media (max-width: 768px) {
     .voice-grid {
-        grid-template-columns: repeat(2, 1fr); /* スマホでも2列維持 */
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
     }
 }
 
 .voice-item {
     text-align: center;
+    background: var(--base-white);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
+}
+
+.voice-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
 }
 
 .voice-header {
     font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    color: #6B4F3C;
-}
-
-@media (max-width: 768px) {
-    .voice-header {
-        font-size: 12px;
-        margin-bottom: 12px;
-        line-height: 1.4;
-    }
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
 }
 
 .voice-image {
+    width: 100%;
     aspect-ratio: 1/1;
     overflow: hidden;
-    margin-bottom: 20px;
-    border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-    .voice-image {
-        margin-bottom: 12px;
-    }
+    margin-bottom: var(--spacing-md);
+    border-radius: 8px;
 }
 
 .voice-image img {
@@ -684,279 +328,181 @@ section {
 }
 
 .voice-text {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-xs);
     font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .voice-text {
-        font-size: 11px;
-        line-height: 1.5;
-        margin-bottom: 6px;
-    }
+    color: var(--text-dark);
 }
 
 .voice-author {
-    font-size: 12px;
-    color: #999;
+    font-size: 13px;
+    color: var(--text-light);
 }
 
-@media (max-width: 768px) {
-    .voice-author {
-        font-size: 10px;
-    }
-}
-
-/* Modern Features */
+/* ===============================================
+   6. Features Modern
+   =============================================== */
 .features-modern {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: var(--spacing-xl);
 }
 
 @media (max-width: 768px) {
     .features-modern {
         grid-template-columns: 1fr;
-        gap: 30px; /* 40px→30pxに縮小 */
+        gap: var(--spacing-lg);
     }
 }
 
 .feature-modern {
-    background: transparent;
-    padding: 40px 0;
-    border-top: 1px solid #eee;
+    background: var(--accent-light-beige);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    text-align: center;
 }
 
-@media (max-width: 768px) {
-    .feature-modern {
-        padding: 30px 0;
-    }
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--base-white);
 }
 
 .feature-modern h3 {
     font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
     line-height: 1.5;
-}
-
-@media (max-width: 768px) {
-    .feature-modern h3 {
-        font-size: 18px;
-        margin-bottom: 20px;
-        line-height: 1.4;
-    }
+    color: var(--text-darker);
 }
 
 .feature-modern ul {
     list-style: none;
+    text-align: left;
 }
 
 .feature-modern li {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.8;
-    margin-bottom: 12px;
-    padding-left: 20px;
+    margin-bottom: var(--spacing-sm);
+    padding-left: 24px;
     position: relative;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .feature-modern li {
-        font-size: 12px;
-        line-height: 1.7;
-        margin-bottom: 10px;
-        padding-left: 16px;
-    }
+    color: var(--text-dark);
 }
 
 .feature-modern li::before {
     content: "・";
     position: absolute;
-    left: 0;
+    left: 8px;
+    color: var(--secondary-beige);
 }
 
-/* News Section */
-.news-section-modern {
-    background: #fafafa;
-}
-
-@media (max-width: 768px) {
-    .news-section-modern {
-        padding: 50px 0;
-    }
-}
-
+/* ===============================================
+   7. News Section
+   =============================================== */
 .news-list {
     max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-@media (max-width: 768px) {
-    .news-list {
-        margin: 0 auto 30px;
-    }
+    margin: 0 auto var(--spacing-xl);
 }
 
 .news-item {
     display: flex;
-    gap: 24px;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-gray);
 }
 
-@media (max-width: 768px) {
-    .news-item {
-        gap: 16px;
-        padding: 16px 0;
-    }
-}
-
-.news-item time {
-    font-size: 13px;
-    color: #999;
+.news-date {
+    font-size: 14px;
+    color: var(--secondary-beige);
     flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-    .news-item time {
-        font-size: 12px;
-        min-width: 80px;
-    }
+    min-width: 100px;
 }
 
 .news-title {
-    font-size: 14px;
-    color: #333;
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
-@media (max-width: 768px) {
-    .news-title {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-}
-
-.news-more-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #6B4F3C;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .news-more-link {
-        font-size: 13px;
-    }
-}
-
-/* Clinic Section */
-.clinic-section {
-    background: white;
-}
-
-@media (max-width: 768px) {
-    .clinic-section {
-        padding: 50px 0;
-    }
-}
-
+/* ===============================================
+   8. Clinic Gallery
+   =============================================== */
 .clinic-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    margin-bottom: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .clinic-content {
-        gap: 40px;
-        margin-bottom: 50px;
-    }
+.hours-info-modern {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
 }
 
 .hours-info-modern h3 {
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-    .hours-info-modern h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
-        text-align: center;
+    .hours-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 }
 
-.hours-list {
+.hours-item {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+.hours-item h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
     display: flex;
-    gap: 60px;
+    align-items: center;
+    gap: var(--spacing-xs);
     justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .hours-list {
-        flex-direction: column;
-        gap: 20px; /* 30px→20pxに縮小 */
-        text-align: center;
-    }
-}
-
-.hours-item h4 {
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: #6B4F3C;
-}
-
-@media (max-width: 768px) {
-    .hours-item h4 {
-        font-size: 15px;
-        margin-bottom: 6px;
-    }
+.hours-item h5 i {
+    color: var(--secondary-beige);
 }
 
 .hours-item p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .hours-item p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
 }
 
 .hours-item small {
-    font-size: 12px;
-    color: #999;
+    font-size: 13px;
+    color: var(--text-light);
 }
 
-@media (max-width: 768px) {
-    .hours-item small {
-        font-size: 11px;
-    }
-}
-
-/* Clinic Gallery */
 .clinic-gallery {
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-@media (max-width: 768px) {
-    .clinic-gallery {
-        margin: 20px 0; /* 左右の余白を削除してフル幅に */
-    }
+    max-width: 900px;
+    margin: var(--spacing-xl) auto;
 }
 
 .clinic-gallery .swiper-slide {
@@ -967,584 +513,94 @@ section {
     width: 100%;
     height: 300px;
     object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    .clinic-gallery img {
-        height: 200px; /* スマホでは高さを縮小 */
-    }
+    border-radius: 12px;
 }
 
 .clinic-gallery p {
-    margin-top: 12px;
-    font-size: 13px;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .clinic-gallery p {
-        margin-top: 8px;
-        font-size: 12px;
-    }
-}
-
-.clinic-about-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #6B4F3C;
-    text-decoration: none;
+    margin-top: var(--spacing-sm);
     font-size: 14px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    color: var(--text-light);
 }
 
-/* Access Info */
-.access-info-modern {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.access-info-modern h3 {
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .access-info-modern h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-}
-
-.access-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .access-details {
-        grid-template-columns: 1fr;
-        gap: 16px; /* 20px→16pxに縮小 */
-        margin-bottom: 20px;
-        text-align: left;
-        padding: 0 20px;
-    }
-}
-
-.access-details p {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .access-details p {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-}
-
-.access-map {
-    margin-bottom: 30px;
-    height: 300px;
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .access-map {
-        margin-bottom: 20px;
-        height: 200px; /* 高さを縮小 */
-    }
-}
-
-.access-map iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.access-links {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .access-links {
-        gap: 20px;
-    }
-}
-
-.map-link {
-    color: #6B4F3C;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-@media (max-width: 768px) {
-    .map-link {
-        font-size: 13px;
-    }
-}
-
-.access-detail-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #6B4F3C;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-@media (max-width: 768px) {
-    .access-detail-link {
-        font-size: 13px;
-    }
-}
-
-/* Recruit Banner */
-.recruit-banner {
-    padding: 40px 0;
-}
-
-@media (max-width: 768px) {
-    .recruit-banner {
-        padding: 30px 0;
-    }
-}
-
-.recruit-banner-link {
-    display: block;
-    aspect-ratio: 1.91/1;
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .recruit-banner-link {
-        aspect-ratio: 3/2; /* スマホでは少し縦長に */
-    }
-}
-
-.recruit-banner-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.recruit-banner-link:hover img {
-    transform: scale(1.05);
-}
-
-/* Floating CTAs */
-.floating-cta-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.floating-cta-container.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.floating-cta-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: #6B4F3C;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.floating-cta-button i {
-    color: #00B900;
-    font-size: 18px;
-}
-
-.floating-cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 768px) {
-    .floating-cta-container {
-        bottom: 70px; /* バックトゥトップボタンの上に配置 */
-        right: 15px;
-        left: 15px;
-        flex-direction: column;
-        gap: 8px;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-    
-    .floating-cta-button {
-        font-size: 11px; /* さらに小さく */
-        padding: 10px 14px;
-        justify-content: center;
-        gap: 6px;
-    }
-    
-    .floating-cta-button i {
-        font-size: 16px;
-    }
-    
-    /* 横向きスマホや小さい画面では */
-    @media (max-height: 600px) {
-        .floating-cta-container {
-            flex-direction: row;
-            bottom: 15px;
-            gap: 6px;
-        }
-        
-        .floating-cta-button {
-            font-size: 10px;
-            padding: 8px 12px;
-        }
-        
-        .floating-cta-button i {
-            font-size: 14px;
-        }
-    }
-}
-
-/* Scroll animations */
-.service-menu-item,
-.voice-item,
-.feature-modern {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-/* Hero scroll indicator */
-.hero-scroll {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: white;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-}
-
-.scroll-line {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.4);
-    margin: 8px auto 0;
-    position: relative;
-}
-
-.scroll-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: white;
-    animation: scrollDown 2s ease-in-out infinite;
-}
-
-@keyframes scrollDown {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(40px); opacity: 0; }
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background: white;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    z-index: 1001;
-    transition: right 0.3s ease;
-    overflow-y: auto;
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-.mobile-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.mobile-menu-header img {
-    height: 30px;
-}
-
-.mobile-menu-close {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ===============================================
+   9. その他の調整
+   =============================================== */
+.subsection-title {
     font-size: 24px;
-    color: #333;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.mobile-nav {
-    padding: 20px;
-}
-
-.mobile-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.mobile-nav a {
-    display: block;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #333;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.mobile-nav a:hover {
-    background: #f5f5f5;
-    color: #6B4F3C;
-}
-
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: #6B4F3C;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 900;
-    border: none;
-    cursor: pointer;
-}
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 40px; /* 45px→40pxに縮小 */
-        height: 40px;
-        font-size: 16px; /* 18px→16pxに縮小 */
-    }
-}
-
-/* Footer */
-.main-footer {
-    background: #6B4F3C;
-    color: white;
-    padding: 60px 0 0;
-}
-
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 40px 0 0;
-    }
-}
-
-.footer-top {
-    padding-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-    .footer-top {
-        padding-bottom: 30px;
-    }
-}
-
-.footer-logo-section {
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
     text-align: center;
-    margin-bottom: 40px;
+    color: var(--text-darker);
 }
 
-@media (max-width: 768px) {
-    .footer-logo-section {
-        margin-bottom: 30px;
-    }
+.center-button {
+    text-align: center;
+    margin-top: var(--spacing-xl);
 }
 
-.footer-logo img {
-    height: 100px;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .footer-logo img {
-        height: 80px;
-    }
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        text-align: left;
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-.footer-section h4 {
+/* Hero セクションの調整 */
+.hero-text {
     font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-    .footer-section h4 {
+    .hero-text {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .service-content {
+        padding: var(--spacing-md);
+    }
+    
+    .service-content h4 {
+        font-size: 18px;
+    }
+    
+    .service-content p {
+        font-size: 14px;
+    }
+    
+    .qa-question {
         font-size: 15px;
-        margin-bottom: 12px;
     }
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section li {
-    margin-bottom: 8px;
-}
-
-@media (max-width: 768px) {
-    .footer-section li {
-        margin-bottom: 6px;
+    
+    .qa-answer {
+        font-size: 14px;
     }
-}
-
-.footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .footer-section a {
+    
+    .voice-header {
+        font-size: 13px;
+    }
+    
+    .voice-text {
+        font-size: 13px;
+    }
+    
+    .voice-author {
         font-size: 12px;
     }
-}
-
-.footer-section a:hover {
-    color: white;
-}
-
-.footer-bottom {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px 0;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .footer-bottom {
-        padding: 16px 0;
-    }
-}
-
-.copyright {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 768px) {
-    .copyright {
-        font-size: 11px;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .main-header {
-        height: 64px;
+    
+    .feature-modern h3 {
+        font-size: 18px;
     }
     
-    .header-content {
-        padding: 0 20px;
+    .feature-modern li {
+        font-size: 14px;
     }
     
-    .logo img {
-        height: 40px; /* 48px→40pxに縮小 */
+    .news-date {
+        font-size: 13px;
     }
     
-    section {
-        padding: 60px 0;
-    }
-    
-    .section-title-modern {
-        font-size: 24px;
-        margin-bottom: 40px;
-    }
-    
-    .hero-modern {
-        min-height: 500px;
-        margin-top: 64px; /* ヘッダーの高さ分オフセット */
+    .news-title {
+        font-size: 15px;
     }
 }
