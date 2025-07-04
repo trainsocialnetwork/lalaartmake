@@ -406,6 +406,10 @@
     .service-qa .faq-icon {
         font-size: 16px;
     }
+   
+    .service-qa .faq-text {
+         padding-right: 10px;
+   }
 }
 
 /* ===============================================
