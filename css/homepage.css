@@ -173,15 +173,55 @@
 
 .service-menu-item {
     background: var(--base-white);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
+    position: relative;
+}
+
+.service-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-warm);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.service-menu-item:hover::before {
+    opacity: 1;
 }
 
 .service-menu-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-large);
+}
+
+.service-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .service-image {
+        height: 200px;
+    }
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.service-menu-item:hover .service-image img {
+    transform: scale(1.08);
 }
 
 .service-content {
@@ -193,6 +233,18 @@
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
     color: var(--primary-brown);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.service-content h4::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    opacity: 0.2;
 }
 
 .service-content p {
@@ -233,29 +285,127 @@
     color: var(--text-darker);
 }
 
-.qa-list {
+/* FAQアコーディオンスタイル（artmake.cssから） */
+.service-qa .faq-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.qa-item {
-    margin-bottom: var(--spacing-md);
-    padding: var(--spacing-md);
-    background: var(--accent-light-beige);
+.service-qa .faq-item {
+    background: var(--base-white);
     border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
 }
 
-.qa-question {
+.service-qa .faq-item:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.service-qa .faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    background: var(--accent-offwhite);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary-brown);
+    color: var(--text-darker);
+    transition: all var(--transition-fast);
+    text-align: left;
+    cursor: pointer;
 }
 
-.qa-answer {
-    font-size: 15px;
+.service-qa .faq-question:hover {
+    background: #F0F0F0;
+}
+
+.service-qa .faq-q {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    border-radius: 50%;
+    font-size: 13px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.service-qa .faq-text {
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.service-qa .faq-icon {
+    font-size: 18px;
+    color: var(--primary-brown);
+    transition: transform var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.service-qa .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.service-qa .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+}
+
+.service-qa .faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.service-qa .faq-a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--secondary-beige);
+    color: var(--base-white);
+    border-radius: 50%;
+    font-size: 13px;
+    margin: 12px;
+    flex-shrink: 0;
+}
+
+.service-qa .faq-content {
+    padding: 20px 24px;
     line-height: 1.8;
-    color: var(--text-dark);
+    font-size: 15px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .service-qa .faq-question {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .service-qa .faq-q,
+    .service-qa .faq-a {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .service-qa .faq-content {
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+    
+    .service-qa .faq-icon {
+        font-size: 16px;
+    }
 }
 
 /* ===============================================
@@ -265,45 +415,64 @@
     margin-bottom: var(--spacing-xxxl);
 }
 
-.customer-voice h3 {
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    color: var(--text-darker);
-}
-
-.voice-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
-}
-
-@media (max-width: 1024px) {
-    .voice-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* デスクトップ版はグリッド表示 */
+@media (min-width: 769px) {
+    .voice-slider-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .voice-slider,
+    .voice-track {
+        display: contents;
     }
 }
 
+/* モバイル版は横スクロール */
 @media (max-width: 768px) {
-    .voice-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .voice-slider-container {
+        position: relative;
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+    
+    .voice-slider {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .voice-slider::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .voice-track {
+        display: flex;
         gap: var(--spacing-md);
+        padding-bottom: 20px;
+    }
+    
+    .voice-item {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
     }
 }
 
 .voice-item {
-    text-align: center;
     background: var(--base-white);
-    padding: var(--spacing-md);
-    border-radius: 12px;
-    box-shadow: var(--shadow-small);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-medium);
+    text-align: center;
     transition: all var(--transition-normal);
 }
 
 .voice-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-large);
 }
 
 .voice-header {
@@ -311,6 +480,10 @@
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .voice-image {
@@ -318,7 +491,8 @@
     aspect-ratio: 1/1;
     overflow: hidden;
     margin-bottom: var(--spacing-md);
-    border-radius: 8px;
+    border-radius: 12px;
+    background: var(--accent-light-beige);
 }
 
 .voice-image img {
@@ -329,16 +503,18 @@
 
 .voice-text {
     font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: var(--spacing-xs);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
     font-style: italic;
     color: var(--text-dark);
+    min-height: 60px;
 }
 
 .voice-author {
     font-size: 13px;
     color: var(--text-light);
 }
+
 
 /* ===============================================
    6. Features Modern
@@ -503,27 +679,107 @@
 .clinic-gallery {
     max-width: 900px;
     margin: var(--spacing-xl) auto;
+    position: relative;
 }
 
-.clinic-gallery .swiper-slide {
+/* デスクトップ版 */
+@media (min-width: 769px) {
+    .clinic-gallery .swiper-slide {
+        text-align: center;
+    }
+    
+    .clinic-gallery img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+}
+
+/* モバイル版 - モダンカードデザイン */
+@media (max-width: 768px) {
+    .clinic-gallery {
+        margin: var(--spacing-xl) -20px;
+        padding: 0 20px;
+    }
+    
+    .clinic-gallery .swiper-slide {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: var(--shadow-medium);
+    }
+    
+    .clinic-gallery img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+    }
+    
+    .clinic-gallery p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        color: var(--base-white);
+        padding: 20px 16px 16px;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+/* Swiper調整 */
+.clinic-gallery .swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+}
+
+.clinic-gallery .swiper-pagination-bullet {
+    background: var(--border-gray);
+    opacity: 1;
+}
+
+.clinic-gallery .swiper-pagination-bullet-active {
+    background: var(--primary-brown);
+}
+
+
+/* ===============================================
+   9. Why Choose Section - 統一されたサブセクションタイトル
+   =============================================== */
+.why-subsection-title {
+    font-size: 28px;
+    font-weight: 600;
     text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+    position: relative;
+    padding-bottom: 20px;
 }
 
-.clinic-gallery img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
+.why-subsection-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
 }
 
-.clinic-gallery p {
-    margin-top: var(--spacing-sm);
-    font-size: 14px;
-    color: var(--text-light);
+@media (max-width: 768px) {
+    .why-subsection-title {
+        font-size: 22px;
+        margin-bottom: var(--spacing-lg);
+    }
 }
 
 /* ===============================================
-   9. その他の調整
+   10. その他の調整
    =============================================== */
 .subsection-title {
     font-size: 24px;
