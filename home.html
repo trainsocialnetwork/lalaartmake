@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LaLa Beauty Clinic | アートメイク×オンライン総合美容 - 神戸</title>
+    <meta name="description" content="神戸のLaLa Beauty Clinic。アートメイク（眉・リップ）とオンライン総合美容で、あなた史上最も自然な美しさを実現。新神戸駅徒歩1分。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="./css/artmake.css">
+    <link rel="stylesheet" href="./css/homepage.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.png" alt="LaLa Beauty Clinicのロゴ">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#news">お知らせ</a></li>
+                    <li><a href="#recruit">採用情報</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="assets/images/logo.png" alt="LaLa">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="#news">お知らせ</a></li>
+                <li><a href="#recruit">採用情報</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-modern">
+        <div class="hero-visual">
+            <img src="assets/images/01_hero_01.png" alt="LALA Beauty Clinic">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                あなた史上、<br>もっとも自然な"美"を。
+            </h1>
+            <p class="hero-text">
+                裏付けされた実績と技術でかなえるオーダーメイドのアートメイク、<br>
+                そしてクリニック品質のケアをいつでもどこでも──おうちで叶えるサロンクオリティ。<br>
+                LALA の２つのビューティーソリューションが、あなたの美しさを新たなステージへ導きます。
+            </p>
+        </div>
+        <div class="hero-scroll">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Service Overview Section -->
+    <section class="service-overview">
+        <div class="container-wide">
+            <h2 class="section-title-modern">
+                あなたの理想を叶える、<br>
+                アートメイク × オンライン総合美容
+            </h2>
+            <div class="service-buttons">
+                <a href="./index.html" class="service-link-button">
+                    アートメイクTOP
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#online-beauty" class="service-link-button">
+                    オンライン総合美容TOP
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artmake Section -->
+    <section id="artmake" class="service-section">
+        <div class="container-wide">
+            <div class="service-intro">
+                <h3 class="service-title">アートメイク</h3>
+                <div class="service-intro-content">
+                    <div class="service-intro-image">
+                        <img src="assets/images/artmake-intro.jpg" alt="アートメイク">
+                    </div>
+                    <div class="service-intro-text">
+                        <p>
+                            高い技術で、ナチュラルかつ長持ちする仕上がりを。<br>
+                            私たちのアーティストは「アートメイクブロウデザイナー資格」保持。<br>
+                            お一人おひとりの骨格やお好みに合わせ、まるで生まれつきのような眉・リップをデザインします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-menu-grid">
+                <div class="service-menu-item">
+                    <h4>眉アートメイク</h4>
+                    <div class="service-image">
+                        <img src="assets/images/eyeblow_01.webp" alt="眉アートメイク">
+                    </div>
+                    <p>朝のメイク時間をグッと短縮。骨格診断に基づく立体デザイン。</p>
+                    <a href="./artmakecontents/index.html" class="service-detail-link">
+                        眉アートメイクについて
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-menu-item">
+                    <h4>リップアートメイク</h4>
+                    <div class="service-image">
+                        <img src="assets/images/06_artmake_price07.png" alt="リップアートメイク">
+                    </div>
+                    <p>色ムラを補正し、ぷっくり艶やかな血色リップを持続。</p>
+                    <a href="#" class="service-detail-link">
+                        リップアートメイクについて
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-menu-item">
+                    <h4>メンズアートメイク</h4>
+                    <div class="service-image">
+                        <img src="assets/images/02_artmake_campain03.png" alt="メンズアートメイク">
+                    </div>
+                    <p>ビジネスシーンでも好印象。自然な太眉でキリッと男前に。</p>
+                    <a href="#" class="service-detail-link">
+                        メンズアートメイクについて
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-menu-item">
+                    <h4>メラニンケア</h4>
+                    <div class="service-image">
+                        <img src="assets/images/06_artmake_price03.png" alt="メラニンケア">
+                    </div>
+                    <p>くすみ・色ムラを整え、透明感と柔らかさを与える新技術。</p>
+                    <a href="#" class="service-detail-link">
+                        メラニンケアについて
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-qa">
+                <h5>Q&A</h5>
+                <div class="qa-item">
+                    <div class="qa-question">Q. 痛みやダウンタイムはどのくらい続きますか？</div>
+                    <div class="qa-answer">A. 施術直後のヒリヒリ感は数時間で落ち着き、ダウンタイムは2〜3日程度。休日の前日施術がおすすめです。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Beauty Section -->
+    <section id="online-beauty" class="service-section bg-light">
+        <div class="container-wide">
+            <div class="service-intro">
+                <h3 class="service-title">オンライン美容サービス</h3>
+                <div class="service-intro-content">
+                    <div class="service-intro-image">
+                        <img src="assets/images/online-beauty-intro.jpg" alt="オンライン美容サービス">
+                    </div>
+                    <div class="service-intro-text">
+                        <p>
+                            対面診断→ご自宅ケアで、継続しやすさを徹底サポート。<br>
+                            一度クリニックで肌・頭皮を診断したら、以降は必要なアイテムを郵送。<br>
+                            LINEサポートで疑問やお悩みに即レスポンスします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-menu-grid">
+                <div class="service-menu-item">
+                    <h4>スキンケア（ゼオスキン）</h4>
+                    <div class="service-image">
+                        <img src="assets/images/05_artmake_feature02.png" alt="ゼオスキン">
+                    </div>
+                    <p>取扱いクリニックが限られた信頼の処方ブランド。肌質に合わせたプログラムを提供。</p>
+                    <a href="#" class="service-detail-link">
+                        スキンケア（ゼオスキン）について
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-menu-item">
+                    <h4>ヘアケア</h4>
+                    <div class="service-image">
+                        <img src="assets/images/09_artmake_staff01.png" alt="ヘアケア">
+                    </div>
+                    <p>頭皮環境を整え、ハリ・コシのある髪を育成。自宅でかんたんマッサージ＆トリートメント。</p>
+                    <a href="#" class="service-detail-link">
+                        ヘアケアについて
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-qa">
+                <h5>Q&A</h5>
+                <div class="qa-item">
+                    <div class="qa-question">Q. 商品はいつごろとどきますか？</div>
+                    <div class="qa-answer">A. 初診後は、その場で商品を受け取れます。その後は、オンラインで商品を注文し、2〜3日以内に発送いたします。LINEでのチャットサポートで、使い方や経過のご相談にも丁寧にお答えします。</div>
+                </div>
+                <div class="qa-item">
+                    <div class="qa-question">Q. オンライン注文はどのように行えば良いですか？</div>
+                    <div class="qa-answer">A. 専用のLINE公式アカウントを登録後、LINEから注文いただけます。チャットでのサポートや使い方、経過のご相談にも丁寧にお答えします。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose LALA Section -->
+    <section class="why-choose">
+        <div class="container-wide">
+            <h2 class="section-title-modern">
+                LALA に選ばれる理由
+            </h2>
+            <p class="section-lead">技術・安心・サポート、そして確かな実績が信頼の証です。</p>
+
+            <!-- Customer Voice -->
+            <div class="customer-voice">
+                <h3>確かな実績—お客様の声</h3>
+                <div class="voice-grid">
+                    <div class="voice-item">
+                        <div class="voice-header">眉アートメイク</div>
+                        <div class="voice-image">
+                            <img src="assets/images/eyebrow_case01.png" alt="眉アートメイク お客様の声">
+                        </div>
+                        <p class="voice-text">「骨格にぴったり合うデザインで、朝のメイクがラクに！」</p>
+                        <p class="voice-author">— 30代・会社員</p>
+                    </div>
+
+                    <div class="voice-item">
+                        <div class="voice-header">メラニンケア（ローマピンク）</div>
+                        <div class="voice-image">
+                            <img src="assets/images/06_artmake_price04.png" alt="メラニンケア お客様の声">
+                        </div>
+                        <p class="voice-text">「肌の色ムラが消え、透明感がアップ。周囲から褒められます」</p>
+                        <p class="voice-author">— 40代・主婦</p>
+                    </div>
+
+                    <div class="voice-item">
+                        <div class="voice-header">ゼオスキン（オンラインスキンケア）</div>
+                        <div class="voice-image">
+                            <img src="assets/images/eyebrow_case02.png" alt="ゼオスキン お客様の声">
+                        </div>
+                        <p class="voice-text">「診断後すぐ届くから、使い始めのモチベーションが続きました」</p>
+                        <p class="voice-author">— 50代・フリーランス</p>
+                    </div>
+
+                    <div class="voice-item">
+                        <div class="voice-header">ルグゼバイブ（オンラインヘアケア）</div>
+                        <div class="voice-image">
+                            <img src="assets/images/09_staff_certification.png" alt="ヘアケア お客様の声">
+                        </div>
+                        <p class="voice-text">「抜け毛・ボリューム不足が改善。自宅ケアでこんな効果が！」</p>
+                        <p class="voice-author">— 40代・営業職</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-modern">
+                <div class="feature-modern">
+                    <h3>認定アーティストが描く<br>納得のアートメイク</h3>
+                    <ul>
+                        <li>アートメイクブロウデザイナー資格を持つアーティストが担当</li>
+                        <li>あなた専用の眉・リップをデザイン</li>
+                        <li>仕上がりイメージは事前シミュレーションで確認可能</li>
+                    </ul>
+                </div>
+
+                <div class="feature-modern">
+                    <h3>徹底した安心・安全</h3>
+                    <ul>
+                        <li>完全個室のプライベート空間で施術・診断</li>
+                        <li>医療グレード機材／使い捨てニードル採用</li>
+                        <li>施術後・ご使用後はLINEでいつでもアフターフォロー</li>
+                    </ul>
+                </div>
+
+                <div class="feature-modern">
+                    <h3>続けやすいサポート体制</h3>
+                    <ul>
+                        <li>初回対面診断で最適プランをご提案</li>
+                        <li>必要な商品を定期的にご自宅へお届け</li>
+                        <li>LINEサポートで、いつでも疑問・お悩みに即対応</li>
+                        <li>定期プランならおトク＆手間ゼロ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section-modern">
+        <div class="container-wide">
+            <h2 class="section-title-modern">お知らせ</h2>
+            <div class="news-list">
+                <article class="news-item">
+                    <time>2025.06.01</time>
+                    <span class="news-title">夏季休業のお知らせ</span>
+                </article>
+                <article class="news-item">
+                    <time>2025.05.15</time>
+                    <span class="news-title">新メニュー「リップアートメイク」リリース</span>
+                </article>
+                <article class="news-item">
+                    <time>2025.04.10</time>
+                    <span class="news-title">オンライン美容診断キャンペーン実施中</span>
+                </article>
+            </div>
+            <a href="#" class="news-more-link">
+                お知らせ一覧へ
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Clinic Info & Access Section -->
+    <section id="access" class="clinic-section">
+        <div class="container-wide">
+            <h2 class="section-title-modern">クリニック紹介＆アクセス</h2>
+            
+            <div class="clinic-content">
+                <div class="hours-info-modern">
+                    <h3>営業時間</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <h4>アートメイク</h4>
+                            <p>日 ~ 土　10:00 ~ 17:00<br>
+                            <small>※ 休診日は不定休となっております。</small></p>
+                        </div>
+                        <div class="hours-item">
+                            <h4>オンライン診療</h4>
+                            <p>日 ~ 土　10:00 ~ 17:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Carousel -->
+                <div class="clinic-gallery swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="assets/images/08_armake_02.webp" alt="受付">
+                            <p>受付</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/08_artmake_flow03.webp" alt="診察室">
+                            <p>診察室</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/08_artmake_flow07.webp" alt="施術室">
+                            <p>施術室</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/05_artmake_feature03.png" alt="外観">
+                            <p>外観</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="clinic-about-link">
+                    当院について
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="access-info-modern">
+                <h3>アクセス</h3>
+                <div class="access-details">
+                    <p>〒650-0002<br>
+                    兵庫県神戸市中央区北野町1丁目1<br>
+                    コトノハコ神戸西館1F</p>
+                    <p>JR新神戸駅 徒歩1分<br>
+                    地下鉄新神戸駅 徒歩3分</p>
+                </div>
+                <div class="access-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1639.9911085988833!2d135.19417408791634!3d34.70562846443731!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008fb46ee74291%3A0x65154ce2bb89a31b!2z44Op44Op44OT44Ol44O844OG44Kj44Kv44Oq44OL44OD44Kv5paw56We5oi477yI44Ki44O844OI44Oh44Kk44Kv77yJ56We5oi4!5e0!3m2!1sja!2sjp!4v1750145514852!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="access-links">
+                    <a href="#" class="map-link">Googleマップで見る</a>
+                    <a href="#" class="access-detail-link">
+                        アクセス
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruit Banner -->
+    <section class="recruit-banner">
+        <div class="container-wide">
+            <a href="#recruit" class="recruit-banner-link">
+                <img src="assets/images/cta-banner.png" alt="採用情報">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-logo-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/footer-logo.png" alt="LaLa Beauty Clinic">
+                    </div>
+                </div>
+
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>アートメイク</h4>
+                        <ul>
+                            <li><a href="#">眉アートメイク</a></li>
+                            <li><a href="#">リップアートメイク</a></li>
+                            <li><a href="#">メンズアートメイク</a></li>
+                            <li><a href="#">メラニンケア</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>オンライン総合美容</h4>
+                        <ul>
+                            <li><a href="#">スキンケア（ゼオスキン）</a></li>
+                            <li><a href="#">ヘアケア</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>クリニック情報</h4>
+                        <ul>
+                            <li><a href="#">当院について</a></li>
+                            <li><a href="#">アクセス</a></li>
+                            <li><a href="#">お知らせ一覧</a></li>
+                            <li><a href="#">採用情報</a></li>
+                            <li><a href="#">料金一覧</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>その他</h4>
+                        <ul>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">&copy; 2025 LaLa Beauty Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTAs -->
+    <div class="floating-cta-container" id="floatingCTA">
+        <a href="#" class="floating-cta-button">
+            <i class="lni lni-line"></i>
+            アートメイク無料予約（LINE）
+        </a>
+        <a href="#" class="floating-cta-button">
+            <i class="lni lni-line"></i>
+            オンライン美容診断予約（LINE）
+        </a>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./js/homepage.js"></script>
+</body>
+</html>
