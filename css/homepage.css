@@ -238,15 +238,6 @@
     gap: var(--spacing-xs);
 }
 
-.service-content h4::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background: var(--gradient-warm);
-    border-radius: 50%;
-    opacity: 0.2;
-}
-
 .service-content p {
     font-size: 15px;
     line-height: 1.8;
@@ -761,18 +752,6 @@
     color: var(--text-darker);
     position: relative;
     padding-bottom: 20px;
-}
-
-.why-subsection-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--gradient-warm);
-    border-radius: 2px;
 }
 
 @media (max-width: 768px) {
