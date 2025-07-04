@@ -460,14 +460,12 @@
     background: var(--base-white);
     padding: var(--spacing-lg);
     border-radius: 16px;
-    box-shadow: var(--shadow-medium);
     text-align: center;
     transition: all var(--transition-normal);
 }
 
 .voice-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-large);
 }
 
 .voice-header {
