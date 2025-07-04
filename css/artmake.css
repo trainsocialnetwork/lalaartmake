@@ -2696,6 +2696,9 @@ section {
         font-size: 12px;
         margin-right: 10px;
     }
+   .faq-text {
+         padding-right: 10px;
+   }
 }
 
 .faq-text {
