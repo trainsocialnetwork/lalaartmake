@@ -43,18 +43,37 @@ class ClinicGallery {
         
         new Swiper('.clinic-gallery', {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 20,
             loop: true,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            speed: 600,
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
             },
             breakpoints: {
                 768: {
                     slidesPerView: 2,
+                    spaceBetween: 30,
+                    effect: 'slide'
                 },
                 1024: {
                     slidesPerView: 3,
+                    spaceBetween: 30,
+                    effect: 'slide'
                 }
             }
         });
@@ -208,6 +227,42 @@ class ScrollAnimation {
     }
 }
 
+// FAQ Accordion functionality
+class ServiceFAQ {
+    constructor() {
+        this.items = document.querySelectorAll('.service-qa .faq-item');
+        this.init();
+    }
+    
+    init() {
+        if (!this.items.length) return;
+        
+        this.items.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    this.toggleItem(item);
+                });
+            }
+        });
+    }
+    
+    toggleItem(clickedItem) {
+        const isActive = clickedItem.classList.contains('active');
+        
+        // 他のアイテムを閉じる
+        this.items.forEach(item => {
+            if (item !== clickedItem && item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
+        });
+        
+        // クリックされたアイテムをトグル
+        clickedItem.classList.toggle('active');
+    }
+}
+
 // Initialize all modules
 document.addEventListener('DOMContentLoaded', () => {
     new FloatingCTA();
@@ -216,4 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new BackToTop();
     new ScrollAnimation();
+    new ServiceFAQ();
 });
