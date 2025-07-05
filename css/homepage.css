@@ -621,8 +621,15 @@
 }
 
 .hours-info-modern h3 {
-    font-size: 24px;
-    font-weight: 600;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+}
+
+.clinic-info-modern {
+    text-align: center;
+}
+
+.clinic-info-modern h3 {
     margin-bottom: var(--spacing-xl);
     color: var(--text-darker);
 }
