@@ -32,148 +32,56 @@ class FloatingCTA {
 }
 
 // Clinic Gallery Swiper - 自動スクロール付き
-// Clinic Gallery Swiper - 修正版
 class ClinicGallery {
     constructor() {
-        this.galleryElement = null;
-        this.swiper = null;
         this.init();
     }
     
     init() {
-        // DOMの読み込みを確実に待つ
-        this.initializeGallery();
-    }
-    
-    initializeGallery() {
-        this.galleryElement = document.querySelector('.clinic-gallery');
-        if (!this.galleryElement) return;
+        // Swiperが読み込まれているか確認
+        if (typeof Swiper === 'undefined') {
+            console.error('Swiper is not loaded');
+            return;
+        }
         
-        // ギャラリーの表示状態を初期化
-        this.galleryElement.style.opacity = '0';
-        this.galleryElement.style.transform = 'translateY(20px)';
-        
-        const isMobile = window.innerWidth <= 768;
+        // ギャラリー要素の存在確認
+        const galleryElement = document.querySelector('.clinic-gallery');
+        if (!galleryElement) return;
         
         // Swiperの初期化
-        this.swiper = new Swiper('.clinic-gallery', {
-            slidesPerView: isMobile ? 1.15 : 3,
-            spaceBetween: isMobile ? 12 : 24,
-            centeredSlides: isMobile ? true : false,
+        new Swiper('.clinic-gallery', {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            centeredSlides: true,
             loop: true,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true
             },
-            speed: 600,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: false
             },
             breakpoints: {
+                // モバイル
                 320: {
-                    slidesPerView: 1.15,
-                    spaceBetween: 12,
-                    centeredSlides: true
-                },
-                480: {
                     slidesPerView: 1.2,
-                    spaceBetween: 16,
-                    centeredSlides: true
+                    spaceBetween: 12,
                 },
+                // タブレット
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 20,
-                    centeredSlides: false
+                    centeredSlides: false,
                 },
+                // デスクトップ
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 24,
-                    centeredSlides: false
-                }
-            },
-            on: {
-                init: () => {
-                    // Swiper初期化完了後にギャラリー全体をフェードイン
-                    setTimeout(() => {
-                        this.galleryElement.style.transition = 'all 0.6s ease';
-                        this.galleryElement.style.opacity = '1';
-                        this.galleryElement.style.transform = 'translateY(0)';
-                        
-                        // 各スライドにアニメーション適用
-                        this.animateSlides();
-                    }, 100);
-                },
-                slideChangeTransitionEnd: () => {
-                    // スライド変更後のアニメーション
-                    this.updateSlideStyles();
+                    centeredSlides: false,
                 }
             }
         });
-        
-        // IntersectionObserverでビューポート内に入った時のアニメーション
-        this.setupIntersectionObserver();
-    }
-    
-    animateSlides() {
-        if (!this.swiper) return;
-        
-        const slides = this.swiper.slides;
-        slides.forEach((slide, index) => {
-            // 初期状態を設定
-            slide.style.opacity = '0';
-            slide.style.transform = 'scale(0.9)';
-            
-            // 順番にアニメーション
-            setTimeout(() => {
-                slide.style.transition = 'all 0.5s ease';
-                slide.style.opacity = '1';
-                slide.style.transform = 'scale(1)';
-            }, index * 100);
-        });
-    }
-    
-    updateSlideStyles() {
-        if (!this.swiper) return;
-        
-        const activeSlide = this.swiper.slides[this.swiper.activeIndex];
-        const slides = this.swiper.slides;
-        
-        // 全スライドのスタイルをリセット
-        slides.forEach(slide => {
-            slide.style.transition = 'all 0.3s ease';
-            if (window.innerWidth <= 768) {
-                slide.style.opacity = '0.7';
-                slide.style.transform = 'scale(0.95)';
-            }
-        });
-        
-        // アクティブスライドを強調
-        if (activeSlide && window.innerWidth <= 768) {
-            activeSlide.style.opacity = '1';
-            activeSlide.style.transform = 'scale(1)';
-        }
-    }
-    
-    setupIntersectionObserver() {
-        const options = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !this.galleryElement.classList.contains('animated')) {
-                    this.galleryElement.classList.add('animated');
-                    // 再度アニメーションをトリガー
-                    this.animateSlides();
-                }
-            });
-        }, options);
-        
-        observer.observe(this.galleryElement);
     }
 }
 
