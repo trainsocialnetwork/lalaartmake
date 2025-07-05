@@ -1,6 +1,4 @@
-/**
- * Homepage JavaScript
- */
+// Homepage JavaScript
 
 // Floating CTA Management
 class FloatingCTA {
