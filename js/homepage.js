@@ -29,84 +29,75 @@ class FloatingCTA {
     }
 }
 
-// Clinic Gallery Swiper - 自動スクロール付き
+// Clinic Gallery - 無限スクロール
 class ClinicGallery {
     constructor() {
-        // Swiper読み込み完了を待つ
-        if (document.readyState === 'loading') {
-            window.addEventListener('load', () => this.init());
-        } else {
-            this.init();
-        }
+        this.init();
     }
     
     init() {
-        // Swiperの存在確認を強化
-        if (typeof Swiper === 'undefined') {
-            console.warn('Swiper is not loaded, retrying...');
-            setTimeout(() => this.init(), 100);
-            return;
+        const galleryWrapper = document.querySelector('.clinic-gallery-wrapper');
+        if (!galleryWrapper) return;
+        
+        // マウスホバーで一時停止する機能はCSSで実装済み
+        // タッチデバイスでの操作性向上
+        let isTouch = false;
+        
+        galleryWrapper.addEventListener('touchstart', () => {
+            isTouch = true;
+            const track = galleryWrapper.querySelector('.gallery-track');
+            if (track) {
+                track.style.animationPlayState = 'paused';
+            }
+        });
+        
+        galleryWrapper.addEventListener('touchend', () => {
+            setTimeout(() => {
+                const track = galleryWrapper.querySelector('.gallery-track');
+                if (track && isTouch) {
+                    track.style.animationPlayState = 'running';
+                }
+                isTouch = false;
+            }, 3000); // 3秒後に再開
+        });
+        
+        // アクセシビリティ: キーボード操作で一時停止
+        galleryWrapper.setAttribute('tabindex', '0');
+        galleryWrapper.setAttribute('role', 'region');
+        galleryWrapper.setAttribute('aria-label', 'クリニック施設ギャラリー');
+        
+        galleryWrapper.addEventListener('keydown', (e) => {
+            const track = galleryWrapper.querySelector('.gallery-track');
+            if (!track) return;
+            
+            if (e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                const isPaused = track.style.animationPlayState === 'paused';
+                track.style.animationPlayState = isPaused ? 'running' : 'paused';
+            }
+        });
+        
+        // スクロール速度の動的調整（画面幅に応じて）
+        this.adjustScrollSpeed();
+        window.addEventListener('resize', () => this.adjustScrollSpeed());
+    }
+    
+    adjustScrollSpeed() {
+        const track = document.querySelector('.gallery-track');
+        if (!track) return;
+        
+        const width = window.innerWidth;
+        let duration = '40s'; // デフォルト
+        
+        if (width < 480) {
+            duration = '25s';
+        } else if (width < 768) {
+            duration = '30s';
+        } else if (width < 1024) {
+            duration = '35s';
         }
         
-        // ギャラリー要素の存在確認
-        const galleryElement = document.querySelector('.clinic-gallery');
-        if (!galleryElement) return;
-
-        try {
-            this.swiper = new Swiper('.clinic-gallery', {
-            slidesPerView: 'auto',
-            spaceBetween: 20,
-            centeredSlides: true,
-            loop: true,
-            /*loopedSlides: 4,  // スライド数と同じ値を設定（ループの安定性向上）*/
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,  // ホバー時に一時停止
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            },
-                
-            // パフォーマンス最適化
-            preloadImages: false,
-            lazy: {
-                loadPrevNext: true,
-            },
-                
-            breakpoints: {
-                // モバイル
-                320: {
-                    slidesPerView: 1.2,
-                    spaceBetween: 12,
-                    centeredSlides: true,
-                },
-                // タブレット
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                    centeredSlides: false,
-                },
-                // デスクトップ
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                    centeredSlides: false,
-                }
-            },
-
-           // 初期化完了時のコールバック
-            on: {
-                init: function() {
-                    console.log('Gallery Swiper initialized');
-                },
-            }         
-            });
-        } catch (error) {
-            console.error('Failed to initialize Swiper:', error);
-        }
+        track.style.animationDuration = duration;
     }
 }
 
