@@ -696,22 +696,10 @@
 
 .clinic-gallery-wrapper::before {
     left: 0;
-    background: linear-gradient(to right, 
-        var(--accent-offwhite) 0%, 
-        rgba(240, 240, 240, 0.9) 10%,
-        rgba(240, 240, 240, 0.6) 30%,
-        rgba(240, 240, 240, 0.2) 60%,
-        transparent 100%);
 }
 
 .clinic-gallery-wrapper::after {
     right: 0;
-    background: linear-gradient(to left, 
-        var(--accent-offwhite) 0%, 
-        rgba(240, 240, 240, 0.9) 10%,
-        rgba(240, 240, 240, 0.6) 30%,
-        rgba(240, 240, 240, 0.2) 60%,
-        transparent 100%);
 }
 
 /* スクロールコンテナ */
@@ -768,7 +756,6 @@
     width: 360px;
     height: 540px; /* アスペクト比を維持しながら拡大 */
     overflow: visible; /* 境界を曖昧にするため */
-    border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -791,14 +778,6 @@
     content: '';
     position: absolute;
     inset: -30px;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(107, 79, 60, 0.1) 0%,
-        rgba(107, 79, 60, 0.05) 30%,
-        rgba(107, 79, 60, 0.02) 60%,
-        transparent 80%
-    );
-    border-radius: 40px;
     z-index: -1;
     transition: all 0.4s ease;
 }
@@ -808,13 +787,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    /* 多層的な影で奥行きを演出 */
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.1),
-        0 8px 40px rgba(0, 0, 0, 0.08),
-        0 16px 80px rgba(0, 0, 0, 0.05);
 }
 
 /* 画像下部のグラデーションオーバーレイ */
@@ -837,21 +810,10 @@
 
 .gallery-card:hover::before {
     inset: -35px;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(107, 79, 60, 0.15) 0%,
-        rgba(107, 79, 60, 0.08) 30%,
-        rgba(107, 79, 60, 0.03) 60%,
-        transparent 80%
-    );
 }
 
 .gallery-card:hover img {
     transform: scale(1.05);
-    box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.15),
-        0 16px 60px rgba(0, 0, 0, 0.1),
-        0 32px 120px rgba(0, 0, 0, 0.05);
 }
 
 /* 写真に溶け込むテキストデザイン */
@@ -868,9 +830,6 @@
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0.1em;
-    text-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.4),
-        0 4px 16px rgba(0, 0, 0, 0.2);
     display: block;
 }
 
