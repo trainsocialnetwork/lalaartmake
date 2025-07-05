@@ -693,18 +693,6 @@
     padding: var(--spacing-xl) 0;
 }
 
-/* ソフトなグラデーションエッジ - より強調 */
-.clinic-gallery-wrapper::before,
-.clinic-gallery-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 180px; /* 幅を広げて境界をより曖昧に */
-    z-index: 2;
-    pointer-events: none;
-}
-
 .clinic-gallery-wrapper::before {
     left: 0;
 }
@@ -863,7 +851,7 @@
 
 @media (max-width: 768px) {
     .clinic-gallery-wrapper {
-        margin: var(--spacing-lg) -20px;
+        margin: var(--spacing-lg);
         padding: var(--spacing-lg) 0;
     }
     
@@ -875,7 +863,6 @@
     .gallery-card {
         width: 240px;
         height: 360px;
-        border-radius: 16px;
     }
     
     .gallery-card::before {
@@ -915,7 +902,6 @@
     .gallery-card {
         width: 200px;
         height: 300px;
-        border-radius: 14px;
     }
     
     .gallery-card::before {
