@@ -1,5 +1,35 @@
 
 /* ===============================================
+   Color - Artmake統一デザイン
+   =============================================== */
+
+/* Homepage専用カラー - ヌードトーン系 */
+:root {
+    /* Primary Colors Override */
+    --primary-brown: #C4A088;        /* ヌードベージュに変更 */
+    --secondary-beige: #B08072;      /* ローズウッドに変更 */
+    
+    /* Accent Colors Override */
+    --accent-offwhite: #FAF6F2;      /* クリームに変更 */
+    --accent-light-beige: #F5E6D8;   /* サンドに変更 */
+    
+    /* Text Colors Override */
+    --text-dark: #5D4E37;            /* ココアに変更 */
+    --text-darker: #4A3D2C;          /* より深いココアに変更 */
+    --text-light: #6B5D54;           /* アッシュブラウンに変更 */
+    
+    /* Gradients Override */
+    --gradient-warm: linear-gradient(135deg, #C4A088 0%, #B08072 100%);
+    --gradient-soft: linear-gradient(135deg, #FAF6F2 0%, #E8D5C4 100%);
+    
+    /* Homepage固有の色 */
+    --accent-mauve: #D4A5A5;         /* モーヴピンク */
+    --accent-taupe: #E8D5C4;         /* トープ */
+    --bridge-dusty-pink: #E8C4C4;   /* アートメイクへの橋渡し */
+    --bridge-muted-blue: #9FA8BA;   /* ゼオスキンへの橋渡し */
+}
+
+/* ===============================================
    Homepage Styles - Artmake統一デザイン
    =============================================== */
 
@@ -42,7 +72,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-modern .hero-content {
