@@ -683,72 +683,102 @@
 @media (max-width: 768px) {
     .clinic-gallery {
         margin: var(--spacing-xl) 0;
-        padding: 0;
-        overflow: visible;
+        padding: 0 20px; /* 左右にパディングを追加 */
+        overflow: hidden; /* はみ出し防止 */
     }
     
     .clinic-gallery .swiper {
         overflow: visible;
-        padding: 20px 0 40px;
+        padding: 20px 0 50px;
+        margin: 0 -20px; /* ネガティブマージンで調整 */
     }
     
     .clinic-gallery .swiper-wrapper {
         align-items: stretch;
+        padding: 0 20px; /* 内側パディング */
     }
     
     .clinic-gallery .swiper-slide {
         position: relative;
         overflow: hidden;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 24px;
+        box-shadow: 0 8px 24px rgba(107, 79, 60, 0.12);
         background: var(--base-white);
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         height: auto;
     }
     
     /* 上下にずらすデザイン */
     .clinic-gallery .swiper-slide:nth-child(even) {
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
     
     .clinic-gallery .swiper-slide-active {
-        transform: scale(1.05) translateY(0) !important;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        transform: scale(1.02) translateY(0) !important;
+        box-shadow: 0 12px 32px rgba(107, 79, 60, 0.18);
+    }
+    
+    /* 縦長画像 */
+    .clinic-gallery .image-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 133%; /* 3:4の縦長比率 */
+        overflow: hidden;
     }
     
     .clinic-gallery img {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 220px;
+        height: 100%;
         object-fit: cover;
     }
     
+    /* バッジスタイルのテキスト */
     .clinic-gallery p {
-        position: relative;
-        background: var(--base-white);
-        color: var(--text-dark);
-        padding: 16px 20px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        color: var(--primary-brown);
+        padding: 10px 24px;
         margin: 0;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         text-align: center;
-        border-top: 3px solid var(--gradient-warm);
-        background: linear-gradient(to bottom, var(--base-white) 0%, var(--accent-light-beige) 100%);
-    }
-}
-
-@media (max-width: 768px) {
-    .clinic-gallery .swiper-slide {
-        opacity: 0.6;
-        transition: all 0.3s ease;
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        min-width: 120px;
+        letter-spacing: 0.05em;
+        border: 1px solid rgba(107, 79, 60, 0.1);
     }
     
-    .clinic-gallery .swiper-slide-active {
-        opacity: 1;
+    /* バッジの装飾 */
+    .clinic-gallery p::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        background: var(--secondary-beige);
+        border-radius: 50%;
     }
     
-    .clinic-gallery .swiper-slide-prev,
-    .clinic-gallery .swiper-slide-next {
-        opacity: 0.8;
+    .clinic-gallery p::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        background: var(--secondary-beige);
+        border-radius: 50%;
     }
 }
 
@@ -757,53 +787,97 @@
     .clinic-gallery .swiper-slide {
         text-align: center;
         transition: all 0.3s ease;
-    }
-    
-    .clinic-gallery .swiper-slide:hover {
-        transform: translateY(-10px);
-    }
-    
-    .clinic-gallery img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 16px 16px 0 0;
-    }
-    
-    .clinic-gallery .swiper-slide {
         background: var(--base-white);
-        border-radius: 16px;
+        border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
     
+    .clinic-gallery .swiper-slide:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    
+    .clinic-gallery .image-container {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+    }
+    
+    .clinic-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .clinic-gallery .swiper-slide:hover img {
+        transform: scale(1.05);
+    }
+    
+    /* デスクトップ版のバッジスタイル */
     .clinic-gallery p {
-        padding: 16px;
+        position: relative;
+        padding: 20px;
         margin: 0;
-        background: var(--base-white);
+        background: linear-gradient(135deg, var(--accent-light-beige) 0%, var(--base-white) 100%);
         font-weight: 600;
-        color: var(--text-dark);
+        color: var(--primary-brown);
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+    
+    .clinic-gallery p::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-warm);
     }
 }
 
 /* Swiper pagination改善 */
 .clinic-gallery .swiper-pagination {
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .clinic-gallery .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: var(--border-gray);
-    opacity: 1;
+    opacity: 0.5;
     transition: all 0.3s ease;
 }
 
 .clinic-gallery .swiper-pagination-bullet-active {
-    width: 24px;
-    border-radius: 4px;
+    width: 20px;
+    height: 6px;
+    border-radius: 3px;
     background: var(--primary-brown);
+    opacity: 1;
+}
+
+/* スムーズなアニメーション */
+@media (max-width: 768px) {
+    .clinic-gallery .swiper-slide {
+        opacity: 0.7;
+        filter: blur(0.5px);
+    }
+    
+    .clinic-gallery .swiper-slide-active {
+        opacity: 1;
+        filter: blur(0);
+    }
+    
+    .clinic-gallery .swiper-slide-prev,
+    .clinic-gallery .swiper-slide-next {
+        opacity: 0.85;
+        filter: blur(0);
+    }
 }
 
 /* ===============================================
