@@ -255,7 +255,6 @@ class ServiceFAQ {
 document.addEventListener('DOMContentLoaded', () => {
     new FloatingCTA();
     new ClinicGallery();
-    new MobileMenu();
     new SmoothScroll();
     new BackToTop();
     new ScrollAnimation();
