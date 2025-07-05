@@ -407,6 +407,10 @@
 /* ===============================================
    5. Customer Voice
    =============================================== */
+.section-lead-voice {
+   padding-top: var(--spacing-xxxl);
+}
+
 .customer-voice {
     margin-bottom: var(--spacing-xxxl);
 }
@@ -988,7 +992,6 @@
    9. Why Choose Section - 統一されたサブセクションタイトル
    =============================================== */
 .why-subsection-title {
-    font-size: 28px;
     font-weight: 600;
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -999,8 +1002,7 @@
 
 @media (max-width: 768px) {
     .why-subsection-title {
-        font-size: 22px;
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
     }
 }
 
