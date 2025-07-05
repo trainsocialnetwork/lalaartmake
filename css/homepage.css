@@ -739,10 +739,11 @@
 /* ギャラリーカード - より大きく、境界を曖昧に */
 .gallery-card {
     position: relative;
-    width: 360px;
+    width: 405px;
     height: 540px; /* アスペクト比を維持しながら拡大 */
-    overflow: visible; /* 境界を曖昧にするため */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden; /* visible から hidden に変更 */
+    border-radius: 20px; /* 角丸を追加 */
 }
 
 /* 画像下部のグラデーションオーバーレイ */
@@ -760,6 +761,14 @@
         rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
     transition: opacity 0.3s ease;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をカード全体にフィット */
+    object-position: center center; /* 中央配置 */
+    display: block;
 }
 
 /* 写真に溶け込むテキストデザイン */
@@ -792,7 +801,7 @@
 /* レスポンシブ対応 */
 @media (max-width: 1024px) {
     .gallery-card {
-        width: 300px;
+        width: 340px;
         height: 450px;
     }
     
@@ -825,7 +834,7 @@
     }
     
     .gallery-card {
-        width: 240px;
+        width: 270px;
         height: 360px;
     }
     
@@ -864,7 +873,7 @@
     }
     
     .gallery-card {
-        width: 200px;
+        width: 225px;
         height: 300px;
     }
     
