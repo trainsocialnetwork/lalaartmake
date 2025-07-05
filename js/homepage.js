@@ -44,51 +44,41 @@ class ClinicGallery {
         const isMobile = window.innerWidth <= 768;
         
         new Swiper('.clinic-gallery', {
-            slidesPerView: isMobile ? 1.2 : 3,
-            spaceBetween: isMobile ? 16 : 30,
+            slidesPerView: isMobile ? 1.15 : 3,
+            spaceBetween: isMobile ? 12 : 24,
             centeredSlides: isMobile ? true : false,
             loop: true,
             autoplay: {
-                delay: 2500,
+                delay: 3000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
             },
-            speed: 800,
-            effect: isMobile ? 'coverflow' : 'slide',
-            coverflowEffect: {
-                rotate: 0,
-                stretch: -20,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false
-            },
+            speed: 600,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: true
+                dynamicBullets: false
             },
             breakpoints: {
                 320: {
+                    slidesPerView: 1.15,
+                    spaceBetween: 12,
+                    centeredSlides: true
+                },
+                480: {
                     slidesPerView: 1.2,
                     spaceBetween: 16,
                     centeredSlides: true
                 },
-                480: {
-                    slidesPerView: 1.4,
-                    spaceBetween: 20,
-                    centeredSlides: true
-                },
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 30,
-                    centeredSlides: false,
-                    effect: 'slide'
+                    spaceBetween: 20,
+                    centeredSlides: false
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
-                    centeredSlides: false,
-                    effect: 'slide'
+                    spaceBetween: 24,
+                    centeredSlides: false
                 }
             },
             on: {
