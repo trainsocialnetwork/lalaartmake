@@ -90,11 +90,11 @@ class ClinicGallery {
         let duration = '40s'; // デフォルト
         
         if (width < 480) {
-            duration = '25s';
-        } else if (width < 768) {
             duration = '30s';
-        } else if (width < 1024) {
+        } else if (width < 768) {
             duration = '35s';
+        } else if (width < 1024) {
+            duration = '40s';
         }
         
         track.style.animationDuration = duration;
