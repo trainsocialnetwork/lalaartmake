@@ -6,27 +6,27 @@
 /* Homepage専用カラー - ヌードトーン系 */
 :root {
     /* Primary Colors Override */
-    --primary-brown: #C4A088;        /* ヌードベージュに変更 */
-    --secondary-beige: #B08072;      /* ローズウッドに変更 */
+    --primary-brown: #C4A088;        /* #6B4F3C → #C4A088 (ヌードベージュ) */
+    --secondary-beige: #B08072;      /* #A1866F → #B08072 (ローズウッド) */
     
     /* Accent Colors Override */
-    --accent-offwhite: #FAF6F2;      /* クリームに変更 */
-    --accent-light-beige: #F5E6D8;   /* サンドに変更 */
+    --accent-offwhite: #FAF6F2;      /* #F8F8F8 → #FAF6F2 (クリーム) */
+    --accent-light-beige: #F5E6D8;   /* #F8F3EF → #F5E6D8 (サンド) */
     
     /* Text Colors Override */
-    --text-dark: #5D4E37;            /* ココアに変更 */
-    --text-darker: #4A3D2C;          /* より深いココアに変更 */
-    --text-light: #6B5D54;           /* アッシュブラウンに変更 */
+    --text-dark: #5D4E37;            /* #333333 → #5D4E37 (ココア) */
+    --text-darker: #4A3D2C;          /* #222222 → #4A3D2C (ダークココア) */
+    --text-light: #6B5D54;           /* #666666 → #6B5D54 (アッシュブラウン) */
     
     /* Gradients Override */
     --gradient-warm: linear-gradient(135deg, #C4A088 0%, #B08072 100%);
     --gradient-soft: linear-gradient(135deg, #FAF6F2 0%, #E8D5C4 100%);
     
     /* Homepage固有の色 */
-    --accent-mauve: #D4A5A5;         /* モーヴピンク */
-    --accent-taupe: #E8D5C4;         /* トープ */
-    --bridge-dusty-pink: #E8C4C4;   /* アートメイクへの橋渡し */
-    --bridge-muted-blue: #9FA8BA;   /* ゼオスキンへの橋渡し */
+    --accent-mauve: #D4A5A5;         /* 新規追加 (モーヴピンク) */
+    --accent-taupe: #E8D5C4;         /* 新規追加 (トープ) */
+    --bridge-dusty-pink: #E8C4C4;   /* 新規追加 (アートメイクへの橋渡し) */
+    --bridge-muted-blue: #9FA8BA;   /* 新規追加 (ゼオスキンへの橋渡し) */
 }
 
 /* ===============================================
@@ -135,6 +135,16 @@
 /* ===============================================
    1. Service Overview Section
    =============================================== */
+/* アートメイクセクションの背景グラデーション */
+#artmake {
+    background: linear-gradient(to bottom, var(--accent-offwhite) 0%, var(--bridge-dusty-pink) 100%);
+}
+
+/* オンライン美容セクションの背景グラデーション */
+#online-beauty {
+    background: linear-gradient(to bottom, var(--accent-offwhite) 0%, var(--bridge-muted-blue) 100%);
+}
+
 .service-overview {
     /* artmake.cssのcontent-sectionスタイルを使用 */
 }
@@ -230,6 +240,15 @@
 .service-menu-item:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-large);
+}
+
+.service-menu-item[data-service="artmake"]:hover {
+    background: linear-gradient(to right, #FFFFFF 0%, var(--bridge-dusty-pink) 100%);
+}
+
+/* オンライン美容カードのホバー */
+.service-menu-item[data-service="online-beauty"]:hover {
+    background: linear-gradient(to right, #FFFFFF 0%, var(--bridge-muted-blue) 100%);
 }
 
 .service-image {
@@ -501,6 +520,7 @@
 
 .voice-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(196, 160, 136, 0.2); 
 }
 
 .voice-header {
@@ -612,6 +632,10 @@
 /* ===============================================
    7. News Section
    =============================================== */
+.news-section {
+    background: var(--accent-offwhite);
+}
+
 .news-list {
     max-width: 800px;
     margin: 0 auto var(--spacing-xl);
@@ -969,6 +993,11 @@
 /* ===============================================
    9. Why Choose Section - 統一されたサブセクションタイトル
    =============================================== */
+
+.why-choose {
+    background: linear-gradient(to bottom, #FFFFFF 0%, var(--accent-offwhite) 100%);
+}
+
 .why-subsection-title {
     font-weight: 600;
     text-align: center;
@@ -1075,4 +1104,13 @@
     .news-title {
         font-size: 15px;
     }
+}
+
+.cta-button.cta-primary {
+    background: var(--gradient-warm);  /* 自動的に新しいヌードトーングラデーションに */
+}
+
+.cta-button.cta-outline {
+    border-color: var(--primary-brown);  /* 自動的に#C4A088に */
+    color: var(--primary-brown);         /* 自動的に#C4A088に */
 }
