@@ -1000,10 +1000,20 @@
     padding-bottom: 20px;
 }
 
+.why-subsection-title-voice{
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-darker);
+    position: relative;
+}
+
 @media (max-width: 768px) {
     .why-subsection-title {
         margin-bottom: var(--spacing-md);
     }
+   .why-subsection-title-voice{
+      padding-top: 20px;
+   }
 }
 
 /* ===============================================
