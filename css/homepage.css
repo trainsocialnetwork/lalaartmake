@@ -673,29 +673,40 @@
 /* ===============================================
    5. Gallery Carousel - モダンなスマホデザイン
    =============================================== */
+/* ===============================================
+   5. Gallery Carousel - モダンなスマホデザイン（完全版）
+   =============================================== */
 .clinic-gallery {
     max-width: 900px;
     margin: var(--spacing-xl) auto;
     position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* アニメーションクラス */
+.clinic-gallery.animated {
+    opacity: 1 !important;
 }
 
 /* モバイル版 - モダンなカードデザイン */
 @media (max-width: 768px) {
     .clinic-gallery {
         margin: var(--spacing-xl) 0;
-        padding: 0 20px; /* 左右にパディングを追加 */
-        overflow: hidden; /* はみ出し防止 */
+        padding: 0 20px;
+        overflow: hidden;
     }
     
     .clinic-gallery .swiper {
         overflow: visible;
         padding: 20px 0 50px;
-        margin: 0 -20px; /* ネガティブマージンで調整 */
+        margin: 0 -20px;
     }
     
     .clinic-gallery .swiper-wrapper {
         align-items: stretch;
-        padding: 0 20px; /* 内側パディング */
+        padding: 0 20px;
+        will-change: transform; /* パフォーマンス最適化 */
     }
     
     .clinic-gallery .swiper-slide {
@@ -706,16 +717,31 @@
         background: var(--base-white);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         height: auto;
+        opacity: 0.7;
+        filter: none; /* blur削除 - パフォーマンス改善 */
+        transform: scale(0.95);
     }
     
-    /* 上下にずらすデザイン */
+    /* 上下にずらすデザイン - アニメーション対応 */
     .clinic-gallery .swiper-slide:nth-child(even) {
-        transform: translateY(15px);
+        transform: translateY(15px) scale(0.95);
     }
     
+    /* アクティブスライドの強調 */
     .clinic-gallery .swiper-slide-active {
         transform: scale(1.02) translateY(0) !important;
         box-shadow: 0 12px 32px rgba(107, 79, 60, 0.18);
+        opacity: 1 !important;
+        filter: none !important;
+        z-index: 2;
+    }
+    
+    /* 前後のスライド */
+    .clinic-gallery .swiper-slide-prev,
+    .clinic-gallery .swiper-slide-next {
+        opacity: 0.85;
+        filter: none;
+        transform: scale(0.98);
     }
     
     /* 縦長画像 */
@@ -733,6 +759,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
     }
     
     /* バッジスタイルのテキスト */
@@ -754,31 +782,34 @@
         min-width: 120px;
         letter-spacing: 0.05em;
         border: 1px solid rgba(107, 79, 60, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    /* アクティブスライドのバッジ強調 */
+    .clinic-gallery .swiper-slide-active p {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
     
     /* バッジの装飾 */
-    .clinic-gallery p::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 12px;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 4px;
-        background: var(--secondary-beige);
-        border-radius: 50%;
-    }
-    
+    .clinic-gallery p::before,
     .clinic-gallery p::after {
         content: '';
         position: absolute;
         top: 50%;
-        right: 12px;
         transform: translateY(-50%);
         width: 4px;
         height: 4px;
         background: var(--secondary-beige);
         border-radius: 50%;
+    }
+    
+    .clinic-gallery p::before {
+        left: 12px;
+    }
+    
+    .clinic-gallery p::after {
+        right: 12px;
     }
 }
 
@@ -786,7 +817,7 @@
 @media (min-width: 769px) {
     .clinic-gallery .swiper-slide {
         text-align: center;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: var(--base-white);
         border-radius: 20px;
         overflow: hidden;
@@ -794,8 +825,8 @@
     }
     
     .clinic-gallery .swiper-slide:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        transform: translateY(-10px) !important;
+        box-shadow: 0 15px 40px rgba(107, 79, 60, 0.15);
     }
     
     .clinic-gallery .image-container {
@@ -809,11 +840,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
     }
     
     .clinic-gallery .swiper-slide:hover img {
-        transform: scale(1.05);
+        transform: scale(1.08);
     }
     
     /* デスクトップ版のバッジスタイル */
@@ -826,6 +858,7 @@
         color: var(--primary-brown);
         font-size: 14px;
         letter-spacing: 0.05em;
+        transition: all 0.3s ease;
     }
     
     .clinic-gallery p::before {
@@ -836,6 +869,11 @@
         right: 0;
         height: 3px;
         background: var(--gradient-warm);
+        transition: height 0.3s ease;
+    }
+    
+    .clinic-gallery .swiper-slide:hover p::before {
+        height: 5px;
     }
 }
 
@@ -843,6 +881,7 @@
 .clinic-gallery .swiper-pagination {
     position: relative;
     margin-top: 20px;
+    transition: all 0.3s ease;
 }
 
 .clinic-gallery .swiper-pagination-bullet {
@@ -851,6 +890,12 @@
     background: var(--border-gray);
     opacity: 0.5;
     transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.clinic-gallery .swiper-pagination-bullet:hover {
+    background: var(--secondary-beige);
+    transform: scale(1.2);
 }
 
 .clinic-gallery .swiper-pagination-bullet-active {
@@ -861,22 +906,75 @@
     opacity: 1;
 }
 
-/* スムーズなアニメーション */
-@media (max-width: 768px) {
-    .clinic-gallery .swiper-slide {
-        opacity: 0.7;
-        filter: blur(0.5px);
+/* 初期アニメーション */
+@supports (animation-timeline: scroll()) {
+    .clinic-gallery {
+        animation: fadeInUp 0.8s ease-out;
     }
-    
-    .clinic-gallery .swiper-slide-active {
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
         opacity: 1;
-        filter: blur(0);
+        transform: translateY(0);
     }
-    
-    .clinic-gallery .swiper-slide-prev,
-    .clinic-gallery .swiper-slide-next {
-        opacity: 0.85;
-        filter: blur(0);
+}
+
+/* 個別スライドの初期アニメーション */
+.clinic-gallery .swiper-slide {
+    animation: slideIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.clinic-gallery .swiper-slide:nth-child(1) { animation-delay: 0.1s; }
+.clinic-gallery .swiper-slide:nth-child(2) { animation-delay: 0.2s; }
+.clinic-gallery .swiper-slide:nth-child(3) { animation-delay: 0.3s; }
+.clinic-gallery .swiper-slide:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* タッチデバイス対応 */
+@media (hover: none) and (pointer: coarse) {
+    .clinic-gallery .swiper-slide {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* アクセシビリティ改善 */
+.clinic-gallery .swiper-pagination-bullet:focus {
+    outline: 2px solid var(--primary-brown);
+    outline-offset: 2px;
+}
+
+/* 高解像度ディスプレイ対応 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .clinic-gallery p {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* レイアウトシフト防止 */
+.clinic-gallery .swiper {
+    min-height: 300px;
+}
+
+@media (max-width: 768px) {
+    .clinic-gallery .swiper {
+        min-height: 450px;
     }
 }
 
