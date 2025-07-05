@@ -851,7 +851,6 @@
 
 @media (max-width: 768px) {
     .clinic-gallery-wrapper {
-        margin: var(--spacing-lg);
         padding: var(--spacing-lg) 0;
     }
     
