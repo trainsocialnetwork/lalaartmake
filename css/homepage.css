@@ -682,6 +682,19 @@
     position: relative;
 }
 
+/* ラッパー要素のスタイル */
+.clinic-gallery-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Swiper初期化前の表示崩れ防止 */
+.clinic-gallery:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
 /* Swiperコンテナの基本設定 */
 .clinic-gallery .swiper {
     width: 100%;
