@@ -676,192 +676,244 @@
 /* ===============================================
    5. Gallery Carousel - 改善版
    =============================================== */
-.clinic-gallery {
-    max-width: 900px;
-    margin: var(--spacing-xl) auto;
-    position: relative;
-}
-
-/* ラッパー要素のスタイル */
 .clinic-gallery-wrapper {
-    position: relative;
     width: 100%;
     overflow: hidden;
-}
-
-/* Swiper初期化前の表示崩れ防止 */
-.clinic-gallery:not(.swiper-initialized) .swiper-wrapper {
-    display: flex;
-    gap: 20px;
-}
-
-/* Swiperコンテナの基本設定 */
-.clinic-gallery .swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.clinic-gallery .swiper-wrapper {
-    display: flex;
-    align-items: stretch;
-}
-
-/* スライドの基本設定 */
-.clinic-gallery .swiper-slide {
-    text-align: center;
-    background: var(--base-white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-}
-
-.clinic-gallery .swiper-slide:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(107, 79, 60, 0.15);
-}
-
-/* 画像コンテナ */
-.clinic-gallery .image-container {
+    margin: var(--spacing-xl) 0;
     position: relative;
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
+    background: transparent;
+    padding: var(--spacing-xl) 0;
 }
 
-.clinic-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.clinic-gallery .swiper-slide:hover img {
-    transform: scale(1.08);
-}
-
-/* テキスト部分 */
-.clinic-gallery p {
-    padding: 20px;
-    margin: 0;
-    background: linear-gradient(135deg, var(--accent-light-beige) 0%, var(--base-white) 100%);
-    font-weight: 600;
-    color: var(--primary-brown);
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    position: relative;
-}
-
-.clinic-gallery p::before {
+/* ソフトなグラデーションエッジ */
+.clinic-gallery-wrapper::before,
+.clinic-gallery-wrapper::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-warm);
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* モバイル版 */
+.clinic-gallery-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, 
+        var(--accent-offwhite) 0%, 
+        rgba(240, 240, 240, 0.8) 20%,
+        rgba(240, 240, 240, 0.4) 50%,
+        transparent 100%);
+}
+
+.clinic-gallery-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, 
+        var(--accent-offwhite) 0%, 
+        rgba(240, 240, 240, 0.8) 20%,
+        rgba(240, 240, 240, 0.4) 50%,
+        transparent 100%);
+}
+
+/* スクロールコンテナ */
+.clinic-gallery-scroll {
+    display: flex;
+    width: 100%;
+}
+
+/* ギャラリートラック */
+.gallery-track {
+    display: flex;
+    gap: 24px;
+    animation: scrollInfinite 40s linear infinite;
+}
+
+/* 各スライド */
+.gallery-slide {
+    flex: 0 0 auto;
+}
+
+/* ギャラリーカード - モダンなデザイン */
+.gallery-card {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    box-shadow: 0 10px 40px rgba(107, 79, 60, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(107, 79, 60, 0.15);
+}
+
+.gallery-card:hover::before {
+    opacity: 1;
+}
+
+/* 画像スタイル */
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+/* エレガントなバッジデザイン */
+.gallery-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-badge::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--primary-brown) 0%, var(--secondary-beige) 100%);
+    border-radius: 30px;
+    opacity: 0.8;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-badge span {
+    color: var(--primary-brown);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-card:hover .gallery-badge {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 8px 30px rgba(107, 79, 60, 0.2);
+}
+
+.gallery-card:hover .gallery-badge::before {
+    opacity: 1;
+}
+
+/* 無限スクロールアニメーション */
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ホバー時の一時停止 */
+.clinic-gallery-wrapper:hover .gallery-track {
+    animation-play-state: paused;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .gallery-card {
+        width: 280px;
+        height: 210px;
+    }
+    
+    .gallery-track {
+        gap: 20px;
+        animation-duration: 35s;
+    }
+}
+
 @media (max-width: 768px) {
-    .clinic-gallery {
-        margin: var(--spacing-xl) 0;
-        padding: 0 20px;
+    .clinic-gallery-wrapper {
+        margin: var(--spacing-lg) -20px;
+        padding: var(--spacing-lg) 0;
     }
     
-    .clinic-gallery .swiper {
-        overflow: visible;
-        padding: 20px 0 50px;
-        margin: 0 -20px;
+    .clinic-gallery-wrapper::before,
+    .clinic-gallery-wrapper::after {
+        width: 60px;
     }
     
-    .clinic-gallery .swiper-wrapper {
-        padding: 0 20px;
-    }
-    
-    .clinic-gallery .swiper-slide {
+    .gallery-card {
+        width: 240px;
+        height: 180px;
         border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(107, 79, 60, 0.12);
     }
     
-    /* 縦長画像 */
-    .clinic-gallery .image-container {
-        height: 300px;
+    .gallery-track {
+        gap: 16px;
+        animation-duration: 30s;
     }
     
-    /* モバイル版のテキスト */
-    .clinic-gallery p {
-        padding: 16px;
+    .gallery-badge {
+        bottom: 16px;
+        padding: 6px 20px;
+        border-radius: 24px;
+    }
+    
+    .gallery-badge span {
         font-size: 13px;
     }
 }
 
-/* タブレット版 */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .clinic-gallery .image-container {
-        height: 240px;
-    }
-}
-
-/* Swiper pagination */
-.clinic-gallery .swiper-pagination {
-    position: relative;
-    margin-top: 20px;
-}
-
-.clinic-gallery .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    background: var(--border-gray);
-    opacity: 1;
-    transition: all 0.3s ease;
-    margin: 0 4px;
-}
-
-.clinic-gallery .swiper-pagination-bullet:hover {
-    background: var(--secondary-beige);
-    transform: scale(1.2);
-}
-
-.clinic-gallery .swiper-pagination-bullet-active {
-    width: 24px;
-    height: 8px;
-    border-radius: 4px;
-    background: var(--primary-brown);
-}
-
-/* タッチデバイス対応 */
-@media (hover: none) and (pointer: coarse) {
-    .clinic-gallery {
-        touch-action: pan-y pinch-zoom;
+@media (max-width: 480px) {
+    .gallery-card {
+        width: 200px;
+        height: 150px;
     }
     
-    .clinic-gallery .swiper-wrapper {
-        touch-action: pan-x pan-y;
+    .gallery-track {
+        gap: 12px;
+        animation-duration: 25s;
     }
     
-    .clinic-gallery .swiper-slide {
-        -webkit-tap-highlight-color: transparent;
+    .gallery-badge {
+        bottom: 12px;
+        padding: 5px 16px;
+    }
+    
+    .gallery-badge span {
+        font-size: 12px;
     }
 }
 
-/* アクセシビリティ改善 */
-.clinic-gallery .swiper-pagination-bullet:focus {
-    outline: 2px solid var(--primary-brown);
-    outline-offset: 2px;
-}
-
-/* パフォーマンス最適化 */
-.clinic-gallery img {
-    will-change: transform;
-}
-
-.clinic-gallery .swiper-slide {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+/* アクセシビリティ: モーション設定 */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-track {
+        animation: none;
+    }
+    
+    .gallery-card,
+    .gallery-card img,
+    .gallery-badge {
+        transition: none;
+    }
 }
 
 /* ===============================================
