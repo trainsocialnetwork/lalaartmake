@@ -1045,7 +1045,7 @@ section {
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
     aspect-ratio: 1.91 / 1;
-   position: relative; /* 追加 */
+    position: relative; /* 追加 */
 }
 
 @media (max-width: 768px) {
@@ -1080,6 +1080,14 @@ section {
 
 .swiper-pagination {
     bottom: -40px !important;
+}
+
+/* Swiper pagination フォールバックスタイル */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20px !important;
+    left: 0;
+    width: 100%;
 }
 
 .swiper-pagination-bullet {
@@ -1122,7 +1130,7 @@ section {
     }
     
     .swiper-pagination {
-               bottom: 15px !important; /* モバイル用に位置調整 */Add commentMore actions
+        bottom: 15px !important; /* モバイル用に位置調整 */
     }
        .campaign-slider {
         padding-bottom: 50px; /* モバイル用に調整 */
@@ -1137,6 +1145,7 @@ section {
         width: 24px !important;
     }
 }
+
 
 /* ===============================================
    11. Intro Section
@@ -3165,7 +3174,7 @@ section {
     text-align: center;
 }
 
-/* モバイル対応 */Add commentMore actions
+/* モバイル対応 */
 @media (max-width: 768px) {
     .news-grid {
         grid-template-columns: 1fr;
