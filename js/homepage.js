@@ -34,39 +34,56 @@ class FloatingCTA {
 // Clinic Gallery Swiper - 自動スクロール付き
 class ClinicGallery {
     constructor() {
-        this.init();
+        // Swiper読み込み完了を待つ
+        if (document.readyState === 'loading') {
+            window.addEventListener('load', () => this.init());
+        } else {
+            this.init();
+        }
     }
     
     init() {
-        // Swiperが読み込まれているか確認
+        // Swiperの存在確認を強化
         if (typeof Swiper === 'undefined') {
-            console.error('Swiper is not loaded');
+            console.warn('Swiper is not loaded, retrying...');
+            setTimeout(() => this.init(), 100);
             return;
         }
         
         // ギャラリー要素の存在確認
         const galleryElement = document.querySelector('.clinic-gallery');
         if (!galleryElement) return;
-        
-        // Swiperの初期化
-        new Swiper('.clinic-gallery', {
+
+        try {
+            this.swiper = new Swiper('.clinic-gallery', {
             slidesPerView: 'auto',
             spaceBetween: 20,
             centeredSlides: true,
             loop: true,
+            /*loopedSlides: 4,  // スライド数と同じ値を設定（ループの安定性向上）*/
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,  // ホバー時に一時停止
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
+                dynamicBullets: true,
             },
+                
+            // パフォーマンス最適化
+            preloadImages: false,
+            lazy: {
+                loadPrevNext: true,
+            },
+                
             breakpoints: {
                 // モバイル
                 320: {
                     slidesPerView: 1.2,
                     spaceBetween: 12,
+                    centeredSlides: true,
                 },
                 // タブレット
                 768: {
@@ -80,8 +97,18 @@ class ClinicGallery {
                     spaceBetween: 24,
                     centeredSlides: false,
                 }
-            }
-        });
+            },
+
+           // 初期化完了時のコールバック
+            on: {
+                init: function() {
+                    console.log('Gallery Swiper initialized');
+                },
+            }         
+            });
+        } catch (error) {
+            console.error('Failed to initialize Swiper:', error);
+        }
     }
 }
 
