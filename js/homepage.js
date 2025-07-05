@@ -110,38 +110,6 @@ class ClinicGallery {
     }
 }
 
-// Smooth Scroll
-class SmoothScroll {
-    constructor() {
-        this.links = document.querySelectorAll('a[href^="#"]');
-        this.init();
-    }
-    
-    init() {
-        this.links.forEach(link => {
-            link.addEventListener('click', (e) => this.handleClick(e));
-        });
-    }
-    
-    handleClick(e) {
-        const href = e.currentTarget.getAttribute('href');
-        if (href === '#') return;
-        
-        const target = document.querySelector(href);
-        if (!target) return;
-        
-        e.preventDefault();
-        
-        const headerHeight = document.querySelector('.main-header').offsetHeight;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-    }
-}
-
 // Back to Top Button
 class BackToTop {
     constructor() {
