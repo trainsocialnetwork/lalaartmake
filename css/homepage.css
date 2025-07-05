@@ -670,75 +670,141 @@
     color: var(--text-light);
 }
 
+/* ===============================================
+   5. Gallery Carousel - モダンなスマホデザイン
+   =============================================== */
 .clinic-gallery {
     max-width: 900px;
     margin: var(--spacing-xl) auto;
     position: relative;
 }
 
-/* デスクトップ版 */
+/* モバイル版 - モダンなカードデザイン */
+@media (max-width: 768px) {
+    .clinic-gallery {
+        margin: var(--spacing-xl) 0;
+        padding: 0;
+        overflow: visible;
+    }
+    
+    .clinic-gallery .swiper {
+        overflow: visible;
+        padding: 20px 0 40px;
+    }
+    
+    .clinic-gallery .swiper-wrapper {
+        align-items: stretch;
+    }
+    
+    .clinic-gallery .swiper-slide {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        background: var(--base-white);
+        transition: all 0.3s ease;
+        height: auto;
+    }
+    
+    /* 上下にずらすデザイン */
+    .clinic-gallery .swiper-slide:nth-child(even) {
+        transform: translateY(20px);
+    }
+    
+    .clinic-gallery .swiper-slide-active {
+        transform: scale(1.05) translateY(0) !important;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .clinic-gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+    
+    .clinic-gallery p {
+        position: relative;
+        background: var(--base-white);
+        color: var(--text-dark);
+        padding: 16px 20px;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--gradient-warm);
+        background: linear-gradient(to bottom, var(--base-white) 0%, var(--accent-light-beige) 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .clinic-gallery .swiper-slide {
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+    
+    .clinic-gallery .swiper-slide-active {
+        opacity: 1;
+    }
+    
+    .clinic-gallery .swiper-slide-prev,
+    .clinic-gallery .swiper-slide-next {
+        opacity: 0.8;
+    }
+}
+
+/* デスクトップ版も改善 */
 @media (min-width: 769px) {
     .clinic-gallery .swiper-slide {
         text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .clinic-gallery .swiper-slide:hover {
+        transform: translateY(-10px);
     }
     
     .clinic-gallery img {
         width: 100%;
         height: 300px;
         object-fit: cover;
-        border-radius: 16px;
-    }
-}
-
-/* モバイル版 - モダンカードデザイン */
-@media (max-width: 768px) {
-    .clinic-gallery {
-        margin: var(--spacing-xl) -20px;
-        padding: 0 20px;
+        border-radius: 16px 16px 0 0;
     }
     
     .clinic-gallery .swiper-slide {
-        position: relative;
-        overflow: hidden;
+        background: var(--base-white);
         border-radius: 16px;
-        box-shadow: var(--shadow-medium);
-    }
-    
-    .clinic-gallery img {
-        width: 100%;
-        height: 240px;
-        object-fit: cover;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
     
     .clinic-gallery p {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-        color: var(--base-white);
-        padding: 20px 16px 16px;
+        padding: 16px;
         margin: 0;
-        font-size: 14px;
+        background: var(--base-white);
         font-weight: 600;
+        color: var(--text-dark);
     }
 }
 
-/* Swiper調整 */
+/* Swiper pagination改善 */
 .clinic-gallery .swiper-pagination {
     position: relative;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .clinic-gallery .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
     background: var(--border-gray);
     opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .clinic-gallery .swiper-pagination-bullet-active {
+    width: 24px;
+    border-radius: 4px;
     background: var(--primary-brown);
 }
-
 
 /* ===============================================
    9. Why Choose Section - 統一されたサブセクションタイトル
