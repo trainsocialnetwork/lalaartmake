@@ -112,50 +112,6 @@ class ClinicGallery {
     }
 }
 
-// Mobile Menu Toggle
-class MobileMenu {
-    constructor() {
-        this.toggle = document.getElementById('mobileMenuToggle');
-        this.menu = document.getElementById('mobileMenu');
-        this.closeBtn = document.getElementById('mobileMenuClose');
-        this.isOpen = false;
-        this.init();
-    }
-    
-    init() {
-        if (!this.toggle || !this.menu) return;
-        
-        this.toggle.addEventListener('click', () => this.toggleMenu());
-        this.closeBtn.addEventListener('click', () => this.closeMenu());
-        
-        // Close on link click
-        const links = this.menu.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                setTimeout(() => this.closeMenu(), 300);
-            });
-        });
-    }
-    
-    toggleMenu() {
-        this.isOpen ? this.closeMenu() : this.openMenu();
-    }
-    
-    openMenu() {
-        this.isOpen = true;
-        this.menu.classList.add('active');
-        this.toggle.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    closeMenu() {
-        this.isOpen = false;
-        this.menu.classList.remove('active');
-        this.toggle.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
 // Smooth Scroll
 class SmoothScroll {
     constructor() {
