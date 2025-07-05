@@ -805,7 +805,6 @@
         rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
     transition: opacity 0.3s ease;
-    border-radius: 0 0 20px 20px;
 }
 
 .gallery-card:hover::before {
