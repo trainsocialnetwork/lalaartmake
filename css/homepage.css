@@ -673,9 +673,6 @@
 /* ===============================================
    5. Gallery Carousel - モダンなスマホデザイン
    =============================================== */
-/* ===============================================
-   5. Gallery Carousel - 無限スクロールデザイン
-   =============================================== */
 .clinic-gallery-wrapper {
     width: 100%;
     overflow: hidden;
@@ -723,11 +720,41 @@
     width: 100%;
 }
 
-/* ギャラリートラック - 間隔を調整 */
+/* ギャラリートラック - 間隔を大幅に拡大 */
 .gallery-track {
     display: flex;
-    gap: 60px; /* より大きな画像に合わせて間隔も拡大 */
-    animation: scrollInfinite 50s linear infinite; /* 速度を調整 */
+    gap: 100px; /* 間隔を大幅に拡大 */
+    animation: scrollInfinite 60s linear infinite; /* 速度を調整 */
+    align-items: center; /* 中央揃え */
+}
+
+/* 各スライド - ジグザグ配置 */
+.gallery-slide {
+    flex: 0 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* 上にずらす */
+.gallery-slide--up {
+    transform: translateY(-40px);
+}
+
+/* 下にずらす */
+.gallery-slide--down {
+    transform: translateY(40px);
+}
+
+/* ホバー時のアニメーション */
+.gallery-slide:hover {
+    transform: translateY(0) scale(1.02);
+}
+
+.gallery-slide--up:hover {
+    transform: translateY(-45px) scale(1.02);
+}
+
+.gallery-slide--down:hover {
+    transform: translateY(35px) scale(1.02);
 }
 
 /* 各スライド */
@@ -741,22 +768,37 @@
     width: 360px;
     height: 540px; /* アスペクト比を維持しながら拡大 */
     overflow: visible; /* 境界を曖昧にするため */
-    border-radius: 12px;
+    border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 回転効果を追加 */
+.gallery-slide--up .gallery-card {
+    transform: rotate(-2deg);
+}
+
+.gallery-slide--down .gallery-card {
+    transform: rotate(2deg);
+}
+
+/* ホバー時の回転リセット */
+.gallery-slide:hover .gallery-card {
+    transform: rotate(0deg);
 }
 
 /* ソフトな影で境界を曖昧に */
 .gallery-card::before {
     content: '';
     position: absolute;
-    inset: -20px;
+    inset: -30px;
     background: radial-gradient(
         ellipse at center,
-        rgba(107, 79, 60, 0.08) 0%,
-        rgba(107, 79, 60, 0.04) 40%,
-        transparent 70%
+        rgba(107, 79, 60, 0.1) 0%,
+        rgba(107, 79, 60, 0.05) 30%,
+        rgba(107, 79, 60, 0.02) 60%,
+        transparent 80%
     );
-    border-radius: 30px;
+    border-radius: 40px;
     z-index: -1;
     transition: all 0.4s ease;
 }
@@ -767,11 +809,12 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    /* ソフトな影で境界をぼかす */
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 多層的な影で奥行きを演出 */
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.08),
-        0 16px 64px rgba(0, 0, 0, 0.04);
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        0 8px 40px rgba(0, 0, 0, 0.08),
+        0 16px 80px rgba(0, 0, 0, 0.05);
 }
 
 /* 画像下部のグラデーションオーバーレイ */
@@ -784,32 +827,31 @@
     height: 60%;
     background: linear-gradient(to bottom, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.2) 60%,
-        rgba(0, 0, 0, 0.4) 100%);
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
     transition: opacity 0.3s ease;
     border-radius: 0 0 20px 20px;
 }
 
-.gallery-card:hover {
-    transform: translateY(-8px);
-}
-
 .gallery-card:hover::before {
-    inset: -25px;
+    inset: -35px;
     background: radial-gradient(
         ellipse at center,
-        rgba(107, 79, 60, 0.12) 0%,
-        rgba(107, 79, 60, 0.06) 40%,
-        transparent 70%
+        rgba(107, 79, 60, 0.15) 0%,
+        rgba(107, 79, 60, 0.08) 30%,
+        rgba(107, 79, 60, 0.03) 60%,
+        transparent 80%
     );
 }
 
 .gallery-card:hover img {
     transform: scale(1.05);
     box-shadow: 
-        0 12px 48px rgba(0, 0, 0, 0.12),
-        0 24px 96px rgba(0, 0, 0, 0.06);
+        0 8px 30px rgba(0, 0, 0, 0.15),
+        0 16px 60px rgba(0, 0, 0, 0.1),
+        0 32px 120px rgba(0, 0, 0, 0.05);
 }
 
 /* 写真に溶け込むテキストデザイン */
@@ -860,8 +902,16 @@
     }
     
     .gallery-track {
-        gap: 70px;
-        animation-duration: 45s;
+        gap: 80px;
+        animation-duration: 55s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-30px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(30px);
     }
     
     .gallery-badge span {
@@ -887,12 +937,28 @@
     }
     
     .gallery-card::before {
-        inset: -15px;
+        inset: -20px;
     }
     
     .gallery-track {
-        gap: 36px;
-        animation-duration: 40s;
+        gap: 60px;
+        animation-duration: 50s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-20px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(20px);
+    }
+    
+    .gallery-slide--up .gallery-card {
+        transform: rotate(-1deg);
+    }
+    
+    .gallery-slide--down .gallery-card {
+        transform: rotate(1deg);
     }
     
     .gallery-badge {
@@ -919,12 +985,20 @@
     }
     
     .gallery-card::before {
-        inset: -10px;
+        inset: -15px;
     }
     
     .gallery-track {
-        gap: 28px;
-        animation-duration: 35s;
+        gap: 40px;
+        animation-duration: 45s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-15px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(15px);
     }
     
     .gallery-badge {
