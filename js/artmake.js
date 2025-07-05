@@ -423,7 +423,11 @@ class FAQAccordion {
         this.items.forEach(item => {
             const question = item.querySelector('.faq-question');
             if (question) {
-                question.addEventListener('click', () => this.toggleItem(item));
+                // イベントの競合を防ぐため、イベントリスナーに event.stopPropagation() を追加
+                question.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    this.toggleItem(item);
+                });
             }
         });
     }
@@ -1070,7 +1074,7 @@ class BubbleAnimation {
 class MobileFixedCTA {
     constructor() {
         this.button = document.getElementById('mobileFixedCTA');
-        this.heroSection = document.querySelector('.hero');
+        this.heroSection = document.querySelector('.hero, .page-hero');
         this.lastScrollTop = 0;
         this.isShown = false;
         this.heroThreshold = 0;

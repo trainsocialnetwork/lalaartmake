@@ -204,6 +204,14 @@ p {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.section-title h2 {
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin-bottom: 20px;
+    white-space: normal; /* 改行を有効化 */
+    display: block; /* ブロック要素として表示 */
+    line-height: 1.4; /* 適切な行間 */
+}
+
 /* ===============================================
    3. Loading Animation
    =============================================== */
@@ -347,26 +355,38 @@ p {
 @media (max-width: 768px) {
     .main-header {
         height: var(--header-height-mobile);
+        /* スクロール時の高さ変更を無効化 */
     }
     
+    /* この部分をコメントアウトまたは削除 */
+    /*
     .main-header.scrolled {
         height: 60px;
     }
+    */
 }
 
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-lg); /* セミコロンを追加 */
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* ロゴサイズの調整 */
 .logo img {
     height: 60px;
     transition: transform var(--transition-normal);
+}
+
+/* モバイル用のロゴサイズ調整 */
+@media (max-width: 768px) {
+    .logo img {
+        height: 60px !important;
+    }
 }
 
 .logo:hover img {
@@ -377,6 +397,13 @@ p {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
+}
+
+/* モバイルでナビゲーションを非表示 */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
 }
 
 .main-nav a {
@@ -416,6 +443,15 @@ p {
     box-shadow: var(--shadow-small);
 }
 
+/* モバイル用のCTAボタン調整 */
+@media (max-width: 768px) {
+    .header-cta {
+        padding: 8px 16px;
+        font-size: 14px;
+        display: none; /* 必要に応じて非表示 */
+    }
+}
+
 .header-cta:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
@@ -427,6 +463,17 @@ p {
     width: 40px;
     height: 40px;
     position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .mobile-menu-toggle span {
@@ -505,6 +552,9 @@ p {
     justify-content: center;
     font-size: 24px;
     color: var(--text-dark);
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .mobile-nav {
@@ -1020,6 +1070,14 @@ section {
     transform: scale(1.05);
 }
 
+/* Swiper pagination フォールバックスタイル */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20px !important;
+    left: 0;
+    width: 100%;
+}
+
 .swiper-pagination {
     bottom: -40px !important;
 }
@@ -1305,7 +1363,7 @@ section {
     position: relative;
     background: var(--accent-light-beige);
     overflow: hidden;
-    padding: 0;
+    padding-top: 24px; /* 追加：上部の余白 */
 }
 
 .instagram-split-container {
@@ -1328,6 +1386,7 @@ section {
 
 .instagram-content-v2 {
     max-width: 500px;
+    text-align: center;
 }
 
 .instagram-content-v2 h2 {
@@ -1487,7 +1546,7 @@ section {
    =============================================== */
 /* ボタンスタイルの修正 */
 .cta-button-v2 {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     gap: 12px;
     padding: 16px 32px;
@@ -2251,7 +2310,7 @@ section {
    17. Flow Section
    =============================================== */
 .flow-section {
-    background: var(--accent-offwhite);
+    background: var(--accent-light-beige);
     padding: 60px 0;
 }
 
@@ -2423,7 +2482,7 @@ section {
 
 @media (max-width: 768px) {
     .flow-text h3 {
-        font-size: 18px;
+        font-size: 16px; /*18→16に*/
         margin-bottom: 10px;
     }
 }
@@ -2436,7 +2495,7 @@ section {
 
 @media (max-width: 768px) {
     .flow-text p {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.6;
     }
 }
@@ -2529,7 +2588,6 @@ section {
 .staff-qualification {
     font-size: 14px;
     color: var(--text-light);
-    margin-bottom: var(--spacing-md);
 }
 
 .staff-comment {
@@ -2537,16 +2595,26 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
+.staff-sns {
+    display: flex;
+    justify-content: center; /* アイコンを中央に配置 */
+    width: 100%;
+}
+
 .staff-sns a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     background: var(--gradient-warm);
     color: var(--base-white);
     border-radius: 50%;
     transition: all var(--transition-normal);
+}
+
+.staff-sns a i {
+    font-size: 32px;
 }
 
 .staff-sns a:hover {
@@ -2637,6 +2705,9 @@ section {
         font-size: 12px;
         margin-right: 10px;
     }
+   .faq-text {
+         padding-right: 10px;
+   }
 }
 
 .faq-text {
@@ -2683,6 +2754,8 @@ section {
     border-radius: 50%;
     font-size: 13px;
     margin-right: 12px;
+   margin-left: 12px;
+   margin-top: 12px;
     flex-shrink: 0;
 }
 
@@ -2692,6 +2765,8 @@ section {
         height: 24px;
         font-size: 12px;
         margin-right: 10px;
+       margin-left: 10px;
+       margin-top: 10px;
     }
 }
 
@@ -3086,6 +3161,7 @@ section {
     color: var(--text-darker);
     margin-bottom: var(--spacing-sm);
     line-height: 1.5;
+    margin-top: var(--spacing-md);
 }
 
 .news-excerpt {
@@ -3435,6 +3511,75 @@ section {
 }
 
 /* ===============================================
+   24-2. CTA Banner Section
+   =============================================== */
+.cta-banner-section {
+    background: var(--base-white);
+    padding: var(--spacing-xxl) 0;
+}
+
+@media (max-width: 768px) {
+    .cta-banner-section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+.cta-banner-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cta-banner-link {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+    aspect-ratio: 1.91 / 1; /* アスペクト比を設定 */
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .cta-banner-link {
+        border-radius: 12px;
+    }
+}
+
+.cta-banner-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.cta-banner-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.cta-banner-link:hover img {
+    transform: scale(1.05);
+}
+
+/* 古いブラウザ用のフォールバック */
+@supports not (aspect-ratio: 1.91 / 1) {
+    .cta-banner-link {
+        position: relative;
+        padding-bottom: 52.36%; /* 1/1.91 * 100% */
+        height: 0;
+    }
+    
+    .cta-banner-link img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ===============================================
    24. Footer
    =============================================== */
 .main-footer {
@@ -3444,31 +3589,61 @@ section {
     overflow: hidden;
 }
 
-.main-footer::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: var(--base-white);
-    transform: skewY(-2deg);
-}
-
 .footer-top {
-    padding: 80px 0 40px;
+    padding: 40px 0 40px;
 }
 
 @media (max-width: 768px) {
     .footer-top {
-        padding: 60px 0 32px;
+        padding: 30px 0 32px;
     }
 }
 
+/* フッターロゴセクションを中央配置 */
+.footer-logo-section {
+    text-align: center;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-section {
+        margin-bottom: 40px;
+    }
+}
+
+/* フッターロゴを中央配置 */
+.footer-logo {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer-logo {
+        margin-bottom: 16px;
+    }
+}
+
+.footer-logo img {
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .footer-logo img {
+        height: 160px;
+    }
+}
+
+/* フッターコンテンツのグリッドレイアウト（ロゴセクション除外） */
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -3479,31 +3654,12 @@ section {
     }
 }
 
-.footer-logo {
-    margin-bottom: 16px;
-}
-
-@media (max-width: 768px) {
-    .footer-logo {
-        margin-bottom: 12px;
-    }
-}
-
-.footer-logo img {
-    height: 45px;
-}
-
-@media (max-width: 768px) {
-    .footer-logo img {
-        height: 40px;
-    }
-}
-
 .footer-description {
     font-size: 14px;
     line-height: 1.8;
     opacity: 0.8;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -3517,6 +3673,7 @@ section {
 .footer-sns {
     display: flex;
     gap: 12px;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -3554,6 +3711,7 @@ section {
 .footer-section h4 {
     margin-bottom: 16px;
     font-size: 17px;
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -3703,9 +3861,6 @@ section {
 /* ===============================================
    25. Back to Top Button
    =============================================== */
-/* ===============================================
-   25. Back to Top Button
-   =============================================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -3736,7 +3891,7 @@ section {
     box-shadow: var(--shadow-large);
 }
 
-/* Mobile Fixed CTA Button */
+/* Mobile Fixed CTA Button - 幅調整版 */
 .mobile-fixed-cta {
     position: fixed;
     bottom: 0;
@@ -3745,7 +3900,7 @@ section {
     padding: 12px 16px;
     /* Safe area対応 */
     padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    background: : rgba( 255, 255, 255, 0.45 );
+    background: rgba(255, 255, 255, 0.45);
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
     z-index: 899;
     transform: translateY(calc(100% + env(safe-area-inset-bottom, 0px)));
@@ -3770,25 +3925,54 @@ section {
 .mobile-cta-button {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 14px 24px;
-    background: var(--gradient-warm);
-    color: var(--base-white);
+    gap: 8px;
+    background: linear-gradient(135deg, #00C300 0%, #00B900 100%);
+    color: white;
+    padding: 12px 20px;
     border-radius: 25px;
+    text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
-    box-shadow: var(--shadow-medium);
-    transition: all var(--transition-fast);
-}
-
-.mobile-cta-button:active {
-    transform: scale(0.98);
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0, 195, 0, 0.3);
+    transition: all 0.3s ease;
+    min-width: auto;
+    width: auto;
+    max-width: 200px;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .mobile-cta-button i {
     font-size: 18px;
+    color: white;
+}
+
+.mobile-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
+}
+
+/* さらに小さな画面での調整 */
+@media (max-width: 480px) {
+    .mobile-cta-button {
+        max-width: 180px;
+        padding: 11px 18px;
+        font-size: 13px;
+        gap: 6px;
+    }
+    
+    .mobile-cta-button i {
+        font-size: 16px;
+    }
+}
+
+/* 超小さな画面での最小設定 */
+@media (max-width: 360px) {
+    .mobile-cta-button {
+        max-width: 160px;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
 }
 
 /* Back to Top Buttonの位置調整（モバイルCTAと重ならないように） */
@@ -3800,6 +3984,7 @@ section {
         height: 45px;
         font-size: 18px;
     }
+}
     
     .back-to-top.show ~ .mobile-fixed-cta .mobile-cta-button,
     .mobile-fixed-cta.show ~ .back-to-top {
@@ -4175,5 +4360,4 @@ section {
         page-break-after: avoid;
     }
 }
-
 

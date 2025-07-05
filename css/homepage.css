@@ -1,0 +1,1048 @@
+
+/* ===============================================
+   Homepage Styles - Artmake統一デザイン
+   =============================================== */
+
+/* Modern Hero Section */
+.hero-modern {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero-modern {
+        height: 80vh; /* スマホでは画面の80%に */
+        min-height: 500px;
+    }
+}
+
+.hero-modern .hero-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-modern .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-modern .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-modern .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+    .hero-modern .hero-content {
+        padding: 0 20px;
+    }
+}
+
+.hero-modern .hero-title {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+    .hero-modern .hero-title {
+        font-size: 28px; /* 32px→28pxに縮小 */
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+    }
+}
+
+.hero-modern .hero-text {
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero-modern .hero-text {
+        font-size: 13px; /* 14px→13pxに縮小 */
+        line-height: 1.7;
+        padding: 0 10px;
+    }
+}
+
+/* Hero scroll indicator - スマホでは小さく */
+@media (max-width: 768px) {
+    .hero-scroll {
+        bottom: 20px;
+        font-size: 10px;
+    }
+    
+    .scroll-line {
+        height: 30px;
+    }
+}
+
+/* ===============================================
+   1. Service Overview Section
+   =============================================== */
+.service-overview {
+    /* artmake.cssのcontent-sectionスタイルを使用 */
+}
+
+.service-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .service-buttons {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ===============================================
+   2. Service Content
+   =============================================== */
+.service-intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+@media (max-width: 768px) {
+    .service-intro-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+        padding-top: var(--spacing-xxxl);
+    }
+}
+
+.service-intro-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.service-intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===============================================
+   3. Service Menu Grid
+   =============================================== */
+.service-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+}
+
+@media (max-width: 768px) {
+    .service-menu-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+.service-menu-item {
+    background: var(--base-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.service-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-warm);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.service-menu-item:hover::before {
+    opacity: 1;
+}
+
+.service-menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-large);
+}
+
+.service-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .service-image {
+        height: 200px;
+    }
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.service-menu-item:hover .service-image img {
+    transform: scale(1.08);
+}
+
+.service-content {
+    padding: var(--spacing-lg);
+}
+
+.service-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.service-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-dark);
+}
+
+.service-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--primary-brown);
+    font-weight: 500;
+    font-size: 14px;
+    transition: gap var(--transition-normal);
+}
+
+.service-detail-link:hover {
+    gap: var(--spacing-sm);
+}
+
+/* ===============================================
+   4. Q&A Section
+   =============================================== */
+.service-qa {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-gray);
+}
+
+.qa-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-darker);
+}
+
+/* FAQアコーディオンスタイル（artmake.cssから） */
+.service-qa .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-qa .faq-item {
+    background: var(--base-white);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
+}
+
+.service-qa .faq-item:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.service-qa .faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    background: var(--accent-offwhite);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-darker);
+    transition: all var(--transition-fast);
+    text-align: left;
+    cursor: pointer;
+}
+
+.service-qa .faq-question:hover {
+    background: #F0F0F0;
+}
+
+.service-qa .faq-q {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    border-radius: 50%;
+    font-size: 13px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.service-qa .faq-text {
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.service-qa .faq-icon {
+    font-size: 18px;
+    color: var(--primary-brown);
+    transition: transform var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.service-qa .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.service-qa .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+}
+
+.service-qa .faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.service-qa .faq-a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--secondary-beige);
+    color: var(--base-white);
+    border-radius: 50%;
+    font-size: 13px;
+    margin: 12px;
+    flex-shrink: 0;
+}
+
+.service-qa .faq-content {
+    padding: 20px 24px;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .service-qa .faq-question {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .service-qa .faq-q,
+    .service-qa .faq-a {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .service-qa .faq-content {
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+    
+    .service-qa .faq-icon {
+        font-size: 16px;
+    }
+   
+    .service-qa .faq-text {
+         padding-right: 10px;
+   }
+}
+
+/* ===============================================
+   5. Customer Voice
+   =============================================== */
+.section-lead-voice {
+   padding-top: var(--spacing-xxxl);
+}
+
+.customer-voice {
+    margin-bottom: var(--spacing-xxxl);
+}
+
+/* デスクトップ版はグリッド表示 */
+@media (min-width: 769px) {
+    .voice-slider-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .voice-slider,
+    .voice-track {
+        display: contents;
+    }
+}
+
+/* モバイル版は横スクロール */
+@media (max-width: 768px) {
+    .voice-slider-container {
+        position: relative;
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+    
+    .voice-slider {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .voice-slider::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .voice-track {
+        display: flex;
+        gap: var(--spacing-md);
+        padding-bottom: 20px;
+    }
+    
+    .voice-item {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+    }
+}
+
+.voice-item {
+    background: var(--base-white);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.voice-item:hover {
+    transform: translateY(-5px);
+}
+
+.voice-header {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    border-radius: 12px;
+    background: var(--accent-light-beige);
+}
+
+.voice-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.voice-text {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+    color: var(--text-dark);
+    min-height: 60px;
+}
+
+.voice-author {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+
+/* ===============================================
+   6. Features Modern
+   =============================================== */
+.features-modern {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .features-modern {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+.feature-modern {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--base-white);
+}
+
+.feature-modern h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    color: var(--text-darker);
+}
+
+.feature-modern ul {
+    list-style: none;
+    text-align: left;
+}
+
+.feature-modern li {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-dark);
+}
+
+.feature-modern li::before {
+    content: "・";
+    position: absolute;
+    left: 8px;
+    color: var(--secondary-beige);
+}
+
+/* ===============================================
+   7. News Section
+   =============================================== */
+.news-list {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.news-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.news-date {
+    font-size: 14px;
+    color: var(--secondary-beige);
+    flex-shrink: 0;
+    min-width: 100px;
+}
+
+.news-title {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* ===============================================
+   8. Clinic Gallery
+   =============================================== */
+.clinic-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hours-info-modern {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.hours-info-modern h3 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+}
+
+.clinic-info-modern {
+    text-align: center;
+}
+
+.clinic-info-modern h3 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .hours-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+.hours-item {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+.hours-item h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    justify-content: center;
+}
+
+.hours-item h5 i {
+    color: var(--secondary-beige);
+}
+
+.hours-item p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.hours-item small {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* ===============================================
+   5. Gallery Carousel - モダンなスマホデザイン
+   =============================================== */
+.clinic-gallery-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    background: transparent;
+    padding: var(--spacing-xl) 0;
+}
+
+.clinic-gallery-wrapper::before {
+    left: 0;
+}
+
+.clinic-gallery-wrapper::after {
+    right: 0;
+}
+
+/* スクロールコンテナ */
+.clinic-gallery-scroll {
+    display: flex;
+    width: 100%;
+}
+
+/* ギャラリートラック - 間隔を大幅に拡大 */
+.gallery-track {
+    display: flex;
+    gap: 100px; /* 間隔を大幅に拡大 */
+    animation: scrollInfinite 60s linear infinite; /* 速度を調整 */
+    align-items: center; /* 中央揃え */
+}
+
+/* 各スライド - ジグザグ配置 */
+.gallery-slide {
+    flex: 0 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* 上にずらす */
+.gallery-slide--up {
+    transform: translateY(-40px);
+}
+
+/* 下にずらす */
+.gallery-slide--down {
+    transform: translateY(40px);
+}
+
+/* 各スライド */
+.gallery-slide {
+    flex: 0 0 auto;
+}
+
+/* ギャラリーカード - より大きく、境界を曖昧に */
+.gallery-card {
+    position: relative;
+    width: 405px;
+    height: 540px; /* アスペクト比を維持しながら拡大 */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden; /* visible から hidden に変更 */
+    border-radius: 4px; /* 角丸を追加 */
+}
+
+/* 画像下部のグラデーションオーバーレイ */
+.gallery-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をカード全体にフィット */
+    object-position: center center; /* 中央配置 */
+    display: block;
+}
+
+/* 写真に溶け込むテキストデザイン */
+.gallery-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    z-index: 1;
+}
+
+.gallery-badge span {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+/* 無限スクロールアニメーション */
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .gallery-card {
+        width: 340px;
+        height: 450px;
+    }
+    
+    .gallery-track {
+        gap: 80px;
+        animation-duration: 55s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-30px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(30px);
+    }
+    
+    .gallery-badge span {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clinic-gallery-wrapper {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .clinic-gallery-wrapper::before,
+    .clinic-gallery-wrapper::after {
+        width: 80px;
+    }
+    
+    .gallery-card {
+        width: 270px;
+        height: 360px;
+    }
+    
+    .gallery-card::before {
+        inset: -20px;
+    }
+    
+    .gallery-track {
+        gap: 60px;
+        animation-duration: 50s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-20px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(20px);
+    }
+    
+    .gallery-badge {
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+    }
+    
+    .gallery-badge span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clinic-gallery-wrapper::before,
+    .clinic-gallery-wrapper::after {
+        width: 50px;
+    }
+    
+    .gallery-card {
+        width: 225px;
+        height: 300px;
+    }
+    
+    .gallery-card::before {
+        inset: -15px;
+    }
+    
+    .gallery-track {
+        gap: 40px;
+        animation-duration: 45s;
+    }
+    
+    .gallery-slide--up {
+        transform: translateY(-15px);
+    }
+    
+    .gallery-slide--down {
+        transform: translateY(15px);
+    }
+    
+    .gallery-badge {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+    
+    .gallery-badge span {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+}
+
+/* アクセシビリティ: モーション設定 */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-track {
+        animation: none;
+    }
+    
+    .gallery-card,
+    .gallery-card img,
+    .gallery-badge {
+        transition: none;
+    }
+}
+
+.map-container .subsection-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-darker);
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .map-container .subsection-title {
+        font-size: 20px;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+
+/* ===============================================
+   9. Why Choose Section - 統一されたサブセクションタイトル
+   =============================================== */
+.why-subsection-title {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-darker);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.why-subsection-title-voice{
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-darker);
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .why-subsection-title {
+        margin-bottom: var(--spacing-md);
+    }
+   .why-subsection-title-voice{
+      padding-top: 20px;
+   }
+}
+
+/* ===============================================
+   10. その他の調整
+   =============================================== */
+.subsection-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-darker);
+}
+
+.center-button {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* Hero セクションの調整 */
+.hero-text {
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .service-content {
+        padding: var(--spacing-md);
+    }
+    
+    .service-content h4 {
+        font-size: 18px;
+    }
+    
+    .service-content p {
+        font-size: 14px;
+    }
+    
+    .qa-question {
+        font-size: 15px;
+    }
+    
+    .qa-answer {
+        font-size: 14px;
+    }
+    
+    .voice-header {
+        font-size: 13px;
+    }
+    
+    .voice-text {
+        font-size: 13px;
+    }
+    
+    .voice-author {
+        font-size: 12px;
+    }
+    
+    .feature-modern h3 {
+        font-size: 18px;
+    }
+    
+    .feature-modern li {
+        font-size: 14px;
+    }
+    
+    .news-date {
+        font-size: 13px;
+    }
+    
+    .news-title {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,1137 @@
+/* ===============================================
+   眉アートメイク詳細ページ - スタイルシート
+   Version: 1.2
+   =============================================== */
+
+/* ===============================================
+   1. Page Title Section
+   =============================================== */
+.page-title-section {
+    background: var(--base-white);
+    padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
+    text-align: center;
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .page-title-section {
+        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm); /*上下を、--spacing-sm: 16px;から、--spacing-lg: 32px;に */
+        text-align: left; /* スマホ版は左寄せに戻す */
+    }
+}
+
+.page-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    color: var(--text-darker);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 26px;
+        text-align: left; /* スマホ版は左寄せに戻す */
+    }
+}
+
+/* ===============================================
+   2. Page Hero Section
+   =============================================== */
+.page-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.page-hero-visual {
+    width: 100%;
+    height: 500px;
+}
+
+@media (max-width: 768px) {
+    .page-hero-visual {
+        height: 300px;
+    }
+}
+
+.page-hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===============================================
+   3. Page Navigation
+   =============================================== */
+.page-nav {
+    background: var(--base-white);
+    border-bottom: 1px solid var(--border-gray);
+    z-index: 900;
+    transition: all var(--transition-normal);
+}
+
+.page-nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg); /* 左右にパディングを追加 */
+}
+
+@media (max-width: 768px) {
+    .page-nav-list {
+        gap: var(--spacing-sm);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 20px 20px;
+        /* スクロール時の余白を確保 */
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .page-nav-list::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* スクロール可能エリアの前後に余白を追加 */
+    .page-nav-list::before,
+    .page-nav-list::after {
+        content: '';
+        flex-shrink: 0;
+        width: 10px;
+    }
+}
+
+.page-nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .page-nav-link {
+        font-size: 14px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+.page-nav-link:hover,
+.page-nav-link.active {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+}
+
+/* ===============================================
+   3. Content Sections
+   =============================================== */
+.content-section {
+    padding: var(--spacing-xxxl) 0;
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        padding: var(--spacing-xxl) 0;
+    }
+}
+
+.content-section.bg-light {
+    background: var(--accent-offwhite);
+}
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .container-narrow {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* ===============================================
+   4. Typography Extensions
+   =============================================== */
+/* 統一されたh2スタイル */
+.section-title,
+.section-title-left,
+.section-title-center {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-darker);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 左寄せバージョン */
+.section-title-left {
+    text-align: left;
+    position: relative;
+    padding-left: 20px;
+}
+
+.section-title-left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
+}
+
+/* 中央寄せバージョン */
+.section-title-center {
+    text-align: center;
+}
+
+/* 基本のsection-titleも中央寄せ */
+.section-title {
+    text-align: center;
+}
+
+/* スマホ版でh2をh1と同じサイズに */
+@media (max-width: 768px) {
+    .section-title,
+    .section-title-left,
+    .section-title-center {
+        font-size: 24px; /* h1と同じサイズ */
+    }
+}
+
+.lead-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xl);
+}
+
+.lead-text-center {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xxl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .lead-text,
+    .lead-text-center {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lead-text,
+    .lead-text-center {
+        font-size: 15px;
+    }
+}
+
+.subsection {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.subsection-title {
+    font-size: 24px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+}
+
+@media (max-width: 768px) {
+    .subsection-title {
+        font-size: 20px;
+    }
+}
+
+/* 標準文字のフォントサイズ統一 - lead-textと同じサイズに */
+p, .content-text p, .technique-content p, .type-content > p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    p, .content-text p, .technique-content p, .type-content > p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    p, .content-text p, .technique-content p, .type-content > p {
+        font-size: 15px;
+    }
+}
+
+/* ===============================================
+   5. Content with Image Layout
+   =============================================== */
+.content-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .content-with-image {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* スマホ版で画像を先に表示 */
+    .content-with-image .content-image {
+        order: 1;
+    }
+    
+    .content-with-image .content-text {
+        order: 2;
+    }
+}
+
+.content-text {
+    order: 1;
+}
+
+.content-image {
+    order: 2;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===============================================
+   6. Benefits Grid
+   =============================================== */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.benefit-item {
+    background: var(--base-white);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
+    overflow: hidden; /* フロートのクリアのため */
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.benefit-image {
+    order: 2;
+}
+
+.benefit-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0; /* 角を直角に */
+}
+
+/* 画像を右側にフロート */
+.benefit-item .benefit-image {
+    float: right;
+    width: 140px; /* 幅を140pxに拡大 */
+    height: auto; /* 高さは自動調整 */
+    border-radius: 0; /* 角を直角に */
+    overflow: hidden;
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.benefit-item .benefit-image img {
+    width: 100%;
+    height: auto; /* 元の縦横比を維持 */
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.benefit-item:hover .benefit-image img {
+    transform: scale(1.05);
+}
+
+.benefit-item h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+    color: #6B4F3C;
+    font-weight: 600;
+    clear: left; /* 左側のフロートをクリア */
+}
+
+.benefit-item p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* フロートのクリア */
+.benefit-item::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* モバイル版のスタイル */
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .benefit-item {
+        padding: var(--spacing-sm);
+        width: 100%;
+        max-width: none;
+    }
+    
+    .benefit-item .benefit-image {
+        width: 120px; /* 幅を120pxに拡大 */
+        height: auto; /* 高さは自動調整 */
+        margin-left: 12px;
+        margin-bottom: 10px;
+        padding-top:var(--spacing-xs);
+        border-radius: 0; /* 角を直角に */
+    }
+    
+    .benefit-item h4 {
+        font-size: 16px;
+        margin-bottom: var(--spacing-xs);
+        word-wrap: break-word;
+        padding-top:var(--spacing-xs);
+    }
+    
+    .benefit-item p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+}
+
+/* さらに小さな画面用の調整 */
+@media (max-width: 480px) {
+    .benefit-item {
+        padding: 10px !important;
+    }
+    
+    .benefit-item .benefit-image {
+        width: 100px; /* 幅を100pxに */
+        height: auto; /* 高さは自動調整 */
+        margin-left: 10px;
+        border-radius: 0; /* 角を直角に */
+    }
+    
+    .benefit-item p {
+        font-size: 15px;
+    }
+}
+
+/* benefit-icon関連のスタイルを削除 */
+.benefit-icon {
+    display: none;
+}
+
+/* ===============================================
+   7. Design Features
+   =============================================== */
+.design-features {
+    margin-top: var(--spacing-xl);
+}
+
+.design-feature {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--accent-light-beige);
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .design-feature {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+.feature-title {
+    font-size: 20px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+}
+
+.instagram-video-wrapper {
+    width: 100%;
+    height: 400px;
+    margin-bottom: var(--spacing-lg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.instagram-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .instagram-video-wrapper {
+        height: 250px;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+.feature-content {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .feature-content {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-content {
+        font-size: 15px;
+    }
+}
+
+.feature-content.with-image {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .feature-content.with-image {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.design-image {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.design-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ===============================================
+   8. Technique Cards
+   =============================================== */
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .technique-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.technique-card {
+    background: var(--base-white);
+    border-radius: 8px; /*16から8に*/
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+}
+
+.technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.technique-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.technique-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technique-content {
+    padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+.technique-content {
+    padding: var(--spacing-md); /*スマホ版だけ左右を24に。*/
+   }
+}
+
+.technique-content h3 {
+    font-size: 20px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-brown);
+}
+
+.technique-content p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .technique-content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .technique-content p {
+        font-size: 15px;
+    }
+}
+
+/* ===============================================
+   9. Types Section
+   =============================================== */
+.section-lead {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+    .section-lead {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-lead {
+        font-size: 15px;
+    }
+}
+
+.types-container {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.type-card {
+    background: var(--base-white);
+    border-radius: 8px; /*20から8に*/
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.type-header {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+}
+
+.type-header h3 {
+    color: var(--base-white);
+    margin: 0;
+    font-size: 20px;
+}
+
+.type-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .type-image {
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.type-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .type-image img {
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.type-content {
+    padding: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+   .type-content {
+       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
+   }
+}
+
+.type-content > p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .type-content > p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-content > p {
+        font-size: 15px;
+    }
+}
+
+.type-recommend {
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+   .type-recommend {
+       background: var(--accent-light-beige);
+       padding: var(--spacing-lg) var(--spacing-md);
+       border-radius: 12px;
+   }
+}
+
+.type-recommend h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+}
+
+.type-recommend ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.type-recommend li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .type-recommend li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-recommend li {
+        font-size: 15px;
+    }
+}
+
+.type-recommend li i {
+    color: var(--secondary-beige);
+    flex-shrink: 0;
+}
+
+/* ===============================================
+   10. Pricing Table (Simple)
+   =============================================== */
+.simple-pricing-table {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-medium);
+}
+
+.simple-pricing-table table {
+    width: 100%;
+    background: var(--base-white);
+    border-collapse: collapse;
+}
+
+.simple-pricing-table thead {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+}
+
+.simple-pricing-table th {
+    padding: var(--spacing-md);
+    font-weight: 600;
+    text-align: left;
+}
+
+.simple-pricing-table th:last-child {
+    text-align: right;
+}
+
+.simple-pricing-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.simple-pricing-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.simple-pricing-table .price {
+    text-align: right;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-brown);
+}
+
+/* ===============================================
+   11. Caution Section (Updated)
+   =============================================== */
+.caution-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.caution-section-title {
+    font-size: 24px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-brown);
+    border-bottom: 2px solid var(--primary-brown);
+    padding-bottom: var(--spacing-sm);
+}
+
+.caution-subsection {
+    margin-bottom: var(--spacing-xl);
+    background: var(--accent-light-beige);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+.caution-subtitle {
+    font-size: 18px;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-darker);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.caution-subtitle i {
+    color: var(--secondary-beige);
+}
+
+.caution-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.caution-list li {
+    display: flex;
+    align-items: baseline; /* flex-startからbaselineに変更 */
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .caution-list li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caution-list li {
+        font-size: 15px;
+    }
+}
+
+.caution-list li i {
+    flex-shrink: 0;
+    font-size: 8px;
+    color: var(--secondary-beige);
+    line-height: inherit;
+}
+
+.caution-list li i.fa-times {
+    color: #e74c3c;
+}
+
+.caution-list li i.fa-info-circle {
+    color: #3498db;
+    font-size: 14px;
+    /* margin-top: 3px; を削除 */
+}
+
+.caution-text {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .caution-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caution-text {
+        font-size: 15px;
+    }
+}
+
+.caution-note {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-light);
+    background: rgba(107, 79, 60, 0.05);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .caution-section-title {
+        font-size: 20px;
+    }
+    
+    .caution-subsection {
+        padding: var(--spacing-md);
+    }
+    
+    .caution-subtitle {
+        font-size: 16px;
+    }
+    
+    .caution-note {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caution-note {
+        font-size: 13px;
+    }
+}
+
+/* ===============================================
+   12. CTA Section
+   =============================================== */
+.cta-section {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    padding: var(--spacing-xxxl) 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: var(--spacing-md);
+    color: var(--base-white);
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===============================================
+   13. Supervisor Section
+   =============================================== */
+.supervisor-section {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-gray);
+    text-align: center;
+}
+
+.supervisor-title {
+    font-size: 20px;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-darker);
+}
+
+.supervisor-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.supervisor-info h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.supervisor-info p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .supervisor-info p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .supervisor-info p {
+        font-size: 15px;
+    }
+}
+
+/* ===============================================
+   14. Utility Classes
+   =============================================== */
+.pc-only {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .pc-only {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .sp-only {
+        display: none;
+    }
+}
+
+.center-button {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* ===============================================
+   15. Cases Section (Gallery)
+   =============================================== */
+.cases-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 常に2列 */
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-image-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image-container:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-large);
+}
+
+.gallery-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .cases-gallery-grid {
+        gap: var(--spacing-md);
+    }
+    .gallery-image-container {
+        border-radius: 12px;
+    }
+}
+
+/* ===============================================
+   16. FAQ Animation (New)
+   =============================================== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px; /* 十分な高さを確保 */
+}
+
+.faq-icon i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon i {
+    transform: rotate(135deg);
+}
+
+/* ===============================================
+   17. Animations
+   =============================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
