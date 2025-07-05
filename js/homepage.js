@@ -31,7 +31,7 @@ class FloatingCTA {
     }
 }
 
-// Clinic Gallery Swiper
+// Clinic Gallery Swiper - 自動スクロール付き
 class ClinicGallery {
     constructor() {
         this.init();
@@ -41,23 +41,26 @@ class ClinicGallery {
         const galleryElement = document.querySelector('.clinic-gallery');
         if (!galleryElement) return;
         
+        const isMobile = window.innerWidth <= 768;
+        
         new Swiper('.clinic-gallery', {
-            slidesPerView: 1,
-            spaceBetween: 20,
+            slidesPerView: isMobile ? 1.2 : 3,
+            spaceBetween: isMobile ? 16 : 30,
+            centeredSlides: isMobile ? true : false,
             loop: true,
             autoplay: {
-                delay: 3000,
+                delay: 2500,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
             },
-            speed: 600,
-            effect: 'coverflow',
+            speed: 800,
+            effect: isMobile ? 'coverflow' : 'slide',
             coverflowEffect: {
                 rotate: 0,
-                stretch: 0,
+                stretch: -20,
                 depth: 100,
                 modifier: 1,
-                slideShadows: true
+                slideShadows: false
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -65,15 +68,41 @@ class ClinicGallery {
                 dynamicBullets: true
             },
             breakpoints: {
+                320: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 16,
+                    centeredSlides: true
+                },
+                480: {
+                    slidesPerView: 1.4,
+                    spaceBetween: 20,
+                    centeredSlides: true
+                },
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 30,
+                    centeredSlides: false,
                     effect: 'slide'
                 },
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 30,
+                    centeredSlides: false,
                     effect: 'slide'
+                }
+            },
+            on: {
+                init: function() {
+                    // 初期化時のアニメーション
+                    this.slides.forEach((slide, index) => {
+                        slide.style.opacity = '0';
+                        slide.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            slide.style.transition = 'all 0.5s ease';
+                            slide.style.opacity = '1';
+                            slide.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
                 }
             }
         });
