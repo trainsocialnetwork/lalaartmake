@@ -39,8 +39,13 @@ class ClinicGallery {
         const galleryWrapper = document.querySelector('.clinic-gallery-wrapper');
         if (!galleryWrapper) return;
         
+        const scrollContainer = document.querySelector('.clinic-gallery-scroll');
         const track = galleryWrapper.querySelector('.gallery-track');
-        if (!track) return;
+        if (!track || !scrollContainer) return;
+        
+        // タッチ操作を確実に検出するための設定
+        galleryWrapper.style.touchAction = 'pan-y pinch-zoom';
+        scrollContainer.style.touchAction = 'pan-y pinch-zoom';
         
         // タッチ操作用の変数
         let touchStartX = 0;
