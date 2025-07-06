@@ -2,7 +2,42 @@
    ZEO SKIN Page - Stylesheet
    =============================================== */
 
-/* Hero Section Specific Styles */
+/*
+  Zeoskin Page Color Palette
+  - Primary: #404d6a (Dark Slate Blue)
+  - Accent: #6b7a99 (Lighter Slate Blue)
+  - Background: #f0f2f5 (Light Blue-Gray)
+  - Border: #d4dae3 (Soft Blue-Gray Border)
+*/
+
+/* --- Base Style Overrides for Zeoskin Page --- */
+
+/* Primary Button Color Override */
+.zeoskin-page .cta-primary {
+    background-color: #404d6a;
+    border-color: #404d6a;
+}
+.zeoskin-page .cta-primary:hover {
+    background-color: #6b7a99;
+    border-color: #6b7a99;
+}
+
+/* Outline Button Color Override */
+.zeoskin-page .cta-outline {
+    color: #404d6a;
+    border-color: #404d6a;
+}
+.zeoskin-page .cta-outline:hover {
+    color: #fff;
+    background-color: #404d6a;
+}
+
+/* Section Title Color Override */
+.zeoskin-page .section-title .title-en {
+    color: #6b7a99;
+}
+
+/* --- Hero Section Specific Styles --- */
 .zeoskin-hero .hero-visual img {
     object-position: center 30%;
 }
@@ -11,19 +46,31 @@
     background: rgba(0, 0, 0, 0.2);
 }
 
-.zeoskin-hero .hero-title {
-    color: var(--base-white);
-}
-
+.zeoskin-hero .hero-title,
 .zeoskin-hero .hero-text {
     color: var(--base-white);
 }
 
-/* Products Section Specific Styles */
+/* --- Content Section Specific Styles --- */
+
+/* Light Background Section */
+.zeoskin-page .bg-light {
+    background-color: #f0f2f5;
+}
+
+/* Subsection Title */
+.zeoskin-page .subsection-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: #404d6a; /* Use primary color for subsection titles */
+}
+
+/* --- Products Section Specific Styles --- */
 .product-category {
     margin-bottom: var(--spacing-xxl);
 }
-
 .product-category:last-child {
     margin-bottom: 0;
 }
@@ -31,31 +78,23 @@
 .category-title {
     font-size: 24px;
     font-weight: 600;
-    color: var(--primary-brown);
+    color: #404d6a; /* Use primary color */
     text-align: center;
     padding-bottom: var(--spacing-sm);
     margin-bottom: var(--spacing-xl);
-    border-bottom: 2px solid var(--accent-light-beige);
+    border-bottom: 2px solid #d4dae3; /* Use new border color */
 }
 
 .product-price {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary-brown);
+    color: #404d6a; /* Use primary color */
     margin-top: var(--spacing-sm);
-}
-
-/* Subsection Title (from homepage.css) */
-.subsection-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: var(--spacing-lg);
-    text-align: center;
-    color: var(--text-darker);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .zeoskin-page .subsection-title,
     .category-title {
         font-size: 20px;
     }
