@@ -12,6 +12,10 @@
 
 /* --- Base Style Overrides for Zeoskin Page --- */
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Primary Button Color Override */
 .zeoskin-page .cta-primary {
     background-color: #404d6a;
@@ -68,10 +72,42 @@
 }
 
 /* --- Products Section Specific Styles --- */
-.product-category {
+
+/* Category Navigation */
+.category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
     margin-bottom: var(--spacing-xxl);
 }
-.product-category:last-child {
+
+.category-nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #d4dae3;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #404d6a;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.category-nav-button:hover {
+    background-color: #404d6a;
+    color: #fff;
+    border-color: #404d6a;
+}
+
+/* Product Categories */
+.product-category {
+    margin-bottom: var(--spacing-xl);
+    padding-top: 90px; /* Offset for sticky header */
+    margin-top: -80px; /* Pull section up to maintain layout */
+}
+.product-category:last-of-type {
     margin-bottom: 0;
 }
 
@@ -94,11 +130,19 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .category-nav-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
     .zeoskin-page .subsection-title,
     .category-title {
         font-size: 20px;
     }
     .product-price {
         font-size: 18px;
+    }
+    .product-category {
+        padding-top: 80px;
+        margin-top: -70px;
     }
 }
