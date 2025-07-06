@@ -305,9 +305,6 @@ class SmoothScroll {
     }
 }
 
-// ===============================================
-// 6. キャンペーンスライダー
-// ===============================================
 class CampaignSlider {
     constructor() {
         this.init();
@@ -317,7 +314,8 @@ class CampaignSlider {
         const swiperElement = document.querySelector('.campaign-slider');
         if (!swiperElement) return;
         
-        new Swiper('.campaign-slider', {
+        // 1. Swiperインスタンスを生成し、変数に格納
+        const campaignSwiper = new Swiper('.campaign-slider', {
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
@@ -328,9 +326,8 @@ class CampaignSlider {
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: false, // 追加：モバイルでの見やすさ向上
-                enderBullet: function (index, className) {
-                    return '<span class="' + className + '"></span>';
+                dynamicBullets: false,
+                // 2. renderBulletのカスタム関数を削除 (冗長なため)
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -340,39 +337,43 @@ class CampaignSlider {
             fadeEffect: {
                 crossFade: true
             },
-            // 追加：ブレークポイント設定
             breakpoints: {
+                // 768px以上でナビゲーションを表示
                 768: {
                     navigation: {
                         enabled: true
                     }
                 },
+                // 768px未満ではナビゲーションを非表示
                 0: {
                     navigation: {
                         enabled: false
                     }
                 }
             },
-            // 初期化完了時のコールバック
             on: {
                 init: function () {
                     console.log('Swiper initialized');
-                    // ページネーションが正しく初期化されているか確認
-                    const pagination = document.querySelector('.swiper-pagination');
+                    const pagination = this.pagination.el;
                     if (pagination && pagination.children.length === 0) {
                         console.warn('Pagination not rendered properly');
                     }
                 },
             },
         });
-        
-        // 手動でupdateを実行（念のため）
+
+        // 手動でのupdateは通常不要なため、コメントアウトまたは削除を推奨
+        // もし動的にスライドが追加されるなど特別な理由がなければ、以下のコードは不要です。
+        /*
         setTimeout(() => {
+            // 格納した変数 `campaignSwiper` を使用する
             if (campaignSwiper && campaignSwiper.update) {
                 campaignSwiper.update();
             }
         }, 100);
+        */
     }
+}
 
 // ===============================================
 // 7. タブ切り替え（症例写真）
