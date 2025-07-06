@@ -186,7 +186,7 @@ p {
     }
     
     .section-title::after {
-        bottom: -12px;
+        bottom: 0px;
         width: 30px;
     }
 }
