@@ -152,8 +152,9 @@ p {
 /* Section Titles */
 .section-title {
     text-align: center;
-    margin-bottom: var(--spacing-xxxl); /* 80px */
+    margin-bottom: var(--spacing-xxl);
     position: relative;
+    padding-bottom: 40px; /* ::afterのスペースを確保 */
 }
 
 .section-title .title-en {
@@ -166,20 +167,22 @@ p {
     text-transform: uppercase;
 }
 
-/* ::afterは装飾なので、レイアウトに影響しないようにする */
-.section-title h2::after {
+.section-title::after {
     content: '';
-    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 3px;
     background: var(--gradient-warm);
     border-radius: 2px;
-    margin: 20px auto 0; /* 相対配置で管理 */
 }
 
 @media (max-width: 768px) {
     .section-title {
-        margin-bottom: var(--spacing-xxxl); /* 60px */
+        margin-bottom: 42px;
+        padding-bottom: 42px;
     }
     
     .section-title .title-en {
@@ -187,9 +190,8 @@ p {
         margin-bottom: 6px;
     }
     
-    .section-title h2::after {
+    .section-title::after {
         width: 30px;
-        margin: 16px auto 0;
     }
 }
 
