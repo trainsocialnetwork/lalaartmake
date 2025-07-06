@@ -154,6 +154,7 @@ p {
     text-align: center;
     margin-bottom: var(--spacing-xxl);
     position: relative;
+    padding-bottom: var(--spacing-xxxl);
 }
 
 .section-title .title-en {
@@ -169,7 +170,7 @@ p {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -20px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
@@ -187,7 +188,6 @@ p {
     .section-title::after {
         bottom: -12px;
         width: 30px;
-        margin-bottom: var(--spacing-xxxl);
     }
 }
 
