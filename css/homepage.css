@@ -139,7 +139,6 @@
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
         margin-bottom: var(--spacing-xl);
-        padding-top: var(--spacing-xxxl);
     }
 }
 
@@ -407,9 +406,6 @@
 /* ===============================================
    5. Customer Voice
    =============================================== */
-.section-lead-voice {
-   padding-top: var(--spacing-xxxl);
-}
 
 .customer-voice {
     margin-bottom: var(--spacing-xxxl);
