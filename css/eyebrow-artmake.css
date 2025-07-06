@@ -1,6 +1,6 @@
 /* ===============================================
    眉アートメイク詳細ページ - スタイルシート
-   Version: 1.2
+   Version: 1.3 - マージン調整版
    =============================================== */
 
 /* ===============================================
@@ -15,8 +15,8 @@
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm); /*上下を、--spacing-sm: 16px;から、--spacing-lg: 32px;に */
-        text-align: left; /* スマホ版は左寄せに戻す */
+        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+        text-align: left;
     }
 }
 
@@ -32,7 +32,7 @@
 @media (max-width: 768px) {
     .page-title {
         font-size: 26px;
-        text-align: left; /* スマホ版は左寄せに戻す */
+        text-align: left;
     }
 }
 
@@ -85,7 +85,7 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-xl);
-    padding: var(--spacing-md) var(--spacing-lg); /* 左右にパディングを追加 */
+    padding: var(--spacing-md) var(--spacing-lg);
 }
 
 @media (max-width: 768px) {
@@ -96,7 +96,6 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         padding: 20px 20px;
-        /* スクロール時の余白を確保 */
         padding-left: 30px;
         padding-right: 30px;
     }
@@ -105,7 +104,6 @@
         display: none;
     }
     
-    /* スクロール可能エリアの前後に余白を追加 */
     .page-nav-list::before,
     .page-nav-list::after {
         content: '';
@@ -138,15 +136,15 @@
 }
 
 /* ===============================================
-   3. Content Sections
+   3. Content Sections - マージン調整
    =============================================== */
 .content-section {
-    padding: var(--spacing-xxxl) 0;
+    padding: 100px 0;
 }
 
 @media (max-width: 768px) {
     .content-section {
-        padding: var(--spacing-xxl) 0;
+        padding: 60px 0;
     }
 }
 
@@ -169,7 +167,6 @@
 /* ===============================================
    4. Typography Extensions
    =============================================== */
-/* 統一されたh2スタイル */
 .section-title,
 .section-title-left,
 .section-title-center {
@@ -177,10 +174,17 @@
     font-weight: 700;
     line-height: 1.4;
     color: var(--text-darker);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
 }
 
-/* 左寄せバージョン */
+@media (max-width: 768px) {
+    .section-title,
+    .section-title-left,
+    .section-title-center {
+        margin-bottom: var(--spacing-xl);
+    }
+}
+
 .section-title-left {
     text-align: left;
     position: relative;
@@ -199,22 +203,19 @@
     border-radius: 2px;
 }
 
-/* 中央寄せバージョン */
 .section-title-center {
     text-align: center;
 }
 
-/* 基本のsection-titleも中央寄せ */
 .section-title {
     text-align: center;
 }
 
-/* スマホ版でh2をh1と同じサイズに */
 @media (max-width: 768px) {
     .section-title,
     .section-title-left,
     .section-title-center {
-        font-size: 24px; /* h1と同じサイズ */
+        font-size: 24px;
     }
 }
 
@@ -240,6 +241,7 @@
     .lead-text,
     .lead-text-center {
         font-size: 16px;
+        margin-bottom: var(--spacing-lg);
     }
 }
 
@@ -251,7 +253,13 @@
 }
 
 .subsection {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxxl);
+}
+
+@media (max-width: 768px) {
+    .subsection {
+        margin-bottom: var(--spacing-xxl);
+    }
 }
 
 .subsection-title {
@@ -266,7 +274,6 @@
     }
 }
 
-/* 標準文字のフォントサイズ統一 - lead-textと同じサイズに */
 p, .content-text p, .technique-content p, .type-content > p {
     font-size: 18px;
     line-height: 1.8;
@@ -300,7 +307,6 @@ p, .content-text p, .technique-content p, .type-content > p {
         gap: var(--spacing-md);
     }
 
-    /* スマホ版で画像を先に表示 */
     .content-with-image .content-image {
         order: 1;
     }
@@ -340,7 +346,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     border-radius: 16px;
     box-shadow: var(--shadow-small);
     transition: all var(--transition-normal);
-    overflow: hidden; /* フロートのクリアのため */
+    overflow: hidden;
 }
 
 .benefit-item:hover {
@@ -355,15 +361,14 @@ p, .content-text p, .technique-content p, .type-content > p {
 .benefit-image img {
     width: 100%;
     height: auto;
-    border-radius: 0; /* 角を直角に */
+    border-radius: 0;
 }
 
-/* 画像を右側にフロート */
 .benefit-item .benefit-image {
     float: right;
-    width: 140px; /* 幅を140pxに拡大 */
-    height: auto; /* 高さは自動調整 */
-    border-radius: 0; /* 角を直角に */
+    width: 140px;
+    height: auto;
+    border-radius: 0;
     overflow: hidden;
     margin-left: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
@@ -371,7 +376,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .benefit-item .benefit-image img {
     width: 100%;
-    height: auto; /* 元の縦横比を維持 */
+    height: auto;
     display: block;
     transition: transform var(--transition-slow);
 }
@@ -385,7 +390,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     margin-bottom: var(--spacing-sm);
     color: #6B4F3C;
     font-weight: 600;
-    clear: left; /* 左側のフロートをクリア */
+    clear: left;
 }
 
 .benefit-item p {
@@ -395,14 +400,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     margin: 0;
 }
 
-/* フロートのクリア */
 .benefit-item::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* モバイル版のスタイル */
 @media (max-width: 768px) {
     .benefits-grid {
         grid-template-columns: 1fr;
@@ -416,12 +419,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
     
     .benefit-item .benefit-image {
-        width: 120px; /* 幅を120pxに拡大 */
-        height: auto; /* 高さは自動調整 */
+        width: 120px;
+        height: auto;
         margin-left: 12px;
         margin-bottom: 10px;
         padding-top:var(--spacing-xs);
-        border-radius: 0; /* 角を直角に */
+        border-radius: 0;
     }
     
     .benefit-item h4 {
@@ -437,17 +440,16 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-/* さらに小さな画面用の調整 */
 @media (max-width: 480px) {
     .benefit-item {
         padding: 10px !important;
     }
     
     .benefit-item .benefit-image {
-        width: 100px; /* 幅を100pxに */
-        height: auto; /* 高さは自動調整 */
+        width: 100px;
+        height: auto;
         margin-left: 10px;
-        border-radius: 0; /* 角を直角に */
+        border-radius: 0;
     }
     
     .benefit-item p {
@@ -455,7 +457,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-/* benefit-icon関連のスタイルを削除 */
 .benefit-icon {
     display: none;
 }
@@ -464,20 +465,24 @@ p, .content-text p, .technique-content p, .type-content > p {
    7. Design Features
    =============================================== */
 .design-features {
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
 }
 
 .design-feature {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-lg);
     background: var(--accent-light-beige);
     border-radius: 20px;
 }
 
 @media (max-width: 768px) {
+    .design-features {
+        margin-top: var(--spacing-xl);
+    }
+    
     .design-feature {
         padding: var(--spacing-md);
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
     }
 }
 
@@ -577,7 +582,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .technique-card {
     background: var(--base-white);
-    border-radius: 8px; /*16から8に*/
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
@@ -605,7 +610,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
 .technique-content {
-    padding: var(--spacing-md); /*スマホ版だけ左右を24に。*/
+    padding: var(--spacing-md);
    }
 }
 
@@ -663,7 +668,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .type-card {
     background: var(--base-white);
-    border-radius: 8px; /*20から8に*/
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -712,7 +717,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
    .type-content {
-       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
+       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
    }
 }
 
@@ -789,10 +794,16 @@ p, .content-text p, .technique-content p, .type-content > p {
    =============================================== */
 .simple-pricing-table {
     max-width: 600px;
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 auto var(--spacing-xxl);
     overflow: hidden;
     border-radius: 16px;
     box-shadow: var(--shadow-medium);
+}
+
+@media (max-width: 768px) {
+    .simple-pricing-table {
+        margin: 0 auto var(--spacing-xl);
+    }
 }
 
 .simple-pricing-table table {
@@ -836,7 +847,13 @@ p, .content-text p, .technique-content p, .type-content > p {
    11. Caution Section (Updated)
    =============================================== */
 .caution-section {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxxl);
+}
+
+@media (max-width: 768px) {
+    .caution-section {
+        margin-bottom: var(--spacing-xxl);
+    }
 }
 
 .caution-section-title {
@@ -875,7 +892,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .caution-list li {
     display: flex;
-    align-items: baseline; /* flex-startからbaselineに変更 */
+    align-items: baseline;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
     line-height: 1.8;
@@ -908,7 +925,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 .caution-list li i.fa-info-circle {
     color: #3498db;
     font-size: 14px;
-    /* margin-top: 3px; を削除 */
 }
 
 .caution-text {
@@ -1065,7 +1081,7 @@ p, .content-text p, .technique-content p, .type-content > p {
    =============================================== */
 .cases-gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 常に2列 */
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
     max-width: 1000px;
@@ -1111,7 +1127,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px; /* 十分な高さを確保 */
+    max-height: 500px;
 }
 
 .faq-icon i {
