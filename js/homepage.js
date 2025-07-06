@@ -266,7 +266,6 @@ class ServiceFAQ {
 document.addEventListener('DOMContentLoaded', () => {
     new FloatingCTA();
     new ClinicGallery();
-    new SmoothScroll();
     new BackToTop();
     new ScrollAnimation();
     new ServiceFAQ();
