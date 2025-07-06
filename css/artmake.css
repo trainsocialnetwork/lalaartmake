@@ -180,7 +180,7 @@ p {
 
 @media (max-width: 768px) {
     .section-title {
-        margin-bottom: 32px;
+        padding-bottom: var(--spacing-xxxl);
     }
     
     .section-title .title-en {
