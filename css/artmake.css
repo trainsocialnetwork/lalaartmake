@@ -154,7 +154,6 @@ p {
     text-align: center;
     margin-bottom: var(--spacing-xxl);
     position: relative;
-    padding-bottom: 40px; /* ::afterのスペースを確保 */
 }
 
 .section-title .title-en {
@@ -167,31 +166,11 @@ p {
     text-transform: uppercase;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--gradient-warm);
-    border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-    .section-title {
-        margin-bottom: 42px;
-        padding-bottom: 42px;
-    }
-    
+@media (max-width: 768px) {    
     .section-title .title-en {
         font-size: 12px;
         margin-bottom: 6px;
-    }
-    
-    .section-title::after {
-        width: 30px;
+        padding-bottom: var(--spacing-xxxl)
     }
 }
 
