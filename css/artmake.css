@@ -152,7 +152,7 @@ p {
 /* Section Titles */
 .section-title {
     text-align: center;
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxxl);
     position: relative;
 }
 
@@ -180,7 +180,7 @@ p {
 
 @media (max-width: 768px) {
     .section-title {
-        margin-bottom: 32px;
+        padding-bottom: var(--spacing-xxxl);
     }
     
     .section-title .title-en {
