@@ -178,11 +178,7 @@ p {
     border-radius: 2px;
 }
 
-@media (max-width: 768px) {
-    .section-title {
-        padding-bottom: var(--spacing-xxxl);
-    }
-    
+@media (max-width: 768px) {    
     .section-title .title-en {
         font-size: 12px;
         margin-bottom: 6px;
@@ -191,6 +187,7 @@ p {
     .section-title::after {
         bottom: -12px;
         width: 30px;
+        padding-bottom: var(--spacing-xxxl);
     }
 }
 
