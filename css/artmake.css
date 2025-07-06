@@ -7,21 +7,30 @@
 /* ===============================================
    1. CSS Variables & Reset
    =============================================== */
+/* ピンクトーンカラーで上書き */
 :root {
-    /* Color Palette */
-    --primary-brown: #6B4F3C;
-    --secondary-beige: #A1866F;
-    --base-white: #FFFFFF;
-    --accent-offwhite: #F8F8F8;
-    --accent-light-beige: #F8F3EF;
-    --border-gray: #E0E0E0;
-    --text-dark: #333333;
-    --text-darker: #222222;
-    --text-light: #666666;
+    /* Primary Colors Override */
+    --primary-color: #D4838F;      /* ローズピンク */
+    --secondary-color: #E8A09A;    /* コーラルピンク */
     
-    /* Gradients */
-    --gradient-warm: linear-gradient(135deg, #6B4F3C 0%, #A1866F 100%);
-    --gradient-soft: linear-gradient(135deg, #F8F3EF 0%, #E8DDD5 100%);
+    /* Accent Colors Override */
+    --accent-light: #FFF5F5;       /* シェルピンク */
+    --accent-lighter: #FDDEDE;     /* ピーチピンク */
+    
+    /* Text Colors Override */
+    --text-base: #6B4144;          /* ローズウッド */
+    --text-emphasis: #5C3D3D;      /* マホガニー */
+    --text-muted: #8B6F71;         /* ソフトローズブラウン */
+    
+    /* Gradients Override */
+    --gradient-primary: linear-gradient(135deg, #D4838F 0%, #E8A09A 100%);
+    --gradient-soft: linear-gradient(135deg, #F5C4BD 0%, #FDDEDE 100%);
+    
+    /* アートメイク固有の色 */
+    --accent-blush: #F5C4BD;       /* ブラッシュピンク */
+    --deep-berry: #B5525C;         /* ベリー */
+    --deep-mauve: #A8617A;         /* ディープモーヴ */
+
     --gradient-light: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,248,248,0.8) 100%);
     
     /* Shadows */
