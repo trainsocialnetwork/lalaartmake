@@ -271,7 +271,7 @@
 .qa-section-title {
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxxl);
     text-align: center;
     color: var(--text-darker);
 }
@@ -938,7 +938,7 @@
 .why-subsection-title {
     font-weight: 600;
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxxl);
     color: var(--text-darker);
     position: relative;
     padding-bottom: 20px;
@@ -953,7 +953,7 @@
 
 @media (max-width: 768px) {
     .why-subsection-title {
-        margin-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-xxxl);
     }
    .why-subsection-title-voice{
       padding-top: 20px;
@@ -966,7 +966,7 @@
 .subsection-title {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
     text-align: center;
     color: var(--text-darker);
 }
