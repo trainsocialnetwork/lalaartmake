@@ -8,26 +8,51 @@
    1. CSS Variables & Reset
    =============================================== */
 :root {
-    /* Color Palette */
-    --primary-brown: #6B4F3C;
-    --secondary-beige: #A1866F;
-    --base-white: #FFFFFF;
-    --accent-offwhite: #F8F8F8;
-    --accent-light-beige: #F8F3EF;
-    --border-gray: #E0E0E0;
-    --text-dark: #333333;
-    --text-darker: #222222;
-    --text-light: #666666;
+    /* 新しいカラーパレット */
+    /* メインカラー - 温かみのある明るいブラウン */
+    --primary: #9B7E6F;          /* ソフトローズブラウン */
+    --primary-light: #AD9185;    /* ライトローズブラウン */
+    --primary-dark: #866B5C;     /* ディープローズブラウン */
     
-    /* Gradients */
-    --gradient-warm: linear-gradient(135deg, #6B4F3C 0%, #A1866F 100%);
-    --gradient-soft: linear-gradient(135deg, #F8F3EF 0%, #E8DDD5 100%);
-    --gradient-light: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,248,248,0.8) 100%);
+    /* セカンダリーカラー - 明るいベージュトーン */
+    --secondary: #D8C2B3;        /* ピーチベージュ */
+    --secondary-light: #E8D5C9;  /* ライトピーチ */
+    --secondary-dark: #C4AD9E;   /* ディープベージュ */
+    
+    /* アクセントカラー */
+    --accent-rose: #EBD0C7;      /* ローズクォーツ */
+    --accent-peach: #F5E4DB;     /* ピーチパウダー */
+    --accent-cream: #FFF9F5;     /* ウォームクリーム */
+    
+    /* 背景色 */
+    --bg-light: #FFFCF9;         /* ソフトピーチホワイト */
+    --bg-soft: #FFF8F3;          /* ウォームアイボリー */
+    
+    /* グラデーション */
+    --gradient-main: linear-gradient(135deg, #9B7E6F 0%, #D8C2B3 100%);
+    --gradient-soft: linear-gradient(180deg, #FFF9F5 0%, #F5E4DB 100%);
+    --gradient-accent: linear-gradient(135deg, #EBD0C7 0%, #F5E4DB 100%);
+    
+    /* 旧カラー変数の置き換え */
+    --primary-brown: var(--primary);
+    --secondary-beige: var(--secondary);
+    --accent-light-beige: var(--accent-peach);
+    --accent-offwhite: var(--bg-soft);
+    --base-white: #FFFFFF;
+    --gradient-warm: var(--gradient-main);
+    
+    /* テキストカラー */
+    --text-dark: #3A3330;
+    --text-darker: #2A2320;
+    --text-light: #6A625D;
+    
+    /* 境界線 */
+    --border-gray: #E8E0DB;
     
     /* Shadows */
-    --shadow-small: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-medium: 0 10px 30px rgba(0,0,0,0.08);
-    --shadow-large: 0 20px 60px rgba(0,0,0,0.1);
+    --shadow-small: 0 2px 4px rgba(155, 126, 111, 0.05);
+    --shadow-medium: 0 10px 30px rgba(155, 126, 111, 0.08);
+    --shadow-large: 0 20px 60px rgba(155, 126, 111, 0.1);
     
     /* Transitions */
     --transition-fast: 0.2s ease;
@@ -161,7 +186,7 @@ p {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: var(--secondary-beige);
+    color: var(--secondary);
     margin-bottom: var(--spacing-xs);
     text-transform: uppercase;
 }
@@ -174,7 +199,7 @@ p {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     border-radius: 2px;
 }
 
@@ -207,9 +232,9 @@ p {
 .section-title h2 {
     font-size: clamp(24px, 3.5vw, 32px);
     margin-bottom: 20px;
-    white-space: normal; /* 改行を有効化 */
-    display: block; /* ブロック要素として表示 */
-    line-height: 1.4; /* 適切な行間 */
+    white-space: normal;
+    display: block;
+    line-height: 1.4;
 }
 
 /* ===============================================
@@ -241,7 +266,7 @@ p {
 .loader-logo {
     font-size: 36px;
     font-weight: 700;
-    color: var(--primary-brown);
+    color: var(--primary);
     margin-bottom: var(--spacing-md);
     animation: pulse 1.5s ease-in-out infinite;
 }
@@ -250,7 +275,7 @@ p {
     width: 50px;
     height: 50px;
     border: 3px solid var(--border-gray);
-    border-top-color: var(--primary-brown);
+    border-top-color: var(--primary);
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;
@@ -282,7 +307,7 @@ p {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: 50px;
@@ -294,7 +319,7 @@ p {
 
 .floating-cta:hover {
     transform: scale(1.05);
-    box-shadow: 0 25px 70px rgba(107, 79, 60, 0.3);
+    box-shadow: 0 25px 70px rgba(155, 126, 111, 0.3);
 }
 
 .fixed-nav-right {
@@ -325,8 +350,8 @@ p {
 }
 
 .fixed-nav-right a:hover {
-    background: var(--accent-offwhite);
-    color: var(--primary-brown);
+    background: var(--accent-cream);
+    color: var(--primary);
 }
 
 @media (min-width: 1440px) {
@@ -345,9 +370,9 @@ p {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(255, 252, 249, 0.98);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-small);
+    box-shadow: 0 2px 20px rgba(155, 126, 111, 0.08);
     z-index: 1000;
     transition: all var(--transition-normal);
 }
@@ -355,34 +380,24 @@ p {
 @media (max-width: 768px) {
     .main-header {
         height: var(--header-height-mobile);
-        /* スクロール時の高さ変更を無効化 */
     }
-    
-    /* この部分をコメントアウトまたは削除 */
-    /*
-    .main-header.scrolled {
-        height: 60px;
-    }
-    */
 }
 
 .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg); /* セミコロンを追加 */
+    padding: 0 var(--spacing-lg);
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* ロゴサイズの調整 */
 .logo img {
     height: 60px;
     transition: transform var(--transition-normal);
 }
 
-/* モバイル用のロゴサイズ調整 */
 @media (max-width: 768px) {
     .logo img {
         height: 60px !important;
@@ -399,7 +414,6 @@ p {
     gap: var(--spacing-lg);
 }
 
-/* モバイルでナビゲーションを非表示 */
 @media (max-width: 768px) {
     .main-nav {
         display: none;
@@ -409,7 +423,7 @@ p {
 .main-nav a {
     font-size: 16px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--primary-dark);
     position: relative;
     transition: color var(--transition-fast);
 }
@@ -421,12 +435,12 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-brown);
+    background: var(--primary);
     transition: width var(--transition-normal);
 }
 
 .main-nav a:hover {
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .main-nav a:hover::after {
@@ -434,7 +448,7 @@ p {
 }
 
 .header-cta {
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     padding: 12px 24px;
     border-radius: 25px;
@@ -443,12 +457,11 @@ p {
     box-shadow: var(--shadow-small);
 }
 
-/* モバイル用のCTAボタン調整 */
 @media (max-width: 768px) {
     .header-cta {
         padding: 8px 16px;
         font-size: 14px;
-        display: none; /* 必要に応じて非表示 */
+        display: none;
     }
 }
 
@@ -482,7 +495,7 @@ p {
     transform: translateX(-50%);
     width: 24px;
     height: 2px;
-    background: var(--primary-brown);
+    background: var(--primary);
     transition: all var(--transition-normal);
 }
 
@@ -536,7 +549,9 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md);
+    padding
+
+padding: var(--spacing-md);
     border-bottom: 1px solid var(--border-gray);
 }
 
@@ -577,8 +592,8 @@ p {
 }
 
 .mobile-nav a:hover {
-    background: var(--accent-offwhite);
-    color: var(--primary-brown);
+    background: var(--accent-cream);
+    color: var(--primary);
 }
 
 .mobile-menu-cta {
@@ -595,7 +610,7 @@ p {
    6. Breadcrumb
    =============================================== */
 .breadcrumb {
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     padding: var(--spacing-xs) 0;
     margin-top: var(--header-height);
 }
@@ -623,7 +638,7 @@ p {
 }
 
 .breadcrumb a {
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .breadcrumb a:hover {
@@ -669,19 +684,17 @@ p {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.15) 0%, 
-        rgba(248, 243, 239, 0.5) 40%,
-        transparent 70%);
-     backdrop-filter: blur(0.5px);
+        rgba(155, 126, 111, 0.25) 0%, 
+        rgba(216, 194, 179, 0.15) 100%);
+    backdrop-filter: blur(0.5px);
 }
 
 @media (max-width: 768px) {
     .hero-overlay {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.15) 0%, 
-        rgba(248, 243, 239, 0.5) 40%,
-        transparent 70%);
-     backdrop-filter: blur(0.5px);
+        background: linear-gradient(135deg, 
+            rgba(155, 126, 111, 0.25) 0%, 
+            rgba(216, 194, 179, 0.15) 100%);
+        backdrop-filter: blur(0.5px);
     }
 }
 
@@ -691,13 +704,13 @@ p {
     max-width: var(--max-width);
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-sm) var(--spacing-xl); /* 下のパディングを調整 */
-    text-align: left !important; /* 強制的に左寄せ */
+    padding: 0 var(--spacing-sm) var(--spacing-xl);
+    text-align: left !important;
 }
 
 @media (max-width: 768px) {
     .hero-content {
-        text-align: left !important; /* 強制的に左寄せ */
+        text-align: left !important;
     }
 }
 
@@ -708,12 +721,11 @@ p {
     letter-spacing: 0.08em;
     line-height: 1.5;
     font-size: clamp(20px, 4vw, 38px);
-    max-width: 70%; /* モバイルでは幅制限を解除 */
+    max-width: 70%;
     text-align: left;
     color: var(--base-white);
     margin-bottom: 24px;
     animation: fadeInUp 1s ease-out;
-   
 }
 
 @media (max-width: 768px) {
@@ -727,7 +739,7 @@ p {
 
 .hero-subtitle {
     display: block;
-    font-size: 12px; /* サブタイトルも調整 */
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.15em;
     color: rgba(255, 255, 255, 0.9);
@@ -811,19 +823,19 @@ p {
     }
 }
 
- .hero-features {
-     gap: var(--spacing-md);
- }
- 
- .hero-feature {
-     font-size: 12px;
- }
- 
- .hero-feature i {
-     font-size: 16px;
- }
+.hero-features {
+    gap: var(--spacing-md);
+}
 
-   /* 泡のコンテナ */
+.hero-feature {
+    font-size: 12px;
+}
+
+.hero-feature i {
+    font-size: 16px;
+}
+
+/* 泡のコンテナ */
 .hero-bubbles {
     position: absolute;
     top: 0;
@@ -840,9 +852,9 @@ p {
     position: absolute;
     bottom: -100px;
     background: radial-gradient(circle at 30% 30%, 
-        rgba(255, 255, 255, 0.3) 0%, 
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.05) 100%);
+        rgba(235, 208, 199, 0.3) 0%, 
+        rgba(245, 228, 219, 0.1) 50%,
+        rgba(255, 249, 245, 0.05) 100%);
     border-radius: 50%;
     opacity: 0;
     animation: bubbleFloat var(--duration) ease-in-out infinite;
@@ -908,7 +920,7 @@ p {
         animation-duration: calc(var(--duration) * 0.8);
     }
 }
-   
+
 /* ===============================================
    8. Buttons
    =============================================== */
@@ -935,7 +947,7 @@ p {
 }
 
 .cta-primary {
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     box-shadow: var(--shadow-medium);
 }
@@ -947,18 +959,18 @@ p {
 
 .cta-outline {
     background: transparent;
-    color: var(--primary-brown);
-    border: 2px solid var(--primary-brown);
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .cta-outline:hover {
-    background: var(--primary-brown);
+    background: var(--primary);
     color: var(--base-white);
 }
 
 .cta-white {
     background: var(--base-white);
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .cta-white:hover {
@@ -974,7 +986,7 @@ p {
 
 .cta-outline-white:hover {
     background: var(--base-white);
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 /* ===============================================
@@ -1007,9 +1019,9 @@ section {
    10. Campaign Section
    =============================================== */
 .campaign-section {
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     padding: 50px 0;
-   overflow: visible; 
+    overflow: visible;
 }
 
 @media (max-width: 768px) {
@@ -1024,14 +1036,12 @@ section {
     max-width: 900px;
 }
 
-/* Swiperコンテナの追加スタイル */
 .campaign-slider .swiper {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-/* スライド要素のz-index調整 */
 .campaign-slider .swiper-slide {
     position: relative;
     z-index: 1;
@@ -1042,10 +1052,10 @@ section {
     display: block;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 20px rgba(216, 194, 179, 0.2);
     transition: all var(--transition-normal);
     aspect-ratio: 1.91 / 1;
-    position: relative; /* 追加 */
+    position: relative;
 }
 
 @media (max-width: 768px) {
@@ -1056,7 +1066,7 @@ section {
 
 .campaign-link:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-large);
+    box-shadow: 0 8px 30px rgba(216, 194, 179, 0.3);
 }
 
 .campaign-link img {
@@ -1070,24 +1080,8 @@ section {
     transform: scale(1.05);
 }
 
-/* Swiper pagination フォールバックスタイル */
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: 20px !important;
-    left: 0;
-    width: 100%;
-}
-
 .swiper-pagination {
     bottom: -40px !important;
-}
-
-/* Swiper pagination フォールバックスタイル */
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: 20px !important;
-    left: 0;
-    width: 100%;
 }
 
 .swiper-pagination-bullet {
@@ -1103,14 +1097,14 @@ section {
 }
 
 .swiper-pagination-bullet-active {
-    background: var(--primary-brown) !important;
+    background: var(--primary) !important;
     width: 30px !important;
     border-radius: 5px !important;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: var(--primary-brown);
+    color: var(--primary);
     background: rgba(255, 255, 255, 0.9);
     width: 48px;
     height: 48px;
@@ -1126,15 +1120,17 @@ section {
 @media (max-width: 768px) {
     .swiper-button-next,
     .swiper-button-prev {
-        display: none; /* モバイルで矢印を非表示 */
+        display: none;
     }
     
     .swiper-pagination {
-        bottom: 15px !important; /* モバイル用に位置調整 */
+        bottom: 15px !important;
     }
-       .campaign-slider {
-        padding-bottom: 50px; /* モバイル用に調整 */
-    }    
+    
+    .campaign-slider {
+        padding-bottom: 50px;
+    }
+    
     .swiper-pagination-bullet {
         width: 8px !important;
         height: 8px !important;
@@ -1146,13 +1142,12 @@ section {
     }
 }
 
-
 /* ===============================================
    11. Intro Section
    =============================================== */
 .intro-section-v2 {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--base-white) 0%, var(--accent-offwhite) 100%);
+    background: linear-gradient(180deg, var(--base-white) 0%, var(--accent-cream) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1167,7 +1162,6 @@ section {
     align-items: center;
 }
 
-/* テキストカード */
 .intro-text-card {
     background: var(--base-white);
     padding: 50px;
@@ -1175,9 +1169,7 @@ section {
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     position: relative;
     z-index: 2;
-    /* transformを削除または調整 */
     transform: translateX(0);
-    /* アニメーション用のtransitionを追加 */
     transition: transform 0.3s ease;
 }
 
@@ -1188,7 +1180,7 @@ section {
     left: -20px;
     width: 100px;
     height: 100px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     border-radius: 50%;
     opacity: 0.1;
     z-index: -1;
@@ -1207,37 +1199,31 @@ section {
     color: var(--text-dark);
 }
 
-/* ホバー時にわずかに動かす */
 .intro-text-card:hover {
     transform: translateX(10px);
 }
 
-/* 画像エリア */
 .intro-image-wrapper {
     position: relative;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 30px 80px rgba(107, 79, 60, 0.15);
-    /* transformを削除または調整 */
+    box-shadow: 0 30px 80px rgba(155, 126, 111, 0.15);
     transform: rotate(0);
     transition: transform 0.6s ease;
 }
 
-/* ホバー時にわずかに回転 */
 .intro-image-wrapper:hover {
     transform: rotate(1deg);
 }
 
 .intro-image-wrapper img {
     width: 100%;
-    /* 固定高さを削除し、アスペクト比を保持 */
     height: auto;
     min-height: 400px;
     object-fit: cover;
     transition: transform 0.6s ease;
 }
 
-/* レスポンシブ対応の改善 */
 @media (max-width: 768px) {
     .intro-section-v2 {
         padding: 60px 0;
@@ -1269,114 +1255,49 @@ section {
         min-height: 250px;
     }
 }
+
 /* ===============================================
-改善案3: セクション間のトランジション
-=============================================== */
-        .section-divider {
-            position: relative;
-            height: 100px;
-            overflow: hidden;
-        }
+   改善案3: セクション間のトランジション
+   =============================================== */
+.section-divider {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+}
 
-        .wave-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: var(--accent-offwhite);
-            clip-path: polygon(
-                0 40px,
-                100% 0,
-                100% 100%,
-                0 100%
-            );
-        }
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: var(--accent-cream);
+    clip-path: polygon(
+        0 40px,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
 
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            .instagram-split-container {
-                grid-template-columns: 1fr;
-            }
-
-            .instagram-content-area {
-                padding: 60px 32px;
-            }
-
-            .instagram-video-area {
-                height: 300px;
-            }
-
-            .intro-card-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .intro-text-card {
-                transform: translateX(0);
-                padding: 32px;
-            }
-
-            .intro-image-wrapper {
-                transform: rotate(0);
-            }
-        }
-
-        /* ボタンスタイルの改善 */
-        .cta-button-v2 {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: var(--gradient-warm);
-            color: var(--base-white);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(107, 79, 60, 0.2);
-        }
-
-        .cta-button-v2::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
-        }
-
-        .cta-button-v2:hover::before {
-            left: 100%;
-        }
-
-        .cta-button-v2:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(107, 79, 60, 0.3);
-        }
-
+/* Instagram Section V2 */
 .instagram-section-v2 {
     position: relative;
-    background: var(--accent-light-beige);
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--accent-peach) 100%);
     overflow: hidden;
-    padding-top: 24px; /* 追加：上部の余白 */
+    padding-top: 24px;
 }
 
 .instagram-split-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
-    min-height: 600px; /* 最小高さを設定 */
+    min-height: 600px;
 }
 
-/* 左側：コンテンツエリア */
 .instagram-content-area {
     padding: 80px 60px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,243,239,0.98) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,243,0.98) 100%);
     display: flex;
     align-items: center;
     position: relative;
@@ -1401,7 +1322,7 @@ section {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: var(--secondary-beige);
+    color: var(--secondary);
     margin-bottom: 8px;
     text-transform: uppercase;
 }
@@ -1413,16 +1334,15 @@ section {
     color: var(--text-dark);
 }
 
-/* 右側：動画エリア - 確実表示修正版 */
 .instagram-video-area {
     position: relative;
     overflow: hidden;
-    background: #f5f0eb; /* 透明背景から薄いベージュに変更 */
+    background: var(--accent-peach);
     min-height: 600px;
 }
 
 .instagram-video-wrapper {
-    position: relative; /* absoluteからrelativeに変更 */
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 600px;
@@ -1431,14 +1351,13 @@ section {
 .instagram-video-wrapper video {
     width: 100%;
     height: 100%;
-    min-height: 600px; /* 確実なサイズ指定 */
+    min-height: 600px;
     object-fit: cover;
     object-position: center center;
-    display: block; /* inline要素の余白を除去 */
-    opacity: 1 !important; /* 確実に表示 */
+    display: block;
+    opacity: 1 !important;
 }
 
-/* レスポンシブ対応の改善 - モバイル */
 @media (max-width: 768px) {
     .instagram-split-container {
         grid-template-columns: 1fr;
@@ -1453,16 +1372,14 @@ section {
     }
 
     .instagram-video-area {
-        /* シンプルな幅設定で確実表示 */
         width: 100%;
         height: 60vh;
         min-height: 400px;
-        background: #f5f0eb;
-        /* 複雑なvwとtransformを削除 */
+        background: var(--accent-peach);
     }
     
     .instagram-video-wrapper {
-        position: relative; /* absoluteからrelativeに変更 */
+        position: relative;
         width: 100%;
         height: 100%;
         min-height: 400px;
@@ -1475,7 +1392,7 @@ section {
         object-fit: cover;
         object-position: center center;
         display: block;
-        opacity: 1 !important; /* 確実に表示 */
+        opacity: 1 !important;
     }
     
     .instagram-content-v2 h2 {
@@ -1488,7 +1405,6 @@ section {
     }
 }
 
-/* さらに小さなモバイル画面での最適化 */
 @media (max-width: 480px) {
     .instagram-video-area {
         height: 50vh;
@@ -1508,14 +1424,13 @@ section {
     }
 }
 
-/* デコレーティブ要素の調整 */
 .instagram-decoration {
     position: absolute;
     bottom: -50px;
     right: -50px;
     width: 200px;
     height: 200px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     border-radius: 50%;
     opacity: 0.05;
     animation: float 6s ease-in-out infinite;
@@ -1527,9 +1442,8 @@ section {
     50% { transform: translateY(-20px); }
 }
 
-/* 非対応ブラウザ用のフォールバック */
 .no-video .instagram-video-area {
-    background: var(--accent-light-beige);
+    background: var(--accent-peach);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1541,86 +1455,36 @@ section {
     font-size: 16px;
 }
 
-/* ===============================================
-   追加の安定性向上
-   =============================================== */
 /* ボタンスタイルの修正 */
 .cta-button-v2 {
     display: inline-block;
     align-items: center;
     gap: 12px;
     padding: 16px 32px;
-    background: var(--gradient-warm);
-    color: var(--base-white);
+    background: var(--gradient-accent);
+    color: var(--primary-dark);
     border-radius: 50px;
     font-weight: 600;
     font-size: 15px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(107, 79, 60, 0.2);
+    box-shadow: 0 4px 20px rgba(235, 208, 199, 0.25);
     white-space: nowrap;
     border: none;
     outline: none;
 }
 
-/* フォーカス時のスタイル修正 */
 .cta-button-v2:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(107, 79, 60, 0.3);
+    box-shadow: 0 0 0 3px rgba(235, 208, 199, 0.3);
 }
 
-/* Intro Section V2 - レスポンシブ改善 */
-@media (max-width: 768px) {
-    .intro-section-v2 {
-        padding: 60px 0;
-    }
-
-    .intro-card-container {
-        grid-template-columns: 1fr;
-        gap: 0;
-        display: flex;
-        flex-direction: column-reverse; /* 画像を上に配置 */
-    }
-
-    .intro-text-card {
-        transform: translateX(0);
-        padding: 32px 24px;
-        border-radius: 0;
-        box-shadow: none;
-        margin-top: -30px; /* 画像と重ねる */
-        position: relative;
-        z-index: 2;
-    }
-    
-    .intro-text-card:hover {
-        transform: translateX(0);
-    }
-
-    .intro-image-wrapper {
-        transform: rotate(0);
-        border-radius: 0 0 30px 30px;
-        margin: 0 16px;
-    }
-    
-    .intro-image-wrapper:hover {
-        transform: rotate(0);
-    }
-    
-    .intro-image-wrapper img {
-        min-height: 300px;
-    }
-}
-
-/* グラスモーフィズム効果の削除 - 動画の上に不要な要素を表示しない */
-.video-glass-overlay {
-    display: none;
-}
 /* ===============================================
    13. Features Section
    =============================================== */
 .features-section {
-    background: var(--accent-offwhite);
+    background: var(--bg-light);
     padding: 60px 0;
 }
 
@@ -1647,7 +1511,7 @@ section {
     background: var(--base-white);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 20px rgba(155, 126, 111, 0.08);
     transition: all var(--transition-normal);
 }
 
@@ -1659,7 +1523,7 @@ section {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-large);
+    box-shadow: 0 8px 30px rgba(155, 126, 111, 0.15);
 }
 
 .feature-number {
@@ -1668,7 +1532,7 @@ section {
     right: 16px;
     font-size: 40px;
     font-weight: 700;
-    color: rgba(161, 134, 111, 0.2);
+    color: rgba(216, 194, 179, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -1715,6 +1579,7 @@ section {
     font-size: 20px;
     margin-bottom: 12px;
     line-height: 1.4;
+    color: var(--primary);
 }
 
 @media (max-width: 768px) {
@@ -1727,7 +1592,7 @@ section {
 .feature-content p {
     font-size: 15px;
     line-height: 1.7;
-    color: var(--text-dark);
+    color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
@@ -1755,13 +1620,13 @@ section {
     padding: 12px 24px;
     border-radius: 25px;
     font-weight: 600;
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     color: var(--text-dark);
     transition: all var(--transition-normal);
 }
 
 .tab-button.active {
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
 }
 
@@ -1780,7 +1645,7 @@ section {
 }
 
 .case-card {
-    background: var(--accent-light-beige);
+    background: var(--accent-peach);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
@@ -1807,7 +1672,7 @@ section {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     padding: 5px 15px;
     border-radius: 20px;
@@ -1827,7 +1692,7 @@ section {
    15. Pricing Section
    =============================================== */
 .pricing-section {
-    background: var(--accent-offwhite);
+    background: var(--accent-peach);
     padding: 60px 0;
 }
 
@@ -1865,7 +1730,7 @@ section {
 }
 
 .category-title i {
-    color: var(--secondary-beige);
+    color: var(--secondary);
     font-size: 24px;
 }
 
@@ -1906,7 +1771,7 @@ section {
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     transition: all var(--transition-normal);
     position: relative;
-    border: 1px solid rgba(0,0,0,0.04);
+    border: 1px solid rgba(235, 208, 199, 0.2);
 }
 
 .pricing-card:hover {
@@ -1915,12 +1780,12 @@ section {
 }
 
 .pricing-card.recommended {
-    border: 2px solid var(--primary-brown);
+    border: 2px solid var(--primary);
 }
 
 .pricing-header {
     padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
-    background: linear-gradient(135deg, #6B4F3C 0%, #8B6F5C 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: var(--base-white);
     position: relative;
     text-align: center;
@@ -1961,7 +1826,7 @@ section {
 .pricing-image {
     height: 200px;
     overflow: hidden;
-    position: relative; /* 追加 */
+    position: relative;
 }
 
 .pricing-image img {
@@ -1975,7 +1840,7 @@ section {
 }
 
 .price-box {
-    background: var(--accent-light-beige);
+    background: var(--accent-cream);
     padding: var(--spacing-md);
     border-radius: 15px;
     margin: var(--spacing-md) 0;
@@ -1992,7 +1857,7 @@ section {
 .price {
     font-size: 32px;
     font-weight: 700;
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .price small {
@@ -2017,7 +1882,7 @@ section {
 }
 
 .price-features i {
-    color: var(--secondary-beige);
+    color: var(--secondary);
 }
 
 .center-button {
@@ -2026,7 +1891,7 @@ section {
 }
 
 .guarantee-box {
-    background: var(--accent-light-beige);
+    background: linear-gradient(180deg, var(--accent-peach) 0%, var(--accent-rose) 100%);
     border-radius: 20px;
     padding: var(--spacing-xl);
     display: flex;
@@ -2037,7 +1902,7 @@ section {
 
 .guarantee-icon {
     font-size: 48px;
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .guarantee-content h4 {
@@ -2059,7 +1924,7 @@ section {
 }
 
 .guarantee-price .price {
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .note {
@@ -2080,7 +1945,7 @@ section {
 .lip-image {
     flex: 2;
     min-height: 300px;
-    position: relative; /* 追加 */
+    position: relative;
 }
 
 .lip-image img {
@@ -2103,7 +1968,7 @@ section {
 }
 
 .pricing-table thead {
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
 }
 
@@ -2125,11 +1990,11 @@ section {
 .pricing-table .price {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .pricing-table .discount {
-    color: var(--secondary-beige);
+    color: var(--secondary);
 }
 
 .removal-notes {
@@ -2145,7 +2010,7 @@ section {
 }
 
 .removal-notes i {
-    color: var(--secondary-beige);
+    color: var(--secondary);
 }
 
 .price-overlay {
@@ -2159,7 +2024,7 @@ section {
         rgba(255, 255, 255, 0.85) 40%,
         rgba(255, 255, 255, 0.3) 60%,
         transparent 100%);
-   pointer-events: none;
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -2169,27 +2034,27 @@ section {
             rgba(255, 255, 255, 0.6) 60%,
             rgba(255, 255, 255, 0.3) 80%,
             transparent 100%);
-       pointer-events: none;
+        pointer-events: none;
     }
 
-       .lip-pricing-box {
+    .lip-pricing-box {
         flex-direction: column;
-        margin: 0 auto 32px; /* マージンを調整 */
+        margin: 0 auto 32px;
     }
     
     .lip-image {
-        min-height: 200px; /* 高さを調整 */
-        max-height: 250px; /* 最大高さを設定 */
+        min-height: 200px;
+        max-height: 250px;
         flex: none;
     }
     
     .lip-content {
-        padding: 24px 20px; /* パディングを調整 */
+        padding: 24px 20px;
     }
     
     .lip-content h4 {
-        margin-top: 0; /* 上部のマージンを削除 */
-        margin-bottom: 12px; /* 下部のマージンを調整 */
+        margin-top: 0;
+        margin-bottom: 12px;
     }
 }
 
@@ -2197,7 +2062,7 @@ section {
    16. Counseling CTA Section
    =============================================== */
 .counseling-cta {
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     position: relative;
     overflow: hidden;
@@ -2294,23 +2159,23 @@ section {
         gap: 12px;
         text-align: center;
         margin: var(--spacing-xl) 0;
-        width: 100%; /* 追加 */
-        padding: 0 20px; /* 追加：左右の余白 */
-        margin-top: 24px; /* 追加：上部の余白 */
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 24px;
     }
 
     .counseling-buttons .cta-button {
-     width: 100%; /* 追加：ボタンを画面幅いっぱいに */
-     max-width: 320px; /* 追加：最大幅を制限 */
-     margin: 0 auto; /* 追加：中央配置 */
- }
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }
 
 /* ===============================================
    17. Flow Section
    =============================================== */
 .flow-section {
-    background: var(--accent-light-beige);
+    background: var(--bg-soft);
     padding: 60px 0;
 }
 
@@ -2370,7 +2235,7 @@ section {
     transform: translate(-50%, -50%);
     width: 72px;
     height: 72px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -2464,7 +2329,7 @@ section {
     background: var(--base-white);
     padding: 28px;
     border-radius: 16px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 20px rgba(216, 194, 179, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -2478,11 +2343,12 @@ section {
 .flow-text h3 {
     font-size: 20px;
     margin-bottom: 12px;
+    color: var(--primary);
 }
 
 @media (max-width: 768px) {
     .flow-text h3 {
-        font-size: 16px; /*18→16に*/
+        font-size: 16px;
         margin-bottom: 10px;
     }
 }
@@ -2506,7 +2372,7 @@ section {
     gap: 6px;
     margin-top: 12px;
     font-size: 14px;
-    color: var(--secondary-beige);
+    color: var(--secondary);
 }
 
 @media (max-width: 768px) {
@@ -2520,7 +2386,7 @@ section {
     text-align: center;
     font-size: 17px;
     font-weight: 600;
-    color: var(--primary-brown);
+    color: var(--primary);
     margin-top: 32px;
     display: flex;
     align-items: center;
@@ -2550,7 +2416,7 @@ section {
 
 .staff-card {
     text-align: center;
-    background: var(--accent-light-beige);
+    background: var(--accent-peach);
     border-radius: 20px;
     padding: var(--spacing-xl);
     transition: all var(--transition-normal);
@@ -2581,7 +2447,7 @@ section {
 }
 
 .staff-title {
-    color: var(--secondary-beige);
+    color: var(--secondary);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -2597,7 +2463,7 @@ section {
 
 .staff-sns {
     display: flex;
-    justify-content: center; /* アイコンを中央に配置 */
+    justify-content: center;
     width: 100%;
 }
 
@@ -2607,7 +2473,7 @@ section {
     justify-content: center;
     width: 80px;
     height: 80px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     border-radius: 50%;
     transition: all var(--transition-normal);
@@ -2625,7 +2491,7 @@ section {
    19. FAQ Section
    =============================================== */
 .faq-section {
-    background: var(--accent-offwhite);
+    background: var(--bg-light);
     padding: 60px 0;
 }
 
@@ -2645,7 +2511,7 @@ section {
     border-radius: 12px;
     margin-bottom: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-small);
+    box-shadow: 0 2px 10px rgba(155, 126, 111, 0.05);
     transition: all var(--transition-normal);
 }
 
@@ -2657,19 +2523,19 @@ section {
 }
 
 .faq-item:hover {
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 20px rgba(155, 126, 111, 0.1);
 }
 
 .faq-question {
     width: 100%;
     padding: 20px 24px;
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-darker);
+    color: var(--primary-dark);
     transition: all var(--transition-fast);
 }
 
@@ -2681,7 +2547,7 @@ section {
 }
 
 .faq-question:hover {
-    background: #F0F0F0;
+    background: #FFF4ED;
 }
 
 .faq-q {
@@ -2690,7 +2556,7 @@ section {
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: var(--gradient-warm);
+    background: var(--gradient-main);
     color: var(--base-white);
     border-radius: 50%;
     font-size: 13px;
@@ -2705,9 +2571,9 @@ section {
         font-size: 12px;
         margin-right: 10px;
     }
-   .faq-text {
-         padding-right: 10px;
-   }
+    .faq-text {
+        padding-right: 10px;
+    }
 }
 
 .faq-text {
@@ -2718,7 +2584,7 @@ section {
 
 .faq-icon {
     font-size: 18px;
-    color: var(--primary-brown);
+    color: var(--primary);
     transition: transform var(--transition-normal);
     flex-shrink: 0;
 }
@@ -2749,13 +2615,13 @@ section {
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: var(--secondary-beige);
+    background: var(--secondary);
     color: var(--base-white);
     border-radius: 50%;
     font-size: 13px;
     margin-right: 12px;
-   margin-left: 12px;
-   margin-top: 12px;
+    margin-left: 12px;
+    margin-top: 12px;
     flex-shrink: 0;
 }
 
@@ -2765,8 +2631,8 @@ section {
         height: 24px;
         font-size: 12px;
         margin-right: 10px;
-       margin-left: 10px;
-       margin-top: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
     }
 }
 
@@ -2796,7 +2662,7 @@ section {
 }
 
 .link-more {
-    color: var(--primary-brown);
+    color: var(--primary);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -2818,7 +2684,7 @@ section {
 }
 
 .equipment-card {
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     border-radius: 20px;
     overflow: hidden;
     transition: all var(--transition-normal);
@@ -2857,7 +2723,7 @@ section {
    21. Access Section
    =============================================== */
 .access-section {
-    background: var(--accent-offwhite);
+    background: var(--accent-peach);
     padding: 60px 0;
 }
 
@@ -2905,7 +2771,7 @@ section {
     background: var(--base-white);
     border-radius: 16px;
     padding: 32px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 20px rgba(216, 194, 179, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -2916,7 +2782,7 @@ section {
 }
 
 .clinic-details h3 {
-    color: var(--primary-brown);
+    color: var(--primary);
     margin-bottom: 20px;
     font-size: 24px;
 }
@@ -2972,12 +2838,12 @@ section {
 
 .info-table th i {
     margin-right: 6px;
-    color: var(--secondary-beige);
+    color: var(--secondary);
     font-size: 14px;
 }
 
 .info-table a {
-    color: var(--primary-brown);
+    color: var(--primary);
 }
 
 .info-table a:hover {
@@ -3020,7 +2886,7 @@ section {
 }
 
 .hours-item {
-    background: var(--accent-offwhite);
+    background: var(--accent-cream);
     padding: 16px;
     border-radius: 10px;
 }
@@ -3032,7 +2898,7 @@ section {
 }
 
 .hours-item h5 {
-    color: var(--primary-brown);
+    color: var(--primary);
     margin-bottom: 6px;
     display: flex;
     align-items: center;
@@ -3047,7 +2913,7 @@ section {
 }
 
 .hours-item h5 i {
-    color: var(--secondary-beige);
+    color: var(--secondary);
     font-size: 14px;
 }
 
