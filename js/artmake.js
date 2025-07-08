@@ -329,8 +329,6 @@ class CampaignSlider {
                 el: '.swiper-pagination',
                 clickable: true,
                 dynamicBullets: false, // 追加：モバイルでの見やすさ向上
-                renderBullet: function (index, className) {
-                    return '<span class="' + className + '"></span>';
             },
             navigation: {
                 nextEl: '.swiper-button-next',
