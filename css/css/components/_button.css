@@ -1,0 +1,432 @@
+/* ===============================================
+   Button Component - 共通ボタンスタイル
+   =============================================== */
+
+/* ===============================================
+   Base Button
+   =============================================== */
+.button,
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--button-radius);
+  font-weight: var(--button-font-weight);
+  font-size: var(--font-size-md);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  
+  /* Hover state */
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Focus state */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.3);
+  }
+  
+  /* Active state */
+  &:active {
+    transform: translateY(0);
+  }
+  
+  /* Disabled state */
+  &:disabled,
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+/* ===============================================
+   Button Variations
+   =============================================== */
+/* Primary button */
+.button--primary,
+.cta-primary {
+  background: var(--gradient-warm);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Secondary button */
+.button--secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  
+  &:hover {
+    background: var(--color-secondary-hover, var(--color-secondary));
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Outline button */
+.button--outline,
+.cta-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  
+  &:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+
+/* White button */
+.button--white,
+.cta-white {
+  background: var(--color-white);
+  color: var(--color-primary);
+  
+  &:hover {
+    box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+  }
+}
+
+/* Outline white button */
+.button--outline-white,
+.cta-outline-white {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+  
+  &:hover {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
+}
+
+/* Ghost button */
+.button--ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: none;
+  box-shadow: none;
+  
+  &:hover {
+    background: var(--color-gray-50);
+  }
+}
+
+/* ===============================================
+   Button Sizes
+   =============================================== */
+/* Small */
+.button--small {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+/* Large */
+.button--large {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+}
+
+/* Extra large */
+.button--xlarge {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--font-size-xl);
+}
+
+/* ===============================================
+   Button States
+   =============================================== */
+/* Loading */
+.button--loading {
+  color: transparent;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid var(--color-white);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: button-loading-spinner 0.6s linear infinite;
+  }
+}
+
+@keyframes button-loading-spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Success */
+.button--success {
+  background: var(--color-success);
+  color: var(--color-white);
+  
+  &:hover {
+    background: var(--color-success-hover, var(--color-success));
+  }
+}
+
+/* Error */
+.button--error {
+  background: var(--color-error);
+  color: var(--color-white);
+  
+  &:hover {
+    background: var(--color-error-hover, var(--color-error));
+  }
+}
+
+/* ===============================================
+   Button Groups
+   =============================================== */
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  
+  &--center {
+    justify-content: center;
+  }
+  
+  &--right {
+    justify-content: flex-end;
+  }
+  
+  &--vertical {
+    flex-direction: column;
+    
+    .button,
+    .cta-button {
+      width: 100%;
+    }
+  }
+}
+
+/* ===============================================
+   Special Buttons
+   =============================================== */
+/* Icon button */
+.button--icon {
+  padding: var(--spacing-sm);
+  border-radius: 50%;
+  
+  i, svg {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Floating button */
+.button--floating {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-index-fixed);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-warm);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  z-index: var(--z-index-fixed);
+  border: none;
+  cursor: pointer;
+  
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Mobile CTA button */
+.mobile-cta-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: linear-gradient(135deg, #00C300 0%, #00B900 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  box-shadow: 0 4px 15px rgba(0, 195, 0, 0.3);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  
+  i {
+    font-size: 18px;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
+  }
+}
+
+/* Center button wrapper */
+.center-button {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ===============================================
+   Responsive
+   =============================================== */
+@media (max-width: 768px) {
+  .button,
+  .cta-button {
+    padding: 10px 24px;
+    font-size: var(--font-size-sm);
+  }
+  
+  .button--small {
+    padding: 8px 16px;
+    font-size: var(--font-size-xs);
+  }
+  
+  .button--large {
+    padding: 12px 28px;
+    font-size: var(--font-size-md);
+  }
+  
+  .button--xlarge {
+    padding: 14px 32px;
+    font-size: var(--font-size-lg);
+  }
+  
+  .back-to-top {
+    bottom: 80px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .mobile-cta-button {
+    max-width: 200px;
+    padding: 12px 20px;
+    font-size: var(--font-size-sm);
+    gap: 8px;
+    
+    i {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-cta-button {
+    max-width: 180px;
+    padding: 11px 18px;
+    font-size: 13px;
+    gap: 6px;
+    
+    i {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-cta-button {
+    max-width: 160px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
+
+/* ===============================================
+   Button Animations
+   =============================================== */
+/* Ripple effect */
+.button--ripple {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Shine effect */
+.button--shine {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}

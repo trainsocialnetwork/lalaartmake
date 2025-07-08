@@ -1,0 +1,191 @@
+/* ===============================================
+   Type B-2 - アートメイク詳細ページ用変数
+   適用ページ: 眉アートメイク, リップアートメイク, メンズアートメイク, メラニンケア
+   =============================================== */
+
+.type-b2 {
+  /* ===============================================
+     Color Overrides
+     =============================================== */
+  --color-primary: var(--color-primary-default);
+  --color-secondary: var(--color-secondary-default);
+  --color-accent: var(--color-accent-light);
+  --color-text: var(--color-gray-600);
+  --color-heading: var(--color-gray-700);
+  
+  /* Background colors */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-accent: var(--color-accent-light);
+  
+  /* ===============================================
+     Typography Overrides
+     =============================================== */
+  /* 詳細ページは読みやすさ重視 */
+  --font-size-lead: var(--font-size-lg);
+  --heading-margin-bottom: var(--spacing-xl);
+  --paragraph-margin-bottom: var(--spacing-lg);
+  
+  /* ===============================================
+     Spacing Overrides
+     =============================================== */
+  /* Section spacing - 詳細ページは広めの余白 */
+  --section-padding-y: var(--spacing-6xl);
+  --section-padding-x: var(--spacing-lg);
+  
+  /* Container - 詳細ページは狭めの幅 */
+  --container-max-width: 900px;
+  --container-padding: var(--spacing-lg);
+  
+  /* ===============================================
+     Component Specific
+     =============================================== */
+  /* Page hero */
+  --page-hero-height: 500px;
+  --page-hero-height-mobile: 300px;
+  
+  /* Page navigation */
+  --page-nav-height: 60px;
+  --page-nav-link-padding: var(--spacing-xs) var(--spacing-md);
+  --page-nav-gap: var(--spacing-xl);
+  
+  /* Benefits */
+  --benefit-item-padding: var(--spacing-lg);
+  --benefit-image-width: 140px;
+  --benefit-image-float-margin: var(--spacing-md);
+  
+  /* Design features */
+  --design-feature-padding: var(--spacing-lg);
+  --design-feature-bg: var(--color-accent-light);
+  --design-feature-radius: 20px;
+  
+  /* Technique cards */
+  --technique-card-image-height: 250px;
+  --technique-card-radius: var(--radius-md);
+  
+  /* Types (施術タイプ) */
+  --type-card-header-bg: var(--gradient-warm);
+  --type-card-padding: var(--spacing-xl);
+  --type-recommend-bg: var(--color-accent-light);
+  --type-recommend-padding: var(--spacing-lg);
+  
+  /* Cases gallery */
+  --cases-gallery-columns: 2;
+  --cases-gallery-gap: var(--spacing-lg);
+  --cases-image-aspect: 1 / 1;
+  
+  /* Caution section */
+  --caution-section-margin: var(--spacing-5xl);
+  --caution-subsection-bg: var(--color-accent-light);
+  --caution-subsection-padding: var(--spacing-lg);
+  --caution-list-icon-size: 8px;
+  
+  /* Simple pricing table */
+  --pricing-table-max-width: 600px;
+  --pricing-table-header-bg: var(--gradient-warm);
+  
+  /* 詳細ページ専用の見出しスタイル */
+  --section-title-left-padding: 20px;
+  --section-title-left-border-width: 4px;
+  --section-title-left-border-height: 40px;
+}
+
+/* ===============================================
+   Responsive Overrides
+   =============================================== */
+@media (max-width: 768px) {
+  .type-b2 {
+    /* Mobile adjustments */
+    --section-padding-y: var(--spacing-5xl);
+    --section-padding-x: var(--spacing-sm);
+    --container-padding: var(--spacing-sm);
+    
+    /* Typography mobile */
+    --font-size-lead: var(--font-size-md);
+    --heading-margin-bottom: var(--spacing-md);
+    --paragraph-margin-bottom: var(--spacing-md);
+    
+    /* Components mobile */
+    --page-hero-height: var(--page-hero-height-mobile);
+    
+    --page-nav-gap: var(--spacing-sm);
+    --page-nav-link-padding: var(--spacing-xs) var(--spacing-sm);
+    
+    --benefit-item-padding: var(--spacing-sm);
+    --benefit-image-width: 120px;
+    --benefit-image-float-margin: 12px;
+    
+    --design-feature-padding: var(--spacing-md);
+    
+    --technique-card-image-height: 180px;
+    
+    --type-card-padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+    --type-recommend-padding: var(--spacing-lg) var(--spacing-md);
+    
+    --cases-gallery-gap: var(--spacing-md);
+    
+    --caution-section-margin: var(--spacing-4xl);
+    --caution-subsection-padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .type-b2 {
+    /* Small mobile adjustments */
+    --benefit-item-padding: 10px;
+    --benefit-image-width: 100px;
+    --benefit-image-float-margin: 10px;
+    
+    --type-recommend-padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* ===============================================
+   Type B-2 Specific Components
+   =============================================== */
+.type-b2 {
+  /* Page title styling */
+  .page-title-section {
+    background: var(--bg-primary);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+  }
+  
+  /* Section title variations */
+  .section-title-left {
+    text-align: left;
+    position: relative;
+    padding-left: var(--section-title-left-padding);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--section-title-left-border-width);
+      height: var(--section-title-left-border-height);
+      background: var(--gradient-warm);
+      border-radius: 2px;
+    }
+  }
+  
+  /* Benefit cards floating image */
+  .benefit-item {
+    overflow: hidden;
+    
+    .benefit-image {
+      float: right;
+      width: var(--benefit-image-width);
+      height: auto;
+      margin-left: var(--benefit-image-float-margin);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}

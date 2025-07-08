@@ -1,0 +1,167 @@
+/* ===============================================
+   Type B-1 - アートメイクトップページ用変数
+   適用ページ: index.html
+   =============================================== */
+
+.type-b1 {
+  /* ===============================================
+     Color Overrides
+     =============================================== */
+  --color-primary: var(--color-primary-default);
+  --color-secondary: var(--color-secondary-default);
+  --color-accent: var(--color-accent-light);
+  --color-text: var(--color-gray-600);
+  --color-heading: var(--color-gray-700);
+  
+  /* Background colors */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-accent: var(--color-accent-light);
+  
+  /* ===============================================
+     Typography Overrides
+     =============================================== */
+  --heading-margin-bottom: var(--spacing-lg);
+  --paragraph-margin-bottom: var(--spacing-md);
+  
+  /* ===============================================
+     Spacing Overrides
+     =============================================== */
+  /* Section spacing - アートメイクトップは標準的な余白 */
+  --section-padding-y: var(--spacing-5xl);
+  --section-padding-x: var(--spacing-lg);
+  
+  /* Container */
+  --container-max-width: var(--container-xl);
+  --container-padding: var(--spacing-lg);
+  
+  /* ===============================================
+     Component Specific
+     =============================================== */
+  /* Hero (泡アニメーション付き) */
+  --hero-min-height: 70vh;
+  --hero-overlay-opacity: 0.3;
+  --hero-bubble-count: 15;
+  --hero-bubble-size-min: 20px;
+  --hero-bubble-size-max: 80px;
+  
+  /* Campaign slider */
+  --campaign-slider-height: auto;
+  --campaign-slide-radius: var(--radius-xl);
+  --campaign-autoplay-delay: 5000;
+  
+  /* Instagram section */
+  --instagram-video-min-height: 600px;
+  
+  /* Features */
+  --feature-card-image-height: 220px;
+  --feature-number-size: 40px;
+  
+  /* Pricing */
+  --pricing-card-recommended-border: 2px solid var(--color-primary);
+  --pricing-image-height: 200px;
+  --pricing-header-bg: linear-gradient(135deg, #6B4F3C 0%, #8B6F5C 100%);
+  
+  /* Flow */
+  --flow-timeline-width: 2px;
+  --flow-number-size: 72px;
+  --flow-image-height: 280px;
+  --flow-step-gap: var(--spacing-4xl);
+  
+  /* Staff */
+  --staff-image-size: 200px;
+  --staff-card-padding: var(--spacing-xl);
+  
+  /* FAQ */
+  --faq-item-margin: 12px;
+  --faq-question-padding: 20px 24px;
+  --faq-icon-size: 28px;
+  
+  /* News */
+  --news-card-image-height: 250px;
+  --news-grid-gap: var(--spacing-lg);
+  
+  /* Access */
+  --map-height: 450px;
+  --hours-grid-gap: var(--spacing-xl);
+  
+  /* CTA Banner */
+  --cta-banner-aspect-ratio: 1.91 / 1;
+  --cta-banner-radius: 20px;
+}
+
+/* ===============================================
+   Responsive Overrides
+   =============================================== */
+@media (max-width: 768px) {
+  .type-b1 {
+    /* Mobile adjustments */
+    --section-padding-y: var(--spacing-4xl);
+    --section-padding-x: var(--spacing-sm);
+    --container-padding: var(--spacing-sm);
+    
+    /* Hero mobile */
+    --hero-min-height: 60vh;
+    --hero-bubble-count: 7;
+    
+    /* Components mobile */
+    --feature-card-image-height: 180px;
+    --feature-number-size: 32px;
+    
+    --pricing-image-height: 150px;
+    
+    --flow-timeline-width: 2px;
+    --flow-number-size: 56px;
+    --flow-image-height: 180px;
+    --flow-step-gap: var(--spacing-lg);
+    
+    --staff-image-size: 160px;
+    --staff-card-padding: var(--spacing-md);
+    
+    --faq-item-margin: 10px;
+    --faq-question-padding: 16px 20px;
+    --faq-icon-size: 24px;
+    
+    --news-card-image-height: 180px;
+    --news-grid-gap: var(--spacing-md);
+    
+    --map-height: 300px;
+    --hours-grid-gap: var(--spacing-lg);
+    
+    --cta-banner-radius: 12px;
+  }
+}
+
+/* ===============================================
+   Component Modifiers for Type B-1
+   =============================================== */
+.type-b1 {
+  /* Campaign specific */
+  .campaign-section {
+    overflow: visible;
+  }
+  
+  /* Instagram section specific */
+  .instagram-section-v2 {
+    .instagram-video-wrapper video {
+      opacity: 1 !important;
+    }
+  }
+  
+  /* Pricing cards specific */
+  .pricing-card {
+    &.recommended {
+      border: var(--pricing-card-recommended-border);
+    }
+  }
+  
+  /* News cards specific */
+  .news-card {
+    transition: all var(--transition-base);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+}
