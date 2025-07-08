@@ -1,0 +1,783 @@
+/* ===============================================
+   Type B-2 Specific Components
+   アートメイク詳細ページ専用コンポーネント
+   =============================================== */
+
+/* ===============================================
+   Page Title Section - ページタイトル
+   =============================================== */
+.page-title-section {
+  background: var(--color-white);
+  padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
+  text-align: center;
+  margin-top: 0;
+}
+
+.page-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--color-heading);
+  margin: 0;
+}
+
+/* ===============================================
+   Page Navigation - ページ内ナビゲーション
+   =============================================== */
+.page-nav {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  z-index: 900;
+  transition: all var(--transition-base);
+}
+
+.page-nav-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--page-nav-gap);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.page-nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: var(--page-nav-link-padding);
+  border-radius: 20px;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.page-nav-link:hover,
+.page-nav-link.active {
+  background: var(--gradient-warm);
+  color: var(--color-white);
+}
+
+/* ===============================================
+   Content Sections - コンテンツセクション
+   =============================================== */
+.content-section {
+  padding: var(--spacing-xxxl) 0;
+}
+
+.content-section.bg-light {
+  background: var(--color-gray-50);
+}
+
+.container-narrow {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* ===============================================
+   Typography Extensions - タイポグラフィ拡張
+   =============================================== */
+.section-title-left {
+  text-align: left;
+  position: relative;
+  padding-left: var(--section-title-left-padding);
+}
+
+.section-title-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--section-title-left-border-width);
+  height: var(--section-title-left-border-height);
+  background: var(--gradient-warm);
+  border-radius: 2px;
+}
+
+.lead-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xl);
+}
+
+.lead-text-center {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xxl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===============================================
+   Content with Image Layout
+   =============================================== */
+.content-with-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.content-text {
+  order: 1;
+}
+
+.content-image {
+  order: 2;
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ===============================================
+   Benefits Grid - メリットグリッド
+   =============================================== */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.benefit-item {
+  background: var(--color-white);
+  padding: var(--benefit-item-padding);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-item .benefit-image {
+  float: right;
+  width: var(--benefit-image-width);
+  height: auto;
+  border-radius: 0;
+  overflow: hidden;
+  margin-left: var(--benefit-image-float-margin);
+  margin-bottom: var(--spacing-sm);
+}
+
+.benefit-item .benefit-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.benefit-item:hover .benefit-image img {
+  transform: scale(1.05);
+}
+
+.benefit-item h4 {
+  font-size: 18px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  clear: left;
+}
+
+.benefit-item p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.benefit-item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ===============================================
+   Design Features - デザイン特徴
+   =============================================== */
+.design-features {
+  margin-top: var(--spacing-xl);
+}
+
+.design-feature {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--design-feature-padding);
+  background: var(--design-feature-bg);
+  border-radius: var(--design-feature-radius);
+}
+
+.feature-title {
+  font-size: 20px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.instagram-video-wrapper {
+  width: 100%;
+  height: 400px;
+  margin-bottom: var(--spacing-lg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.instagram-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.design-image {
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.design-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ===============================================
+   Technique Cards - 技法カード
+   =============================================== */
+.technique-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.technique-card {
+  background: var(--color-white);
+  border-radius: var(--technique-card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.technique-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.technique-image {
+  height: var(--technique-card-image-height);
+  overflow: hidden;
+}
+
+.technique-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.technique-content {
+  padding: var(--spacing-lg);
+}
+
+.technique-content h3 {
+  font-size: 20px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.technique-content p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ===============================================
+   Types Section - 施術タイプセクション
+   =============================================== */
+.types-container {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.type-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.type-header {
+  background: var(--type-card-header-bg);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+}
+
+.type-header h3 {
+  color: var(--color-white);
+  margin: 0;
+  font-size: 20px;
+}
+
+.type-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.type-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.type-content {
+  padding: var(--type-card-padding);
+}
+
+.type-content > p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+.type-recommend {
+  background: var(--type-recommend-bg);
+  padding: var(--type-recommend-padding);
+  border-radius: 12px;
+}
+
+.type-recommend h4 {
+  font-size: 18px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.type-recommend ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.type-recommend li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 18px;
+}
+
+.type-recommend li i {
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+/* ===============================================
+   Cases Gallery - 症例ギャラリー
+   =============================================== */
+.cases-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cases-gallery-columns), 1fr);
+  gap: var(--cases-gallery-gap);
+  margin-bottom: var(--spacing-xl);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-image-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: var(--cases-image-aspect);
+  transition: transform 0.3s ease;
+}
+
+.gallery-image-container:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===============================================
+   Simple Pricing Table - シンプル料金表
+   =============================================== */
+.simple-pricing-table {
+  max-width: var(--pricing-table-max-width);
+  margin: 0 auto var(--spacing-xl);
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.simple-pricing-table table {
+  width: 100%;
+  background: var(--color-white);
+  border-collapse: collapse;
+}
+
+.simple-pricing-table thead {
+  background: var(--pricing-table-header-bg);
+  color: var(--color-white);
+}
+
+.simple-pricing-table th {
+  padding: var(--spacing-md);
+  font-weight: 600;
+  text-align: left;
+}
+
+.simple-pricing-table th:last-child {
+  text-align: right;
+}
+
+.simple-pricing-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.simple-pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.simple-pricing-table .price {
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ===============================================
+   Caution Section - 注意事項セクション
+   =============================================== */
+.caution-section {
+  margin-bottom: var(--caution-section-margin);
+}
+
+.caution-section-title {
+  font-size: 24px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-sm);
+}
+
+.caution-subsection {
+  margin-bottom: var(--spacing-xl);
+  background: var(--caution-subsection-bg);
+  padding: var(--caution-subsection-padding);
+  border-radius: 12px;
+}
+
+.caution-subtitle {
+  font-size: 18px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.caution-subtitle i {
+  color: var(--color-secondary);
+}
+
+.caution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.caution-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.caution-list li i {
+  flex-shrink: 0;
+  font-size: var(--caution-list-icon-size);
+  color: var(--color-secondary);
+  line-height: inherit;
+}
+
+.caution-list li i.fa-times {
+  color: #e74c3c;
+}
+
+.caution-list li i.fa-info-circle {
+  color: #3498db;
+  font-size: 14px;
+}
+
+.caution-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+}
+
+.caution-note {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-gray-500);
+  background: rgba(107, 79, 60, 0.05);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  margin-top: var(--spacing-md);
+}
+
+/* ===============================================
+   Responsive Adjustments
+   =============================================== */
+@media (max-width: 768px) {
+  .page-title-section {
+    padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+    text-align: left;
+  }
+  
+  .page-title {
+    font-size: 26px;
+    text-align: left;
+  }
+  
+  .page-nav-list {
+    gap: var(--page-nav-gap);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 20px 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .page-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .page-nav-list::before,
+  .page-nav-list::after {
+    content: '';
+    flex-shrink: 0;
+    width: 10px;
+  }
+  
+  .page-nav-link {
+    font-size: 14px;
+    padding: var(--page-nav-link-padding);
+  }
+  
+  .content-section {
+    padding: var(--spacing-xxl) 0;
+  }
+  
+  .container-narrow {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .section-title,
+  .section-title-left,
+  .section-title-center {
+    font-size: 24px;
+  }
+  
+  .lead-text,
+  .lead-text-center {
+    font-size: 16px;
+  }
+  
+  .content-with-image {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .content-with-image .content-image {
+    order: 1;
+  }
+  
+  .content-with-image .content-text {
+    order: 2;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .benefit-item {
+    padding: var(--benefit-item-padding);
+    width: 100%;
+    max-width: none;
+  }
+  
+  .benefit-item .benefit-image {
+    width: var(--benefit-image-width);
+    height: auto;
+    margin-left: var(--benefit-image-float-margin);
+    margin-bottom: 10px;
+    padding-top: var(--spacing-xs);
+    border-radius: 0;
+  }
+  
+  .benefit-item h4 {
+    font-size: 16px;
+    margin-bottom: var(--spacing-xs);
+    word-wrap: break-word;
+    padding-top: var(--spacing-xs);
+  }
+  
+  .benefit-item p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  .design-feature {
+    padding: var(--design-feature-padding);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .instagram-video-wrapper {
+    height: 250px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .technique-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .technique-content {
+    padding: var(--spacing-md);
+  }
+  
+  .technique-content p {
+    font-size: 16px;
+  }
+  
+  .type-image {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .type-image img {
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .type-content {
+    padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+  }
+  
+  .type-content > p {
+    font-size: 16px;
+  }
+  
+  .type-recommend li {
+    font-size: 16px;
+  }
+  
+  .cases-gallery-grid {
+    gap: var(--cases-gallery-gap);
+  }
+  
+  .gallery-image-container {
+    border-radius: 12px;
+  }
+  
+  .caution-section-title {
+    font-size: 20px;
+  }
+  
+  .caution-subsection {
+    padding: var(--caution-subsection-padding);
+  }
+  
+  .caution-subtitle {
+    font-size: 16px;
+  }
+  
+  .caution-list li {
+    font-size: 16px;
+  }
+  
+  .caution-text {
+    font-size: 16px;
+  }
+  
+  .caution-note {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead-text,
+  .lead-text-center {
+    font-size: 15px;
+  }
+  
+  p, .content-text p, .technique-content p, .type-content > p {
+    font-size: 15px;
+  }
+  
+  .benefit-item {
+    padding: 10px !important;
+  }
+  
+  .benefit-item .benefit-image {
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
+    border-radius: 0;
+  }
+  
+  .benefit-item p {
+    font-size: 15px;
+  }
+  
+  .feature-content {
+    font-size: 15px;
+  }
+  
+  .technique-content p {
+    font-size: 15px;
+  }
+  
+  .type-content > p {
+    font-size: 15px;
+  }
+  
+  .type-recommend {
+    background: var(--type-recommend-bg);
+    padding: var(--type-recommend-padding);
+    border-radius: 12px;
+  }
+  
+  .type-recommend li {
+    font-size: 15px;
+  }
+  
+  .caution-list li {
+    font-size: 15px;
+  }
+  
+  .caution-text {
+    font-size: 15px;
+  }
+  
+  .caution-note {
+    font-size: 13px;
+  }
+}

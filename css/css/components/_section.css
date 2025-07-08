@@ -1,0 +1,311 @@
+/* ===============================================
+   Section Component - 共通セクション構造
+   =============================================== */
+
+/* ===============================================
+   Base Section
+   =============================================== */
+.section {
+  padding: var(--section-padding-y) 0;
+  position: relative;
+  
+  /* Section container */
+  &__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+  
+  /* Section header */
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-5xl);
+  }
+  
+  /* Section title */
+  &__title {
+    text-align: center;
+    margin-bottom: var(--spacing-5xl);
+    position: relative;
+    
+    /* English subtitle */
+    .title-en {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-normal);
+      letter-spacing: var(--letter-spacing-widest);
+      color: var(--section-title-en-color, var(--color-secondary));
+      margin-bottom: var(--spacing-xs);
+      text-transform: uppercase;
+    }
+    
+    /* Decorative line */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gradient-warm);
+      border-radius: 2px;
+    }
+  }
+  
+  /* Section lead text */
+  &__lead {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--color-text);
+  }
+  
+  /* Section content */
+  &__content {
+    /* Content variations handled by child components */
+  }
+}
+
+/* ===============================================
+   Section Variations
+   =============================================== */
+/* Light background */
+.section--light {
+  background-color: var(--bg-secondary);
+}
+
+/* Dark background */
+.section--dark {
+  background-color: var(--color-gray-700);
+  color: var(--color-white);
+  
+  .section__title {
+    color: var(--color-white);
+    
+    .title-en {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  
+  .section__lead {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Accent background */
+.section--accent {
+  background-color: var(--bg-accent);
+}
+
+/* Gradient background */
+.section--gradient {
+  background: var(--gradient-warm);
+  color: var(--color-white);
+  
+  .section__title {
+    color: var(--color-white);
+    
+    .title-en {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    &::after {
+      background: var(--color-white);
+    }
+  }
+}
+
+/* No padding */
+.section--no-padding {
+  padding: 0;
+}
+
+/* Small padding */
+.section--small {
+  padding: var(--section-spacing-sm) 0;
+}
+
+/* Large padding */
+.section--large {
+  padding: var(--section-spacing-lg) 0;
+}
+
+/* ===============================================
+   Section Title Variations
+   =============================================== */
+/* Left aligned title */
+.section__title--left {
+  text-align: left;
+  
+  &::after {
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+/* Right aligned title */
+.section__title--right {
+  text-align: right;
+  
+  &::after {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
+  }
+}
+
+/* No decoration */
+.section__title--no-decoration {
+  &::after {
+    display: none;
+  }
+}
+
+/* ===============================================
+   Container Variations
+   =============================================== */
+/* Narrow container */
+.section__container--narrow {
+  max-width: 900px;
+}
+
+/* Wide container */
+.section__container--wide {
+  max-width: var(--container-2xl);
+}
+
+/* Full width */
+.section__container--full {
+  max-width: none;
+  padding: 0;
+}
+
+/* ===============================================
+   Content Layouts
+   =============================================== */
+/* Grid layout */
+.section__grid {
+  display: grid;
+  gap: var(--grid-gap-lg);
+  
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  &--auto {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* Flex layout */
+.section__flex {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &--between {
+    justify-content: space-between;
+  }
+  
+  &--column {
+    flex-direction: column;
+  }
+}
+
+/* ===============================================
+   Responsive
+   =============================================== */
+@media (max-width: 1024px) {
+  .section__grid {
+    &--4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    &__title {
+      margin-bottom: var(--spacing-3xl);
+      
+      &::after {
+        bottom: -12px;
+        width: 30px;
+      }
+    }
+    
+    &__lead {
+      font-size: var(--font-size-md);
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+  
+  .section__grid {
+    &--2,
+    &--3,
+    &--4 {
+      grid-template-columns: 1fr;
+    }
+    
+    gap: var(--grid-gap-md);
+  }
+  
+  .section__flex {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ===============================================
+   Utility Classes
+   =============================================== */
+/* Background patterns */
+.section--pattern {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.05;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      var(--color-primary) 10px,
+      var(--color-primary) 20px
+    );
+    pointer-events: none;
+  }
+}
+
+/* Section divider */
+.section--divider {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-gray-200);
+  }
+}

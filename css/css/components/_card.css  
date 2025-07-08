@@ -1,0 +1,516 @@
+/* ===============================================
+   Card Component - 共通カード構造
+   =============================================== */
+
+/* ===============================================
+   Base Card
+   =============================================== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-base);
+  
+  /* Card image */
+  &__image {
+    position: relative;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+  }
+  
+  /* Card content */
+  &__content {
+    padding: var(--card-padding);
+  }
+  
+  /* Card header */
+  &__header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Card title */
+  &__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-heading);
+    line-height: var(--line-height-snug);
+  }
+  
+  /* Card subtitle */
+  &__subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  /* Card description */
+  &__description {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Card meta */
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+  
+  /* Card footer */
+  &__footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--color-gray-100);
+  }
+  
+  /* Hover effect */
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    
+    .card__image img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* ===============================================
+   Card Variations
+   =============================================== */
+/* Service card */
+.card--service {
+  .card__image {
+    height: var(--service-image-height, 250px);
+  }
+  
+  .card__content {
+    h4 {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-primary);
+    }
+    
+    p {
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--spacing-md);
+    }
+  }
+  
+  .service-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    transition: gap var(--transition-fast);
+    
+    &:hover {
+      gap: var(--spacing-sm);
+    }
+  }
+}
+
+/* Feature card */
+.card--feature {
+  position: relative;
+  
+  .feature-number {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    font-size: var(--feature-number-size, 40px);
+    font-weight: var(--font-weight-bold);
+    color: rgba(161, 134, 111, 0.2);
+  }
+  
+  .card__image {
+    height: var(--feature-card-image-height, 220px);
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* Pricing card */
+.card--pricing {
+  position: relative;
+  
+  &.recommended {
+    border: var(--pricing-card-recommended-border);
+  }
+  
+  .pricing-header {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+    background: var(--pricing-header-bg);
+    color: var(--color-white);
+    text-align: center;
+    
+    h4 {
+      color: var(--color-white);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin: 0;
+    }
+  }
+  
+  .card__image {
+    height: var(--pricing-image-height, 200px);
+  }
+  
+  .price-box {
+    background: var(--color-accent);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-md) 0;
+    text-align: center;
+  }
+  
+  .price {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    
+    small {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-normal);
+    }
+  }
+  
+  .price-features {
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-sm);
+      
+      i {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}
+
+/* News card */
+.card--news {
+  .card__image {
+    height: var(--news-card-image-height, 250px);
+  }
+  
+  .news-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .news-category {
+    display: inline-block;
+    background: var(--gradient-warm);
+    color: var(--color-white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    margin-right: var(--spacing-sm);
+  }
+  
+  .news-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+  }
+  
+  .news-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-snug);
+  }
+  
+  .news-excerpt {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+  }
+}
+
+/* Staff card */
+.card--staff {
+  text-align: center;
+  background: var(--color-accent);
+  padding: var(--staff-card-padding);
+  
+  .staff-image {
+    width: var(--staff-image-size, 200px);
+    height: var(--staff-image-size, 200px);
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .staff-info {
+    h3 {
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .staff-title {
+      color: var(--color-secondary);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .staff-qualification {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    .staff-comment {
+      line-height: var(--line-height-normal);
+      margin-bottom: var(--spacing-md);
+    }
+  }
+  
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* Voice (testimonial) card */
+.card--voice {
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  text-align: center;
+  
+  .voice-header {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .voice-image {
+    width: 100%;
+    aspect-ratio: var(--voice-image-aspect, 1/1);
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .voice-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+    color: var(--color-text);
+    min-height: 60px;
+  }
+  
+  .voice-author {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+  }
+}
+
+/* Technique card */
+.card--technique {
+  border-radius: var(--technique-card-radius);
+  
+  .card__image {
+    height: var(--technique-card-image-height, 250px);
+  }
+  
+  .card__content {
+    h3 {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-primary);
+    }
+  }
+}
+
+/* Type card (施術タイプ) */
+.card--type {
+  .type-header {
+    background: var(--type-card-header-bg);
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+    
+    h3 {
+      color: var(--color-white);
+      margin: 0;
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  .card__content {
+    padding: var(--type-card-padding);
+  }
+  
+  .type-recommend {
+    background: var(--type-recommend-bg);
+    padding: var(--type-recommend-padding);
+    border-radius: var(--radius-md);
+    
+    h4 {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-primary);
+    }
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      
+      i {
+        color: var(--color-secondary);
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+/* ===============================================
+   Card Modifiers
+   =============================================== */
+/* Compact */
+.card--compact {
+  .card__content {
+    padding: var(--spacing-md);
+  }
+}
+
+/* No shadow */
+.card--flat {
+  box-shadow: none;
+  border: 1px solid var(--color-gray-200);
+}
+
+/* Dark */
+.card--dark {
+  background: var(--color-gray-700);
+  color: var(--color-white);
+  
+  .card__title,
+  .card__description {
+    color: var(--color-white);
+  }
+}
+
+/* ===============================================
+   Card Grid
+   =============================================== */
+.card-grid {
+  display: grid;
+  gap: var(--card-gap);
+  
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  &--auto {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* ===============================================
+   Responsive
+   =============================================== */
+@media (max-width: 768px) {
+  .card {
+    &__title {
+      font-size: var(--font-size-lg);
+    }
+    
+    &__description {
+      font-size: var(--font-size-sm);
+    }
+  }
+  
+  .card-grid {
+    gap: var(--spacing-md);
+    
+    &--2,
+    &--3,
+    &--4 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Mobile specific adjustments */
+  .card--service .card__image {
+    height: 200px;
+  }
+  
+  .card--feature {
+    .feature-number {
+      font-size: 32px;
+    }
+    
+    .card__image {
+      height: 180px;
+    }
+  }
+  
+  .card--pricing .card__image {
+    height: 150px;
+  }
+  
+  .card--news .card__image {
+    height: 180px;
+  }
+  
+  .card--staff {
+    padding: var(--spacing-md);
+    
+    .staff-image {
+      width: 160px;
+      height: 160px;
+    }
+  }
+}

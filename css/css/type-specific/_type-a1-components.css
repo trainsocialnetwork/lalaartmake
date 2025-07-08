@@ -1,0 +1,349 @@
+/* ===============================================
+   Type A-1 Specific Components
+   総合トップページ専用コンポーネント
+   =============================================== */
+
+/* ===============================================
+   Clinic Gallery - 無限スクロールギャラリー
+   =============================================== */
+.clinic-gallery-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: var(--spacing-xl) 0;
+  position: relative;
+  background: transparent;
+  padding: var(--spacing-xl) 0;
+}
+
+.clinic-gallery-wrapper::before,
+.clinic-gallery-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.clinic-gallery-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-white) 0%, transparent 100%);
+}
+
+.clinic-gallery-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-white) 0%, transparent 100%);
+}
+
+/* スクロールコンテナ */
+.clinic-gallery-scroll {
+  display: flex;
+  width: 100%;
+}
+
+/* ギャラリートラック */
+.gallery-track {
+  display: flex;
+  gap: var(--gallery-gap);
+  animation: scrollInfinite var(--gallery-animation-duration) linear infinite;
+  align-items: center;
+}
+
+/* 各スライド - ジグザグ配置 */
+.gallery-slide {
+  flex: 0 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-slide--up {
+  transform: translateY(-40px);
+}
+
+.gallery-slide--down {
+  transform: translateY(40px);
+}
+
+/* ギャラリーカード */
+.gallery-card {
+  position: relative;
+  width: var(--gallery-card-width);
+  height: var(--gallery-card-height);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gallery-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* 写真に溶け込むテキストデザイン */
+.gallery-badge {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+.gallery-badge span {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+/* 無限スクロールアニメーション */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===============================================
+   Voice Slider - お客様の声スライダー
+   =============================================== */
+.voice-slider-container {
+  position: relative;
+}
+
+/* デスクトップ版はグリッド表示 */
+@media (min-width: 769px) {
+  .voice-slider-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .voice-slider,
+  .voice-track {
+    display: contents;
+  }
+}
+
+/* モバイル版は横スクロール */
+@media (max-width: 768px) {
+  .voice-slider-container {
+    position: relative;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+  
+  .voice-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .voice-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .voice-track {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-bottom: 20px;
+  }
+  
+  .voice-item {
+    flex: 0 0 var(--voice-card-width);
+    scroll-snap-align: start;
+  }
+}
+
+/* ===============================================
+   Service Overview - サービス概要
+   =============================================== */
+.service-overview {
+  /* 基本のsection設定を継承 */
+}
+
+.service-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-xl);
+}
+
+/* ===============================================
+   Service Menu Grid - サービスメニューグリッド
+   =============================================== */
+.service-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.service-menu-item {
+  background: var(--color-white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.service-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-warm);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.service-menu-item:hover::before {
+  opacity: 1;
+}
+
+.service-menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 14px;
+  transition: gap var(--transition-base);
+}
+
+.service-detail-link:hover {
+  gap: var(--spacing-sm);
+}
+
+/* ===============================================
+   News List - ニュースリスト
+   =============================================== */
+.news-list {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.news-item {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--news-item-padding);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.news-date {
+  font-size: 14px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+  min-width: var(--news-date-width);
+}
+
+.news-title {
+  font-size: 16px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ===============================================
+   Responsive Adjustments
+   =============================================== */
+@media (max-width: 1024px) {
+  .gallery-card {
+    width: var(--gallery-card-width);
+    height: var(--gallery-card-height);
+  }
+  
+  .gallery-track {
+    gap: var(--gallery-gap);
+    animation-duration: var(--gallery-animation-duration);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-buttons {
+    gap: var(--spacing-sm);
+  }
+  
+  .service-menu-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .clinic-gallery-wrapper::before,
+  .clinic-gallery-wrapper::after {
+    width: 80px;
+  }
+  
+  .gallery-card {
+    width: var(--gallery-card-width);
+    height: var(--gallery-card-height);
+  }
+  
+  .gallery-track {
+    gap: var(--gallery-gap);
+    animation-duration: var(--gallery-animation-duration);
+  }
+}
+
+@media (max-width: 480px) {
+  .clinic-gallery-wrapper::before,
+  .clinic-gallery-wrapper::after {
+    width: 50px;
+  }
+  
+  .gallery-card {
+    width: var(--gallery-card-width);
+    height: var(--gallery-card-height);
+  }
+  
+  .gallery-track {
+    gap: var(--gallery-gap);
+    animation-duration: var(--gallery-animation-duration);
+  }
+}
+
+/* ===============================================
+   Accessibility
+   =============================================== */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: none;
+  }
+  
+  .gallery-card,
+  .gallery-card img,
+  .gallery-badge {
+    transition: none;
+  }
+}
