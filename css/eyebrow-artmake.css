@@ -243,13 +243,6 @@
     }
 }
 
-@media (max-width: 480px) {
-    .lead-text,
-    .lead-text-center {
-        font-size: 15px;
-    }
-}
-
 .subsection {
     margin-bottom: var(--spacing-xxl);
 }
@@ -275,12 +268,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
     p, .content-text p, .technique-content p, .type-content > p {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    p, .content-text p, .technique-content p, .type-content > p {
-        font-size: 15px;
     }
 }
 
@@ -437,29 +424,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-/* さらに小さな画面用の調整 */
-@media (max-width: 480px) {
-    .benefit-item {
-        padding: 10px !important;
-    }
-    
-    .benefit-item .benefit-image {
-        width: 100px; /* 幅を100pxに */
-        height: auto; /* 高さは自動調整 */
-        margin-left: 10px;
-        border-radius: 0; /* 角を直角に */
-    }
-    
-    .benefit-item p {
-        font-size: 15px;
-    }
-}
-
-/* benefit-icon関連のスタイルを削除 */
-.benefit-icon {
-    display: none;
-}
-
 /* ===============================================
    7. Design Features
    =============================================== */
@@ -517,12 +481,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
     .feature-content {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .feature-content {
-        font-size: 15px;
     }
 }
 
@@ -626,12 +584,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-@media (max-width: 480px) {
-    .technique-content p {
-        font-size: 15px;
-    }
-}
-
 /* ===============================================
    9. Types Section
    =============================================== */
@@ -647,12 +599,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
     .section-lead {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .section-lead {
-        font-size: 15px;
     }
 }
 
@@ -728,24 +674,10 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-@media (max-width: 480px) {
-    .type-content > p {
-        font-size: 15px;
-    }
-}
-
 .type-recommend {
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
     border-radius: 12px;
-}
-
-@media (max-width: 480px) {
-   .type-recommend {
-       background: var(--accent-light-beige);
-       padding: var(--spacing-lg) var(--spacing-md);
-       border-radius: 12px;
-   }
 }
 
 .type-recommend h4 {
@@ -770,12 +702,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
     .type-recommend li {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .type-recommend li {
-        font-size: 15px;
     }
 }
 
@@ -888,12 +814,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-@media (max-width: 480px) {
-    .caution-list li {
-        font-size: 15px;
-    }
-}
-
 .caution-list li i {
     flex-shrink: 0;
     font-size: 8px;
@@ -923,12 +843,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
 }
 
-@media (max-width: 480px) {
-    .caution-text {
-        font-size: 15px;
-    }
-}
-
 .caution-note {
     font-size: 14px;
     line-height: 1.7;
@@ -954,12 +868,6 @@ p, .content-text p, .technique-content p, .type-content > p {
     
     .caution-note {
         font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .caution-note {
-        font-size: 13px;
     }
 }
 
@@ -1027,12 +935,6 @@ p, .content-text p, .technique-content p, .type-content > p {
 @media (max-width: 768px) {
     .supervisor-info p {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .supervisor-info p {
-        font-size: 15px;
     }
 }
 
