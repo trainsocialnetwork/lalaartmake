@@ -1364,6 +1364,7 @@ section {
     background: var(--accent-light-beige);
     overflow: hidden;
     padding-top: 24px; /* 追加：上部の余白 */
+    padding-buttom: 0px;
 }
 
 .instagram-split-container {
