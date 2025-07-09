@@ -39,16 +39,17 @@
    5. Type-Specific Components
    =============================================== */
 /* Type A-1 専用コンポーネント */
-@import url('./components/type-specific/_type-a1-components.css');
+@import url('./type-specific/_type-a1-components.css');
 
 /* Type B-1 専用コンポーネント */
-@import url('./components/type-specific/_type-b1-components.css');
+@import url('./type-specific/_type-b1-components.css');
 
 /* Type B-2 専用コンポーネント */
-@import url('./components/type-specific/_type-b2-components.css');
+@import url('./type-specific/_type-b2-components.css');
 
 /* Type C-2 専用コンポーネント */
-@import url('./components/type-specific/_type-c2-components.css');
+@import url('./type-specific/_type-c2-components.css');
+
 
 /* ===============================================
    6. Utilities
