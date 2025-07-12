@@ -1,4 +1,83 @@
 /* ===============================================
+   CSS Variables - 追加の変数定義
+   =============================================== */
+:root {
+    /* 既存の変数に加えて、以下を追加 */
+    
+    /* Colors - 追加 */
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+    --color-brown-dark: #6B4F3C;
+    --overlay-light-brown: rgba(107, 79, 60, 0.05);
+    --opacity-high: 0.9;
+    
+    /* Font Sizes */
+    --font-xxxl: 48px;
+    --font-xxl: 36px;
+    --font-xl: 32px;
+    --font-lg: 28px;
+    --font-md-lg: 26px;
+    --font-md: 24px;
+    --font-sm-lg: 20px;
+    --font-sm: 18px;
+    --font-xs: 16px;
+    --font-xxs: 14px;
+    --font-tiny: 8px;
+    
+    /* Spacing - 統一 */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 32px;
+    --spacing-xxxl: 40px;
+    
+    /* Border Radius */
+    --radius-xs: 2px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-circle: 50%;
+    
+    /* Heights */
+    --hero-height-desktop: 500px;
+    --hero-height-mobile: 300px;
+    --video-height-desktop: 400px;
+    --video-height-mobile: 250px;
+    --technique-image-height: 250px;
+    
+    /* Widths */
+    --benefit-image-width: 140px;
+    --benefit-image-width-mobile: 120px;
+    --max-width-narrow: 900px;
+    --max-width-medium: 800px;
+    --max-width-small: 600px;
+    --max-width-xsmall: 500px;
+    --max-width-gallery: 1000px;
+    
+    /* Line Heights */
+    --line-height-tight: 1.4;
+    --line-height-normal: 1.7;
+    --line-height-loose: 1.8;
+    
+    /* Letter Spacing */
+    --letter-spacing-normal: 0.05em;
+    
+    /* Z-index */
+    --z-nav: 900;
+    
+    /* Misc */
+    --clamp-title: clamp(32px, 5vw, 48px);
+    --clamp-section: clamp(28px, 4vw, 36px);
+    --faq-max-height: 500px;
+    --transition-slow: 0.6s ease-out;
+    --transition-medium: 0.4s ease-in-out;
+    --transition-ease: 0.3s ease;
+}
+
+/* ===============================================
    眉アートメイク詳細ページ - スタイルシート
    Version: 1.2
    =============================================== */
@@ -15,24 +94,24 @@
 
 @media (max-width: 768px) {
     .page-title-section {
-        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm); /*上下を、--spacing-sm: 16px;から、--spacing-lg: 32px;に */
-        text-align: left; /* スマホ版は左寄せに戻す */
+        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+        text-align: left;
     }
 }
 
 .page-title {
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: var(--clamp-title);
     font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-normal);
     color: var(--text-darker);
     margin: 0;
 }
 
 @media (max-width: 768px) {
     .page-title {
-        font-size: 26px;
-        text-align: left; /* スマホ版は左寄せに戻す */
+        font-size: var(--font-md-lg);
+        text-align: left;
     }
 }
 
@@ -49,19 +128,19 @@
 
 @media (max-width: 768px) {
     .page-hero {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
     }
 }
 
 .page-hero-visual {
     width: 100%;
-    height: 500px;
+    height: var(--hero-height-desktop);
 }
 
 @media (max-width: 768px) {
     .page-hero-visual {
-        height: 300px;
+        height: var(--hero-height-mobile);
     }
 }
 
@@ -77,7 +156,7 @@
 .page-nav {
     background: var(--base-white);
     border-bottom: 1px solid var(--border-gray);
-    z-index: 900;
+    z-index: var(--z-nav);
     transition: all var(--transition-normal);
 }
 
@@ -85,7 +164,7 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-xl);
-    padding: var(--spacing-md) var(--spacing-lg); /* 左右にパディングを追加 */
+    padding: var(--spacing-md) var(--spacing-lg);
 }
 
 @media (max-width: 768px) {
@@ -95,8 +174,7 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding: 20px 20px;
-        /* スクロール時の余白を確保 */
+        padding: var(--spacing-lg) var(--spacing-lg);
         padding-left: 30px;
         padding-right: 30px;
     }
@@ -105,7 +183,6 @@
         display: none;
     }
     
-    /* スクロール可能エリアの前後に余白を追加 */
     .page-nav-list::before,
     .page-nav-list::after {
         content: '';
@@ -115,18 +192,18 @@
 }
 
 .page-nav-link {
-    font-size: 16px;
+    font-size: var(--font-xs);
     font-weight: 500;
     color: var(--text-dark);
     padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     transition: all var(--transition-fast);
     white-space: nowrap;
 }
 
 @media (max-width: 768px) {
     .page-nav-link {
-        font-size: 14px;
+        font-size: var(--font-xxs);
         padding: var(--spacing-xs) var(--spacing-sm);
     }
 }
@@ -155,7 +232,7 @@
 }
 
 .container-narrow {
-    max-width: 900px;
+    max-width: var(--max-width-narrow);
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
@@ -169,22 +246,20 @@
 /* ===============================================
    4. Typography Extensions
    =============================================== */
-/* 統一されたh2スタイル */
 .section-title,
 .section-title-left,
 .section-title-center {
-    font-size: clamp(28px, 4vw, 36px);
+    font-size: var(--clamp-section);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: var(--line-height-tight);
     color: var(--text-darker);
     margin-bottom: var(--spacing-xl);
 }
 
-/* 左寄せバージョン */
 .section-title-left {
     text-align: left;
     position: relative;
-    padding-left: 20px;
+    padding-left: var(--spacing-lg);
 }
 
 .section-title-left::before {
@@ -196,42 +271,39 @@
     width: 4px;
     height: 40px;
     background: var(--gradient-warm);
-    border-radius: 2px;
+    border-radius: var(--radius-xs);
 }
 
-/* 中央寄せバージョン */
 .section-title-center {
     text-align: center;
 }
 
-/* 基本のsection-titleも中央寄せ */
 .section-title {
     text-align: center;
 }
 
-/* スマホ版でh2をh1と同じサイズに */
 @media (max-width: 768px) {
     .section-title,
     .section-title-left,
     .section-title-center {
-        font-size: 24px; /* h1と同じサイズ */
+        font-size: var(--font-md);
     }
 }
 
 .lead-text {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     color: var(--text-dark);
     margin-bottom: var(--spacing-xl);
 }
 
 .lead-text-center {
     text-align: center;
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     color: var(--text-dark);
     margin-bottom: var(--spacing-xxl);
-    max-width: 800px;
+    max-width: var(--max-width-medium);
     margin-left: auto;
     margin-right: auto;
 }
@@ -239,7 +311,7 @@
 @media (max-width: 768px) {
     .lead-text,
     .lead-text-center {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -248,26 +320,25 @@
 }
 
 .subsection-title {
-    font-size: 24px;
+    font-size: var(--font-md);
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
 }
 
 @media (max-width: 768px) {
     .subsection-title {
-        font-size: 20px;
+        font-size: var(--font-sm-lg);
     }
 }
 
-/* 標準文字のフォントサイズ統一 - lead-textと同じサイズに */
 p, .content-text p, .technique-content p, .type-content > p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
 }
 
 @media (max-width: 768px) {
     p, .content-text p, .technique-content p, .type-content > p {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -287,7 +358,6 @@ p, .content-text p, .technique-content p, .type-content > p {
         gap: var(--spacing-md);
     }
 
-    /* スマホ版で画像を先に表示 */
     .content-with-image .content-image {
         order: 1;
     }
@@ -308,7 +378,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .content-image img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-medium);
 }
 
@@ -324,10 +394,10 @@ p, .content-text p, .technique-content p, .type-content > p {
 .benefit-item {
     background: var(--base-white);
     padding: var(--spacing-lg);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-small);
     transition: all var(--transition-normal);
-    overflow: hidden; /* フロートのクリアのため */
+    overflow: hidden;
 }
 
 .benefit-item:hover {
@@ -342,15 +412,14 @@ p, .content-text p, .technique-content p, .type-content > p {
 .benefit-image img {
     width: 100%;
     height: auto;
-    border-radius: 0; /* 角を直角に */
+    border-radius: 0;
 }
 
-/* 画像を右側にフロート */
 .benefit-item .benefit-image {
     float: right;
-    width: 140px; /* 幅を140pxに拡大 */
-    height: auto; /* 高さは自動調整 */
-    border-radius: 0; /* 角を直角に */
+    width: var(--benefit-image-width);
+    height: auto;
+    border-radius: 0;
     overflow: hidden;
     margin-left: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
@@ -358,7 +427,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .benefit-item .benefit-image img {
     width: 100%;
-    height: auto; /* 元の縦横比を維持 */
+    height: auto;
     display: block;
     transition: transform var(--transition-slow);
 }
@@ -368,28 +437,26 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .benefit-item h4 {
-    font-size: 18px;
+    font-size: var(--font-sm);
     margin-bottom: var(--spacing-sm);
-    color: #6B4F3C;
+    color: var(--color-brown-dark);
     font-weight: 600;
-    clear: left; /* 左側のフロートをクリア */
+    clear: left;
 }
 
 .benefit-item p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     color: var(--text-dark);
     margin: 0;
 }
 
-/* フロートのクリア */
 .benefit-item::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* モバイル版のスタイル */
 @media (max-width: 768px) {
     .benefits-grid {
         grid-template-columns: 1fr;
@@ -403,24 +470,24 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
     
     .benefit-item .benefit-image {
-        width: 120px; /* 幅を120pxに拡大 */
-        height: auto; /* 高さは自動調整 */
-        margin-left: 12px;
+        width: var(--benefit-image-width-mobile);
+        height: auto;
+        margin-left: var(--spacing-sm);
         margin-bottom: 10px;
-        padding-top:var(--spacing-xs);
-        border-radius: 0; /* 角を直角に */
+        padding-top: var(--spacing-xs);
+        border-radius: 0;
     }
     
     .benefit-item h4 {
-        font-size: 16px;
+        font-size: var(--font-xs);
         margin-bottom: var(--spacing-xs);
         word-wrap: break-word;
-        padding-top:var(--spacing-xs);
+        padding-top: var(--spacing-xs);
     }
     
     .benefit-item p {
-        font-size: 14px;
-        line-height: 1.8;
+        font-size: var(--font-xxs);
+        line-height: var(--line-height-loose);
     }
 }
 
@@ -435,7 +502,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-lg);
     background: var(--accent-light-beige);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
 }
 
 @media (max-width: 768px) {
@@ -446,16 +513,16 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .feature-title {
-    font-size: 20px;
+    font-size: var(--font-sm-lg);
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
 }
 
 .instagram-video-wrapper {
     width: 100%;
-    height: 400px;
+    height: var(--video-height-desktop);
     margin-bottom: var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -468,19 +535,19 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
     .instagram-video-wrapper {
-        height: 250px;
+        height: var(--video-height-mobile);
         margin-bottom: var(--spacing-md);
     }
 }
 
 .feature-content {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
 }
 
 @media (max-width: 768px) {
     .feature-content {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -500,13 +567,13 @@ p, .content-text p, .technique-content p, .type-content > p {
 .feature-image img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 .design-image {
     width: 100%;
     margin-bottom: var(--spacing-md);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -515,7 +582,7 @@ p, .content-text p, .technique-content p, .type-content > p {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 /* ===============================================
@@ -535,7 +602,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .technique-card {
     background: var(--base-white);
-    border-radius: 8px; /*16から8に*/
+    border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
@@ -547,7 +614,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .technique-image {
-    height: 250px;
+    height: var(--technique-image-height);
     overflow: hidden;
 }
 
@@ -563,24 +630,24 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
 .technique-content {
-    padding: var(--spacing-md); /*スマホ版だけ左右を24に。*/
+    padding: var(--spacing-md);
    }
 }
 
 .technique-content h3 {
-    font-size: 20px;
+    font-size: var(--font-sm-lg);
     margin-bottom: var(--spacing-sm);
     color: var(--primary-brown);
 }
 
 .technique-content p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
 }
 
 @media (max-width: 768px) {
     .technique-content p {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -589,16 +656,16 @@ p, .content-text p, .technique-content p, .type-content > p {
    =============================================== */
 .section-lead {
     text-align: center;
-    font-size: 18px;
-    line-height: 1.8;
-    max-width: 800px;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
+    max-width: var(--max-width-medium);
     margin: 0 auto var(--spacing-xl);
     color: var(--text-dark);
 }
 
 @media (max-width: 768px) {
     .section-lead {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -609,7 +676,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .type-card {
     background: var(--base-white);
-    border-radius: 8px; /*20から8に*/
+    border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -624,7 +691,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .type-header h3 {
     color: var(--base-white);
     margin: 0;
-    font-size: 20px;
+    font-size: var(--font-sm-lg);
 }
 
 .type-image {
@@ -658,30 +725,30 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 @media (max-width: 768px) {
    .type-content {
-       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md); /*スマホ版だけ上下のpaddingを無しに*/
+       padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
    }
 }
 
 .type-content > p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     margin-bottom: var(--spacing-lg);
 }
 
 @media (max-width: 768px) {
     .type-content > p {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
 .type-recommend {
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 .type-recommend h4 {
-    font-size: 18px;
+    font-size: var(--font-sm);
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
 }
@@ -696,12 +763,12 @@ p, .content-text p, .technique-content p, .type-content > p {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    font-size: 18px;
+    font-size: var(--font-sm);
 }
 
 @media (max-width: 768px) {
     .type-recommend li {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -714,10 +781,10 @@ p, .content-text p, .technique-content p, .type-content > p {
    10. Pricing Table (Simple)
    =============================================== */
 .simple-pricing-table {
-    max-width: 600px;
+    max-width: var(--max-width-small);
     margin: 0 auto var(--spacing-xl);
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-medium);
 }
 
@@ -753,7 +820,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .simple-pricing-table .price {
     text-align: right;
-    font-size: 20px;
+    font-size: var(--font-sm-lg);
     font-weight: 700;
     color: var(--primary-brown);
 }
@@ -766,7 +833,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .caution-section-title {
-    font-size: 24px;
+    font-size: var(--font-md);
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
     border-bottom: 2px solid var(--primary-brown);
@@ -777,11 +844,11 @@ p, .content-text p, .technique-content p, .type-content > p {
     margin-bottom: var(--spacing-xl);
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 .caution-subtitle {
-    font-size: 18px;
+    font-size: var(--font-sm);
     margin-bottom: var(--spacing-md);
     color: var(--text-darker);
     display: flex;
@@ -801,61 +868,60 @@ p, .content-text p, .technique-content p, .type-content > p {
 
 .caution-list li {
     display: flex;
-    align-items: baseline; /* flex-startからbaselineに変更 */
+    align-items: baseline;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
-    line-height: 1.8;
-    font-size: 18px;
+    line-height: var(--line-height-loose);
+    font-size: var(--font-sm);
 }
 
 @media (max-width: 768px) {
     .caution-list li {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
 .caution-list li i {
     flex-shrink: 0;
-    font-size: 8px;
+    font-size: var(--font-tiny);
     color: var(--secondary-beige);
     line-height: inherit;
 }
 
 .caution-list li i.fa-times {
-    color: #e74c3c;
+    color: var(--color-danger);
 }
 
 .caution-list li i.fa-info-circle {
-    color: #3498db;
-    font-size: 14px;
-    /* margin-top: 3px; を削除 */
+    color: var(--color-info);
+    font-size: var(--font-xxs);
 }
 
 .caution-text {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     margin-bottom: var(--spacing-md);
 }
 
 @media (max-width: 768px) {
     .caution-text {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
 .caution-note {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: var(--font-xxs);
+    line-height: var(--line-height-normal);
     color: var(--text-light);
-    background: rgba(107, 79, 60, 0.05);
+    background: var(--overlay-light-brown);
     padding: var(--spacing-md);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     margin-top: var(--spacing-md);
 }
 
 @media (max-width: 768px) {
     .caution-section-title {
-        font-size: 20px;
+        font-size: var(--font-sm-lg);
     }
     
     .caution-subsection {
@@ -863,11 +929,11 @@ p, .content-text p, .technique-content p, .type-content > p {
     }
     
     .caution-subtitle {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
     
     .caution-note {
-        font-size: 14px;
+        font-size: var(--font-xxs);
     }
 }
 
@@ -882,15 +948,15 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .cta-content h2 {
-    font-size: clamp(28px, 4vw, 36px);
+    font-size: var(--clamp-section);
     margin-bottom: var(--spacing-md);
     color: var(--base-white);
 }
 
 .cta-content p {
-    font-size: 18px;
+    font-size: var(--font-sm);
     margin-bottom: var(--spacing-xl);
-    opacity: 0.9;
+    opacity: var(--opacity-high);
 }
 
 .cta-buttons {
@@ -911,30 +977,30 @@ p, .content-text p, .technique-content p, .type-content > p {
 }
 
 .supervisor-title {
-    font-size: 20px;
+    font-size: var(--font-sm-lg);
     margin-bottom: var(--spacing-md);
     color: var(--text-darker);
 }
 
 .supervisor-info {
-    max-width: 500px;
+    max-width: var(--max-width-xsmall);
     margin: 0 auto;
 }
 
 .supervisor-info h4 {
-    font-size: 18px;
+    font-size: var(--font-sm);
     margin-bottom: var(--spacing-sm);
 }
 
 .supervisor-info p {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     color: var(--text-light);
 }
 
 @media (max-width: 768px) {
     .supervisor-info p {
-        font-size: 16px;
+        font-size: var(--font-xs);
     }
 }
 
@@ -967,20 +1033,20 @@ p, .content-text p, .technique-content p, .type-content > p {
    =============================================== */
 .cases-gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 常に2列 */
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
-    max-width: 1000px;
+    max-width: var(--max-width-gallery);
     margin-left: auto;
     margin-right: auto;
 }
 
 .gallery-image-container {
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     aspect-ratio: 1 / 1;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-ease);
 }
 
 .gallery-image-container:hover {
@@ -999,7 +1065,7 @@ p, .content-text p, .technique-content p, .type-content > p {
         gap: var(--spacing-md);
     }
     .gallery-image-container {
-        border-radius: 12px;
+        border-radius: var(--radius-md);
     }
 }
 
@@ -1009,15 +1075,15 @@ p, .content-text p, .technique-content p, .type-content > p {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height var(--transition-medium);
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px; /* 十分な高さを確保 */
+    max-height: var(--faq-max-height);
 }
 
 .faq-icon i {
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-ease);
 }
 
 .faq-item.active .faq-icon i {
@@ -1030,7 +1096,7 @@ p, .content-text p, .technique-content p, .type-content > p {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transition: all var(--transition-slow);
 }
 
 .fade-in.visible {
