@@ -631,6 +631,570 @@ p {
 }
 
 /* ===============================================
+   共通セクションスタイル
+   =============================================== */
+.section {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+}
+
+.section--light {
+    background: var(--accent-offwhite);
+}
+
+.section--primary {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+}
+
+.section--white {
+    background: var(--base-white);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* コンテナの統一 */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.container--narrow {
+    max-width: var(--max-width-narrow);
+}
+
+.container--medium {
+    max-width: var(--max-width-medium);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-20);
+    }
+}
+2. タイトル系の統一
+css/* ===============================================
+   共通タイトルスタイル
+   =============================================== */
+/* 基本タイトル（h2相当） */
+.title {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-snug);
+    color: var(--text-darker);
+    margin-bottom: var(--spacing-xl);
+}
+
+.title--section {
+    font-size: clamp(var(--font-size-6xl), 3.5vw, var(--font-size-9xl));
+    text-align: center;
+    position: relative;
+}
+
+.title--section::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-warm);
+    border-radius: var(--radius-xs);
+}
+
+.title--section-left {
+    font-size: clamp(var(--font-size-6xl), 3.5vw, var(--font-size-9xl));
+    text-align: left;
+    position: relative;
+    padding-left: var(--spacing-20);
+}
+
+.title--section-left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: var(--gradient-warm);
+    border-radius: var(--radius-xs);
+}
+
+.title--page {
+    font-size: clamp(var(--font-size-9xl), 5vw, var(--font-size-13xl));
+    text-align: center;
+}
+
+/* サブタイトル（h3相当） */
+.title--sub {
+    font-size: var(--font-size-6xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* カードタイトル（h4相当） */
+.title--card {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 小見出し（h5相当） */
+.title--small {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 英語タイトル */
+.title__en {
+    display: block;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--letter-spacing-extra-wide);
+    color: var(--secondary-beige);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+}
+
+.title--white {
+    color: var(--base-white);
+}
+
+@media (max-width: 768px) {
+    .title--section,
+    .title--section-left {
+        font-size: var(--font-size-6xl);
+    }
+    
+    .title--page {
+        font-size: var(--font-size-7xl);
+    }
+    
+    .title--sub {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .title--card {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .title--section::after {
+        bottom: -12px;
+        width: 30px;
+    }
+}
+3. テキスト系の統一
+css/* ===============================================
+   共通テキストスタイル
+   =============================================== */
+.text {
+    line-height: var(--line-height-extra-loose);
+    color: var(--text-dark);
+}
+
+.text--lead {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.text--lead-center {
+    font-size: var(--font-size-3xl);
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text--body {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.text--small {
+    font-size: var(--font-size-md);
+    color: var(--text-light);
+}
+
+.text--caption {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+.text--white {
+    color: var(--base-white);
+}
+
+.text--center {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .text--lead,
+    .text--lead-center {
+        font-size: var(--font-size-xl);
+    }
+    
+    .text--body {
+        font-size: var(--font-size-md);
+    }
+}
+4. カード系の統一
+css/* ===============================================
+   共通カードスタイル
+   =============================================== */
+.card {
+    background: var(--base-white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.card--shadow {
+    box-shadow: var(--shadow-medium);
+}
+
+.card--shadow:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-large);
+}
+
+.card--light {
+    background: var(--accent-light-beige);
+}
+
+/* カード画像 */
+.card__image {
+    overflow: hidden;
+    position: relative;
+}
+
+.card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card:hover .card__image img {
+    transform: scale(1.08);
+}
+
+.card__image--fixed-height {
+    height: var(--card-image-height);
+}
+
+/* カードコンテンツ */
+.card__content {
+    padding: var(--spacing-lg);
+}
+
+/* カードタイプ別 */
+.card--feature .card__image {
+    height: var(--card-image-height);
+}
+
+.card--pricing {
+    position: relative;
+}
+
+.card--pricing.recommended {
+    border: 2px solid var(--primary-brown);
+}
+
+.card--staff {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .card {
+        border-radius: var(--radius-lg);
+    }
+    
+    .card__content {
+        padding: var(--spacing-20);
+    }
+    
+    .card__image--fixed-height {
+        height: var(--card-image-height-sm);
+    }
+}
+5. ボタン系の統一
+css/* ===============================================
+   共通ボタンスタイル
+   =============================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    padding: var(--spacing-12) var(--spacing-28);
+    border-radius: var(--radius-4xl);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--primary-brown);
+    border: 2px solid var(--primary-brown);
+}
+
+.btn--outline:hover {
+    background: var(--primary-brown);
+    color: var(--base-white);
+}
+
+.btn--white {
+    background: var(--base-white);
+    color: var(--primary-brown);
+}
+
+.btn--white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+}
+
+.btn--outline-white {
+    background: transparent;
+    color: var(--base-white);
+    border: 2px solid var(--base-white);
+}
+
+.btn--outline-white:hover {
+    background: var(--base-white);
+    color: var(--primary-brown);
+}
+
+.btn--full {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: var(--spacing-10) var(--spacing-24);
+        font-size: var(--font-size-md);
+        border-radius: 22px;
+    }
+}
+6. グリッド系の統一
+css/* ===============================================
+   共通グリッドスタイル
+   =============================================== */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--auto {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: var(--spacing-20);
+    }
+    
+    .grid--2,
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+}
+7. FAQ系の統一
+css/* ===============================================
+   共通FAQスタイル
+   =============================================== */
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq__item {
+    background: var(--base-white);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-12);
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    transition: all var(--transition-normal);
+}
+
+.faq__item:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.faq__question {
+    width: 100%;
+    padding: var(--spacing-20) var(--spacing-24);
+    background: var(--accent-offwhite);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-darker);
+    transition: all var(--transition-fast);
+    text-align: left;
+    cursor: pointer;
+    border: none;
+}
+
+.faq__question:hover {
+    background: var(--bg-light-gray);
+}
+
+.faq__icon {
+    font-size: var(--font-size-3xl);
+    color: var(--primary-brown);
+    transition: transform var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.faq__item.active .faq__icon {
+    transform: rotate(45deg);
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+}
+
+.faq__item.active .faq__answer {
+    max-height: var(--faq-max-height);
+}
+
+.faq__content {
+    padding: var(--spacing-20) var(--spacing-24);
+    line-height: var(--line-height-extra-loose);
+    font-size: var(--font-size-lg);
+}
+
+/* Q&Aラベル */
+.faq__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-q-size);
+    height: var(--icon-q-size);
+    border-radius: var(--radius-circle);
+    font-size: var(--icon-q-font-size);
+    flex-shrink: 0;
+}
+
+.faq__label--q {
+    background: var(--gradient-warm);
+    color: var(--base-white);
+    margin-right: var(--spacing-12);
+}
+
+.faq__label--a {
+    background: var(--secondary-beige);
+    color: var(--base-white);
+    margin: var(--spacing-12);
+}
+
+@media (max-width: 768px) {
+    .faq__item {
+        border-radius: var(--radius-md);
+        margin-bottom: var(--spacing-10);
+    }
+    
+    .faq__question {
+        padding: var(--spacing-sm) var(--spacing-20);
+        font-size: var(--font-size-lg);
+    }
+    
+    .faq__content {
+        padding: var(--spacing-sm) var(--spacing-20);
+        font-size: var(--font-size-md);
+    }
+    
+    .faq__label {
+        width: var(--icon-q-size-mobile);
+        height: var(--icon-q-size-mobile);
+        font-size: var(--icon-q-font-size-mobile);
+    }
+}
+8. ユーティリティクラスの追加
+css/* ===============================================
+   ユーティリティクラス
+   =============================================== */
+/* テキスト配置 */
+.u-text-center { text-align: center; }
+.u-text-left { text-align: left; }
+.u-text-right { text-align: right; }
+
+/* マージン */
+.u-mt-0 { margin-top: 0; }
+.u-mt-sm { margin-top: var(--spacing-sm); }
+.u-mt-md { margin-top: var(--spacing-md); }
+.u-mt-lg { margin-top: var(--spacing-lg); }
+.u-mt-xl { margin-top: var(--spacing-xl); }
+
+.u-mb-0 { margin-bottom: 0; }
+.u-mb-sm { margin-bottom: var(--spacing-sm); }
+.u-mb-md { margin-bottom: var(--spacing-md); }
+.u-mb-lg { margin-bottom: var(--spacing-lg); }
+.u-mb-xl { margin-bottom: var(--spacing-xl); }
+
+/* 表示制御 */
+.u-pc-only { display: inline; }
+.u-sp-only { display: none; }
+
+@media (max-width: 768px) {
+    .u-pc-only { display: none; }
+    .u-sp-only { display: inline; }
+}
+
+/* アニメーション */
+.u-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.u-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===============================================
    7. Hero Section
    =============================================== */
 .hero {
