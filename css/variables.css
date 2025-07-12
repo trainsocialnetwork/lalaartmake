@@ -1,0 +1,235 @@
+/* ===============================================
+   統合CSS Variables
+   Version: 3.0 (Unified)
+   =============================================== */
+:root {
+    /* =========================
+       Colors - Primary Palette
+       ========================= */
+    --primary-brown: #6B4F3C;
+    --secondary-beige: #A1866F;
+    --base-white: #FFFFFF;
+    --accent-offwhite: #F8F8F8;
+    --accent-light-beige: #F8F3EF;
+    --border-gray: #E0E0E0;
+    --text-dark: #333333;
+    --text-darker: #222222;
+    --text-light: #666666;
+    
+    /* Colors - Functional */
+    --line-green: #00B900;
+    --line-green-dark: #00C300;
+    --error-red: #FF6B6B;
+    --success-teal: #4ECDC4;
+    --color-danger: #e74c3c;
+    --color-info: #3498db;
+    
+    /* Colors - Page Specific */
+    --zeoskin-primary: #404d6a;
+    --zeoskin-accent: #6b7a99;
+    --zeoskin-bg-light: #f0f2f5;
+    --zeoskin-border: #d4dae3;
+    
+    /* =========================
+       Colors - Transparencies
+       ========================= */
+    --transparent-white-15: rgba(255, 255, 255, 0.15);
+    --transparent-white-30: rgba(255, 255, 255, 0.3);
+    --transparent-white-50: rgba(255, 255, 255, 0.5);
+    --transparent-white-60: rgba(255, 255, 255, 0.6);
+    --transparent-white-80: rgba(255, 255, 255, 0.8);
+    --transparent-white-90: rgba(255, 255, 255, 0.9);
+    --transparent-white-95: rgba(255, 255, 255, 0.95);
+    --transparent-white-98: rgba(255, 255, 255, 0.98);
+    --transparent-black-10: rgba(0, 0, 0, 0.1);
+    --transparent-black-20: rgba(0, 0, 0, 0.2);
+    
+    /* =========================
+       Gradients
+       ========================= */
+    --gradient-warm: linear-gradient(135deg, #6B4F3C 0%, #A1866F 100%);
+    --gradient-soft: linear-gradient(135deg, #F8F3EF 0%, #E8DDD5 100%);
+    --gradient-brown: linear-gradient(135deg, #6B4F3C 0%, #8B6F5C 100%);
+    --gradient-line: linear-gradient(135deg, #00C300 0%, #00B900 100%);
+    
+    /* =========================
+       Typography - Font Family
+       ========================= */
+    --font-primary: "Noto Sans JP", "游ゴシック体", "Yu Gothic", "メイリオ", "Meiryo", sans-serif;
+    --font-secondary: "Helvetica Neue", Arial, sans-serif;
+    
+    /* =========================
+       Typography - Font Sizes
+       ========================= */
+    --font-size-xs: 11px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-md: 15px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 22px;
+    --font-size-4xl: 24px;
+    --font-size-5xl: 26px;
+    --font-size-6xl: 28px;
+    --font-size-7xl: 32px;
+    --font-size-8xl: 36px;
+    --font-size-9xl: 40px;
+    --font-size-10xl: 42px;
+    --font-size-hero: 48px;
+    
+    /* =========================
+       Typography - Font Weights
+       ========================= */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* =========================
+       Typography - Line Heights
+       ========================= */
+    --line-height-tight: 1.4;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.6;
+    --line-height-loose: 1.7;
+    --line-height-looser: 1.8;
+    
+    /* =========================
+       Typography - Letter Spacing
+       ========================= */
+    --letter-spacing-tight: 0.02em;
+    --letter-spacing-normal: 0.05em;
+    --letter-spacing-wide: 0.08em;
+    --letter-spacing-wider: 0.1em;
+    --letter-spacing-widest: 0.15em;
+    --letter-spacing-ultra: 0.2em;
+    
+    /* =========================
+       Spacing System
+       ========================= */
+    --spacing-2xs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 28px;
+    --spacing-3xl: 32px;
+    --spacing-4xl: 40px;
+    --spacing-5xl: 48px;
+    --spacing-6xl: 60px;
+    --spacing-7xl: 80px;
+    --spacing-8xl: 100px;
+    
+    /* =========================
+       Border Radius
+       ========================= */
+    --radius-xs: 2px;
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-2xl: 15px;
+    --radius-3xl: 16px;
+    --radius-4xl: 20px;
+    --radius-5xl: 25px;
+    --radius-6xl: 30px;
+    --radius-full: 50px;
+    --radius-circle: 50%;
+    
+    /* =========================
+       Shadows
+       ========================= */
+    --shadow-small: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-medium: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-large: 0 20px 60px rgba(0,0,0,0.1);
+    --shadow-xl: 0 30px 80px rgba(107, 79, 60, 0.15);
+    --shadow-line: 0 4px 15px rgba(0, 195, 0, 0.3);
+    --shadow-focus: 0 0 0 3px rgba(107, 79, 60, 0.3);
+    
+    /* =========================
+       Transitions
+       ========================= */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-slower: 0.6s ease;
+    --transition-smooth: 0.8s ease-out;
+    
+    /* =========================
+       Layout
+       ========================= */
+    --max-width: 1280px;
+    --max-width-narrow: 900px;
+    --max-width-medium: 800px;
+    --header-height: 80px;
+    --header-height-mobile: 64px;
+    --header-height-scrolled: 60px;
+    
+    /* =========================
+       Z-index Scale
+       ========================= */
+    --z-base: 0;
+    --z-above: 1;
+    --z-dropdown: 2;
+    --z-sticky: 900;
+    --z-fixed: 1000;
+    --z-modal: 1001;
+    
+    /* =========================
+       Component Heights
+       ========================= */
+    --button-height-sm: 36px;
+    --button-height-md: 40px;
+    --button-height-lg: 48px;
+    --button-height-xl: 56px;
+    
+    --image-height-sm: 180px;
+    --image-height-md: 220px;
+    --image-height-lg: 280px;
+    --image-height-xl: 400px;
+    
+    /* =========================
+       Aspect Ratios
+       ========================= */
+    --aspect-banner: 1.91 / 1;
+    
+    /* =========================
+       Miscellaneous
+       ========================= */
+    --blur-standard: 10px;
+    --opacity-high: 0.9;
+    --opacity-medium: 0.6;
+    --opacity-low: 0.3;
+    
+    /* =========================
+       Animation Durations
+       ========================= */
+    --animation-fast: 25s;
+    --animation-normal: 45s;
+    --animation-slow: 60s;
+}
+
+/* =========================
+   Dark Mode Variables (Future)
+   ========================= */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* 将来的なダークモード対応用 */
+    }
+}
+
+/* =========================
+   Responsive Font Scaling
+   ========================= */
+@media (max-width: 768px) {
+    :root {
+        --font-size-hero: 32px;
+        --font-size-10xl: 28px;
+        --font-size-9xl: 26px;
+        --font-size-8xl: 24px;
+        --font-size-7xl: 22px;
+    }
+}
