@@ -326,18 +326,6 @@ p {
     text-transform: uppercase;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: var(--spacing-xxl);
-    height: 3px;
-    background: var(--gradient-warm);
-    border-radius: var(--radius-xs);
-}
-
 .section-title-white {
     color: var(--base-white);
     text-align: center;
