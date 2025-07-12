@@ -1,3 +1,88 @@
+/* ===============================================
+   CSS Variables - 追加の変数定義
+   =============================================== */
+:root {
+    /* 既存の変数に加えて、以下を追加 */
+    
+    /* Colors - 追加 */
+    --overlay-dark: rgba(0, 0, 0, 0.3);
+    --overlay-gradient-start: rgba(0, 0, 0, 0.1);
+    --overlay-gradient-mid: rgba(0, 0, 0, 0.3);
+    --overlay-gradient-end: rgba(0, 0, 0, 0.5);
+    --text-white: white;
+    --text-white-opacity: rgba(255, 255, 255, 0.95);
+    --hover-gray: #F0F0F0;
+    
+    /* Font Sizes */
+    --font-xxxl: 48px;
+    --font-xxl: 32px;
+    --font-xl: 24px;
+    --font-lg: 22px;
+    --font-md-plus: 20px;
+    --font-md: 18px;
+    --font-sm-plus: 16px;
+    --font-sm: 15px;
+    --font-xs: 14px;
+    --font-xxs: 13px;
+    --font-xxxs: 12px;
+    --font-tiny: 10px;
+    
+    /* Spacing - 追加 */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 32px;
+    --spacing-xxxl: 40px;
+    --spacing-huge: 60px;
+    --spacing-massive: 80px;
+    --spacing-giant: 100px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-circle: 50%;
+    
+    /* Heights */
+    --hero-height: 100vh;
+    --hero-height-mobile: 80vh;
+    --hero-min-height: 600px;
+    --hero-min-height-mobile: 500px;
+    --image-height: 250px;
+    --image-height-mobile: 200px;
+    
+    /* Sizes */
+    --icon-size: 80px;
+    --icon-font-size: 32px;
+    --badge-size: 28px;
+    --badge-size-mobile: 24px;
+    
+    /* Line Heights */
+    --line-height-tight: 1.4;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+    --line-height-loose: 1.8;
+    
+    /* Letter Spacing */
+    --letter-spacing-wide: 0.08em;
+    --letter-spacing-wider: 0.1em;
+    --letter-spacing-normal: 0.05em;
+    
+    /* Opacity */
+    --opacity-high: 0.9;
+    
+    /* Animation Durations */
+    --animation-slow: 60s;
+    --animation-medium: 50s;
+    --animation-fast: 45s;
+    
+    /* Z-index */
+    --z-overlay: 0;
+    --z-content: 1;
+}
 
 /* ===============================================
    Homepage Styles - Artmake統一デザイン
@@ -6,8 +91,8 @@
 /* Modern Hero Section */
 .hero-modern {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    height: var(--hero-height);
+    min-height: var(--hero-min-height);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,8 +101,8 @@
 
 @media (max-width: 768px) {
     .hero-modern {
-        height: 80vh; /* スマホでは画面の80%に */
-        min-height: 500px;
+        height: var(--hero-height-mobile);
+        min-height: var(--hero-min-height-mobile);
     }
 }
 
@@ -27,7 +112,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: var(--z-overlay);
 }
 
 .hero-modern .hero-visual img {
@@ -42,59 +127,61 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--overlay-dark);
 }
 
 .hero-modern .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-content);
     text-align: center;
-    color: white;
+    color: var(--text-white);
     max-width: 900px;
-    padding: 0 40px;
+    padding: 0 var(--spacing-xxxl);
 }
 
 @media (max-width: 768px) {
     .hero-modern .hero-content {
-        padding: 0 20px;
+        padding: 0 var(--spacing-lg);
     }
 }
 
 .hero-modern .hero-title {
-    font-size: 48px;
+    font-size: var(--font-xxxl);
     font-weight: 300;
-    letter-spacing: 0.08em;
-    line-height: 1.5;
-    margin-bottom: 32px;
+    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--line-height-normal);
+    margin-bottom: var(--spacing-xxl);
 }
 
 @media (max-width: 768px) {
     .hero-modern .hero-title {
-        font-size: 28px; /* 32px→28pxに縮小 */
-        margin-bottom: 20px;
-        letter-spacing: 0.05em;
+        font-size: 28px;
+        margin-bottom: var(--spacing-lg);
+        letter-spacing: var(--letter-spacing-normal);
     }
 }
 
 .hero-modern .hero-text {
-    font-size: 16px;
-    line-height: 1.8;
-    opacity: 0.9;
+    font-size: var(--font-sm-plus);
+    line-height: var(--line-height-loose);
+    opacity: var(--opacity-high);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .hero-modern .hero-text {
-        font-size: 13px; /* 14px→13pxに縮小 */
-        line-height: 1.7;
-        padding: 0 10px;
+        font-size: var(--font-xs);
+        line-height: var(--line-height-relaxed);
+        padding: 0 var(--font-tiny);
     }
 }
 
 /* Hero scroll indicator - スマホでは小さく */
 @media (max-width: 768px) {
     .hero-scroll {
-        bottom: 20px;
-        font-size: 10px;
+        bottom: var(--spacing-lg);
+        font-size: var(--font-tiny);
     }
     
     .scroll-line {
@@ -103,7 +190,7 @@
 }
 
 /* ===============================================
-   1. Service Overview Section
+   1-1. Service Overview Section
    =============================================== */
 .service-overview {
     /* artmake.cssのcontent-sectionスタイルを使用 */
@@ -122,6 +209,18 @@
         gap: var(--spacing-sm);
     }
 }
+
+/* ===============================================
+   1-2. その他の調整
+   =============================================== */
+.subsection-title {
+    font-size: var(--font-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-darker);
+}
+
 
 /* ===============================================
    2. Service Content
@@ -144,7 +243,7 @@
 }
 
 .service-intro-image {
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -174,7 +273,7 @@
 
 .service-menu-item {
     background: var(--base-white);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
@@ -203,14 +302,14 @@
 }
 
 .service-image {
-    height: 250px;
+    height: var(--image-height);
     overflow: hidden;
     position: relative;
 }
 
 @media (max-width: 768px) {
     .service-image {
-        height: 200px;
+        height: var(--image-height-mobile);
     }
 }
 
@@ -230,7 +329,7 @@
 }
 
 .service-content h4 {
-    font-size: 20px;
+    font-size: var(--font-md-plus);
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
     color: var(--primary-brown);
@@ -240,8 +339,8 @@
 }
 
 .service-content p {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     margin-bottom: var(--spacing-md);
     color: var(--text-dark);
 }
@@ -252,7 +351,7 @@
     gap: var(--spacing-xs);
     color: var(--primary-brown);
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--font-xs);
     transition: gap var(--transition-normal);
 }
 
@@ -270,7 +369,7 @@
 }
 
 .qa-section-title {
-    font-size: 22px;
+    font-size: var(--font-lg);
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
     text-align: center;
@@ -285,8 +384,8 @@
 
 .service-qa .faq-item {
     background: var(--base-white);
-    border-radius: 12px;
-    margin-bottom: 12px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
     overflow: hidden;
     box-shadow: var(--shadow-small);
     transition: all var(--transition-normal);
@@ -298,12 +397,12 @@
 
 .service-qa .faq-question {
     width: 100%;
-    padding: 20px 24px;
+    padding: var(--spacing-lg) var(--spacing-xl);
     background: var(--accent-offwhite);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 16px;
+    font-size: var(--font-sm-plus);
     font-weight: 600;
     color: var(--text-darker);
     transition: all var(--transition-fast);
@@ -312,31 +411,31 @@
 }
 
 .service-qa .faq-question:hover {
-    background: #F0F0F0;
+    background: var(--hover-gray);
 }
 
 .service-qa .faq-q {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: var(--badge-size);
+    height: var(--badge-size);
     background: var(--gradient-warm);
     color: var(--base-white);
-    border-radius: 50%;
-    font-size: 13px;
-    margin-right: 12px;
+    border-radius: var(--radius-circle);
+    font-size: var(--font-xxs);
+    margin-right: var(--spacing-sm);
     flex-shrink: 0;
 }
 
 .service-qa .faq-text {
     flex: 1;
     text-align: left;
-    line-height: 1.4;
+    line-height: var(--line-height-tight);
 }
 
 .service-qa .faq-icon {
-    font-size: 18px;
+    font-size: var(--font-md);
     color: var(--primary-brown);
     transition: transform var(--transition-normal);
     flex-shrink: 0;
@@ -360,47 +459,47 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: var(--badge-size);
+    height: var(--badge-size);
     background: var(--secondary-beige);
     color: var(--base-white);
-    border-radius: 50%;
-    font-size: 13px;
-    margin: 12px;
+    border-radius: var(--radius-circle);
+    font-size: var(--font-xxs);
+    margin: var(--spacing-sm);
     flex-shrink: 0;
 }
 
 .service-qa .faq-content {
-    padding: 20px 24px;
-    line-height: 1.8;
-    font-size: 15px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    line-height: var(--line-height-loose);
+    font-size: var(--font-sm);
 }
 
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
     .service-qa .faq-question {
-        padding: 16px 20px;
-        font-size: 15px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-sm);
     }
     
     .service-qa .faq-q,
     .service-qa .faq-a {
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
+        width: var(--badge-size-mobile);
+        height: var(--badge-size-mobile);
+        font-size: var(--font-xxxs);
     }
     
     .service-qa .faq-content {
-        padding: 16px 20px;
-        font-size: 14px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-xs);
     }
     
     .service-qa .faq-icon {
-        font-size: 16px;
+        font-size: var(--font-sm-plus);
     }
    
     .service-qa .faq-text {
-         padding-right: 10px;
+         padding-right: var(--font-tiny);
    }
 }
 
@@ -434,7 +533,7 @@
     .voice-slider-container {
         position: relative;
         margin: 0 -20px;
-        padding: 0 20px;
+        padding: 0 var(--spacing-lg);
     }
     
     .voice-slider {
@@ -452,7 +551,7 @@
     .voice-track {
         display: flex;
         gap: var(--spacing-md);
-        padding-bottom: 20px;
+        padding-bottom: var(--spacing-lg);
     }
     
     .voice-item {
@@ -464,7 +563,7 @@
 .voice-item {
     background: var(--base-white);
     padding: var(--spacing-lg);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     text-align: center;
     transition: all var(--transition-normal);
 }
@@ -474,7 +573,7 @@
 }
 
 .voice-header {
-    font-size: 14px;
+    font-size: var(--font-xs);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--primary-brown);
@@ -489,7 +588,7 @@
     aspect-ratio: 1/1;
     overflow: hidden;
     margin-bottom: var(--spacing-md);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     background: var(--accent-light-beige);
 }
 
@@ -500,8 +599,8 @@
 }
 
 .voice-text {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: var(--font-xs);
+    line-height: var(--line-height-loose);
     margin-bottom: var(--spacing-sm);
     font-style: italic;
     color: var(--text-dark);
@@ -509,7 +608,7 @@
 }
 
 .voice-author {
-    font-size: 13px;
+    font-size: var(--font-xxs);
     color: var(--text-light);
 }
 
@@ -533,28 +632,28 @@
 .feature-modern {
     background: var(--accent-light-beige);
     padding: var(--spacing-xl);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     text-align: center;
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     margin: 0 auto var(--spacing-md);
     background: var(--gradient-warm);
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    font-size: var(--icon-font-size);
     color: var(--base-white);
 }
 
 .feature-modern h3 {
-    font-size: 20px;
+    font-size: var(--font-md-plus);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
     color: var(--text-darker);
 }
 
@@ -564,10 +663,10 @@
 }
 
 .feature-modern li {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     margin-bottom: var(--spacing-sm);
-    padding-left: 24px;
+    padding-left: var(--spacing-xl);
     position: relative;
     color: var(--text-dark);
 }
@@ -575,7 +674,7 @@
 .feature-modern li::before {
     content: "・";
     position: absolute;
-    left: 8px;
+    left: var(--spacing-xs);
     color: var(--secondary-beige);
 }
 
@@ -595,14 +694,14 @@
 }
 
 .news-date {
-    font-size: 14px;
+    font-size: var(--font-xs);
     color: var(--secondary-beige);
     flex-shrink: 0;
     min-width: 100px;
 }
 
 .news-title {
-    font-size: 16px;
+    font-size: var(--font-sm-plus);
     color: var(--text-dark);
     font-weight: 500;
 }
@@ -652,11 +751,11 @@
 .hours-item {
     background: var(--accent-light-beige);
     padding: var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 .hours-item h5 {
-    font-size: 18px;
+    font-size: var(--font-md);
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
     color: var(--primary-brown);
@@ -671,13 +770,13 @@
 }
 
 .hours-item p {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: var(--font-sm);
+    line-height: var(--line-height-loose);
     margin-bottom: 0;
 }
 
 .hours-item small {
-    font-size: 13px;
+    font-size: var(--font-xxs);
     color: var(--text-light);
 }
 
@@ -710,9 +809,9 @@
 /* ギャラリートラック - 間隔を大幅に拡大 */
 .gallery-track {
     display: flex;
-    gap: 100px; /* 間隔を大幅に拡大 */
-    animation: scrollInfinite 60s linear infinite; /* 速度を調整 */
-    align-items: center; /* 中央揃え */
+    gap: var(--spacing-giant);
+    animation: scrollInfinite var(--animation-slow) linear infinite;
+    align-items: center;
 }
 
 /* 各スライド - ジグザグ配置 */
@@ -740,10 +839,10 @@
 .gallery-card {
     position: relative;
     width: 405px;
-    height: 540px; /* アスペクト比を維持しながら拡大 */
+    height: 540px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden; /* visible から hidden に変更 */
-    border-radius: 4px; /* 角丸を追加 */
+    overflow: hidden;
+    border-radius: var(--radius-sm);
 }
 
 /* 画像下部のグラデーションオーバーレイ */
@@ -756,9 +855,9 @@
     height: 60%;
     background: linear-gradient(to bottom, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0.3) 80%,
-        rgba(0, 0, 0, 0.5) 100%);
+        var(--overlay-gradient-start) 50%,
+        var(--overlay-gradient-mid) 80%,
+        var(--overlay-gradient-end) 100%);
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
@@ -766,8 +865,8 @@
 .gallery-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像をカード全体にフィット */
-    object-position: center center; /* 中央配置 */
+    object-fit: cover;
+    object-position: center center;
     display: block;
 }
 
@@ -781,10 +880,10 @@
 }
 
 .gallery-badge span {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 18px;
+    color: var(--text-white-opacity);
+    font-size: var(--font-md);
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--letter-spacing-wider);
     display: block;
 }
 
@@ -806,7 +905,7 @@
     }
     
     .gallery-track {
-        gap: 80px;
+        gap: var(--spacing-massive);
         animation-duration: 55s;
     }
     
@@ -830,7 +929,7 @@
     
     .clinic-gallery-wrapper::before,
     .clinic-gallery-wrapper::after {
-        width: 80px;
+        width: var(--spacing-massive);
     }
     
     .gallery-card {
@@ -843,8 +942,8 @@
     }
     
     .gallery-track {
-        gap: 60px;
-        animation-duration: 50s;
+        gap: var(--spacing-huge);
+        animation-duration: var(--animation-medium);
     }
     
     .gallery-slide--up {
@@ -856,13 +955,13 @@
     }
     
     .gallery-badge {
-        bottom: 24px;
-        left: 24px;
-        right: 24px;
+        bottom: var(--spacing-xl);
+        left: var(--spacing-xl);
+        right: var(--spacing-xl);
     }
     
     .gallery-badge span {
-        font-size: 16px;
+        font-size: var(--font-sm-plus);
     }
 }
 
@@ -882,8 +981,8 @@
     }
     
     .gallery-track {
-        gap: 40px;
-        animation-duration: 45s;
+        gap: var(--spacing-xxxl);
+        animation-duration: var(--animation-fast);
     }
     
     .gallery-slide--up {
@@ -895,14 +994,14 @@
     }
     
     .gallery-badge {
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
+        bottom: var(--spacing-lg);
+        left: var(--spacing-lg);
+        right: var(--spacing-lg);
     }
     
     .gallery-badge span {
-        font-size: 14px;
-        letter-spacing: 0.05em;
+        font-size: var(--font-xs);
+        letter-spacing: var(--letter-spacing-normal);
     }
 }
 
@@ -922,7 +1021,7 @@
 .map-container .subsection-title {
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    font-size: 24px;
+    font-size: var(--font-xl);
     font-weight: 600;
     color: var(--text-darker);
     padding: 0;
@@ -930,7 +1029,7 @@
 
 @media (max-width: 768px) {
     .map-container .subsection-title {
-        font-size: 20px;
+        font-size: var(--font-md-plus);
         margin-bottom: var(--spacing-md);
     }
 }
@@ -945,7 +1044,7 @@
     margin-bottom: var(--spacing-xl);
     color: var(--text-darker);
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: var(--spacing-lg);
 }
 
 .why-subsection-title-voice{
@@ -960,7 +1059,7 @@
         margin-bottom: var(--spacing-md);
     }
    .why-subsection-title-voice{
-      padding-top: 20px;
+      padding-top: var(--spacing-lg);
    }
 }
 
@@ -968,7 +1067,7 @@
    10. その他の調整
    =============================================== */
 .subsection-title {
-    font-size: 24px;
+    font-size: var(--font-xl);
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
     text-align: center;
@@ -980,21 +1079,7 @@
     margin-top: var(--spacing-xl);
 }
 
-/* Hero セクションの調整 */
-.hero-text {
-    font-size: 16px;
-    line-height: 1.8;
-    opacity: 0.9;
-    max-width: 900px;
-    margin: 0 auto;
-}
 
-@media (max-width: 768px) {
-    .hero-text {
-        font-size: 14px;
-        line-height: 1.7;
-    }
-}
 
 /* モバイル対応 */
 @media (max-width: 768px) {
@@ -1003,46 +1088,46 @@
     }
     
     .service-content h4 {
-        font-size: 18px;
+        font-size: var(--font-md);
     }
     
     .service-content p {
-        font-size: 14px;
+        font-size: var(--font-xs);
     }
     
     .qa-question {
-        font-size: 15px;
+        font-size: var(--font-sm);
     }
     
     .qa-answer {
-        font-size: 14px;
+        font-size: var(--font-xs);
     }
     
     .voice-header {
-        font-size: 13px;
+        font-size: var(--font-xxs);
     }
     
     .voice-text {
-        font-size: 13px;
+        font-size: var(--font-xxs);
     }
     
     .voice-author {
-        font-size: 12px;
+        font-size: var(--font-xxxs);
     }
     
     .feature-modern h3 {
-        font-size: 18px;
+        font-size: var(--font-md);
     }
     
     .feature-modern li {
-        font-size: 14px;
+        font-size: var(--font-xs);
     }
     
     .news-date {
-        font-size: 13px;
+        font-size: var(--font-xxs);
     }
     
     .news-title {
-        font-size: 15px;
+        font-size: var(--font-sm);
     }
 }
