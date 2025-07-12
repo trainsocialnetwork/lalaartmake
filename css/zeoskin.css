@@ -3,12 +3,50 @@
    =============================================== */
 
 /*
-  Zeoskin Page Color Palette
-  - Primary: #404d6a (Dark Slate Blue)
-  - Accent: #6b7a99 (Lighter Slate Blue)
-  - Background: #f0f2f5 (Light Blue-Gray)
-  - Border: #d4dae3 (Soft Blue-Gray Border)
-*/
+  CSS Variables Definition
+  =============================================== */
+:root {
+    /* Colors */
+    --zeoskin-primary: #404d6a;      /* Dark Slate Blue */
+    --zeoskin-accent: #6b7a99;       /* Lighter Slate Blue */
+    --zeoskin-bg-light: #f0f2f5;    /* Light Blue-Gray */
+    --zeoskin-border: #d4dae3;       /* Soft Blue-Gray Border */
+    --zeoskin-white: #fff;
+    --zeoskin-overlay: rgba(0, 0, 0, 0.2);
+    
+    /* Typography */
+    --font-size-sm: 13px;
+    --font-size-base: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-xxl: 24px;
+    
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Spacing (assuming base spacing variables exist) */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 32px;
+    
+    /* Border */
+    --border-width: 1px;
+    --border-width-thick: 2px;
+    --border-radius-pill: 50px;
+    
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+    
+    /* Layout */
+    --header-offset: 90px;
+    --header-offset-negative: -80px;
+    --header-offset-mobile: 80px;
+    --header-offset-negative-mobile: -70px;
+}
 
 /* --- Base Style Overrides for Zeoskin Page --- */
 
@@ -18,27 +56,27 @@ html {
 
 /* Primary Button Color Override */
 .zeoskin-page .cta-primary {
-    background-color: #404d6a;
-    border-color: #404d6a;
+    background-color: var(--zeoskin-primary);
+    border-color: var(--zeoskin-primary);
 }
 .zeoskin-page .cta-primary:hover {
-    background-color: #6b7a99;
-    border-color: #6b7a99;
+    background-color: var(--zeoskin-accent);
+    border-color: var(--zeoskin-accent);
 }
 
 /* Outline Button Color Override */
 .zeoskin-page .cta-outline {
-    color: #404d6a;
-    border-color: #404d6a;
+    color: var(--zeoskin-primary);
+    border-color: var(--zeoskin-primary);
 }
 .zeoskin-page .cta-outline:hover {
-    color: #fff;
-    background-color: #404d6a;
+    color: var(--zeoskin-white);
+    background-color: var(--zeoskin-primary);
 }
 
 /* Section Title Color Override */
 .zeoskin-page .section-title .title-en {
-    color: #6b7a99;
+    color: var(--zeoskin-accent);
 }
 
 /* --- Hero Section Specific Styles --- */
@@ -47,7 +85,7 @@ html {
 }
 
 .zeoskin-hero .hero-overlay {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--zeoskin-overlay);
 }
 
 .zeoskin-hero .hero-title,
@@ -59,16 +97,16 @@ html {
 
 /* Light Background Section */
 .zeoskin-page .bg-light {
-    background-color: #f0f2f5;
+    background-color: var(--zeoskin-bg-light);
 }
 
 /* Subsection Title */
 .zeoskin-page .subsection-title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-semibold);
     margin-bottom: var(--spacing-lg);
     text-align: center;
-    color: #404d6a; /* Use primary color for subsection titles */
+    color: var(--zeoskin-primary);
 }
 
 /* --- Products Section Specific Styles --- */
@@ -78,71 +116,71 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-xxl);
 }
 
 .category-nav-button {
     display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #d4dae3;
-    border-radius: 50px;
-    background-color: #fff;
-    color: #404d6a;
-    font-weight: 500;
+    padding: 10px var(--spacing-lg);
+    border: var(--border-width) solid var(--zeoskin-border);
+    border-radius: var(--border-radius-pill);
+    background-color: var(--zeoskin-white);
+    color: var(--zeoskin-primary);
+    font-weight: var(--font-weight-medium);
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    transition: var(--transition-base);
+    font-size: var(--font-size-base);
 }
 
 .category-nav-button:hover {
-    background-color: #404d6a;
-    color: #fff;
-    border-color: #404d6a;
+    background-color: var(--zeoskin-primary);
+    color: var(--zeoskin-white);
+    border-color: var(--zeoskin-primary);
 }
 
 /* Product Categories */
 .product-category {
     margin-bottom: var(--spacing-xl);
-    padding-top: 90px; /* Offset for sticky header */
-    margin-top: -80px; /* Pull section up to maintain layout */
+    padding-top: var(--header-offset);
+    margin-top: var(--header-offset-negative);
 }
 .product-category:last-of-type {
     margin-bottom: 0;
 }
 
 .category-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #404d6a; /* Use primary color */
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--zeoskin-primary);
     text-align: center;
     padding-bottom: var(--spacing-sm);
     margin-bottom: var(--spacing-xl);
-    border-bottom: 2px solid #d4dae3; /* Use new border color */
+    border-bottom: var(--border-width-thick) solid var(--zeoskin-border);
 }
 
 .product-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: #404d6a; /* Use primary color */
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--zeoskin-primary);
     margin-top: var(--spacing-sm);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .category-nav-button {
-        padding: 8px 16px;
-        font-size: 13px;
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
     }
     .zeoskin-page .subsection-title,
     .category-title {
-        font-size: 20px;
+        font-size: var(--font-size-xl);
     }
     .product-price {
-        font-size: 18px;
+        font-size: var(--font-size-lg);
     }
     .product-category {
-        padding-top: 80px;
-        margin-top: -70px;
+        padding-top: var(--header-offset-mobile);
+        margin-top: var(--header-offset-negative-mobile);
     }
 }
